@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>參考書目樹狀結構規劃</title><style>
+:root{--bg:#fbf8f1;--card:#fff;--ink:#222;--mute:#6b6458;--line:#e6dfd0;--acc:#1f8a8a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,"PingFang TC","Noto Sans TC",sans-serif}
+main{max-width:760px;margin:0 auto;padding:16px}h1{font-size:1.4rem;margin:.2em 0}h2{font-size:1.1rem;margin:1.6em 0 .4em;border-bottom:2px solid var(--line);padding-bottom:4px}
+.sub{color:var(--mute);font-size:.9rem}.box{background:#f3eedf;border-radius:10px;padding:10px 14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:8px 0}
+.card a{color:var(--acc);font-weight:600;word-break:break-all}.d{font-size:.9rem;color:var(--mute)}
+ol{padding-left:1.3em}a.back{font-size:.9rem;color:var(--acc)}
+</style><style>code{background:#f3eedf;padding:1px 4px;border-radius:4px;font-size:.88em;word-break:break-all}</style></head><body><main>
+<a class="back" href="../index.html">← 回交接首頁</a>
+<h1>參考書目樹狀結構與人名、書名關聯規劃（2026-11-01）</h1>
+<p>依據：開發鐵律第十三節（作者 2026-11-01 定）。本檔是規劃，尚未動工。</p>
+<h2>一、樹狀結構（網站導覽）</h2>
+<ol>
+<li>致謝（最頂端）</li>
+<li>作者親寫的致謝文（受訪者、協助者、廟方、圖書館）。</li>
+<li>「本站倚重的著作」：依引用次數自動列出前 20 本，連到書目頁。</li>
+<li>引用書目</li>
+<li>專書</li>
+<li>方志與古籍（清代方志、臺灣文獻叢刊等）</li>
+<li>期刊文章（南瀛文獻、臺南文化、臺灣風物……，文章各自一條，掛在期刊底下）</li>
+<li>學位論文</li>
+<li>官方報告（台江處委託報告 57 份等）</li>
+<li>公文、判決、檔案</li>
+<li>地圖</li>
+<li>影音（公視《我們的島》等）</li>
+<li>網路資料（只收主要網站，單篇新聞不另開頁）</li>
+<li>每一條書目頁的內容</li>
+<li>書目資料：書名、作者／編者／譯者、出版者、年份、ISBN、國圖與國臺圖索書號。</li>
+<li>作者：連到人物詞條（沒有就建，上網查身分與經歷，查不到標「待補」）。</li>
+<li>著作權狀態：公共財／受保護到哪一年／不受保護（來自 統整/31_著作權/書目著作權狀態.json）。</li>
+<li>本站哪些頁面引用了它（程式自動反查，含頁碼）。</li>
+<li>本書記載的人物（程式自動反查，見第二節）。</li>
+<li>取得方式：線上全文網址或館藏位置。</li>
+</ol>
+<h2>二、人名與書名怎麼關聯</h2>
+<p>三種關係，資料都只寫一次，反向由程式推：</p>
+<ol>
+<li>作者關係（人 → 書）</li>
+<li>寫在書目頁：<code>authors: [{ slug: "lu-jiaxing", role: "著" }]</code>，role 可為 著、編、譯、校註、攝影。</li>
+<li>人物頁自動出現「著作」一節，列出他寫的書。</li>
+<li>記載關係（書 → 書中出現的人）</li>
+<li>寫在人物頁的 references：每條出處加 <code>sourceId</code>（書目頁的 slug）與 <code>pages</code>（頁碼）。</li>
+<li>人物頁的生平句照現在寫法標 [R001]，出處欄顯示「記載於《書名》頁 x」並連到書目頁。</li>
+<li>書目頁自動出現「本書記載的人物」。</li>
+<li>引用關係（任何頁面 → 書）</li>
+<li>所有頁面的 references 一樣加 <code>sourceId</code> 與 <code>pages</code>。</li>
+<li>書目頁自動列出「本站引用本書的頁面」。</li>
+</ol>
+<p>這樣一個人如果同時是作者、又被別本書記載（例如黃典權：寫了論戰文章，也出現在別人的著作裡），兩個角色會分開顯示，不會混在一起。</p>
+<h2>三、資料結構（工程）</h2>
+<ol>
+<li>新增實體類型 <code>source</code>（書目），放在 content/entities/，slug 例：<code>src-lu-jiaxing-1965-luermen</code>。</li>
+<li>frontmatter 新欄位</li>
+<li><code>sourceKind</code>：book／gazetteer／article／thesis／report／document／map／av／web。</li>
+<li><code>authors</code>、<code>publisher</code>、<code>year</code>、<code>isbn</code>、<code>callNumbers: { ncl, ntl }</code>。</li>
+<li><code>partOf</code>：期刊文章指向期刊的書目頁。</li>
+<li><code>copyright: { status, expires, holder, basis }</code>。</li>
+<li><code>access</code>：線上全文網址或館藏說明。</li>
+<li>references 的 schema（entityReferenceSchema 與 content.ts 的 referenceSchema）各加兩個選填欄位：<code>sourceId</code>、<code>pages</code>。舊的 <code>source</code> 文字欄保留，作為顯示與備援。</li>
+<li>建置時驗證：<code>sourceId</code> 必須是存在的 source 實體；作者 slug 必須是存在的 person 實體。</li>
+</ol>
+<h2>四、做法與順序</h2>
+<ol>
+<li>第一步：schema、書目頁版型、致謝頁、引用書目總表頁；先手工建 20 本最常被引用的書（台江處報告、《臺灣縣志》、《土城子簡介》、《南瀛刈香誌》等）試版。</li>
+<li>第二步：寫比對腳本，把全站既有 references 的 <code>source</code> 文字自動對到書目頁，產生 <code>sourceId</code> 建議清單；人工（或 agent）抽查後套用。</li>
+<li>第三步：交給 agent 批次建其餘書目頁（約 170 筆）與缺的作者人物詞條，作者資訊上網查。</li>
+<li>第四步：人物詞條補 <code>sourceId</code>、<code>pages</code>，讓「本書記載的人物」長出來。</li>
+<li>英文版同步（書名保留中文原名，附英譯）。</li>
+</ol>
+<h2>五、待作者決定</h2>
+<ol>
+<li>致謝文要寫哪些人與單位（作者親寫）。</li>
+<li>單篇新聞報導要不要也開書目頁（建議不開，只在引用處標出處；主要媒體開一頁）。</li>
+<li>書目頁要不要公開顯示「著作權狀態」（建議公開，讓讀者知道哪些可以自由引用）。</li>
+</ol>
+</main></body></html>
