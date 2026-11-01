@@ -1,0 +1,914 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>書目取得方式</title><style>
+:root{--bg:#fbf8f1;--card:#fff;--ink:#222;--mute:#6b6458;--line:#e6dfd0;--acc:#1f8a8a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,"PingFang TC","Noto Sans TC",sans-serif}
+main{max-width:760px;margin:0 auto;padding:16px}h1{font-size:1.4rem;margin:.2em 0}h2{font-size:1.1rem;margin:1.6em 0 .4em;border-bottom:2px solid var(--line);padding-bottom:4px}
+.sub{color:var(--mute);font-size:.9rem}.box{background:#f3eedf;border-radius:10px;padding:10px 14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:8px 0}
+.card a{color:var(--acc);font-weight:600;word-break:break-all}.d{font-size:.9rem;color:var(--mute)}
+ol{padding-left:1.3em}a.back{font-size:.9rem;color:var(--acc)}
+</style><style>code{background:#f3eedf;padding:1px 4px;border-radius:4px;font-size:.88em;word-break:break-all}table{border-collapse:collapse;font-size:.88rem;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:4px 6px;vertical-align:top}a{color:var(--acc);word-break:break-all}</style></head><body><main>
+<a class="back" href="../index.html">← 回交接首頁</a>
+<h1>書目取得方式（待取得書目 82 筆）</h1>
+<blockquote>
+<p>查詢日期：2026-11-01。國圖、國臺圖的在架狀態是當天即時查到的，之後會變動；索書號不會變。
+機器可讀版本：<code>結果.json</code>（每本一筆，含各管道查詢結果與網址）。已下載的全文在 <code>全文/</code> 資料夾。</p>
+</blockquote>
+<h2>先看重點</h2>
+<ol>
+<li>已經幫你下載好的全文：10 本書整本，加上《臺南文獻》12 輯、改版《南瀛文獻》9 輯、《熱蘭遮城日誌》舊版 4 冊，都在 <code>全文/</code>（共約 4.6 GB）。書都逐本打開版權頁或封面核對；期刊與舊版日誌為抽查。
+   - 大宗來自臺南市文化局「臺南研究資料庫」<a href="https://trd.tnc.gov.tw">https://trd.tnc.gov.tw</a> ，免登入，南瀛叢書一整批都有。</li>
+<li>國臺圖電子書（台灣雲端書庫@國臺圖）作者已用 ISBN 實測全部沒有，本文件不再列這個管道。
+   - 另外發現國臺圖還有「華藝 iRead 國臺圖館」，同一張借閱證可登入，《臺灣采訪冊》《東槎紀略》在那裡有 PDF。</li>
+<li>國圖的「遠端書庫」其實是當天就能取（16:00 前送單，約 50 分鐘後到）。要提前好幾天申請的是「倉儲」（楊梅、中壢、詔安），這批書目裡在倉儲的書目前都顯示不可調閱。</li>
+<li>臺南市志、臺南縣志、臺灣省南瀛文獻（創刊號至第 17 卷）在國圖 2 樓叢書區 2 有成文出版社影印本，是開架，去國圖時順手翻，國臺圖那趟可以省掉。</li>
+<li>碩士論文依範圍判斷：8 篇在臺灣博碩士論文系統可免費下載，但系統每次都要驗證碼，程式抓不到，要你手動下載（見第二節）；其餘 10 篇範圍小又沒有電子檔，列為「不建議調閱」。</li>
+</ol>
+<h2>一、可以直接在線上看的（已下載）</h2>
+<p>以下都免登入、免付費，已下載到 <code>全文/</code>。驗證方式寫在每本下面。</p>
+<ol>
+<li>臺南媽祖信仰研究（張耘書，大臺南文化叢書第2輯，臺南市政府 2013）
+   - 全文：全文，已下載：全文/臺南媽祖信仰研究（張耘書 2013）.pdf
+   - 網址：<a href="https://trd.tnc.gov.tw/detail/b4f7cc8ae693ec61b6f6187de77d1fd3/">https://trd.tnc.gov.tw/detail/b4f7cc8ae693ec61b6f6187de77d1fd3/</a>
+   - 驗證：2026-11-01 下載整本 384 頁，開第 384 頁版權頁：作者張耘書、出版者臺南市政府、中華民國 102 年 12 月初版、ISBN 978-986-03-9415-3，與清單相符</li>
+<li>臺江內海及其庄社：大洪水裡的小地方記憶（吳茂成，臺南市政府 2013）
+   - 全文：全文，已下載：全文/臺江內海及其庄社：大洪水裡的小地方記憶（2013）.pdf
+   - 網址：<a href="https://trd.tnc.gov.tw/detail/0e25aa974d76a732d1404d1f03ffb175/">https://trd.tnc.gov.tw/detail/0e25aa974d76a732d1404d1f03ffb175/</a>
+   - 驗證：2026-11-01 下載 15 個分章 PDF 合併為 527 頁，開最後一頁版權頁：大臺南文化叢書1 地景文化專輯、作者吳茂成、出版者臺南市政府、民國 102 年 3 月初版，與清單相符</li>
+<li>海風牽引臺17：從北馬仔到灣裡（周宗楊，臺南市文化局 2014）
+   - 全文：全文，已下載：全文/海風牽引臺17：從北馬仔到灣裡（周宗楊 2014）.pdf
+   - 網址：<a href="https://trd.tnc.gov.tw/detail/fd109391948a89174899378d4d372444/">https://trd.tnc.gov.tw/detail/fd109391948a89174899378d4d372444/</a>
+   - 驗證：2026-11-01 下載整本 384 頁，開第 380 頁版權頁：作者周宗楊、出版者臺南市文化局、中華民國 103 年（2014）12 月初版、ISBN 978-986-04-3025-7，與清單相符</li>
+<li>佳里鎮金唐殿（黃文博、凃順從撰文，臺南縣立文化中心 民84）
+   - 全文：全文，已下載：全文/佳里鎮金唐殿（黃文博）.pdf
+   - 網址：<a href="https://trd.tnc.gov.tw/detail/441603986ec04f1d87882bd74fc82294/">https://trd.tnc.gov.tw/detail/441603986ec04f1d87882bd74fc82294/</a>
+   - 驗證：2026-11-01 下載 16 個分章合併為 116 頁，開最後一頁 CIP：佳里鎮金唐殿／黃文博、凃順從撰文；吳淵源攝影，臺南縣新營市：南縣文化，民84，南瀛寺廟藝術叢書，ISBN 957-00-5514-6，與清單「民84」相符（資料庫網頁著錄 1996 為誤差）</li>
+<li>南瀛藝陣誌（陳丁林，臺南縣立文化中心 民86）
+   - 全文：全文，已下載：全文/南瀛藝陣誌（陳丁林 1997）.pdf
+   - 網址：<a href="https://trd.tnc.gov.tw/detail/47a407f2818b75b76caec2110664810d/">https://trd.tnc.gov.tw/detail/47a407f2818b75b76caec2110664810d/</a>
+   - 驗證：2026-11-01 下載 27 個分章合併為 358 頁，開最後兩頁：CIP「南瀛藝陣誌／陳丁林作．初版．臺南縣新營市：南縣文化，民86」、版權頁出版日期中華民國八十六年六月初版，與清單相符</li>
+<li>南瀛地名誌 曾文區卷（黃文博，臺南縣立文化中心 民87）
+   - 全文：全文，已下載：全文/南瀛地名誌 曾文區卷（1998）.pdf
+   - 網址：<a href="https://trd.tnc.gov.tw/detail/9e9c312d23818e6d71b8f73008a5788c/">https://trd.tnc.gov.tw/detail/9e9c312d23818e6d71b8f73008a5788c/</a>
+   - 驗證：2026-11-01 下載 95 個分章合併為 343 頁，開最後一頁：CIP「南瀛地名誌．曾文區卷／黃文博著．初版．南縣文化，民87」、版權頁中華民國八十七年五月初版，與清單相符</li>
+<li>南瀛地名誌 北門區卷（黃文博，臺南縣立文化中心 民87）
+   - 全文：全文，已下載：全文/南瀛地名誌 北門區卷（1998）.pdf
+   - 網址：<a href="https://trd.tnc.gov.tw/detail/a11e05ef11cd03d84db1562d61c2baae/">https://trd.tnc.gov.tw/detail/a11e05ef11cd03d84db1562d61c2baae/</a>
+   - 驗證：2026-11-01 下載 129 個分章合併為 437 頁；掃描檔沒有收版權頁，改以封面核對：題名《南瀛地名誌【北門區卷】》、黃文博著、南瀛地名沿革叢書，與清單及國圖書目（臺南縣立文化中心 民87）相符</li>
+<li>南瀛王船誌（黃文博，臺南縣文化局 民89）
+   - 全文：全文，已下載：全文/南瀛王船誌（黃文博 2000）.pdf
+   - 網址：<a href="https://trd.tnc.gov.tw/detail/457032ee941fc06baf795070211d2307/">https://trd.tnc.gov.tw/detail/457032ee941fc06baf795070211d2307/</a>
+   - 驗證：2026-11-01 下載 33 個分章合併為 356 頁，開最後一頁：CIP「南瀛王船誌／黃文博作．初版．臺南縣新營市：南縣文化局，民89」、版權頁中華民國八十九年一月初版，與清單相符。書末頁碼為 384，PDF 只有 356 頁，可能有空白頁或插頁沒掃，引用時留意</li>
+<li>南瀛白色恐怖誌（姜天陸，臺南縣文化局；版權頁民90，國圖著錄民91）
+   - 全文：全文，已下載：全文/南瀛白色恐怖誌.pdf
+   - 網址：<a href="https://trd.tnc.gov.tw/detail/eb0ad8b3c1dbac44abb35bddde8621e8/">https://trd.tnc.gov.tw/detail/eb0ad8b3c1dbac44abb35bddde8621e8/</a>
+   - 驗證：2026-11-01 下載 50 個分章合併為 364 頁，開最後一頁 CIP：南瀛白色恐怖誌／姜天陸作．初版．臺南縣新營市：南縣文化局，民90，ISBN 957-01-0253-5。書名、作者、出版者相符；國圖書目著錄民91，應為同書不同刷次或著錄差異（同 ISBN）</li>
+<li>東槎紀略（姚瑩）
+   - 全文：全文，已下載：全文/東槎紀略（維基文庫全文）.txt
+   - 網址：<a href="https://zh.wikisource.org/wiki/%E6%9D%B1%E6%A7%8E%E7%B4%80%E7%95%A5">https://zh.wikisource.org/wiki/%E6%9D%B1%E6%A7%8E%E7%B4%80%E7%95%A5</a>
+   - 驗證：2026-11-01 以維基文庫 API 下載主頁與序、卷一至卷五共 7 頁純文字（約 20 萬字元），各卷皆有正文。清單未指定版本；維基文庫本為公有領域文字本，引用頁碼時仍需對照紙本（國臺圖 733.8 4299 等）</li>
+</ol>
+<h3>只有部分在線上（已下載能下載的部分）</h3>
+<ol>
+<li>臺南文獻（臺南市文化局，半年刊 2012 起；清單要第 8–26 輯）
+   - 臺南研究資料庫：部分：第 8–10、12–20 輯，共 12 輯<ul>
+<li>網址：<a href="https://trd.tnc.gov.tw/search/?query_term=%E8%87%BA%E5%8D%97%E6%96%87%E7%8D%BB&amp;query_field=cluster_name&amp;query_op=and&amp;match_type=phrase&amp;page_size=100">https://trd.tnc.gov.tw/search/?query_term=%E8%87%BA%E5%8D%97%E6%96%87%E7%8D%BB&amp;query_field=cluster_name&amp;query_op=and&amp;match_type=phrase&amp;page_size=100</a></li>
+<li>驗證：2026-11-01 下載第 8–10、12–20 輯共 12 個 PDF（每輯的逐篇 PDF 依目錄順序合併），全部可用 pdfinfo 開啟（181–298 頁）；抽查第 12 輯最後一頁版權頁：《臺南文獻》第 12 輯、出版者臺南市政府文化局、民國 106 年 12 月初版、ISSN 2227-8168，與國圖書目相符</li>
+<li>已下載：全文/臺南文獻/（每輯合併成一個 PDF）</li>
+<li>還要看實體的：第 11 輯、第 21–26 輯資料庫未收，要看實體</li>
+</ul>
+</li>
+<li>南瀛文獻（1953–1999 原刊；改版 2002–2010 第 1–9 輯）
+   - 臺南研究資料庫：部分：改版第 1–9 輯（2002–2010）全部<ul>
+<li>網址：<a href="https://trd.tnc.gov.tw/search/?query_term=%E5%8D%97%E7%80%9B%E6%96%87%E7%8D%BB&amp;query_field=cluster_name&amp;query_op=and&amp;match_type=phrase&amp;page_size=100">https://trd.tnc.gov.tw/search/?query_term=%E5%8D%97%E7%80%9B%E6%96%87%E7%8D%BB&amp;query_field=cluster_name&amp;query_op=and&amp;match_type=phrase&amp;page_size=100</a></li>
+<li>驗證：2026-11-01 下載改版第 1–9 輯共 9 個 PDF，全部可開啟；抽查第 6 輯最後一頁版權頁：《南瀛文獻》第六輯、出版者台南縣政府、民國 97 年 3 月出版、ISSN 1812-7223。第 1、3、9 輯部分頁面是把數頁直向接成一張長圖（PDF 頁數看起來少，但內容在），閱讀時要捲動</li>
+<li>已下載：全文/南瀛文獻_改版/</li>
+<li>臺南研究資料庫「南瀛文獻全文數位化」：不算全文：每篇只公開第一頁圖檔（網站標示「僅限於本平台有限度公開瀏覽」），且只上線到第 2 卷</li>
+<li>網址：<a href="https://trd.tnc.gov.tw/search/?query_term=%E5%8D%97%E7%80%9B%E6%96%87%E7%8D%BB%E5%85%A8%E6%96%87%E6%95%B8%E4%BD%8D%E5%8C%96&amp;query_field=cluster_name&amp;query_op=and&amp;match_type=phrase&amp;page_size=200">https://trd.tnc.gov.tw/search/?query_term=%E5%8D%97%E7%80%9B%E6%96%87%E7%8D%BB%E5%85%A8%E6%96%87%E6%95%B8%E4%BD%8D%E5%8C%96&amp;query_field=cluster_name&amp;query_op=and&amp;match_type=phrase&amp;page_size=200</a></li>
+<li>驗證：2026-11-01 打開〈臺南縣寺廟神雜考〉（吳新榮）等篇，詳目頁只有 1 張 JPEG（該篇第 1 頁），沒有 PDF；可當目次用，不能當全文</li>
+<li>未下載</li>
+<li>還要看實體的：舊刊（1953–1999）全部要看實體：國圖 2 樓叢書區 2 有成文出版社影印合訂本（創刊號至第 17 卷）；第 18 卷以後在國臺圖五樓合訂本</li>
+</ul>
+</li>
+<li>熱蘭遮城日誌（江樹生譯註，2024 新版 10 冊，臺南市政府文化局／臺史博）
+   - 臺南研究資料庫：替代版本：舊版 4 冊（臺南市政府 2000–2011）<ul>
+<li>網址：<a href="https://trd.tnc.gov.tw/detail/9edd86dd3b4424f4f80278c4c93c5e0a/">https://trd.tnc.gov.tw/detail/9edd86dd3b4424f4f80278c4c93c5e0a/</a></li>
+<li>驗證：2026-11-01 下載 4 冊（546、791、674、910 頁，共約 2 GB）；第一冊開書名頁、凡例、市長序、譯者序核對，為江樹生譯註、臺南市政府出版之 1629–1641 冊。PDF 為印刷檔（有裁切線），檔案很大</li>
+<li>已下載：全文/熱蘭遮城日誌_舊版/（4 冊）</li>
+<li>備註：舊版不是清單的 2024 新版，內容為同一譯本的前一版，頁碼不同，引用時要註明版本</li>
+</ul>
+</li>
+<li>「鹽分地帶文藝營」研究（康詠琪，臺南市文化局 2013）
+   - 臺南市文化局「臺南研究資料庫」（免登入）：部分（試閱）<ul>
+<li>網址：<a href="https://trd.tnc.gov.tw/detail/1168f7cfce159511ee865c79b82ce86c/">https://trd.tnc.gov.tw/detail/1168f7cfce159511ee865c79b82ce86c/</a></li>
+<li>驗證：2026-11-01 下載 9 個分章合併後只有 26 頁：目錄、序、第一章前段與版權頁（CIP 為康詠琪，臺南市文化局，民102.03，ISBN 978-986-03-6120-9）。資料庫只放試閱，不算全文</li>
+<li>已下載：全文/「鹽分地帶文藝營」研究（2013）.pdf</li>
+</ul>
+</li>
+<li>臺灣采訪冊（陳國瑛等，臺灣文獻叢刊本）
+   - 維基文庫：部分（含〈鹿耳門港〉全文）<ul>
+<li>網址：<a href="https://zh.wikisource.org/wiki/%E8%87%BA%E7%81%A3%E9%87%87%E8%A8%AA%E5%86%8A">https://zh.wikisource.org/wiki/%E8%87%BA%E7%81%A3%E9%87%87%E8%A8%AA%E5%86%8A</a></li>
+<li>驗證：2026-11-01 以 API 下載：維基文庫只有目錄與〈武進士〉〈鹿耳門港〉兩篇正文，其餘篇章未錄入</li>
+<li>已下載：全文/臺灣采訪冊（維基文庫全文）.txt</li>
+</ul>
+</li>
+</ol>
+<h2>二、需要作者動手的線上資源</h2>
+<h3>（一）碩士論文：免費，但要手動過驗證碼</h3>
+<ol>
+<li>操作方式</li>
+<li>打開下面的網址（臺灣博碩士論文知識加值系統），畫面會要求輸入驗證碼。若網址打不開（系統以工作階段記錄查詢），到 <a href="https://ndltd.ncl.edu.tw">https://ndltd.ncl.edu.tw</a> 用論文題目搜尋。</li>
+<li>進入該篇論文頁面後，點「電子全文」下載 PDF；若系統要求登入，依畫面免費註冊會員即可（這一步我無法實測）。</li>
+<li>下載後放到 <code>全文/論文/</code>，檔名用論文題目。</li>
+<li>依投資報酬率排序（建議至少下載前兩篇）</li>
+<li>臺南土城仔香醮陣頭之研究（顏大鎰，康寧大學休閒管理研究所，99 學年／2011）<ul>
+<li>判斷：建議下載：主題就是土城仔香，雖是碩論但與網站核心直接相關</li>
+<li>網址：<a href="https://hdl.handle.net/11296/r439mn">https://hdl.handle.net/11296/r439mn</a></li>
+</ul>
+</li>
+<li>鹿耳門溪沿岸地方開發的歷史變遷（呂瑞祥，臺南大學台灣文化研究所，98 學年）<ul>
+<li>判斷：建議下載：範圍是整條鹿耳門溪沿岸的開發史，屬區域通論</li>
+<li>網址：<a href="https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&amp;s=%22%E9%B9%BF%E8%80%B3%E9%96%80%22.ti.&amp;searchmode=basic">https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&amp;s=%22%E9%B9%BF%E8%80%B3%E9%96%80%22.ti.&amp;searchmode=basic</a></li>
+</ul>
+</li>
+<li>庄廟、產業與社區：四草大眾廟的發展歷程（李淳琪，臺南大學文化與自然資源學系，104 學年）<ul>
+<li>判斷：可下載：單一廟宇，範圍小，但免費且四草與土城相鄰</li>
+<li>網址：<a href="https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&amp;s=%22%E5%9B%9B%E8%8D%89%22.ti.&amp;searchmode=basic">https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&amp;s=%22%E5%9B%9B%E8%8D%89%22.ti.&amp;searchmode=basic</a></li>
+</ul>
+</li>
+<li>地方民主與永續發展之研究：以臺南縣濱南工業區開發案為例（陳雅芬，中正政治所，91 學年）<ul>
+<li>判斷：可下載備查：單一案件</li>
+<li>網址：<a href="https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&amp;s=%22%E6%BF%B1%E5%8D%97%22.ti.&amp;searchmode=basic">https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&amp;s=%22%E6%BF%B1%E5%8D%97%22.ti.&amp;searchmode=basic</a></li>
+</ul>
+</li>
+<li>我國現行環評制度下民眾參與過程之檢視：以濱南工業區開發案為例（郭憲銘，東海公行，91 學年）<ul>
+<li>判斷：可下載備查：單一案件</li>
+<li>網址：<a href="https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&amp;s=%22%E6%BF%B1%E5%8D%97%22.ti.&amp;searchmode=basic">https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&amp;s=%22%E6%BF%B1%E5%8D%97%22.ti.&amp;searchmode=basic</a></li>
+</ul>
+</li>
+<li>台灣民主化後國家機關自主性分析：以濱南工業區開發案為例（蔡隆郁，中山政治所，94 學年）<ul>
+<li>判斷：可下載備查：單一案件</li>
+<li>網址：<a href="https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&amp;s=%22%E6%BF%B1%E5%8D%97%22.ti.&amp;searchmode=basic">https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&amp;s=%22%E6%BF%B1%E5%8D%97%22.ti.&amp;searchmode=basic</a></li>
+</ul>
+</li>
+<li>中石化安順廠補償政策之研究（張玉欣，成大政經所，97 學年）<ul>
+<li>判斷：可下載備查：單一場址</li>
+<li>網址：<a href="https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&amp;s=%22%E4%B8%AD%E7%9F%B3%E5%8C%96%E5%AE%89%E9%A0%86%E5%BB%A0%22.ti.&amp;searchmode=basic">https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&amp;s=%22%E4%B8%AD%E7%9F%B3%E5%8C%96%E5%AE%89%E9%A0%86%E5%BB%A0%22.ti.&amp;searchmode=basic</a></li>
+</ul>
+</li>
+<li>中石化安順廠汙染整治問題之協力治理分析（黃昭儒，臺北大學公行，104 學年）<ul>
+<li>判斷：可下載備查：單一場址</li>
+<li>網址：<a href="https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&amp;s=%22%E4%B8%AD%E7%9F%B3%E5%8C%96%E5%AE%89%E9%A0%86%E5%BB%A0%22.ti.&amp;searchmode=basic">https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&amp;s=%22%E4%B8%AD%E7%9F%B3%E5%8C%96%E5%AE%89%E9%A0%86%E5%BB%A0%22.ti.&amp;searchmode=basic</a></li>
+</ul>
+</li>
+<li>說明：系統簡目標示「電子全文」即代表作者已授權網路免費下載；但因驗證碼，我沒辦法打開正文核對，所以列在這裡而不是第一節。</li>
+</ol>
+<h3>（二）電子書平台（用國臺圖借閱證登入）</h3>
+<ol>
+<li>華藝 iRead 國臺圖館
+   - 入口：<a href="https://ntl.airitibooks.com/">https://ntl.airitibooks.com/</a> ，右上「登入」，輸入國臺圖借閱證帳號密碼。
+   - App：華藝電子書（Airiti Reader），開啟後選國立臺灣圖書館。
+   - 借期 14 天。這個平台和台灣雲端書庫是分開的，不佔雲端書庫的 6 本額度。
+   - 有的書：<ol>
+<li>《臺灣采訪冊》臺灣銀行經濟研究室編，國史館臺灣文獻館 1993 重印本：<a href="https://ntl.airitibooks.com/Publication/Details?publicationID=P20220301077">https://ntl.airitibooks.com/Publication/Details?publicationID=P20220301077</a><ul>
+<li>維基文庫只錄了〈鹿耳門港〉等兩篇，要整本就借這個。</li>
+</ul>
+</li>
+<li>《東槎紀略》姚瑩著，國史館臺灣文獻館 1996：<a href="https://ntl.airitibooks.com/Publication/Details?publicationID=P20220301039">https://ntl.airitibooks.com/Publication/Details?publicationID=P20220301039</a><ul>
+<li>文字已從維基文庫下載；要引用頁碼時再借。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>HyRead 國臺圖館 <a href="https://ntledu.ebook.hyread.com.tw/">https://ntledu.ebook.hyread.com.tw/</a> （App：HyRead 3）
+   - 網站擋程式，無法自動查。這批書以地方政府出版品為主，命中機會低，有空再用 App 搜「鹿耳門」「南瀛」「臺江」即可。</li>
+</ol>
+<h3>（三）國圖館內才看得到的數位資料</h3>
+<ol>
+<li>《臺江國家公園黑面琵鷺族群生態研究》104 年度只有光碟可調：線上調閱後在館內電腦讀，視聽資料每次 2 件。</li>
+<li>《七股鄉志》另有光碟版（中庫光碟庫），紙本可調就不必用光碟。</li>
+</ol>
+<h2>三、國圖只能實體</h2>
+<h3>規則（2026-11-01 官網「圖書調閱說明（總館）」<a href="https://www.ncl.edu.tw/regulations/0q090364382140600466">https://www.ncl.edu.tw/regulations/0q090364382140600466</a> ）</h3>
+<ol>
+<li>要先有閱覽證，並在國圖帳號完成驗證、設定密碼，才能線上調閱。
+   - 送單：在國圖館藏目錄 <a href="https://ncltw.primo.exlibrisgroup.com/discovery/search?vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/search?vid=886NCL_INST:LIB&amp;lang=zh-tw</a> 登入，打開書目頁按「調閱」。</li>
+<li>典藏書庫（中文書庫、日文書庫、套書六樓書庫、邊架區、碩士論文庫、光碟庫）
+   - 線上調閱時間：週二至週六 00:00–20:30，週日 00:00–16:30；週一與國定假日休館不受理。
+   - 約 20 分鐘可取，到 2 樓取書櫃台查取書號取書；取書號只限當天有效。
+   - 所以可以當天早上在家先送第一批（0 點後就能送），進館直接取。</li>
+<li>每次上限：圖書 5 件、遠端書庫 5 件、期刊報紙 5 種（每種 5 冊）、視聽 2 件。還書後可以再調下一批。</li>
+<li>遠端書庫（遠端碩士書庫、遠端套書書庫）：當天 16:00 前送單，依梯次取書。</li>
+<li>00:00–09:30 送單 → 10:20 後可取</li>
+<li>09:31–10:30 → 11:20 後；10:31–11:30 → 12:20 後；11:31–12:30 → 13:20 後</li>
+<li>12:31–13:30 → 14:20 後；13:31–14:30 → 15:20 後；14:31–16:00 → 16:30 後
+   - 範例：週六要拿遠端書庫的書，最晚當天（週六）16:00 前在國圖館藏目錄送單，16:30 後到 2 樓取；最省事是週六 09:30 前在家送，10:20 一進館就能拿。</li>
+<li>倉儲（距總館 60 公里以上，集單調閱）</li>
+<li>楊梅倉儲：每週一受理、週五到館。範例：若要週六去，最晚當週週一在國圖館藏目錄送單，週五到館後 email 通知，通知次日起 5 個開館日內要取（逾期記違規一次，累計兩次停權 6 個月）。</li>
+<li>中壢書庫：每月第三週擇一日提調；詔安書庫：當日可申請；其他倉儲：申請次日起 5 個工作天。</li>
+<li>這批書目裡在「中文正本倉儲區」「論文倉儲區」的書，系統目前都顯示 unavailable（不可調閱），要現場問館員能否提調；可行的話要預留上面的天數。</li>
+<li>期刊：3 樓期刊室，閉架的（中文期庫、中期密庫、合訂本區）線上調閱後到 3 樓櫃台取。</li>
+</ol>
+<h3>（一）開架，直接去拿</h3>
+<ol>
+<li>臺灣省南瀛文獻（創刊號至第 17 卷）
+   - 國圖：索書號 <code>733.9/129.05 8456 72</code>，總館2樓參考區・叢書區2，在架<ul>
+<li>取書：開架：到該區直接取閱，館內閱覽</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990000921020209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990000921020209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>說明：2 樓參考區・叢書區 2：成文影印本，創刊號至第 17 卷</li>
+</ul>
+</li>
+<li>南瀛文獻（1953–1999 原刊；改版 2002–2010 第 1–9 輯）
+   - 國圖：索書號 <code>733.9/129.05 8456 72</code>，總館2樓參考區・叢書區2，在架<ul>
+<li>取書：開架：到該區直接取閱，館內閱覽</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990000921020209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990000921020209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>備註：成文影印本，收創刊號至第 17 卷；改版另有 3 樓期刊室 688.3265 8526</li>
+<li>說明：舊刊前 17 卷同上一本；改版第 1–9 輯已下載，不必調</li>
+</ul>
+</li>
+<li>臺南市志（九卷，卷首、卷末各一；黃典權等纂修，成文 1983 影印本）
+   - 國圖：索書號 <code>733.9/127.1 8344 72</code>，總館2樓參考區・叢書區2，在架<ul>
+<li>取書：開架：到該區直接取閱，館內閱覽</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990001594120209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990001594120209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>說明：2 樓參考區・叢書區 2：成文 1983 影印本</li>
+</ul>
+</li>
+<li>臺南縣志（十卷，首一卷；洪波浪、吳新榮主修）
+   - 國圖：索書號 <code>733.9/129.1 8266 72</code>，總館2樓參考區・叢書區2，在架<ul>
+<li>取書：開架：到該區直接取閱，館內閱覽</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990001594130209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990001594130209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>說明：2 樓參考區・叢書區 2：成文 1983 影印本</li>
+</ul>
+</li>
+<li>熱蘭遮城日誌（江樹生譯註，2024 新版 10 冊，臺南市政府文化局／臺史博）
+   - 國圖：索書號 <code>733.25 8336 113</code>，總館2樓閱覽區・中文新書區，在架<ul>
+<li>取書：開架：到該區直接取閱，館內閱覽</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990053784330209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990053784330209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>說明：2 樓中文新書區：2024 新版 10 冊</li>
+</ul>
+</li>
+<li>臺灣風物分類索引（高賢治編，1991）
+   - 國圖：索書號 <code>R 733.05 8445(021)</code>，總館5樓參考暨政府資訊室・中文閱覽區，在架<ul>
+<li>取書：開架：到該區直接取閱，館內閱覽</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990000249300209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990000249300209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>說明：5 樓參考暨政府資訊室・中文閱覽區</li>
+</ul>
+</li>
+<li>臺灣地名辭書（臺灣省文獻委員會／國史館臺灣文獻館，多卷）
+   - 國圖：索書號 <code>R 733.3704 8647</code>，總館5樓參考暨政府資訊室・中文閱覽區，在架<ul>
+<li>取書：開架：到該區直接取閱，館內閱覽</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990006721770209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990006721770209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>說明：5 樓參考暨政府資訊室・中文閱覽區：要卷 21 臺南市</li>
+</ul>
+</li>
+</ol>
+<h3>（二）5 樓參考書庫（請 5 樓櫃台調出）</h3>
+<ol>
+<li>臺南州祠廟名鑑（相良吉哉編，1933；2002 古亭書屋復刻二刷）
+   - 國圖：索書號 <code>R 272 8464:2</code>，總館5樓參考暨政府資訊室・參庫中文，在架<ul>
+<li>取書：5 樓參考暨政府資訊室的參考書庫：到 5 樓櫃台請館員調出（是否需填單以現場說明為準）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990010209550209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990010209550209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>備註：2002 復刻本。1933 原版在典藏書庫・日文書庫，索書號 線 272.097 7464，可線上調閱</li>
+<li>國圖：索書號 <code>線 272.097 7464</code>，總館典藏書庫・日文書庫，在架</li>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990053606980209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990053606980209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>其他館：國立臺灣圖書館 <code>272 4344（NBINet 紀錄）</code></li>
+<li>其他館：國立成功大學圖書館 <code>162.224 4344</code></li>
+</ul>
+</li>
+<li>臺灣堡圖（地圖）
+   - 國圖：索書號 <code>M 733.35 8455</code>，總館5樓參考暨政府資訊室・參庫中文，在架<ul>
+<li>取書：5 樓參考暨政府資訊室的參考書庫：到 5 樓櫃台請館員調出（是否需填單以現場說明為準）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990005418810209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990005418810209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+</ul>
+</li>
+</ol>
+<h3>（三）典藏書庫，當天線上調閱（約 20 分鐘）</h3>
+<p>依建議優先順序排列（一次最多 5 件，實際分批見文末建議行程）：</p>
+<ol>
+<li>臺南土城正統鹿耳門聖母廟廟誌（劉采妮主編，2013）
+   - 國圖：索書號 <code>272.71 8797</code>，總館典藏書庫・中文書庫，在架<ul>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990035159910209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990035159910209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>其他館：中央研究院人文社會科學聯合圖書館 <code>272.71 7224</code></li>
+</ul>
+</li>
+<li>臺南土城正統鹿耳門聖母廟沿革誌（鹿耳門史蹟研究會，民89）
+   - 國圖：索書號 <code>272.71 8474</code>，總館典藏書庫・中文書庫，在架<ul>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990008108680209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990008108680209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>其他館：國立臺灣大學圖書館 <code>272.71 0017-2</code></li>
+</ul>
+</li>
+<li>正統鹿耳門聖母廟沿革（1985）
+   - 國圖：索書號 <code>272.71 8474:4</code>，總館典藏書庫・中文書庫，在架<ul>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990046446250209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990046446250209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>備註：注意與上一本《沿革誌》不同；臺大另有 2005 年版 272.71 1020</li>
+<li>其他館：國立臺灣大學圖書館（2005 版） <code>272.71 1020</code></li>
+</ul>
+</li>
+<li>臺江迎神祭：開基鹿耳門媽出巡（2012 壬辰，黃文博主編）
+   - 國圖：索書號 <code>272.71 8363:2</code>，總館典藏書庫・中文書庫，在架<ul>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990036009610209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990036009610209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+</ul>
+</li>
+<li>台江迎神祭 III（2021 辛丑，黃文博主編）
+   - 國圖：索書號 <code>272.71 8363:2.3</code>，總館典藏書庫・中文書庫，在架<ul>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990050106470209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990050106470209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+</ul>
+</li>
+<li>西港刈香（黃文博，大臺南文化資產叢書，臺南市政府文化局 民103.02）
+   - 國圖：索書號 <code>733.9/127.4 8363-5</code>，總館典藏書庫・中文書庫，在架<ul>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990035946330209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990035946330209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>備註：不是已取得的《西港仔刈香》。另有同名不同書：文化部文化資產局 2015《西港刈香》（黃名宏、洪瑩發），國圖 733.9/129.9/127.4 8362-2、國臺圖六樓 733.9614 4423 104</li>
+<li>其他館：臺北市立圖書館 <code>733.9/127.4 4404</code></li>
+<li>其他館：國立公共資訊圖書館 <code>733.9645 4404</code></li>
+<li>國臺圖：六樓臺灣資料圖書區 II，索書號 <code>733.9614 4404-7 103</code>，當日借閱(限館內閱覽)，在架 1/1 冊</li>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/2866695/">https://cis2.ntl.edu.tw/detail/2866695/</a></li>
+</ul>
+</li>
+<li>行瘟與代巡：台江內海舊區迎王的地方傳統（李豐楙，臺南縣政府 2008）
+   - 國圖：索書號 <code>733.9/127.07 8525 v.2</code>，總館典藏書庫・中文書庫，在架<ul>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990039922050209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990039922050209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+</ul>
+</li>
+<li>同心賜福一甲子：麻豆代天府重建 60 週年慶沿革誌（2016）
+   - 國圖：索書號 <code>272.097 8446</code>，總館典藏書庫・中文書庫，在架<ul>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990040362100209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990040362100209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+</ul>
+</li>
+<li>臺江國家公園黑面琵鷺族群生態研究及其棲地經營管理計畫 102／103／104 年度（王穎主持）
+   - 國圖：索書號 <code>388.897 843 102</code>，總館典藏書庫・中文書庫，在架<ul>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990035765350209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990035765350209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>備註：102 年度在中文書庫；103 年度中文書庫有紙本、另有光碟；104 年度只有光碟可調（紙本在研究報告區顯示 unavailable）。光碟每次最多 2 件，館內電腦使用</li>
+<li>國圖：索書號 <code>388.897 843 103</code>，總館典藏書庫・中文書庫（另有光碟：中庫光碟庫），在架</li>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990037140540209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990037140540209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>國圖：索書號 <code>388.897 843 104</code>，總館典藏書庫・中庫光碟庫（紙本在研究報告區，目前 unavailable），在架</li>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990039567730209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990039567730209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>其他館：國立臺灣大學圖書館（102 成果報告書） <code>388.897 1021</code></li>
+<li>其他館：國立公共資訊圖書館（102） <code>388.897 1021</code></li>
+<li>可能有、未證實：GRB 政府研究資訊系統可能有全文，但網站有 reCAPTCHA；國家公園署新網站為 JS 前端，程式都讀不到</li>
+<li>國臺圖：六樓臺灣資料圖書區 I，索書號 <code>388.897 4363-3</code>，當日借閱(限館內閱覽)，在架 1/1 冊</li>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/2945995/">https://cis2.ntl.edu.tw/detail/2945995/</a></li>
+</ul>
+</li>
+<li>七股鄉志（吳建昇等主撰，臺南縣七股鄉公所 2010，含光碟版）
+   - 國圖：索書號 <code>733.9/129.9/103.1 8445</code>，總館典藏書庫・中文書庫（另有光碟版在中庫光碟庫），在架<ul>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990025264830209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990025264830209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>備註：同索書號在中文書庫（紙本）與中庫光碟庫（光碟）各有一份，建議調紙本</li>
+<li>其他館：國立成功大學圖書館 <code>733.9/129.9/103.1 2616</code></li>
+<li>其他館：臺北市立圖書館 <code>733.9/129.1 2616</code></li>
+<li>國臺圖狀態提醒：國臺圖唯一一冊狀態為「20251231 21:00」（逾期未歸或長期占用），視為不可得</li>
+<li>國臺圖：六樓臺灣資料圖書區 II，索書號 <code>733.9651 2616 99</code>，當日借閱(限館內閱覽)，在架 0/1 冊（20251231 21:00）</li>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/2819048/">https://cis2.ntl.edu.tw/detail/2819048/</a></li>
+</ul>
+</li>
+<li>臺南縣志稿（臺南縣文獻委員會，民46–49）
+   - 國圖：索書號 <code>733.9/129 8266</code>，總館典藏書庫・中文書庫，在架<ul>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990004291690209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990004291690209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>備註：另一筆同書（九卷、卷首、附古碑志）在典藏書庫・邊架區七後 733.9/129.1 8266，也可調</li>
+<li>國圖：索書號 <code>733.9/129.1 8266</code>，總館典藏書庫・邊架區七後，在架</li>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990001206080209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990001206080209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>其他館：國立成功大學圖書館 <code>673.29/129.1 4402</code></li>
+</ul>
+</li>
+<li>續修臺南縣志（高育仁、李悌元監修，臺南縣政府 民66–）
+   - 國圖：索書號 <code>733.9/129.1 8336:2.2</code>，總館典藏書庫・中文書庫，在架<ul>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990014786700209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990014786700209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>其他館：國立成功大學圖書館 <code>673.25/129 4410</code></li>
+<li>其他館：國立臺灣大學圖書館 <code>673.29/119.1 4483</code></li>
+</ul>
+</li>
+<li>走出歷史悲情迎向千禧曙光：臺南縣「二二八」五十三周年追思紀念大會專刊（臺南縣政府 民89）
+   - 國圖：索書號 <code>733.2913 8445</code>，總館典藏書庫・中文書庫，在架<ul>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990010866120209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990010866120209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+</ul>
+</li>
+<li>指標污染場址臺碱安順廠環境調查（環保署環境檢驗所，民99）
+   - 國圖：索書號 <code>445.9907 8775 99</code>，總館典藏書庫・中文書庫，在架<ul>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990039577300209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990039577300209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>可能有、未證實：GRB 可能有全文，網站有 reCAPTCHA 未能確認</li>
+</ul>
+</li>
+<li>鹽分地帶：文學選集（羊子喬、黃勁連主編，自立晚報 民77）
+   - 國圖：索書號 <code>839.32 8655-2</code>，總館典藏書庫・中文書庫，在架<ul>
+<li>取書：典藏書庫：當天線上調閱，約 20 分鐘可取，2 樓取書櫃台（取書號限當日有效）</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990000096520209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990000096520209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>備註：注意：與 1979 林白版《鹽分地帶文學選》（n2-74／m7）是不同書</li>
+<li>其他館：國立公共資訊圖書館 <code>677.46 8012</code></li>
+</ul>
+</li>
+</ol>
+<p>另外，下列書主要排在國臺圖那趟，但國圖典藏書庫也有，若國臺圖拿不到可以改在國圖調：</p>
+<ol>
+<li>臺灣的媽祖信仰（石萬壽，臺原 2000）：<code>272.71 8443</code>（總館典藏書庫・中文書庫）<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990007024420209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990007024420209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>臺灣地區戒嚴時期五〇年代政治案件史料彙編（臺灣省文獻委員會 1998，5 冊）：<code>573.09 8445:2</code>（總館典藏書庫・中文書庫）<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990006510540209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990006510540209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>鹿耳門志 第一輯（鹿耳門志編輯委員會，民51 原版，正統鹿耳門聖母廟）：<code>733.9/127.1 8445 78</code>（總館典藏書庫・中文書庫）<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990008108780209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990008108780209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>鹽分地帶文學學術研討會論文集 2011（國立臺灣文學館）：<code>863.07 8485 100</code>（總館典藏書庫・中文書庫）<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990025469590209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990025469590209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>島嶼DNA（陳耀昌，印刻 2015）：<code>078 8755:7</code>（總館典藏書庫・中文書庫）<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990037652120209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990037652120209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>臺南四草大眾廟誌：四草大眾廟開發史（許政雄，萬卷樓 2014）：<code>272.097 8474</code>（總館典藏書庫・中文書庫）<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990036342280209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990036342280209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>聽見台江天籟：臺灣暗蟬（台江國家公園管理處 2020）：<code>387.764 8736:2</code>（總館典藏書庫・中文書庫）<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990048465010209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990048465010209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>總統的親戚（陳柔縉）：<code>783.31 8776:4 111</code>（總館典藏書庫・中文書庫）<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990050770480209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990050770480209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>吳新榮選集（臺南縣立文化中心 民86，3 冊）：<code>848.6 8846:4</code>（總館典藏書庫・中文書庫）<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990006091900209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990006091900209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>硬箍起來：西港刈香的宋江系統武陣（謝國興，蔚藍 2023）：<code>991.87 8254</code>（總館典藏書庫・中文書庫）<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990052710020209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990052710020209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>臺南市四草大眾廟收藏人骨顱骨型態測量分析（何傳坤等，科博館 2006）：<code>391.3 8755</code>（總館典藏書庫・中文書庫）<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990015222570209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990015222570209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>鹿耳門天后宮送迎神儀典（黃文博，臺南市文化局 2016）：<code>733.9/127.4 8363-12</code>（總館典藏書庫・中文書庫）<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990041213460209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990041213460209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>續修臺南市志（謝國興總纂，臺南市政府 民86–，22 冊）：<code>733.9/127.1 8473.2</code>（總館典藏書庫・邊架區七後）<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990006533200209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990006533200209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>鹿耳門志（黃文博、吳建昇、陳桂蘭，鹿耳門天后宮文教公益基金會 2011，上下冊）：<code>733.9/127.1 8363</code>（總館典藏書庫・中文書庫）<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990025577740209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990025577740209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>學甲上白礁暨刈香（黃文博，臺南市政府文化局 民103.02）：<code>733.9/127.4 8363-7</code>（總館典藏書庫・中文書庫）<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990035946290209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990035946290209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>佳里金唐殿蕭壠香（黃文博，臺南市政府文化局 民102.02）：<code>733.9/127.4 8363-8</code>（總館典藏書庫・中文書庫）<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990035946260209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990035946260209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>鹿耳門聖母廟土城仔香（周宗楊、吳明勳，臺南市文化局 2016）：<code>733.9/127.4 8626</code>（總館典藏書庫・中文書庫）<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990041213470209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990041213470209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>藝陣傳神：臺灣傳統民俗藝陣（黃文博主編，文化資產局 2015）：<code>線 991.87 8363</code>（總館典藏書庫・中文書庫）<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990039105920209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990039105920209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+</ol>
+<h3>（四）期刊室（3 樓）</h3>
+<ol>
+<li>臺江詩刊（1995 起）
+   - 國圖：索書號 <code>P 831.805 8432</code>，總館3樓期刊室・中期密庫，在架<ul>
+<li>取書：3 樓期刊室閉架：線上調閱（期刊報紙每次 5 種、每種 5 冊），到 3 樓期刊室櫃台取</li>
+<li>館藏頁：<a href="https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990007092800209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw">https://ncltw.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990007092800209684&amp;vid=886NCL_INST:LIB&amp;lang=zh-tw</a></li>
+<li>備註：要哪幾期請先決定（每次最多 5 種、每種 5 冊）</li>
+<li>其他館：國立臺灣大學圖書館 <code>863.3 4030-9（只有第 17 期）</code></li>
+<li>先決定要哪幾期再送單。</li>
+</ul>
+</li>
+</ol>
+<h3>（五）目前不可調閱（unavailable），只能現場問館員</h3>
+<ol>
+<li>鹿耳門地理演變考（盧嘉興 1965）：<code>669.8 8545</code>（總館典藏書庫・中文正本倉儲區）→ 替代：國臺圖有，見第四節</li>
+<li>媽祖情緣：鹿耳門天后宮媽祖姊妹會（黃文博，金安 民87）：<code>733.9/127.4 8363-2</code>（總館典藏書庫・中文正本倉儲區）→ 替代：國臺圖有，見第四節</li>
+<li>臺灣舊地名之沿革（洪敏麟）：<code>733.37 8294 73</code>（總館典藏書庫・中文正本倉儲區）→ 替代：國臺圖有，見第四節</li>
+<li>鹽分地帶文學選（林佛兒、羊子喬、杜文靖編，林白 民68）：<code>839.32 8777</code>（總館典藏書庫・中文正本倉儲區）→ 替代：國臺圖有，見第四節</li>
+<li>鹿耳門志 第1輯（民51 原版）：<code>733.9/127.1 8445</code>（總館典藏書庫・中文正本倉儲區）→ 替代：國臺圖有，見第四節</li>
+<li>臺江迎神祭紀念專輯（2005 乙酉，林玉山撰稿，鹿耳門天后宮）：<code>272.71 8736</code>（總館典藏書庫・中文正本倉儲區）→ 替代：見第五節其他館</li>
+<li>塩分地帶文學選（林白 1979）＝ n2-74 同一本：<code>839.32 8777</code>（總館典藏書庫・中文正本倉儲區）→ 替代：國臺圖有，見第四節</li>
+<li>鹿耳門地理演變考附續考（1965）：<code>669.8 8545</code>（總館典藏書庫・中文正本倉儲區）→ 替代：國臺圖有，見第四節</li>
+</ol>
+<h2>四、國臺圖只能實體</h2>
+<h3>規則</h3>
+<ol>
+<li>要帶國臺圖借閱證（身分證可現場辦）。開館時間以官網為準：<a href="https://www.ntl.edu.tw">https://www.ntl.edu.tw</a></li>
+<li>六樓臺灣學研究中心：當日借閱、限館內。作者 2026-10-31 現場得知，同時列在六樓和其他樓層的書，實際只在六樓，要平日找館員調閱。</li>
+<li>地下二樓密集書庫：只能調閱。
+   - 送單：館藏系統 <a href="https://cis2.ntl.edu.tw">https://cis2.ntl.edu.tw</a> 線上申請；或傳真、email 調閱單到 research@mail.ntl.edu.tw（分機 4201）。
+   - 申請後隔半天取書；取書時段週二至週五 9–12 時、14–17 時。
+   - 範例：要週三上午 9 點取，最晚週二中午 12 點前送單；最保險是前一個工作日下班前寄出。</li>
+<li>五樓：期刊合訂本區、參考書區為開架限館內；5041 地圖要洽五樓櫃台調閱。</li>
+</ol>
+<h3>（一）六樓，平日找館員調閱（限館內）</h3>
+<ol>
+<li>鹿耳門聖母廟土城仔香（周宗楊、吳明勳，臺南市文化局 2016）
+   - 國臺圖：六樓臺灣資料圖書區 II，索書號 <code>733.9614 7734A 105</code>，當日借閱(限館內閱覽)，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/2943234/">https://cis2.ntl.edu.tw/detail/2943234/</a></li>
+<li>國圖備案：<code>733.9/127.4 8626</code>，總館典藏書庫・中文書庫，在架</li>
+</ul>
+</li>
+<li>鹿耳門天后宮送迎神儀典（黃文博，臺南市文化局 2016）
+   - 國臺圖：六樓臺灣資料圖書區 II，索書號 <code>733.4618 4404 105</code>，當日借閱(限館內閱覽)，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/2943235/">https://cis2.ntl.edu.tw/detail/2943235/</a></li>
+<li>國圖備案：<code>733.9/127.4 8363-12</code>，總館典藏書庫・中文書庫，在架</li>
+</ul>
+</li>
+<li>鹿耳門志（黃文博、吳建昇、陳桂蘭，鹿耳門天后宮文教公益基金會 2011，上下冊）
+   - 國臺圖：六樓臺灣資料圖書區 II，索書號 <code>733.9611 4404</code>，當日借閱(限館內閱覽)，在架 2/2 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/2840304/">https://cis2.ntl.edu.tw/detail/2840304/</a></li>
+<li>國圖備案：<code>733.9/127.1 8363</code>，總館典藏書庫・中文書庫，在架</li>
+</ul>
+</li>
+<li>學甲上白礁暨刈香（黃文博，臺南市政府文化局 民103.02）
+   - 注意：這本不是已取得的《學甲上白礁：儀式、歷史與傳承》（學甲慈濟宮 2026），兩本不同
+   - 國臺圖：六樓臺灣資料圖書區 II，索書號 <code>733.9614 4404-6 103</code>，當日借閱(限館內閱覽)，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/2866698/">https://cis2.ntl.edu.tw/detail/2866698/</a></li>
+<li>國圖備案：<code>733.9/127.4 8363-7</code>，總館典藏書庫・中文書庫，在架</li>
+</ul>
+</li>
+<li>佳里金唐殿蕭壠香（黃文博，臺南市政府文化局 民102.02）
+   - 國臺圖：六樓臺灣資料圖書區 II，索書號 <code>733.9614 4404-8 103</code>，當日借閱(限館內閱覽)，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/2866697/">https://cis2.ntl.edu.tw/detail/2866697/</a></li>
+<li>國圖備案：<code>733.9/127.4 8363-8</code>，總館典藏書庫・中文書庫，在架</li>
+</ul>
+</li>
+<li>藝陣傳神：臺灣傳統民俗藝陣（黃文博主編，文化資產局 2015）
+   - 國臺圖：六樓本土教育資源專區，索書號 <code>991.87 4404 104</code>，當日借閱(限館內閱覽)，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/2943058/">https://cis2.ntl.edu.tw/detail/2943058/</a></li>
+<li>其他館：臺北市立圖書館（可外借） <code>991.87 4404</code></li>
+<li>國圖備案：<code>線 991.87 8363</code>，總館典藏書庫・中文書庫，在架</li>
+</ul>
+</li>
+<li>硬箍起來：西港刈香的宋江系統武陣（謝國興，蔚藍 2023）
+   - 國臺圖：三樓中文圖書區，索書號 <code>991.87 0467 112</code>，可館外借閱，在架 1/1 冊
+   - 國臺圖：一樓流通櫃台，索書號 <code>991.87 0467 112</code>，可館外借閱(附件)，在架 1/1 冊
+   - 國臺圖：六樓本土教育資源專區，索書號 <code>991.87 0467 112</code>，當日借閱(限館內閱覽)，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/3101967/">https://cis2.ntl.edu.tw/detail/3101967/</a></li>
+<li>注意：同時列在六樓與其他樓層：依作者 2026-10-31 現場經驗，實際只在六樓，請平日找館員調閱</li>
+<li>備註：一樓流通櫃台那份是附件（影音）</li>
+<li>其他館：臺北市立圖書館 <code>991.87 0467</code></li>
+<li>國圖備案：<code>991.87 8254</code>，總館典藏書庫・中文書庫，在架</li>
+</ul>
+</li>
+<li>媽祖情緣：鹿耳門天后宮媽祖姊妹會（黃文博，金安 民87）
+   - 國臺圖：六樓臺灣資料圖書區 II，索書號 <code>733.9614 4404-2 87</code>，當日借閱(限館內閱覽)，在架 1/1 冊
+   - 國臺圖：三樓中文圖書區，索書號 <code>733.9614 4404-2 87</code>，可館外借閱，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/1493065/">https://cis2.ntl.edu.tw/detail/1493065/</a></li>
+<li>注意：同時列在六樓與其他樓層：依作者 2026-10-31 現場經驗，實際只在六樓，請平日找館員調閱</li>
+<li>國圖備案：<code>733.9/127.4 8363-2</code>，總館典藏書庫・中文正本倉儲區，unavailable</li>
+</ul>
+</li>
+<li>臺南四草大眾廟誌：四草大眾廟開發史（許政雄，萬卷樓 2014）
+   - 國臺圖：六樓臺灣資料圖書區 I，索書號 <code>272.097 0814 103</code>，當日借閱(限館內閱覽)，在架 1/1 冊
+   - 國臺圖：二樓中文圖書區，索書號 <code>272.097 0814 103</code>，可館外借閱，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/2875715/">https://cis2.ntl.edu.tw/detail/2875715/</a></li>
+<li>注意：同時列在六樓與其他樓層：依作者 2026-10-31 現場經驗，實際只在六樓，請平日找館員調閱</li>
+<li>國圖備案：<code>272.097 8474</code>，總館典藏書庫・中文書庫，在架</li>
+</ul>
+</li>
+<li>臺南市四草大眾廟收藏人骨顱骨型態測量分析（何傳坤等，科博館 2006）
+   - 國臺圖：六樓臺灣資料圖書區 I，索書號 <code>391.3 2124 95</code>，當日借閱(限館內閱覽)，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/2658259/">https://cis2.ntl.edu.tw/detail/2658259/</a></li>
+<li>國圖備案：<code>391.3 8755</code>，總館典藏書庫・中文書庫，在架</li>
+</ul>
+</li>
+<li>聽見台江天籟：臺灣暗蟬（台江國家公園管理處 2020）
+   - 國臺圖：三樓青少年圖書區，索書號 <code>387.764 1170 109</code>，可館外借閱，在架 1/1 冊
+   - 國臺圖：六樓本土教育資源專區，索書號 <code>387.764 1170 109</code>，當日借閱(限館內閱覽)，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/3060585/">https://cis2.ntl.edu.tw/detail/3060585/</a></li>
+<li>注意：同時列在六樓與其他樓層：依作者 2026-10-31 現場經驗，實際只在六樓，請平日找館員調閱</li>
+<li>其他館：臺北市立圖書館（總館、文山，可外借） <code>387.764 1170</code></li>
+<li>國圖備案：<code>387.764 8736:2</code>，總館典藏書庫・中文書庫，在架</li>
+</ul>
+</li>
+<li>臺灣舊地名之沿革（洪敏麟）
+   - 國臺圖：六樓臺灣資料圖書區 II，索書號 <code>733.3 3480-3:3</code>，當日借閱(限館內閱覽)，在架 2/2 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/3093325/">https://cis2.ntl.edu.tw/detail/3093325/</a></li>
+<li>備註：第一冊、第二冊上在 733.3 3480-3:3；第二冊下在 733.3 3480-3:2（系統號 3093326）</li>
+<li>國臺圖（第二冊下）：六樓臺灣資料圖書區 II，索書號 <code>733.3 3480-3:2</code>，當日借閱(限館內閱覽)，在架 1/1 冊</li>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/3093326/">https://cis2.ntl.edu.tw/detail/3093326/</a></li>
+<li>國圖備案：<code>733.37 8294 73</code>，總館典藏書庫・中文正本倉儲區，unavailable</li>
+</ul>
+</li>
+<li>續修臺南市志（謝國興總纂，臺南市政府 民86–，22 冊）
+   - 國臺圖：六樓臺灣資料圖書區 II，索書號 <code>733.961 4401-5</code>，當日借閱(限館內閱覽)，在架 23/23 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/1493083/">https://cis2.ntl.edu.tw/detail/1493083/</a></li>
+<li>國圖備案：<code>733.9/127.1 8473.2</code>，總館典藏書庫・邊架區七後，在架</li>
+</ul>
+</li>
+<li>鹽分地帶文學選（林佛兒、羊子喬、杜文靖編，林白 民68）
+   - 國臺圖：六樓臺灣資料圖書區 II，索書號 <code>830.86 4422</code>，當日借閱(限館內閱覽)，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/16511/">https://cis2.ntl.edu.tw/detail/16511/</a></li>
+<li>備註：與 m7《塩分地帶文學選》是同一本</li>
+<li>其他館：國立臺灣大學圖書館 <code>863.3 7884</code></li>
+<li>其他館：國立臺灣文學館 <code>863.3 4426</code></li>
+<li>國圖備案：<code>839.32 8777</code>，總館典藏書庫・中文正本倉儲區，unavailable</li>
+</ul>
+</li>
+<li>進香．醮．祭與社會文化變遷（謝國興編，臺大出版中心 2019）
+   - 國臺圖：三樓中文圖書區，索書號 <code>733.4 0467 108</code>，可館外借閱，在架 2/2 冊
+   - 國臺圖：六樓本土教育資源專區，索書號 <code>733.4 0467 108</code>，當日借閱(限館內閱覽)，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/3000595/">https://cis2.ntl.edu.tw/detail/3000595/</a></li>
+<li>注意：同時列在六樓與其他樓層：依作者 2026-10-31 現場經驗，實際只在六樓，請平日找館員調閱</li>
+<li>其他館：臺北市立圖書館 <code>272.907 0467</code></li>
+<li>其他館：國立公共資訊圖書館 <code>733.08 0467</code></li>
+<li>國圖備案：<code>733.4 8254</code>，NBINet 列國家圖書館 733.4 8254，但國圖 Primo 這筆沒有顯示館藏，未確認</li>
+</ul>
+</li>
+<li>戰後臺灣政治案件史料彙編：李媽兜案（歐素瑛編，國史館 2008）
+   - 國臺圖：六樓臺灣資料圖書區 II，索書號 <code>733.29 6243</code>，當日借閱(限館內閱覽)，在架 1/1 冊
+   - 國臺圖：三樓中文圖書區，索書號 <code>733.29 6243</code>，可館外借閱，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/2696900/">https://cis2.ntl.edu.tw/detail/2696900/</a></li>
+<li>注意：同時列在六樓與其他樓層：依作者 2026-10-31 現場經驗，實際只在六樓，請平日找館員調閱</li>
+<li>其他館：臺北市立圖書館 <code>733.292 6243</code></li>
+<li>國圖備案：<code>733.2931 8494-5</code>，總館遠端書庫・遠端套書書庫，在架</li>
+</ul>
+</li>
+<li>臺灣地區戒嚴時期五〇年代政治案件史料彙編（臺灣省文獻委員會 1998，5 冊）
+   - 國臺圖：六樓臺灣資料圖書區 II，索書號 <code>573.09 9028 87</code>，當日借閱(限館內閱覽)，在架 5/5 冊
+   - 國臺圖：地下二樓密集書庫正複本區，索書號 <code>573.09 9028 87</code>，可館外借閱，在架 15/15 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/1488069/">https://cis2.ntl.edu.tw/detail/1488069/</a></li>
+<li>注意：同時列在六樓與其他樓層：依作者 2026-10-31 現場經驗，實際只在六樓，請平日找館員調閱</li>
+<li>備註：地下二樓密集書庫那套可外借</li>
+<li>國圖備案：<code>573.09 8445:2</code>，總館典藏書庫・中文書庫，在架</li>
+</ul>
+</li>
+<li>總統的親戚（陳柔縉）
+   - 注意：清單書名是 2022 新版副題「揭開台灣權貴家族的臍帶與裙帶關係」，但清單索書號 782.7 7512 88 是 1999 舊版（副題「臺灣權貴家族」）。兩版國臺圖都有，請作者確認要哪一版
+   - 國臺圖（1999 舊版）：六樓臺灣資料圖書區 II，索書號 <code>782.7 7512 88</code>，當日借閱(限館內閱覽)，在架 1/1 冊
+   - 國臺圖（1999 舊版）：三樓中文圖書區，索書號 <code>782.7 7512 88</code>，可館外借閱，在架 1/2 冊（預約待取中）<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/1495756/">https://cis2.ntl.edu.tw/detail/1495756/</a></li>
+<li>國臺圖（2022 新版）：六樓臺灣資料圖書區 II，索書號 <code>782.7 7512 111</code>，當日借閱(限館內閱覽)，在架 1/1 冊</li>
+<li>國臺圖（2022 新版）：三樓中文圖書區，索書號 <code>782.7 7512 111</code>，可館外借閱，在架 1/2 冊（預約待取中）</li>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/3084912/">https://cis2.ntl.edu.tw/detail/3084912/</a></li>
+<li>國圖備案：<code>783.31 8776:4 111</code>，總館典藏書庫・中文書庫，在架</li>
+</ul>
+</li>
+<li>臺灣的媽祖信仰（石萬壽，臺原 2000）
+   - 注意：Readmoo、iRead、雲端書庫上的《臺灣的媽祖信仰》都是蔡相煇 2018 版，不是這本
+   - 國臺圖：六樓臺灣資料圖書區 I，索書號 <code>272.71 1044 89</code>，當日借閱(限館內閱覽)，在架 1/1 冊
+   - 國臺圖：地下二樓密集書庫正複本區，索書號 <code>272.71 1044 89</code>，可館外借閱，在架 2/2 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/1495823/">https://cis2.ntl.edu.tw/detail/1495823/</a></li>
+<li>注意：同時列在六樓與其他樓層：依作者 2026-10-31 現場經驗，實際只在六樓，請平日找館員調閱</li>
+<li>備註：地下二樓密集書庫那本可外借</li>
+<li>其他館：臺北市立圖書館（多館，可外借） <code>272.71 1044</code></li>
+<li>國圖備案：<code>272.71 8443</code>，總館典藏書庫・中文書庫，在架</li>
+</ul>
+</li>
+<li>鹽分地帶文學學術研討會論文集 2011（國立臺灣文學館）
+   - 國臺圖：六樓臺灣資料圖書區 II，索書號 <code>863.07 6076</code>，當日借閱(限館內閱覽)，在架 1/1 冊
+   - 國臺圖：地下二樓密集書庫正複本區，索書號 <code>863.07 6076</code>，可館外借閱，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/2802886/">https://cis2.ntl.edu.tw/detail/2802886/</a></li>
+<li>注意：同時列在六樓與其他樓層：依作者 2026-10-31 現場經驗，實際只在六樓，請平日找館員調閱</li>
+<li>備註：地下二樓那本可外借</li>
+<li>其他館：臺南市立圖書館 <code>863.07 8545</code></li>
+<li>其他館：國立臺灣文學館 <code>863.07 7844</code></li>
+<li>國圖備案：<code>863.07 8485 100</code>，總館典藏書庫・中文書庫，在架</li>
+</ul>
+</li>
+<li>吳新榮選集（臺南縣立文化中心 民86，3 冊）
+   - 國臺圖：三樓中文圖書區，索書號 <code>848.6 2609-2 86</code>，可館外借閱，在架 3/3 冊
+   - 國臺圖：地下二樓密集書庫正複本區，索書號 <code>848.6 2609-2 86</code>，可館外借閱，在架 6/6 冊
+   - 國臺圖：六樓臺灣民族運動史料專區，索書號 <code>848.6 2609-2 86</code>，當日借閱(限館內閱覽)，在架 3/3 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/2216553/">https://cis2.ntl.edu.tw/detail/2216553/</a></li>
+<li>備註：三樓、地下二樓各一套可外借</li>
+<li>國圖備案：<code>848.6 8846:4</code>，總館典藏書庫・中文書庫，在架</li>
+</ul>
+</li>
+<li>島嶼DNA（陳耀昌，印刻 2015）
+   - 國臺圖：六樓臺灣資料圖書區 I，索書號 <code>078 7596 104</code>，當日借閱(限館內閱覽)，在架 1/1 冊
+   - 國臺圖：二樓中文圖書區，索書號 <code>078 7596 104</code>，可館外借閱，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/2896513/">https://cis2.ntl.edu.tw/detail/2896513/</a></li>
+<li>注意：同時列在六樓與其他樓層：依作者 2026-10-31 現場經驗，實際只在六樓，請平日找館員調閱</li>
+<li>其他館：臺北市立圖書館（多館，可外借） <code>078 7596</code></li>
+<li>其他館：新北市立圖書館 <code>078 8755</code></li>
+<li>國圖備案：<code>078 8755:7</code>，總館典藏書庫・中文書庫，在架</li>
+</ul>
+</li>
+<li>鹿耳門地理演變考（盧嘉興 1965）
+   - 國臺圖：六樓臺灣資料圖書區 II，索書號 <code>733.965 2147-2</code>，當日借閱(限館內閱覽)，在架 1/1 冊
+   - 國臺圖：地下二樓密集書庫民國65年前圖書，索書號 <code>733.965 2147-2</code>，可館外借閱，在架 1/2 冊（20261103 23:59）<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/347576/">https://cis2.ntl.edu.tw/detail/347576/</a></li>
+<li>備註：六樓 1 冊館內；地下二樓 2 冊可外借（1 冊借出至 2026-11-03）</li>
+<li>其他館：國立臺灣大學圖書館 <code>669.2 2147</code></li>
+<li>其他館：國立成功大學圖書館 <code>673.29/127.2 2147</code></li>
+<li>其他館：國立公共資訊圖書館 <code>669.1 2147</code></li>
+<li>國圖備案：<code>669.8 8545</code>，總館典藏書庫・中文正本倉儲區，unavailable</li>
+</ul>
+</li>
+<li>「鹽分地帶文藝營」研究（康詠琪，臺南市文化局 2013）
+   - 國臺圖：六樓臺灣資料圖書區 II，索書號 <code>810.64 0001 102</code>，當日借閱(限館內閱覽)，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/2838495/">https://cis2.ntl.edu.tw/detail/2838495/</a></li>
+<li>國圖備案：<code>863.9/127 8663</code>，總館典藏書庫・中文書庫，在架</li>
+</ul>
+</li>
+<li>臺灣采訪冊（陳國瑛等，臺灣文獻叢刊本）
+   - 國臺圖：六樓臺灣資料圖書區 II，索書號 <code>733.8 4382</code>，當日借閱(限館內閱覽)，在架 2/2 冊
+   - 國臺圖：地下二樓密集書庫民國65年前圖書，索書號 <code>733.8 4389</code>，限館內閱覽，在架 3/3 冊
+   - 國臺圖：地下二樓密集書庫民國65年前圖書，索書號 <code>733.8 4389</code>，可館外借閱，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/347183/">https://cis2.ntl.edu.tw/detail/347183/</a></li>
+</ul>
+</li>
+</ol>
+<h3>（二）六樓特藏舊籍複製本區、輿圖區（洽六樓櫃台）</h3>
+<ol>
+<li>臺南市志（九卷，卷首、卷末各一；黃典權等纂修，成文 1983 影印本）
+   - 國臺圖：六樓特藏舊籍複製本區，索書號 <code>733.961 4454</code>，當日借閱(限館內閱覽)，在架 16/16 冊
+   - 國臺圖：地下二樓密集書庫，索書號 <code>733.961 4454</code>，限館內閱覽，在架 32/32 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/347556/">https://cis2.ntl.edu.tw/detail/347556/</a></li>
+<li>備註：六樓特藏舊籍複製本區 16 冊；地下二樓另有。國臺圖另有臺南市政府民67–74 原版 733.961 4401-2（六樓 21 冊、三樓部分可外借，系統號 347552）</li>
+<li>國臺圖（市政府原版）：六樓臺灣資料圖書區 II，索書號 <code>733.961 4401-2</code>，當日借閱(限館內閱覽)，在架 21/21 冊</li>
+<li>國臺圖（市政府原版）：三樓中文圖書區，索書號 <code>733.961 4401-2</code>，限館內閱覽，在架 9/9 冊</li>
+<li>國臺圖（市政府原版）：三樓中文圖書區，索書號 <code>733.961 4401-2</code>，可館外借閱，在架 4/4 冊</li>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/347552/">https://cis2.ntl.edu.tw/detail/347552/</a></li>
+<li>國圖備案：<code>733.9/127.1 8344 72</code>，總館2樓參考區・叢書區2，在架</li>
+</ul>
+</li>
+<li>臺南縣志（十卷，首一卷；洪波浪、吳新榮主修）
+   - 國臺圖：六樓特藏舊籍複製本區，索書號 <code>733.965 3433</code>，當日借閱(限館內閱覽)，在架 3/3 冊
+   - 國臺圖：地下二樓密集書庫，索書號 <code>733.965 3433</code>，限館內閱覽，在架 10/10 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/347580/">https://cis2.ntl.edu.tw/detail/347580/</a></li>
+<li>備註：國臺圖六樓特藏舊籍複製本 v.2–4；國圖 2 樓叢書區 2 是成文 1983 影印本，開架</li>
+<li>其他館：國立成功大學圖書館（民69） <code>673.25/129 4410a</code></li>
+<li>國圖備案：<code>733.9/129.1 8266 72</code>，總館2樓參考區・叢書區2，在架</li>
+</ul>
+</li>
+</ol>
+<h3>（三）五樓</h3>
+<ol>
+<li>臺灣風物（1951 起）
+   - 國臺圖：五樓中日文臺灣期刊合訂本區，索書號 <code>733.7 4372</code>，限館內閱覽，在架 249/249 冊
+   - 國臺圖：一樓中文期刊區，索書號 <code>T2-1</code>，限館內閱覽，在架 2/2 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/1483817/">https://cis2.ntl.edu.tw/detail/1483817/</a></li>
+<li>備註：五樓期刊合訂本區，限館內；要哪幾卷期請先查索引（n2-8）</li>
+<li>國圖備註：國圖 3 樓期刊室現刊區開架，合訂本區要調閱</li>
+<li>國圖備案：<code>P 733.05 8445</code>，總館3樓期刊室・中文現刊區，在架</li>
+</ul>
+</li>
+<li>臺南文獻（臺南市文化局，半年刊 2012 起；清單要第 8–26 輯）
+   - 國臺圖：五樓中日文臺灣期刊合訂本區，索書號 <code>733.96105 4402</code>，限館內閱覽，在架 6/6 冊
+   - 國臺圖：一樓中文期刊區，索書號 <code>T10-2</code>，限館內閱覽，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/2840727/">https://cis2.ntl.edu.tw/detail/2840727/</a></li>
+<li>備註：國臺圖五樓合訂本 6 冊，涵蓋卷期以現場為準</li>
+<li>國圖備案：<code>P 733.9/127.05 8456</code>，總館3樓期刊室・中文期庫，在架</li>
+</ul>
+</li>
+<li>臺灣風物分類索引（高賢治編，1991）
+   - 國臺圖：六樓臺灣資料圖書區 I，索書號 <code>016.67327 0073 80</code>，當日借閱(限館內閱覽)，在架 1/1 冊
+   - 國臺圖：五樓中文參考書區，索書號 <code>016.67327 0073 80</code>，限館內閱覽，在架 2/2 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/356558/">https://cis2.ntl.edu.tw/detail/356558/</a></li>
+<li>備註：五樓中文參考書區另有 2 冊開架</li>
+<li>國圖備案：<code>R 733.05 8445(021)</code>，總館5樓參考暨政府資訊室・中文閱覽區，在架</li>
+</ul>
+</li>
+<li>臺灣地名辭書（臺灣省文獻委員會／國史館臺灣文獻館，多卷）
+   - 國臺圖：六樓臺灣資料圖書區 II，索書號 <code>733.3704 90280</code>，當日借閱(限館內閱覽)，在架 33/33 冊
+   - 國臺圖：五樓中文參考書區，索書號 <code>733.3704 90280</code>，限館內閱覽，在架 20/20 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/677260/">https://cis2.ntl.edu.tw/detail/677260/</a></li>
+<li>備註：要的是卷21 臺南市（依 05 指南）。五樓中文參考書區另有一套開架</li>
+<li>國圖備註：國圖 5 樓參考室中文閱覽區開架，民85 版、民97 版、2018 南天版都有</li>
+<li>國圖備案：<code>R 733.3704 8647</code>，總館5樓參考暨政府資訊室・中文閱覽區，在架</li>
+</ul>
+</li>
+<li>臺灣堡圖（地圖）
+   - 國臺圖：五樓5041地圖(洽五樓櫃臺調閱)，索書號 <code>733.3 4322-4</code>，當日借閱(限館內閱覽)，在架 270/270 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/354370/">https://cis2.ntl.edu.tw/detail/354370/</a></li>
+<li>備註：五樓 5041 地圖，洽五樓櫃台調閱；六樓輿圖區另有 1989 復刻 733.35 4326 78（3 冊）</li>
+<li>國臺圖（六樓輿圖區）：六樓輿圖區(洽六樓櫃臺)，索書號 <code>733.35 4326 78</code>，當日借閱(限館內閱覽)，在架 3/3 冊</li>
+<li>國臺圖（六樓輿圖區）：六樓輿圖區(洽六樓櫃臺)，索書號 <code>733.35 4326-2 78</code>，當日借閱(限館內閱覽)，在架 2/2 冊</li>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/346131/">https://cis2.ntl.edu.tw/detail/346131/</a></li>
+<li>可能有、未證實：中研院「臺灣百年歷史地圖」<a href="https://gissrv4.sinica.edu.tw/gis/twhgis/">https://gissrv4.sinica.edu.tw/gis/twhgis/</a> 可線上疊圖瀏覽（JS 圖台，本次未能程式驗證，也不能整本下載）</li>
+<li>國圖備案：<code>M 733.35 8455</code>，總館5樓參考暨政府資訊室・參庫中文，在架</li>
+</ul>
+</li>
+<li>南瀛文獻（1953–1999 原刊；改版 2002–2010 第 1–9 輯）
+   - 國臺圖（五樓期刊合訂本）：五樓中日文臺灣期刊合訂本區，索書號 <code>733.965 4420</code>，限館內閱覽，在架 4/4 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/1483826/">https://cis2.ntl.edu.tw/detail/1483826/</a></li>
+<li>國臺圖（五樓期刊合訂本）：五樓中日文臺灣期刊合訂本區，索書號 <code>733.965 42717</code>，限館內閱覽，在架 5/5 冊</li>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/383048/">https://cis2.ntl.edu.tw/detail/383048/</a></li>
+<li>國臺圖（五樓期刊合訂本）：五樓中日文臺灣期刊合訂本區，索書號 <code>733.965 4420-3</code>，限館內閱覽，在架 11/11 冊</li>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/2210203/">https://cis2.ntl.edu.tw/detail/2210203/</a></li>
+<li>國臺圖（六樓特藏舊籍複製本）：六樓特藏舊籍複製本區，索書號 <code>733.965 4420-2</code>，當日借閱(限館內閱覽)，在架 5/5 冊</li>
+<li>國臺圖（六樓特藏舊籍複製本）：地下二樓密集書庫，索書號 <code>733.965 4420-2</code>，限館內閱覽，在架 10/10 冊</li>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/130634/">https://cis2.ntl.edu.tw/detail/130634/</a></li>
+<li>國圖備案：<code>733.9/129.05 8456 72</code>，總館2樓參考區・叢書區2，在架</li>
+</ul>
+</li>
+</ol>
+<h3>（四）地下二樓密集書庫（一定要先送單）</h3>
+<ol>
+<li>鹿耳門志 第一輯（鹿耳門志編輯委員會，民51 原版，正統鹿耳門聖母廟）
+   - 國臺圖：地下二樓密集書庫民國65年前圖書，索書號 <code>797.32 0174</code>，限館內閱覽，在架 1/1 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/361955/">https://cis2.ntl.edu.tw/detail/361955/</a></li>
+<li>備註：國臺圖這本就是民51 原版（NBINet 著錄：臺南市正統鹿耳門聖母廟董事會 民51）；國圖可調的是民78 重印本</li>
+<li>其他館：國立成功大學圖書館（民51） <code>673.29/127.2 0174</code></li>
+<li>其他館：國立臺灣大學圖書館（民51） <code>673.29/119.6 0017</code></li>
+<li>國圖備案：<code>733.9/127.1 8445 78</code>，總館典藏書庫・中文書庫，在架</li>
+</ul>
+</li>
+</ol>
+<p>同一趟可以順便申請帶回家的（地下二樓有「可館外借閱」複本）：</p>
+<ol>
+<li>臺灣的媽祖信仰（石萬壽，臺原 2000）：<code>272.71 1044 89</code>，在架 2/2</li>
+<li>臺灣地區戒嚴時期五〇年代政治案件史料彙編（臺灣省文獻委員會 1998，5 冊）：<code>573.09 9028 87</code>，在架 15/15</li>
+<li>鹽分地帶文學學術研討會論文集 2011（國立臺灣文學館）：<code>863.07 6076</code>，在架 1/1</li>
+<li>吳新榮選集（臺南縣立文化中心 民86，3 冊）：<code>848.6 2609-2 86</code>，在架 6/6</li>
+<li>鹿耳門地理演變考（盧嘉興 1965）：<code>733.965 2147-2</code>，在架 1/2</li>
+<li>臺江內海及其庄社：大洪水裡的小地方記憶（吳茂成，臺南市政府 2013）：<code>733.9612 2645 102</code>，在架 1/1</li>
+</ol>
+<h3>（五）三樓，可以直接借回家</h3>
+<ol>
+<li>熱蘭遮城日誌（江樹生譯註，2024 新版 10 冊，臺南市政府文化局／臺史博）
+   - 國臺圖：三樓中文圖書區，索書號 <code>733.25 3142 113</code>，可館外借閱，在架 10/10 冊<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/3115084/">https://cis2.ntl.edu.tw/detail/3115084/</a></li>
+<li>備註：只列在三樓，沒有六樓複本，可直接借回家</li>
+<li>國圖備案：<code>733.25 8336 113</code>，總館2樓閱覽區・中文新書區，在架</li>
+</ul>
+</li>
+</ol>
+<h3>（六）去之前先打電話確認</h3>
+<ol>
+<li>安南區志（林德政總纂修，1999）
+   - 國臺圖：六樓臺灣資料圖書區 II，索書號 <code>733.9611 3474 88</code>，當日借閱(限館內閱覽)，在架 0/1 冊（20261231 21:00）<ul>
+<li>館藏頁：<a href="https://cis2.ntl.edu.tw/detail/1533328/">https://cis2.ntl.edu.tw/detail/1533328/</a></li>
+<li>備註：國臺圖唯一一冊狀態是「占用至 2026/12/31 21:00」，去之前請電話確認 02-2926-6888</li>
+<li>其他館：國立成功大學圖書館 <code>673.29/127.1 4421</code></li>
+</ul>
+</li>
+</ol>
+<p>另外：m5《鹿耳門志 第1輯（民51 原版）》就是上面密集書庫那本 <code>797.32 0174</code>；m7《塩分地帶文學選》就是 n2-74；m10《鹿耳門地理演變考附續考》請在翻 n2-72 時確認是否含續考。</p>
+<h2>五、其他館所</h2>
+<ol>
+<li>臺江迎神祭紀念專輯（2005 乙酉，林玉山撰稿，鹿耳門天后宮）
+   - 國立臺灣大學圖書館 <code>272.71 4412</code>（國圖那本在倉儲區，目前不可調閱）。查詢：<a href="https://nbinet.primo.exlibrisgroup.com/discovery/search?vid=886NCL_NBINET:NBINET&amp;lang=zh-tw&amp;query=any,contains,%E8%87%BA%E6%B1%9F%E8%BF%8E%E7%A5%9E%E7%A5%AD%E7%B4%80%E5%BF%B5%E5%B0%88%E8%BC%AF">https://nbinet.primo.exlibrisgroup.com/discovery/search?vid=886NCL_NBINET:NBINET&amp;lang=zh-tw&amp;query=any,contains,%E8%87%BA%E6%B1%9F%E8%BF%8E%E7%A5%9E%E7%A5%AD%E7%B4%80%E5%BF%B5%E5%B0%88%E8%BC%AF</a></li>
+<li>國圖、國臺圖都拿不到時的備案（NBINet 2026-11-01 查）
+   - 安南區志（林德政總纂修，1999）：國立成功大學圖書館 <code>673.29/127.1 4421</code>
+   - 鹿耳門志 第一輯（鹿耳門志編輯委員會，民51 原版，正統鹿耳門聖母廟）：國立成功大學圖書館（民51） <code>673.29/127.2 0174</code>；國立臺灣大學圖書館（民51） <code>673.29/119.6 0017</code>
+   - 鹿耳門地理演變考（盧嘉興 1965）：國立臺灣大學圖書館 <code>669.2 2147</code>；國立成功大學圖書館 <code>673.29/127.2 2147</code>；國立公共資訊圖書館 <code>669.1 2147</code>
+   - 鹽分地帶文學選（林佛兒、羊子喬、杜文靖編，林白 民68）：國立臺灣大學圖書館 <code>863.3 7884</code>；國立臺灣文學館 <code>863.3 4426</code>
+   - 鹽分地帶文學學術研討會論文集 2011（國立臺灣文學館）：臺南市立圖書館 <code>863.07 8545</code>；國立臺灣文學館 <code>863.07 7844</code>
+   - 臺南土城正統鹿耳門聖母廟廟誌（劉采妮主編，2013）：中央研究院人文社會科學聯合圖書館 <code>272.71 7224</code>
+   - 臺南土城正統鹿耳門聖母廟沿革誌（鹿耳門史蹟研究會，民89）：國立臺灣大學圖書館 <code>272.71 0017-2</code>
+   - 西港刈香（黃文博，大臺南文化資產叢書，臺南市政府文化局 民103.02）：臺北市立圖書館 <code>733.9/127.4 4404</code>；國立公共資訊圖書館 <code>733.9645 4404</code></li>
+</ol>
+<h2>六、查無、略過與不建議調閱</h2>
+<h3>查無</h3>
+<ol>
+<li>1964-12-17 臺南市政府南市區字第 49086 號函：公文，不是出版品，圖書館目錄不會收；本次未查檔案系統。可能的管道：國家檔案資訊網 <a href="https://aa.archives.gov.tw">https://aa.archives.gov.tw</a> 或向臺南市政府申請檔案應用（未證實）</li>
+<li>1966-12-26 臺南市政府南市民字第 50109 號函（轉引內政部 55.11.12 台內民字第 2152 號函）：同 x0</li>
+</ol>
+<h3>作者指示略過</h3>
+<ol>
+<li>中央日報 1961-08-10 第 8 版：報紙類，不排入行程。</li>
+</ol>
+<h3>ROI 低，不建議調閱（碩士論文，範圍小，且沒有免費電子全文）</h3>
+<ol>
+<li>戴奧辛與汞污染場址整治之研究：以臺南市舊臺鹼安順廠為例（王禎，北科環工所 96 學年）
+   - 理由：單一場址的工程整治研究，與網站人文主軸距離遠
+   - 若仍要看：國圖 <code>445.9 079M 97-24</code>，總館遠端書庫・遠端碩士書庫，在架</li>
+<li>龍山村村民對濱南工業區劃設的集體行動之社會基礎分析（許佳玲，成大政經所 87 學年）
+   - 理由：單一村落、單一案件
+   - 若仍要看：國圖 <code>550 007M 88-11</code>，總館遠端書庫・遠端碩士書庫，在架</li>
+<li>污染土地新生命？以中石化安順廠污染案為例（廖羿雯，臺大新聞所 109 學年）
+   - 理由：單一場址
+   - 若仍要看：國圖 <code>890 001M 109-20</code>，未在本次查詢結果中，未確認</li>
+<li>以紀錄片的製作過程作為一種教育方法：臺碱安順廠檔案紀錄（王俐婷，南藝音像所 103 學年）
+   - 理由：主題是紀錄片教學方法，安順廠只是素材
+   - 若仍要看：國圖 <code>987.4 030M 104-10</code>，總館典藏書庫・碩士論文庫，在架</li>
+<li>鹿耳門天后宮祭典樂舞研究：暨「迎喜神」分析（許春香，臺灣體育學院 91 學年）
+   - 理由：單一廟宇祭典樂舞；若作者要寫迎喜神可例外調閱（遠端書庫當天可取）
+   - 若仍要看：國圖 <code>528.9 083M 92-23</code>，總館遠端書庫・遠端碩士書庫，在架</li>
+<li>中石化安順廠文化資產保存政策研究（陳玉珊，成大政經所 100 學年）
+   - 理由：單一場址
+   - 若仍要看：國圖 <code>550 007M 102-14</code>，總館遠端書庫・遠端碩士書庫，在架</li>
+<li>環境影響評估制度中地方治理之發展與轉型：以濱南工業區與國光石化開發案為例（余珮瑄，成大政經所 98 學年）
+   - 理由：兩個開發案的環評制度研究，土城只是背景
+   - 若仍要看：國圖 <code>550 007M 99-2</code>，總館遠端書庫・遠端碩士書庫，在架</li>
+<li>中石化安順廠之環境治理：從社區居民的觀點（戴裕家，暨南公行 96 學年）
+   - 理由：單一場址
+   - 若仍要看：國圖 <code>572.9 081M 97-11</code>，總館遠端書庫・遠端碩士書庫，在架</li>
+<li>我們為何不能說不？從濱南案的環境影響評估談環保抗爭（陳良榕，臺大 86 學年）
+   - 理由：單一案件
+   - 若仍要看：國圖 <code>890 001M 87-8</code>，總館遠端書庫・遠端碩士書庫，在架</li>
+<li>污染場址再發展策略之研究：以中石化（臺鹼）安順廠為例（藍怡評，成大都計 99 學年）
+   - 理由：單一場址；國圖在論文倉儲區，目前 unavailable
+   - 若仍要看：國圖 <code>445.1 007M 100-24</code>，總館典藏書庫・論文倉儲區，unavailable</li>
+</ol>
+<h3>已取得</h3>
+<ol>
+<li>南瀛刈香誌（n2-66）</li>
+</ol>
+<h2>附錄：可能有、未證實（作者不必去找）</h2>
+<ol>
+<li>臺史博「臺南文史研究資料庫」<a href="https://tainanstudy.nmth.gov.tw">https://tainanstudy.nmth.gov.tw</a> ：2026-11-01 整站顯示系統維護公告，所有網址（含「全文逐字稿」PDF）都導回首頁，無法驗證。恢復後可能有《南瀛文獻》《臺南文化》舊刊全文，屆時再查。</li>
+<li>臺南研究資料庫的舊刊《南瀛文獻》（標示「南瀛文獻全文數位化」）：每篇只公開第一頁圖檔，不是全文。</li>
+<li>臺灣堡圖：中研院「臺灣百年歷史地圖」可線上疊圖瀏覽，JS 圖台，未能程式驗證，也不能整本下載。</li>
+<li>黑面琵鷺研究報告、臺碱安順廠環境調查：GRB 政府研究資訊系統可能有全文，但有 reCAPTCHA；國家公園署新網站是 JS 前端，程式讀不到。</li>
+<li>臺南州祠廟名鑑：國臺圖日治時期圖書影像系統可能有影像，要國臺圖帳號登入。</li>
+<li>HyRead 國臺圖館／國圖館：被 Cloudflare 擋，無法自動查。</li>
+</ol>
+<h2>建議行程</h2>
+<h3>第 0 步：在家先做（不必出門）</h3>
+<ol>
+<li>讀 <code>全文/</code> 裡已下載的 10 本書與期刊，先把南瀛叢書、臺南媽祖信仰研究、臺江內海及其庄社、海風牽引臺17 的引用整理掉。</li>
+<li>手動下載碩士論文：先下載 m9-1（土城仔香）、m9-2（鹿耳門溪沿岸），其他六篇有空再抓。</li>
+<li>用國臺圖借閱證登入華藝 iRead 國臺圖館，借《臺灣采訪冊》。</li>
+<li>打電話到國臺圖 02-2926-6888 問《安南區志》<code>733.9611 3474 88</code> 何時可看。</li>
+</ol>
+<h3>第 1 趟：國圖（週二至週日皆可，週一休館）</h3>
+<ol>
+<li>前一天：確認閱覽證、國圖帳號已驗證並設好密碼。</li>
+<li>當天早上出門前（0 點後）：在國圖館藏目錄送第 1 批典藏書庫調閱（5 本）：e7 廟誌、e8 沿革誌、e9 沿革、e17 臺江迎神祭 2012、e18 台江迎神祭 III。</li>
+<li>進館：先到 2 樓取書櫃台拿第 1 批；等待時到 2 樓叢書區 2 翻臺南市志、臺南縣志、臺灣省南瀛文獻（開架）。</li>
+<li>還第 1 批後送第 2 批：e13 西港刈香、e22 行瘟與代巡、e30 麻豆代天府沿革誌、e44 黑面琵鷺 102、103。</li>
+<li>第 3 批：e6 七股鄉志、e26 臺南縣志稿、e25 續修臺南縣志、e24 二二八專刊、e36 安順廠環境調查。e34 鹽分地帶文學選集若要看放第 4 批。</li>
+<li>5 樓：參考室請櫃台調《臺南州祠廟名鑑》2002 復刻本；開架翻《臺灣地名辭書》卷 21、《臺灣風物分類索引》（先查要調哪幾期《臺灣風物》）。</li>
+<li>視時間：3 樓期刊室調《臺江詩刊》；104 年度黑琵報告光碟（視聽 2 件）。</li>
+<li>典藏書庫最晚：週二至週六 20:30、週日 16:30 前送單。</li>
+</ol>
+<h3>第 2 趟：國臺圖（平日，週二至週五）</h3>
+<ol>
+<li>前一個工作日下班前：email research@mail.ntl.edu.tw 送地下二樓密集書庫調閱單（或館藏系統線上申請）：</li>
+<li>必送：《鹿耳門志》民51 原版 <code>797.32 0174</code>（限館內）。</li>
+<li>想借回家的再加：《臺灣的媽祖信仰》<code>272.71 1044 89</code>、《鹽分地帶文學學術研討會論文集 2011》<code>863.07 6076</code>、《吳新榮選集》<code>848.6 2609-2 86</code>、《鹿耳門地理演變考》<code>733.965 2147-2</code>、《五〇年代政治案件史料彙編》<code>573.09 9028 87</code>。</li>
+<li>當天上午（9–12 時）：到地下二樓取書櫃台領密集書庫的書。</li>
+<li>六樓：把第四節（一）的清單交給館員調閱。建議優先：土城仔香、送迎神儀典、鹿耳門志（2011 上下冊）、學甲上白礁暨刈香、蕭壠香、藝陣傳神、硬箍起來、媽祖情緣、四草大眾廟誌、臺灣舊地名之沿革、續修臺南市志。</li>
+<li>五樓：期刊合訂本翻《臺南文獻》第 11、21–26 輯、《臺灣風物》所需卷期、《南瀛文獻》第 18 卷以後；請櫃台調臺灣堡圖。</li>
+<li>三樓：直接借走《熱蘭遮城日誌》2024 新版 10 冊（舊版已下載，可對照）。</li>
+</ol>
+<h3>第 3 趟（選擇性）：其他館</h3>
+<ol>
+<li>臺大圖書館：《臺江迎神祭紀念專輯》2005 <code>272.71 4412</code>。</li>
+<li>若國臺圖《安南區志》仍不能看：成大圖書館 <code>673.29/127.1 4421</code>（或請臺南的圖書館館際合作）。</li>
+</ol>
+</main></body></html>
