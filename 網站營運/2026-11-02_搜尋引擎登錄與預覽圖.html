@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>搜尋引擎登錄與分享預覽圖</title><style>
+:root{--bg:#fbf8f1;--card:#fff;--ink:#222;--mute:#6b6458;--line:#e6dfd0;--acc:#1f8a8a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,"PingFang TC","Noto Sans TC",sans-serif}
+main{max-width:760px;margin:0 auto;padding:16px}h1{font-size:1.4rem;margin:.2em 0}h2{font-size:1.1rem;margin:1.6em 0 .4em;border-bottom:2px solid var(--line);padding-bottom:4px}
+.sub{color:var(--mute);font-size:.9rem}.box{background:#f3eedf;border-radius:10px;padding:10px 14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:8px 0}
+.card a{color:var(--acc);font-weight:600;word-break:break-all}.d{font-size:.9rem;color:var(--mute)}
+ol{padding-left:1.3em}a.back{font-size:.9rem;color:var(--acc)}
+</style><style>code{background:#f3eedf;padding:1px 4px;border-radius:4px;font-size:.88em;word-break:break-all}table{border-collapse:collapse;font-size:.88rem;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:4px 6px;vertical-align:top}a{color:var(--acc);word-break:break-all}</style><style>pre{white-space:pre-wrap;background:#f3eedf;padding:10px;border-radius:8px;font-size:.88rem}</style></head><body><main>
+<p><a class="back" href="../index.html">← 回首頁</a></p>
+<h1>搜尋引擎登錄與分享預覽圖</h1>
+<p class="sub">2026-11-02 整理。網站：https://tucheng.kenlab.org/（中文）、https://tucheng.kenlab.org/en/（英文）。做完任一步，把畫面上的驗證碼貼給 Claude，由 Claude 放進網站並部署。</p>
+
+<h2>一、Google Search Console</h2>
+<div class="box">建議用「網址前置字元」驗證：只要把一段代碼交給 Claude 放進網站，不必動 Cloudflare 的 DNS。</div>
+<ol>
+<li>打開 <a href="https://search.google.com/search-console">https://search.google.com/search-console</a>，用你的 Google 帳號登入。</li>
+<li>左上角「新增資源」，右邊選「網址前置字元」，輸入 <code>https://tucheng.kenlab.org/</code>，按「繼續」。</li>
+<li>驗證方式選「HTML 標記」，畫面會出現一行：
+<pre>&lt;meta name="google-site-verification" content="一串英數字" /&gt;</pre>
+只要把 <b>content 裡那串英數字</b>複製給 Claude。</li>
+<li>Claude 放進網站並部署後（約 5 分鐘），回到這個畫面按「驗證」。</li>
+<li>驗證成功後，左側「Sitemap」，輸入 <code>sitemap.xml</code> 提交；再輸入 <code>en/sitemap.xml</code> 提交一次（英文版）。</li>
+<li>之後要看的地方：
+<ol>
+<li>「成效」：哪些關鍵字帶人進來、哪些詞條被點、平均排名。</li>
+<li>「網頁」（索引）：哪些頁被收錄、哪些沒有和原因。</li>
+<li>「網址審查」：新寫的詞條可以貼網址按「要求建立索引」，加快收錄。</li>
+<li>「強化項目」：麵包屑、問答等結構化資料有沒有錯誤。</li>
+</ol></li>
+</ol>
+<p class="d">另一種做法（不必等 Claude）：「網域」資源，驗證 kenlab.org 整個網域，要到 Cloudflare 的 DNS 加一筆 TXT 記錄。好處是 kenlab.org 底下所有子網站一次驗證完；缺點是要自己動 DNS。</p>
+
+<h2>二、Bing 站長工具（Bing Webmaster Tools）</h2>
+<div class="box">先做完 Google，Bing 可以直接從 Google 匯入，不用再驗證一次。Bing 的資料也會用在 ChatGPT 搜尋、DuckDuckGo、Yahoo 等。</div>
+<ol>
+<li>打開 <a href="https://www.bing.com/webmasters">https://www.bing.com/webmasters</a>，用 Microsoft、Google 或 Facebook 帳號登入。</li>
+<li>選「從 Google Search Console 匯入」，授權後勾選 <code>https://tucheng.kenlab.org/</code>，按「匯入」。網站與 sitemap 會一起帶過來。</li>
+<li>若不想匯入：選「手動新增網站」，輸入網址，驗證方式選「HTML Meta 標記」，把 <code>msvalidate.01</code> 的 content 那串英數字給 Claude，一樣放進網站後按驗證。</li>
+<li>驗證後到「Sitemap」確認有 <code>https://tucheng.kenlab.org/sitemap.xml</code>；沒有就手動加上，英文版 <code>/en/sitemap.xml</code> 也加。</li>
+<li>（選做）「IndexNow」：之後新增詞條可以主動通知 Bing。要的話跟 Claude 說，Claude 會產生金鑰檔放進網站。</li>
+</ol>
+
+<h2>三、做完之後</h2>
+<ol>
+<li>收錄要幾天到幾週，詞條頁 1,500 多頁不會一次全進。</li>
+<li>一個月後看 Google「成效」的查詢字詞，再決定哪些詞條的標題或摘要要調整。</li>
+<li>可以順便到 Google 搜尋 <code>site:tucheng.kenlab.org</code>，看目前收錄了幾頁。</li>
+</ol>
+
+<h2>四、分享預覽圖（LINE、Facebook、X）規格</h2>
+<ol>
+<li>尺寸：<b>1200 × 630 像素</b>（橫式，比例約 1.91:1）。這是 Facebook、LINE、X、Discord 共用的標準。</li>
+<li>檔案：JPG（照片）或 PNG，<b>1 MB 以內</b>最好（上限約 5 MB，太大 LINE 會不顯示）。</li>
+<li>安全區：重要內容（廟、人、文字）放在<b>中間約 1000 × 500</b>的範圍。LINE 聊天室有時會裁成接近正方形，四邊可能被切掉。</li>
+<li>文字：網站名稱、Logo 由 Claude 疊上去，照片本身不用有字。</li>
+<li>照片：用你自己拍的、沒有可辨識人臉的土城風景（例如聖母廟遠景、魚塭夕陽、防風林）。原圖越大越好（長邊 2000 像素以上），Claude 會裁切成 1200 × 630。</li>
+<li>之後也可以替不同頁面各做一張（例如香科頁用香陣照片），先做全站共用的一張即可。</li>
+</ol>
+</main></body></html>
