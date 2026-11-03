@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>老樹待點工具</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--bg:#fbf8f1;--card:#fff;--ink:#222;--mute:#6b6458;--line:#e6dfd0;--acc:#1f8a8a;--warn:#b8501f;--ok:#2e7d32;--seed:#e0a21b;--free:#7b3fa0}
+*{box-sizing:border-box}html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,"PingFang TC","Noto Sans TC",sans-serif;display:flex;flex-direction:column}
+header{padding:8px 12px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
+header h1{font-size:1.1rem;margin:0}header a{color:var(--acc)}
+.sub{color:var(--mute);font-size:.85rem}
+#wrap{flex:1;display:flex;min-height:0}
+#side{width:360px;max-width:42vw;overflow:auto;border-right:1px solid var(--line);background:var(--bg)}
+#map{flex:1;min-height:0}
+@media (max-width:760px){#wrap{flex-direction:column-reverse}#side{width:auto;max-width:none;height:46vh;border-right:0;border-top:1px solid var(--line)}#map{flex:none;height:44vh}}
+.tools{padding:8px 10px;display:flex;flex-wrap:wrap;gap:6px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:2}
+button,select,input,textarea{font:inherit}
+button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 10px;cursor:pointer}
+button.pri{background:var(--acc);border-color:var(--acc);color:#fff}button.on{background:var(--free);border-color:var(--free);color:#fff}
+select{border:1px solid var(--line);border-radius:8px;padding:5px;background:#fff}
+.ent{border-bottom:1px solid var(--line);padding:8px 10px;cursor:pointer}
+.ent:hover{background:#f6f1e4}.ent.sel{background:#e8f3f2;box-shadow:inset 4px 0 0 var(--acc)}
+.ent .t{font-weight:600}.ent .m{font-size:.8rem;color:var(--mute)}
+.badge{display:inline-block;font-size:.72rem;border-radius:999px;padding:0 7px;margin-left:4px;border:1px solid var(--line);vertical-align:1px}
+.badge.done{background:var(--ok);color:#fff;border-color:var(--ok)}.badge.todo{color:var(--warn);border-color:var(--warn)}
+.pts{margin:6px 0 0;padding:0;list-style:none}
+.pts li{font-size:.82rem;background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 7px;margin:4px 0}
+.pts input{width:100%;border:1px solid var(--line);border-radius:6px;padding:3px 6px;margin-top:3px}
+.pts .row{display:flex;gap:6px;align-items:center;justify-content:space-between}
+.seedl{font-size:.8rem;color:var(--mute);margin:4px 0 0}
+.seedl span{display:inline-block;margin:2px 4px 0 0;padding:0 6px;border:1px dashed var(--seed);border-radius:6px;cursor:pointer}
+#help{padding:8px 10px;font-size:.85rem;color:var(--mute);border-bottom:1px solid var(--line)}
+#help ol{margin:4px 0;padding-left:1.3em}
+.leaflet-tooltip.lbl{font-size:12px;padding:1px 5px}
+#toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#222;color:#fff;padding:6px 14px;border-radius:999px;font-size:.9rem;opacity:0;transition:opacity .3s;pointer-events:none;z-index:9999}
+#toast.show{opacity:.92}
+dialog{border:1px solid var(--line);border-radius:12px;max-width:min(720px,94vw);width:100%}
+dialog textarea{width:100%;height:46vh;font:12px/1.4 ui-monospace,monospace}
+</style></head><body>
+<header>
+  <h1>老樹待點工具</h1>
+  <span class="sub">西港、佳里、學甲、麻豆、北門、七股新老樹詞條的實際位置。<a href="2026-11-03_老樹點位總覽.html">老樹點位總覽</a>｜<a href="../index.html">交接首頁</a></span>
+</header>
+<div id="wrap">
+  <div id="side">
+    <div class="tools">
+      <select id="fArea" aria-label="依區篩選"><option value="">全部區</option></select>
+      <select id="fState" aria-label="依進度篩選"><option value="">全部</option><option value="todo">未點</option><option value="done">已點</option></select>
+      <button id="bFree" title="在地圖上點出名單以外的樹">＋名單外的樹</button>
+      <button id="bExport" class="pri">匯出給 Claude</button>
+      <button id="bImport">匯入</button>
+    </div>
+    <div id="help">
+      <ol>
+        <li>點左邊一條詞條，地圖會飛到它的種子（黃色虛線圈：名冊或老樹報報登記的座標，可能偏差數公尺到數十公尺）。</li>
+        <li>在衛星圖上點樹冠中心，就會替這條詞條加一個點；同一條可以點好幾株。點可以拖曳，也可以按「刪」。</li>
+        <li>種子位置剛好正確時，按種子標籤「採用」就直接記下。</li>
+        <li>附近看到名單外的老樹，按「＋名單外的樹」再點地圖，寫上樹種或說明。</li>
+        <li>點過的東西自動存在這台裝置的瀏覽器裡；換裝置前先「匯出」。做完按「匯出給 Claude」，把內容貼回對話。</li>
+      </ol>
+    </div>
+    <div id="list"></div>
+  </div>
+  <div id="map" role="application" aria-label="衛星地圖"></div>
+</div>
+<div id="toast" role="status" aria-live="polite"></div>
+<dialog id="dlg"><p id="dlgT" style="margin-top:0;font-weight:600"></p><textarea id="dlgX" spellcheck="false"></textarea>
+<p style="display:flex;gap:8px;justify-content:flex-end;margin-bottom:0"><button id="dlgCopy" class="pri">複製</button><button id="dlgDl">下載 JSON</button><button id="dlgOk">套用匯入</button><button id="dlgClose">關閉</button></p></dialog>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="oldtree-data.js"></script>
+<script>
+(() => {
+  const D = window.OLDTREE_DATA;
+  const KEY = 'tc-oldtree-picks-v1';
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } };
+  let S = load(); // { [slug|free-id]: { pts:[{lat,lng,note,from?}] , free?:true, title? } }
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch { toast('瀏覽器不允許存檔，記得匯出'); } };
+  const toast = (t) => { const e = document.getElementById('toast'); e.textContent = t; e.classList.add('show'); clearTimeout(e._t); e._t = setTimeout(() => e.classList.remove('show'), 1800); };
+  const round = (x) => Math.round(x * 1e7) / 1e7;
+  const dist = (a, b) => Math.round(Math.hypot((a.lat - b.lat) * 110950, (a.lng - b.lng) * 102300));
+
+  // ---- 地圖 ----
+  const map = L.map('map', { zoomControl: true, maxZoom: 21 }).setView([23.17, 120.15], 11);
+  const sat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 21, maxNativeZoom: 19, attribution: 'Imagery © Esri, Maxar, Earthstar Geographics' }).addTo(map);
+  const nlsc = L.tileLayer('https://wmts.nlsc.gov.tw/wmts/PHOTO2/default/GoogleMapsCompatible/{z}/{y}/{x}', { maxZoom: 21, maxNativeZoom: 20, attribution: '正射影像 © 內政部國土測繪中心' });
+  const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 21, maxNativeZoom: 19, attribution: '© OpenStreetMap contributors' });
+  const emap = L.tileLayer('https://wmts.nlsc.gov.tw/wmts/EMAP/default/GoogleMapsCompatible/{z}/{y}/{x}', { maxZoom: 21, maxNativeZoom: 20, attribution: '臺灣通用電子地圖 © 內政部國土測繪中心' });
+  L.control.layers({ '衛星（Esri）': sat, '正射影像（國土測繪中心）': nlsc, '電子地圖（國土測繪中心）': emap, 'OpenStreetMap': osm }, null, { position: 'topright' }).addTo(map);
+  L.control.scale({ imperial: false }).addTo(map);
+
+  const seedLayer = L.layerGroup().addTo(map);
+  const doneLayer = L.layerGroup().addTo(map);
+  const pickLayer = L.layerGroup().addTo(map);
+
+  // 站上已定位的老樹（參考用，灰色）
+  for (const p of D.done) {
+    L.circleMarker([p.lat, p.lng], { radius: 5, color: '#555', weight: 1, fillColor: '#9e9e9e', fillOpacity: .8 })
+      .bindTooltip(`已上站：${p.name}`, { className: 'lbl' }).addTo(doneLayer);
+  }
+
+  let sel = null; // 選中的 slug
+  let freeMode = false;
+  const bySlug = Object.fromEntries(D.entries.map((e) => [e.slug, e]));
+
+  const seedIcon = (lbl) => L.divIcon({ className: '', iconSize: [22, 22], iconAnchor: [11, 11], html: `<div style="width:22px;height:22px;border:2px dashed ${'#e0a21b'};border-radius:50%;background:rgba(224,162,27,.15)" title="${lbl}"></div>` });
+  const pickIcon = (n, free) => L.divIcon({ className: '', iconSize: [24, 24], iconAnchor: [12, 12], html: `<div style="width:24px;height:24px;border-radius:50%;background:${free ? '#7b3fa0' : '#2e7d32'};color:#fff;font:700 12px/24px sans-serif;text-align:center;border:2px solid #fff;box-shadow:0 0 0 1px #0006">${n}</div>` });
+
+  function drawSeeds() {
+    seedLayer.clearLayers();
+    for (const e of D.entries) {
+      for (const s of e.seeds) {
+        const m = L.marker([s.lat, s.lng], { icon: seedIcon(s.src), keyboard: false, opacity: sel && sel !== e.slug ? .45 : 1 })
+          .bindTooltip(`${e.title}<br>${s.src}${s.loc ? '｜' + s.loc : ''}`, { className: 'lbl' })
+          .on('click', (ev) => { L.DomEvent.stop(ev); select(e.slug, false); });
+        m.addTo(seedLayer);
+      }
+    }
+  }
+
+  function drawPicks() {
+    pickLayer.clearLayers();
+    for (const [k, v] of Object.entries(S)) {
+      (v.pts || []).forEach((p, i) => {
+        const e = bySlug[k];
+        const m = L.marker([p.lat, p.lng], { icon: pickIcon(i + 1, !!v.free), draggable: true, autoPan: true })
+          .bindTooltip(`${e ? e.title : (v.title || '名單外的樹')} #${i + 1}${p.note ? '｜' + p.note : ''}`, { className: 'lbl' })
+          .on('dragend', (ev) => { const ll = ev.target.getLatLng(); p.lat = round(ll.lat); p.lng = round(ll.lng); save(); render(); })
+          .on('click', (ev) => { L.DomEvent.stop(ev); if (!v.free) select(k, false); else selectFree(k); });
+        m.addTo(pickLayer);
+      });
+    }
+  }
+
+  function addPoint(k, lat, lng, from) {
+    S[k] = S[k] || { pts: [] };
+    S[k].pts.push({ lat: round(lat), lng: round(lng), note: '', ...(from ? { from } : {}) });
+    save(); render();
+  }
+
+  map.on('click', (ev) => {
+    if (freeMode) {
+      const id = 'free-' + Date.now().toString(36);
+      S[id] = { free: true, title: '', pts: [] };
+      addPoint(id, ev.latlng.lat, ev.latlng.lng);
+      selectFree(id);
+      freeMode = false; document.getElementById('bFree').classList.remove('on');
+      toast('已加名單外的樹，請在左邊寫上樹種或說明');
+      return;
+    }
+    if (!sel) { toast('先在左邊選一條詞條，或按「＋名單外的樹」'); return; }
+    addPoint(sel, ev.latlng.lat, ev.latlng.lng);
+    toast(`已替「${bySlug[sel].title}」加第 ${S[sel].pts.length} 點`);
+  });
+
+  // ---- 左側清單 ----
+  const fArea = document.getElementById('fArea'), fState = document.getElementById('fState');
+  [...new Set(D.entries.map((e) => e.area))].forEach((a) => fArea.append(new Option(a, a)));
+  fArea.onchange = fState.onchange = () => render();
+
+  function select(slug, keepView) {
+    sel = slug;
+    const e = bySlug[slug];
+    const pts = [...e.seeds, ...((S[slug] || {}).pts || [])];
+    if (!keepView && pts.length) {
+      if (pts.length === 1) map.setView([pts[0].lat, pts[0].lng], 19);
+      else map.fitBounds(L.latLngBounds(pts.map((p) => [p.lat, p.lng])).pad(0.6), { maxZoom: 19 });
+    }
+    render();
+    const el = document.querySelector(`.ent[data-k="${slug}"]`);
+    if (el) el.scrollIntoView({ block: 'nearest' });
+  }
+  function selectFree(k) {
+    sel = null; render();
+    const el = document.querySelector(`.ent[data-k="${k}"]`);
+    if (el) { el.scrollIntoView({ block: 'nearest' }); el.querySelector('input')?.focus(); }
+  }
+
+  function ptsHtml(k, v, seeds) {
+    return `<ul class="pts">${(v.pts || []).map((p, i) => {
+      const d = seeds && seeds.length ? Math.min(...seeds.map((s) => dist(p, s))) : null;
+      return `<li><div class="row"><span><b>#${i + 1}</b> ${p.lat.toFixed(6)}, ${p.lng.toFixed(6)}${d !== null ? `　離種子 ${d} m` : ''}${p.from ? `　（採用${p.from}）` : ''}</span>
+        <span><button data-act="go" data-k="${k}" data-i="${i}">看</button> <button data-act="del" data-k="${k}" data-i="${i}">刪</button></span></div>
+        <input data-act="note" data-k="${k}" data-i="${i}" placeholder="備註（例如：廟前左邊那株、已經砍掉）" value="${(p.note || '').replace(/"/g, '&quot;')}"></li>`;
+    }).join('')}</ul>`;
+  }
+
+  function render() {
+    const list = document.getElementById('list');
+    const a = fArea.value, st = fState.value;
+    let html = '';
+    let done = 0;
+    for (const e of D.entries) {
+      const v = S[e.slug] || { pts: [] };
+      const n = (v.pts || []).length; if (n) done++;
+      if (a && e.area !== a) continue;
+      if (st === 'todo' && n) continue;
+      if (st === 'done' && !n) continue;
+      html += `<div class="ent${sel === e.slug ? ' sel' : ''}" data-k="${e.slug}">
+        <div class="t">${e.title}<span class="badge ${n ? 'done' : 'todo'}">${n ? '已點 ' + n : '未點'}</span></div>
+        <div class="m">${e.area}${e.nos.length ? '｜名冊 ' + e.nos.join('、') + ' 號' : ''}｜<a href="${e.url}" target="_blank" rel="noopener">詞條</a></div>
+        ${sel === e.slug ? `<div class="m" style="margin-top:4px">${e.oneLiner}</div>
+          <div class="seedl">${e.seeds.length ? '種子：' + e.seeds.map((s, i) => `<span data-act="seed" data-k="${e.slug}" data-i="${i}" title="${s.loc}">${s.src} 採用</span>`).join('') : '這條沒有登記座標，請依詞條說明在地圖上找。'}</div>
+          ${ptsHtml(e.slug, v, e.seeds)}` : ''}
+      </div>`;
+    }
+    const free = Object.entries(S).filter(([, v]) => v.free);
+    if (free.length && st !== 'todo') {
+      html += `<div class="ent" style="cursor:default"><div class="t">名單外的樹（${free.length}）</div></div>`;
+      for (const [k, v] of free) {
+        html += `<div class="ent" data-k="${k}" style="cursor:default">
+          <input data-act="title" data-k="${k}" placeholder="樹種或名稱（例如：某某宮後面的大榕樹）" value="${(v.title || '').replace(/"/g, '&quot;')}" style="width:100%;border:1px solid var(--line);border-radius:6px;padding:4px 6px">
+          ${ptsHtml(k, v, null)}
+          <button data-act="delfree" data-k="${k}" style="margin-top:4px">整筆刪除</button></div>`;
+      }
+    }
+    list.innerHTML = html;
+    document.title = `老樹待點工具（${done}/${D.entries.length}）`;
+    drawSeeds(); drawPicks();
+  }
+
+  document.getElementById('list').addEventListener('click', (ev) => {
+    const b = ev.target.closest('[data-act]');
+    if (b) {
+      const k = b.dataset.k, i = +b.dataset.i, act = b.dataset.act;
+      if (act === 'del') { S[k].pts.splice(i, 1); if (!S[k].pts.length && !S[k].free) delete S[k]; save(); render(); }
+      else if (act === 'go') { const p = S[k].pts[i]; map.setView([p.lat, p.lng], 20); }
+      else if (act === 'seed') { const s = bySlug[k].seeds[i]; addPoint(k, s.lat, s.lng, s.src); toast('已採用' + s.src); }
+      else if (act === 'delfree') { if (confirm('刪除這筆名單外的樹？')) { delete S[k]; save(); render(); } }
+      return;
+    }
+    if (ev.target.closest('a,input')) return;
+    const ent = ev.target.closest('.ent[data-k]');
+    if (ent && bySlug[ent.dataset.k]) select(ent.dataset.k, false);
+  });
+  document.getElementById('list').addEventListener('change', (ev) => {
+    const t = ev.target, k = t.dataset.k;
+    if (t.dataset.act === 'note') { S[k].pts[+t.dataset.i].note = t.value.trim(); save(); drawPicks(); }
+    if (t.dataset.act === 'title') { S[k].title = t.value.trim(); save(); drawPicks(); }
+  });
+
+  document.getElementById('bFree').onclick = (ev) => {
+    freeMode = !freeMode; ev.currentTarget.classList.toggle('on', freeMode);
+    toast(freeMode ? '在地圖上點那棵樹的位置' : '取消');
+  };
+
+  // ---- 匯出／匯入 ----
+  const dlg = document.getElementById('dlg'), dx = document.getElementById('dlgX');
+  function exportText() {
+    const out = { tool: 'tucheng-oldtree-picks', exported: new Date().toISOString(), entries: [], extra: [] };
+    for (const [k, v] of Object.entries(S)) {
+      if (!(v.pts || []).length) continue;
+      if (v.free) out.extra.push({ title: v.title || '', points: v.pts });
+      else out.entries.push({ slug: k, title: bySlug[k]?.title || k, points: v.pts });
+    }
+    return JSON.stringify(out, null, 1);
+  }
+  document.getElementById('bExport').onclick = () => {
+    document.getElementById('dlgT').textContent = '把下面整段複製貼給 Claude（或下載成檔案）';
+    dx.value = exportText(); dx.readOnly = true; document.getElementById('dlgOk').hidden = true; dlg.showModal();
+  };
+  document.getElementById('bImport').onclick = () => {
+    document.getElementById('dlgT').textContent = '貼上之前匯出的內容，按「套用匯入」（會和目前的點合併）';
+    dx.value = ''; dx.readOnly = false; document.getElementById('dlgOk').hidden = false; dlg.showModal();
+  };
+  document.getElementById('dlgCopy').onclick = async () => { try { await navigator.clipboard.writeText(dx.value); toast('已複製'); } catch { dx.select(); document.execCommand('copy'); toast('已複製'); } };
+  document.getElementById('dlgDl').onclick = () => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([dx.value], { type: 'application/json' })); a.download = `oldtree-picks-${new Date().toISOString().slice(0, 10)}.json`; a.click(); };
+  document.getElementById('dlgClose').onclick = () => dlg.close();
+  document.getElementById('dlgOk').onclick = () => {
+    try {
+      const j = JSON.parse(dx.value);
+      for (const e of j.entries || []) { S[e.slug] = S[e.slug] || { pts: [] }; for (const p of e.points) if (!S[e.slug].pts.some((q) => q.lat === p.lat && q.lng === p.lng)) S[e.slug].pts.push(p); }
+      for (const x of j.extra || []) S['free-' + Math.random().toString(36).slice(2, 8)] = { free: true, title: x.title, pts: x.points };
+      save(); render(); dlg.close(); toast('已匯入');
+    } catch (err) { alert('看不懂這段內容：' + err.message); }
+  };
+
+  render();
+  const sum = D.entries.reduce((n, e) => n + e.seeds.length, 0);
+  if (sum) map.fitBounds(L.latLngBounds(D.entries.flatMap((e) => e.seeds.map((s) => [s.lat, s.lng]))).pad(0.05));
+})();
+</script>
+</body></html>

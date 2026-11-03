@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>老樹點位總覽</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--bg:#fbf8f1;--card:#fff;--ink:#222;--mute:#6b6458;--line:#e6dfd0;--acc:#1f8a8a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,"PingFang TC","Noto Sans TC",sans-serif}
+main{max-width:1000px;margin:0 auto;padding:16px}h1{font-size:1.4rem;margin:.2em 0}h2{font-size:1.08rem;margin:1.4em 0 .4em;border-bottom:2px solid var(--line);padding-bottom:4px}
+.sub{color:var(--mute);font-size:.9rem}a{color:var(--acc)}
+#map{height:62vh;min-height:360px;border:1px solid var(--line);border-radius:12px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.85rem;color:var(--mute);margin:8px 0}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-1px;margin-right:4px}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px 12px;font-size:.9rem}
+.stat b{font-size:1.15rem}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:.88rem}
+th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f3eedf;font-weight:600}
+tr:hover td{background:#faf6ec;cursor:pointer}
+.tag{font-size:.75rem;border:1px solid var(--line);border-radius:999px;padding:0 6px;white-space:nowrap}
+.tag.reg{border-color:#1f8a8a;color:#1f8a8a}.tag.life{border-color:#e0a21b;color:#9a6c0a}.tag.none{border-color:#b8501f;color:#b8501f}
+.scroll{overflow-x:auto}
+</style></head><body><main>
+<h1>老樹點位總覽</h1>
+<p class="sub">土城站上已有地圖點位的老樹，以及這次新建詞條的老樹（西港、佳里、學甲、麻豆、北門、七股）在官方名冊與老樹報報登記的座標。要實地校正位置請用<a href="2026-11-03_老樹待點工具.html">老樹待點工具</a>。<a href="../index.html">交接首頁</a></p>
+
+<div class="stats" id="stats"></div>
+<div class="legend">
+  <span><i class="dot" style="background:#2e7d32"></i>站上已定位（9.9 土城的老樹）</span>
+  <span><i class="dot" style="background:#1f8a8a"></i>新詞條：臺南市珍貴樹木名冊座標</span>
+  <span><i class="dot" style="background:#e0a21b"></i>新詞條：老樹報報民間通報座標</span>
+</div>
+<div id="map"></div>
+
+<h2>新建老樹詞條（依區）</h2>
+<p class="sub">點一列，地圖會移到那裡。「座標來源」寫的是種子座標的出處，還沒有實地確認。</p>
+<div class="scroll"><table id="tNew"><thead><tr><th>區</th><th>詞條</th><th>名冊編號</th><th>座標來源</th><th>登記地點</th></tr></thead><tbody></tbody></table></div>
+
+<h2>站上已定位的老樹</h2>
+<div class="scroll"><table id="tDone"><thead><tr><th>編號</th><th>名稱</th><th>樹種</th><th>里</th><th>狀態</th></tr></thead><tbody></tbody></table></div>
+<p class="sub" id="built"></p>
+</main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="oldtree-data.js"></script>
+<script>
+(() => {
+  const D = window.OLDTREE_DATA;
+  const map = L.map('map', { maxZoom: 21 });
+  const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 21, maxNativeZoom: 19, attribution: '© OpenStreetMap contributors' }).addTo(map);
+  const sat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 21, maxNativeZoom: 19, attribution: 'Imagery © Esri, Maxar, Earthstar Geographics' });
+  const emap = L.tileLayer('https://wmts.nlsc.gov.tw/wmts/EMAP/default/GoogleMapsCompatible/{z}/{y}/{x}', { maxZoom: 21, maxNativeZoom: 20, attribution: '臺灣通用電子地圖 © 內政部國土測繪中心' });
+  L.control.layers({ 'OpenStreetMap': osm, '衛星（Esri）': sat, '電子地圖（國土測繪中心）': emap }).addTo(map);
+  L.control.scale({ imperial: false }).addTo(map);
+  const all = [];
+  const STATUS = { registered: '已登錄', unregistered: '未登錄', gone: '已消失', planted: '新植' };
+  for (const p of D.done) {
+    all.push([p.lat, p.lng]);
+    L.circleMarker([p.lat, p.lng], { radius: 6, color: '#fff', weight: 1.5, fillColor: '#2e7d32', fillOpacity: .95 })
+      .bindPopup(`<b>${p.name}</b><br>${p.species || ''}｜${p.village || ''}｜${STATUS[p.status] || p.status}`).addTo(map);
+  }
+  const markers = {};
+  for (const e of D.entries) {
+    markers[e.slug] = [];
+    for (const s of e.seeds) {
+      all.push([s.lat, s.lng]);
+      const m = L.circleMarker([s.lat, s.lng], { radius: 6, color: '#fff', weight: 1.5, fillColor: s.kind === 'registry' ? '#1f8a8a' : '#e0a21b', fillOpacity: .95 })
+        .bindPopup(`<b>${e.title}</b><br>${s.src}${s.loc ? '｜' + s.loc : ''}${s.girth ? `<br>胸圍 ${s.girth} m` : ''}${s.age ? `｜樹齡約 ${s.age} 年` : ''}<br><a href="${e.url}" target="_blank" rel="noopener">看詞條</a>`).addTo(map);
+      markers[e.slug].push(m);
+    }
+  }
+  map.fitBounds(L.latLngBounds(all).pad(0.05));
+
+  const reg = D.entries.filter((e) => e.seeds.some((s) => s.kind === 'registry')).length;
+  const none = D.entries.filter((e) => !e.seeds.length).length;
+  document.getElementById('stats').innerHTML = [
+    ['站上已定位', D.done.length], ['新老樹詞條', D.entries.length], ['有名冊座標', reg], ['只有民間通報座標', D.entries.length - reg - none], ['沒有座標', none],
+  ].map(([k, v]) => `<span class="stat">${k} <b>${v}</b></span>`).join('');
+
+  const tb = document.querySelector('#tNew tbody');
+  const order = ['西港', '佳里', '學甲', '麻豆', '北門', '七股'];
+  for (const e of [...D.entries].sort((a, b) => order.indexOf(a.area) - order.indexOf(b.area) || a.title.localeCompare(b.title, 'zh-Hant'))) {
+    const kinds = [...new Set(e.seeds.map((s) => s.kind))];
+    const tag = !kinds.length ? '<span class="tag none">沒有座標</span>' : kinds.map((k) => `<span class="tag ${k === 'registry' ? 'reg' : 'life'}">${k === 'registry' ? '名冊' : '老樹報報'}</span>`).join(' ') + ` ${e.seeds.length} 點`;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${e.area}</td><td><a href="${e.url}" target="_blank" rel="noopener">${e.title}</a></td><td>${e.nos.join('、') || '—'}</td><td>${tag}</td><td>${[...new Set(e.seeds.map((s) => s.loc).filter(Boolean))].join('；') || '—'}</td>`;
+    tr.onclick = (ev) => { if (ev.target.closest('a')) return; const ms = markers[e.slug]; if (!ms.length) return; map.fitBounds(L.latLngBounds(ms.map((m) => m.getLatLng())).pad(0.5), { maxZoom: 18 }); ms[0].openPopup(); document.getElementById('map').scrollIntoView({ behavior: 'smooth' }); };
+    tb.append(tr);
+  }
+  const td = document.querySelector('#tDone tbody');
+  for (const p of D.done) {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${p.id}</td><td>${p.name}</td><td>${p.species || ''}</td><td>${p.village || ''}</td><td>${STATUS[p.status] || p.status || ''}</td>`;
+    tr.onclick = () => { map.setView([p.lat, p.lng], 18); document.getElementById('map').scrollIntoView({ behavior: 'smooth' }); };
+    td.append(tr);
+  }
+  document.getElementById('built').textContent = `資料產生日 ${D.built}。座標來源：臺南市政府農業局珍貴樹木網（列管名冊）、農業部林業試驗所老樹報報；地點描述已去掉門牌。`;
+})();
+</script>
+</body></html>
