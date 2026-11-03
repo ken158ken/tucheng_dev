@@ -45,16 +45,15 @@ dialog textarea{width:100%;height:46vh;font:12px/1.4 ui-monospace,monospace}
   <div id="side">
     <div class="tools">
       <select id="fArea" aria-label="依區篩選"><option value="">全部區</option></select>
-      <select id="fState" aria-label="依進度篩選"><option value="">全部</option><option value="todo">未點</option><option value="done">已點</option></select>
+      <select id="fState" aria-label="依進度篩選"><option value="">全部</option><option value="todo">還沒處理</option><option value="done">已處理</option></select>
       <button id="bFree" title="在地圖上點出名單以外的樹">＋名單外的樹</button>
       <button id="bExport" class="pri">匯出給 Claude</button>
       <button id="bImport">匯入</button>
     </div>
     <div id="help">
       <ol>
-        <li>點左邊一條詞條，地圖會飛到它的種子（黃色虛線圈：名冊或老樹報報登記的座標，可能偏差數公尺到數十公尺）。</li>
-        <li>在衛星圖上點樹冠中心，就會替這條詞條加一個點；同一條可以點好幾株。點可以拖曳，也可以按「刪」。</li>
-        <li>種子位置剛好正確時，按種子標籤「採用」就直接記下。</li>
+        <li>清單分兩區。「待點」是還沒有座標的詞條：點一條，在衛星圖上點樹冠中心，就替它加一個點；同一條可以點好幾株，點可以拖曳或刪除。</li>
+        <li>「已有經緯度」的詞條不必再點（黃色虛線圈是名冊或老樹報報登記的座標）。如果這棵樹在 Google 地圖上有地標，把地標網址或名稱貼進欄位；查過沒有就勾「沒有地標」。座標明顯不對時，仍可以在圖上加點修正。</li>
         <li>附近看到名單外的老樹，按「＋名單外的樹」再點地圖，寫上樹種或說明。</li>
         <li>點過的東西自動存在這台裝置的瀏覽器裡；換裝置前先「匯出」。做完按「匯出給 Claude」，把內容貼回對話。</li>
       </ol>
@@ -190,19 +189,28 @@ dialog textarea{width:100%;height:46vh;font:12px/1.4 ui-monospace,monospace}
     const a = fArea.value, st = fState.value;
     let html = '';
     let done = 0;
-    for (const e of D.entries) {
+    const isDone = (e, v) => (e.seeds.length ? !!(v.gmap || v.nogmap) : (v.pts || []).length > 0);
+    const groups = [['待點（還沒有座標）', D.entries.filter((e) => !e.seeds.length)], ['已有經緯度・待填 Google 地圖地標（如有）', D.entries.filter((e) => e.seeds.length)]];
+    for (const [gname, ents] of groups) {
+      const shown = ents.filter((e) => { const v = S[e.slug] || {}; const d = isDone(e, v); return (!a || e.area === a) && !(st === 'todo' && d) && !(st === 'done' && !d); });
+      html += `<div class="ent" style="cursor:default;background:#f3eedf"><div class="t">${gname}（${ents.filter((e) => isDone(e, S[e.slug] || {})).length}/${ents.length}）</div></div>`;
+    for (const e of shown) {
       const v = S[e.slug] || { pts: [] };
-      const n = (v.pts || []).length; if (n) done++;
-      if (a && e.area !== a) continue;
-      if (st === 'todo' && n) continue;
-      if (st === 'done' && !n) continue;
+      const n = (v.pts || []).length; if (isDone(e, v)) done++;
+      const badge = e.seeds.length
+        ? (v.gmap ? '<span class="badge done">已填地標</span>' : v.nogmap ? '<span class="badge done">沒有地標</span>' : '<span class="badge todo">待填地標</span>') + (n ? `<span class="badge">加點 ${n}</span>` : '')
+        : `<span class="badge ${n ? 'done' : 'todo'}">${n ? '已點 ' + n : '未點'}</span>`;
       html += `<div class="ent${sel === e.slug ? ' sel' : ''}" data-k="${e.slug}">
-        <div class="t">${e.title}<span class="badge ${n ? 'done' : 'todo'}">${n ? '已點 ' + n : '未點'}</span></div>
+        <div class="t">${e.title}${badge}</div>
         <div class="m">${e.area}${e.nos.length ? '｜名冊 ' + e.nos.join('、') + ' 號' : ''}｜<a href="${e.url}" target="_blank" rel="noopener">詞條</a></div>
         ${sel === e.slug ? `<div class="m" style="margin-top:4px">${e.oneLiner}</div>
           <div class="seedl">${e.seeds.length ? '種子：' + e.seeds.map((s, i) => `<span data-act="seed" data-k="${e.slug}" data-i="${i}" title="${s.loc}">${s.src} 採用</span>`).join('') : '這條沒有登記座標，請依詞條說明在地圖上找。'}</div>
+          ${e.seeds.length ? `<div style="margin-top:6px"><input data-act="gmap" data-k="${e.slug}" placeholder="Google 地圖地標網址或名稱（沒有就留空）" value="${(v.gmap || '').replace(/"/g, '&quot;')}" style="width:100%;border:1px solid var(--line);border-radius:6px;padding:4px 6px">
+            <label style="font-size:.82rem;display:inline-flex;gap:4px;align-items:center;margin-top:4px"><input type="checkbox" data-act="nogmap" data-k="${e.slug}" ${v.nogmap ? 'checked' : ''}>查過，Google 地圖上沒有地標</label>
+            <a style="font-size:.82rem;margin-left:8px" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${e.seeds[0].lat},${e.seeds[0].lng}">在 Google 地圖開這個位置</a></div>` : ''}
           ${ptsHtml(e.slug, v, e.seeds)}` : ''}
       </div>`;
+    }
     }
     const free = Object.entries(S).filter(([, v]) => v.free);
     if (free.length && st !== 'todo') {
@@ -223,7 +231,7 @@ dialog textarea{width:100%;height:46vh;font:12px/1.4 ui-monospace,monospace}
     const b = ev.target.closest('[data-act]');
     if (b) {
       const k = b.dataset.k, i = +b.dataset.i, act = b.dataset.act;
-      if (act === 'del') { S[k].pts.splice(i, 1); if (!S[k].pts.length && !S[k].free) delete S[k]; save(); render(); }
+      if (act === 'del') { S[k].pts.splice(i, 1); if (!S[k].pts.length && !S[k].free && !S[k].gmap && !S[k].nogmap) delete S[k]; save(); render(); }
       else if (act === 'go') { const p = S[k].pts[i]; map.setView([p.lat, p.lng], 20); }
       else if (act === 'seed') { const s = bySlug[k].seeds[i]; addPoint(k, s.lat, s.lng, s.src); toast('已採用' + s.src); }
       else if (act === 'delfree') { if (confirm('刪除這筆名單外的樹？')) { delete S[k]; save(); render(); } }
@@ -236,6 +244,8 @@ dialog textarea{width:100%;height:46vh;font:12px/1.4 ui-monospace,monospace}
   document.getElementById('list').addEventListener('change', (ev) => {
     const t = ev.target, k = t.dataset.k;
     if (t.dataset.act === 'note') { S[k].pts[+t.dataset.i].note = t.value.trim(); save(); drawPicks(); }
+    if (t.dataset.act === 'gmap') { S[k] = S[k] || { pts: [] }; S[k].gmap = t.value.trim(); save(); render(); }
+    if (t.dataset.act === 'nogmap') { S[k] = S[k] || { pts: [] }; S[k].nogmap = t.checked; save(); render(); }
     if (t.dataset.act === 'title') { S[k].title = t.value.trim(); save(); drawPicks(); }
   });
 
@@ -249,9 +259,9 @@ dialog textarea{width:100%;height:46vh;font:12px/1.4 ui-monospace,monospace}
   function exportText() {
     const out = { tool: 'tucheng-oldtree-picks', exported: new Date().toISOString(), entries: [], extra: [] };
     for (const [k, v] of Object.entries(S)) {
-      if (!(v.pts || []).length) continue;
+      if (!(v.pts || []).length && !v.gmap && !v.nogmap) continue;
       if (v.free) out.extra.push({ title: v.title || '', points: v.pts });
-      else out.entries.push({ slug: k, title: bySlug[k]?.title || k, points: v.pts });
+      else out.entries.push({ slug: k, title: bySlug[k]?.title || k, points: v.pts || [], ...(v.gmap ? { gmap: v.gmap } : {}), ...(v.nogmap ? { nogmap: true } : {}) });
     }
     return JSON.stringify(out, null, 1);
   }
@@ -269,7 +279,7 @@ dialog textarea{width:100%;height:46vh;font:12px/1.4 ui-monospace,monospace}
   document.getElementById('dlgOk').onclick = () => {
     try {
       const j = JSON.parse(dx.value);
-      for (const e of j.entries || []) { S[e.slug] = S[e.slug] || { pts: [] }; for (const p of e.points) if (!S[e.slug].pts.some((q) => q.lat === p.lat && q.lng === p.lng)) S[e.slug].pts.push(p); }
+      for (const e of j.entries || []) { S[e.slug] = S[e.slug] || { pts: [] }; if (e.gmap) S[e.slug].gmap = e.gmap; if (e.nogmap) S[e.slug].nogmap = true; for (const p of e.points || []) if (!S[e.slug].pts.some((q) => q.lat === p.lat && q.lng === p.lng)) S[e.slug].pts.push(p); }
       for (const x of j.extra || []) S['free-' + Math.random().toString(36).slice(2, 8)] = { free: true, title: x.title, pts: x.points };
       save(); render(); dlg.close(); toast('已匯入');
     } catch (err) { alert('看不懂這段內容：' + err.message); }
