@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>台江官網人工抓取清單</title><style>
+:root{--bg:#fbf8f1;--card:#fff;--ink:#222;--mute:#6b6458;--line:#e6dfd0;--acc:#1f8a8a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,"PingFang TC","Noto Sans TC",sans-serif}
+main{max-width:860px;margin:0 auto;padding:16px}h1{font-size:1.4rem;margin:.2em 0}h2{font-size:1.1rem;margin:1.6em 0 .4em;border-bottom:2px solid var(--line);padding-bottom:4px}
+.sub{color:var(--mute);font-size:.9rem}.box{background:#f3eedf;border-radius:10px;padding:10px 14px;margin:10px 0}
+ol{padding-left:1.3em}ol ol{margin:.2em 0}a{color:var(--acc);overflow-wrap:anywhere}
+.it{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:10px 0;display:flex;gap:10px;align-items:flex-start}
+.it input{margin-top:.45em;width:18px;height:18px;flex:none}.it h3{margin:0;font-size:1rem}.it p{margin:.2em 0;font-size:.92rem}
+.tag{display:inline-block;border-radius:6px;padding:0 6px;font-size:.78rem;margin-left:4px;background:#e5ecf3;color:#3b5a78}
+.done .it h3{text-decoration:none}.it.ck{opacity:.55}
+</style></head><body><main>
+<h1>台江國家公園官網：需人工處理清單</h1>
+<p class="sub">更新：2026-11-07。台江國家公園全球資訊網（tjnp.gov.tw）整站 237 個選單節點的文字資料已自動抓下並上站；這裡列的是程式抓不到、或要本人申請的部分。勾選會存在這台裝置。</p>
+
+<div class="box"><strong>已經自動處理、不用動手的</strong><ol>
+<li>全部單篇文章、各類列表與詳細頁（最新消息、大事紀 1,002 筆、台江小百科、出版品、研究報告、雙語辭彙等）。</li>
+<li>「歷史新聞」就是最新消息同一份列表（回溯到 2014 年 1 月），已抓。</li>
+<li>電子書 12 本：11 本是 PDF；翻頁版《尋訪台江古早味》背後也有完整 PDF，都已下載。</li>
+<li>2014 年以前的舊站內容：網際網路檔案館有存檔，之後慢慢抓，不用人工。</li>
+</ol></div>
+
+<h2>一、要本人查詢或申請的系統</h2>
+<label class="it"><input type="checkbox" data-k="a1"><div><h3>檔案查詢網：查公文目錄<span class="tag">最值得做</span></h3>
+<p>機關檔案目錄查詢網 <a href="https://near.archives.gov.tw/">near.archives.gov.tw</a>、國家檔案資訊網 <a href="https://aa.archives.gov.tw/">aa.archives.gov.tw</a>、檔案資訊整合查詢平台 <a href="https://across.archives.gov.tw/naahyint/search.jsp">across.archives.gov.tw</a>。</p>
+<p>關鍵字：台江國家公園管理處、鹿耳門、土城、城西、放流、放生。</p>
+<p>優先找：105 年 8 月 11 日台江處函（禁止密宗山大圓滿廟在鹿耳門溪口放流魚苗）、臺南市政府的回覆、105 年 11 月禁止事項第四點修正前後條文。看到想要的公文可申請閱覽或複製（官網「檔案應用專區」有申請書與流程）。</p></div></label>
+<label class="it"><input type="checkbox" data-k="a2"><div><h3>地理圖資整合查詢：截圖或匯出圖層</h3>
+<p><a href="https://mapasp.tjnp.gov.tw/MAP/">mapasp.tjnp.gov.tw/MAP</a>：國家公園分區、地籍、各種圖層，只能在網頁上查詢。</p>
+<p>想要的：土城、城西、鹿耳門溪口、四草一帶的分區圖與保護區界線。截圖或匯出後給 Claude。</p></div></label>
+
+<h2>二、影音</h2>
+<label class="it"><input type="checkbox" data-k="b1"><div><h3>視聽專區 101 部影片：挑要聽寫的</h3>
+<p><a href="https://www.tjnp.gov.tw/ch/mediacenter/audio-video-zone">官網視聽專區</a>：標題與 YouTube 連結已抓，影片內容沒有逐字稿。挑出想收的影片告訴 Claude，再派 Gemini 聽寫。</p></div></label>
+
+<h2>三、紙本與現場</h2>
+<label class="it"><input type="checkbox" data-k="c1"><div><h3>沒有線上全文的出版品</h3>
+<p><a href="https://www.tjnp.gov.tw/ch/publication/publications-list">出版品一覽表</a> 47 種中約一半只有書目。可到遊客中心、國家書店、五南購買，或到圖書館借閱翻拍。站上已為每本開了書目詞條。</p></div></label>
+<label class="it"><input type="checkbox" data-k="c2"><div><h3>展館展板</h3>
+<p>安順吉鹽故事館、黑琵展示館、台江遊客中心的展示文字，官網只有簡介，要現場拍。</p></div></label>
+
+<h2>四、實地閒聊可以問的（放流案）</h2>
+<label class="it"><input type="checkbox" data-k="d1"><div><h3>2016 年鹿耳門溪口放流魚苗案</h3>
+<p>網路上只有台江處大事紀一句，沒有新聞與廟方說法。可以問：</p>
+<ol><li>當年廟方最後有沒有在鹿耳門溪口放流，或改到別處？</li>
+<li>申請放的是什麼魚、多少？</li>
+<li>平常在鹿耳門溪、四草、七股有沒有看過放生，是哪些團體？</li></ol>
+<p>站上詞條：<a href="https://tucheng.kenlab.org/wiki/luermen-estuary-fish-release-2016/">2016 鹿耳門溪口放流魚苗案</a>。</p></div></label>
+
+<h2>五、PDF 下載失敗的檔案</h2>
+<p class="sub">官網研究報告與出版品的 PDF 正在背景慢慢下載，跑完後把失敗的補列在這裡。</p>
+</main>
+<script>
+document.querySelectorAll('input[data-k]').forEach(function(c){var k='tjnp-manual-'+c.dataset.k;try{c.checked=localStorage.getItem(k)==='1'}catch(e){}
+var s=function(){c.closest('.it').classList.toggle('ck',c.checked)};s();c.addEventListener('change',function(){try{localStorage.setItem(k,c.checked?'1':'0')}catch(e){}s()})});
+</script></body></html>
