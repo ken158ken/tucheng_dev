@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>台語版規劃</title><style>
+:root{--bg:#fbf8f1;--card:#fff;--ink:#222;--mute:#6b6458;--line:#e6dfd0;--acc:#1f8a8a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,"PingFang TC","Noto Sans TC",sans-serif}
+main{max-width:860px;margin:0 auto;padding:16px}h1{font-size:1.4rem;margin:.2em 0}h2{font-size:1.1rem;margin:1.6em 0 .4em;border-bottom:2px solid var(--line);padding-bottom:4px}
+.sub{color:var(--mute);font-size:.9rem}.box{background:#f3eedf;border-radius:10px;padding:10px 14px;margin:10px 0}
+ol{padding-left:1.3em}ol ol{margin:.2em 0}a{color:var(--acc);overflow-wrap:anywhere}
+.ph{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:12px 0}
+.ph h3{margin:0 0 .2em;font-size:1.02rem}.b{display:inline-block;border-radius:6px;padding:0 6px;font-size:.78rem;margin-left:6px;background:#e3f2e5;color:#2e7d32}
+.b.w{background:#fff1d6;color:#8a5a00}.b.n{background:#e5ecf3;color:#3b5a78}
+table{border-collapse:collapse;width:100%;font-size:.88rem;margin:.4em 0}td,th{border:1px solid var(--line);padding:4px 6px;text-align:left;vertical-align:top}th{background:#f3eedf}
+.tw{overflow-x:auto}
+</style></head><body><main>
+<h1>台語版規劃</h1>
+<p class="sub">更新：2026-11-07。作者定調：只用免費方案，做到極致；作者不自己錄音（太花時間），但會抽查聽、讀。</p>
+
+<div class="box"><strong>原則</strong><ol>
+<li>真人錄音優先：教育部辭典有錄音的詞，一律播真人錄音。</li>
+<li>合成語音只補辭典沒有的部分，頁面上標明「AI 合成台語」。</li>
+<li>文字用教育部推薦用字＋台羅拼音（和辭典一致）；漢字、台羅可切換或上下對照。</li>
+<li>全部在建置時先產生，網站本身不呼叫任何外部服務，也沒有費用。</li>
+<li>AI 翻成台語的文字標「AI 譯，待校」；作者抽查改過的才拿掉標記。</li>
+</ol></div>
+
+<h2>可用的免費資源</h2>
+<div class="tw"><table>
+<tr><th>資源</th><th>用途</th><th>授權與限制</th></tr>
+<tr><td><a href="https://sutian.moe.edu.tw/zh-hant/siongkuantsuguan/">教育部《臺灣台語常用詞辭典》開放資料</a>：文字（kautian.ods）、詞條錄音、例句錄音</td><td>詞的台羅、推薦用字、真人發音</td><td>創用 CC 姓名標示－禁止改作：可原樣播放、標示出處；音檔不能剪接修改</td></tr>
+<tr><td>站上專有名詞對照表已有 136 條台羅（出自同一本辭典與台江國家公園委託的地名調查）</td><td>地名、物種的台語名</td><td>已標出處</td></tr>
+<tr><td>台江國家公園地名調查報告（2017 南區、2018 北區）、《行踏台江，地號名講古》</td><td>土城一帶地名的在地台語讀音（台羅）</td><td>只引用讀音與出處</td></tr>
+<tr><td><a href="https://github.com/i3thuan5">意傳科技開源工具</a>（臺灣言語工具、鬥拍字）</td><td>斷詞、台羅與漢字互轉、標音</td><td>MIT，可在本機跑</td></tr>
+<tr><td>開源台語語音合成模型：意傳「媠聲」語料訓練的模型、<a href="https://huggingface.co/KaedeTai/gpt-sovits-tw">gpt-sovits-tw</a>、<a href="https://huggingface.co/facebook/mms-tts-nan">facebook/mms-tts-nan</a></td><td>辭典沒有的句子產生語音</td><td>各自授權要逐一確認（mms 為非商業）；在本機 GPU 跑，與 OCR 錯開時段</td></tr>
+</table></div>
+
+<h2>分階段</h2>
+<div class="ph"><h3>第 0 階段：資料準備<span class="b">進行中</span></h3><ol>
+<li>下載教育部辭典文字與全部錄音（已開始）。</li>
+<li>建本機對照表：漢字 → 台羅 → 錄音檔；比對站上 3,000 多條詞條名稱、別名與名詞表，算出有真人錄音的比例。</li>
+<li>從兩份地名調查報告抽出土城一帶地名的台羅，補進名詞表。</li></ol></div>
+
+<div class="ph"><h3>第 1 階段：名詞台語讀音<span class="b n">下一步</span></h3><ol>
+<li>詞條頁標題旁顯示台語名（漢字＋台羅）；辭典有錄音的加播放鍵，播教育部真人錄音。</li>
+<li>專有名詞對照表的「台語」欄同樣可播放。</li>
+<li>頁尾標示錄音出處與授權。</li>
+<li>預期涵蓋：一般名詞、神明、常見物種多半有錄音；在地地名、人名、廟名多半沒有，先只顯示台羅。</li></ol></div>
+
+<div class="ph"><h3>第 2 階段：介面與重點文字台語化<span class="b n">之後</span></h3><ol>
+<li>網站介面（選單、按鈕、分類名）出台語版，約幾百個短詞，作者一次看完。</li>
+<li>每個詞條的一句話介紹（oneLiner）譯成台語漢字＋台羅：AI 翻譯 → 意傳工具標音 → 辭典用字校正 → 標「AI 譯，待校」。</li>
+<li>網址 /nan/，跟英文版一樣在建置時產生；沒有台語譯文的段落顯示華語原文。</li></ol></div>
+
+<div class="ph"><h3>第 3 階段：台語語音朗讀<span class="b w">要先試聽</span></h3><ol>
+<li>三個開源模型各合成同一組 20 句（含土城地名、廟名、連讀變調多的句子），作者盲聽挑一個，或判定都不夠好就停在第 2 階段。</li>
+<li>選定後在本機 GPU 批次產生 oneLiner 的語音，存成 mp3 隨網站部署；有辭典錄音的詞改用真人錄音。</li>
+<li>播放器標「AI 合成台語」。</li></ol></div>
+
+<div class="ph"><h3>第 4 階段：完整台語報導<span class="b n">視第 2、3 階段品質</span></h3><ol>
+<li>挑幾篇故事頁（例如土城香、鹿耳門）全文台語化，請作者抽讀。</li>
+<li>品質可以才擴大到其他頁。</li></ol></div>
+
+<h2>需要作者決定的</h2>
+<ol>
+<li>拼音用台羅（教育部標準，預設）還是白話字？</li>
+<li>第 3 階段試聽時，請撥 20 分鐘盲聽三組合成語音。</li>
+</ol>
+</main></body></html>
