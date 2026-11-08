@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>回土城拍碑清單</title><style>
+:root{--bg:#fbf8f1;--card:#fff;--ink:#222;--mute:#6b6458;--line:#e6dfd0;--acc:#1f8a8a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,"PingFang TC","Noto Sans TC",sans-serif}
+main{max-width:860px;margin:0 auto;padding:16px}h1{font-size:1.4rem;margin:.2em 0}h2{font-size:1.1rem;margin:1.6em 0 .4em;border-bottom:2px solid var(--line);padding-bottom:4px}
+.sub{color:var(--mute);font-size:.9rem}.box{background:#f3eedf;border-radius:10px;padding:10px 14px;margin:10px 0}
+ol{padding-left:1.3em}ol ol{margin:.2em 0}a{color:var(--acc);overflow-wrap:anywhere}
+.it{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:10px 0;display:flex;gap:10px;align-items:flex-start}
+.it input{margin-top:.45em;width:18px;height:18px;flex:none}.it h3{margin:0;font-size:1rem}.it p{margin:.2em 0;font-size:.92rem}
+.tag{display:inline-block;border-radius:6px;padding:0 6px;font-size:.78rem;margin-left:4px;background:#e5ecf3;color:#3b5a78}
+.it.ck{opacity:.55}
+</style></head><body><main>
+<h1>回土城拍碑清單</h1>
+<p class="sub">更新：2026-11-08。翻拍《台灣之門 鹿耳門》（鹿耳門天后宮官方手冊）時，書上的碑文照片有幾處字看不清，或和書中正文不一致。作者回土城時順路拍各廟的紀念碑、碑記，跟書上的照片互相對照。勾選會存在這台裝置。</p>
+
+<div class="box"><strong>拍法建議</strong><ol>
+<li>每塊碑先拍一張全景（含碑座、周邊，知道在哪），再由上往下分段近拍，每段重疊一點。</li>
+<li>陽光直射時刻痕反而看不清：陰天、早上或傍晚的斜光最好；也可以用身體擋住直射光再拍。</li>
+<li>刻字很淺時，同一段從左、右兩個斜角各拍一張，陰影方向不同，比較容易讀出字。</li>
+<li>不用拍得完美：書上的照片和現場照片互補，兩邊合起來能讀出的字就夠了。</li>
+<li>不要描字、拓印或碰觸碑面。</li>
+</ol></div>
+
+<h2>一、鹿耳門天后宮（書上有、要對照的）</h2>
+<label class="it"><input type="checkbox" data-k="s1"><div><h3>鄭成功登陸地點紀念碑<span class="tag">優先</span></h3>
+<p>書 p.3 正文印的里長名字是「林天宋」，但書上碑面照片看起來像「林天沃」，兩者不一致。人名要以碑面為準，請拍清楚落款與立碑者署名（書上照片的第 1 行行首與最後一行被裁掉）。</p></div></label>
+<label class="it"><input type="checkbox" data-k="s2"><div><h3>重興天后宮碑記</h3>
+<p>書 p.16，行楷碑文。看不清的字：「石□美号」（疑「暘」）、「□郊金義成」（疑「簸」）、「分府配□館」（「運」或「迎」）、「臺郡□油車」（疑「泉」）。這四處請近拍。</p></div></label>
+<label class="it"><input type="checkbox" data-k="s3"><div><h3>重建台陽鹿耳門天后宮碑記、甲子年四十九天祈安羅天大醮碑誌</h3>
+<p>書上有碑文印刷版；拍現場碑面，用來核對書上的轉錄與落款人名。</p></div></label>
+<label class="it"><input type="checkbox" data-k="s4"><div><h3>廟內其他碑、匾、捐獻芳名碑</h3>
+<p>看到有年代、人名、地名的都拍。芳名碑可以只拍全景加分段，不必每個名字特寫。</p></div></label>
+
+<h2>二、其他廟（看到就拍）</h2>
+<label class="it"><input type="checkbox" data-k="s5"><div><h3>正統鹿耳門聖母廟</h3><p>建廟碑記、沿革碑、各殿落成碑、紀念碑。</p></div></label>
+<label class="it"><input type="checkbox" data-k="s6"><div><h3>土城、城西、顯宮、鹿耳、四草一帶的廟</h3><p>沿革碑、重建碑、捐獻碑；有年代的石柱、石獅落款也可以拍。</p></div></label>
+
+<h2>拍完之後</h2>
+<p>照片放 雜資料佔存 底下一個新資料夾（例如 實地拍碑/日期），每座廟一個子資料夾，跟 Claude 說一聲就好。Claude 會和書上的碑文照片逐字對照，人名以碑面為準。</p>
+</main>
+<script>
+document.querySelectorAll('input[data-k]').forEach(function(c){var k='tc-stele-'+c.dataset.k;try{c.checked=localStorage.getItem(k)==='1'}catch(e){}
+var s=function(){c.closest('.it').classList.toggle('ck',c.checked)};s();c.addEventListener('change',function(){try{localStorage.setItem(k,c.checked?'1':'0')}catch(e){}s()})});
+</script></body></html>
