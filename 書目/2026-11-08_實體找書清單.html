@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>實體找書清單</title>
+<title>找書與補拍</title>
 <style>:root{--bg:#fbf8f1;--card:#fff;--ink:#222;--muted:#6b6458;--line:#e6dfd0;--accent:#1f8a8a;--soft:#e4f1f0;--ok:#2e7d4f;--oksoft:#e3f1e8;--warn:#8a5a00;--warnsoft:#fff1d6;--no:#b3261e;--nosoft:#f6dede}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;overflow-wrap:anywhere}
@@ -45,29 +45,755 @@ ol.ph>li{background:var(--card);border:1px solid var(--line);border-radius:10px;
 .progress{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:9px 14px;font-size:.93rem;display:flex;justify-content:space-between;align-items:center;gap:10px}
 .progress button{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:6px 10px;font-size:.88rem}
 </style>
-<style>.card .title .pri{margin-left:4px;white-space:nowrap}.card .call{font-size:1.05rem}.card .loc{margin:3px 0}.card .small code{font-size:.85em}.pri.p2{border:0;padding:0;margin:0 0 0 4px;font-size:.95rem}.rp{border-collapse:collapse;font-size:.86rem;width:100%}.rp th,.rp td{border:1px solid var(--line);padding:3px 6px;text-align:left;vertical-align:top}.rp th{background:#f3eedf}.rp code{font-size:.8em}</style></head><body><div class="wrap">
-<header><h1>實體找書清單</h1>
-<p class="sub">更新：2026-11-08（2026-11-13 補維基化收尾項目；2026-11-14 對帳：熱蘭遮城日誌第 6～10 冊移到已翻拍、補拍清單加第 9 冊）。國圖在上、國臺圖在下；每筆只列書名、索書號、位置、推薦星號。在架狀態是 10/31～11/01 查的，現場以館內系統為準，索書號不會變。<a href="../index.html">回交接網頁首頁</a></p></header>
-<nav class="jump"><a href="#rephoto">補拍</a><a href="#ncl">國圖 77</a><a href="#ntl">國臺圖 35</a><a href="#oth">其他 11</a><a href="#done">已翻拍</a><a href="#appx">規則・要帶的</a></nav>
+<style>.card .title .pri{margin-left:4px;white-space:nowrap}.card .call{font-size:1.05rem}.card .loc{margin:3px 0}.card .small code{font-size:.85em}.pri.p2{border:0;padding:0;margin:0 0 0 4px;font-size:.95rem}.rp{border-collapse:collapse;font-size:.86rem;width:100%}.rp th,.rp td{border:1px solid var(--line);padding:3px 6px;text-align:left;vertical-align:top}.rp th{background:#f3eedf}.rp code{font-size:.8em}.no{display:inline-block;min-width:2.6em;color:var(--accent);font-weight:800}.call.none{background:#eee;border-color:#999;color:#555;font-family:inherit}.warnbox{background:var(--warnsoft);border:2px solid var(--warn);border-radius:10px;padding:8px 12px;margin:10px 0;font-size:.95rem}.wrap table{font-size:.9rem}#ebk .ecard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:8px 0}#ebk .et{font-weight:600}#ebk .em{color:var(--muted);font-size:.85rem}#ebk .estars{color:#c9900c;margin-right:4px}#ebk .isbn{display:inline-block;margin:6px 6px 0 0;padding:6px 10px;border:1px solid var(--accent);color:var(--accent);border-radius:8px;font:600 15px ui-monospace,Menlo,monospace;background:#fff;cursor:pointer}#ebk .isbn.ok{background:var(--accent);color:#fff}#ebk .kw{border-color:#8a7a5a;color:#6a5a3a;font-family:inherit}#ebk .ewarn{color:#b5651d;font-size:.85rem}#ebk .got .et{color:#9a9a9a}#ebk .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}#ebk .tabs button{border:1px solid var(--line);background:#fff;border-radius:20px;padding:5px 12px;font-size:.9rem}#ebk .tabs button.on{background:var(--ink);color:#fff}#ebk label.echk{float:right;font-size:.85rem;color:var(--muted)}.tn table{border-collapse:collapse;width:100%;font-size:.88rem;margin:6px 0}.tn th,.tn td{border:1px solid var(--line);padding:4px 6px;text-align:left;vertical-align:top}.tn th{background:#f3eedf}.tn .box{background:#f3eedf;border-radius:10px;padding:8px 12px;margin:8px 0}.tn .wrap{overflow-x:auto}</style></head><body><div class="wrap">
+<header><h1>找書與補拍</h1>
+<p class="sub">更新：2026-11-14。要去圖書館找的書、要補拍的頁都在這一頁：國臺圖（今天的優先順序）在最上面，接著國圖、其他館與電子書、補拍清單，最後是調閱規則。每筆列書名、索書號、位置、推薦星號；索書號不會變，在架狀態以現場為準。已經拍好、下載好的在<a href="2026-11-06_已翻拍OCR書目.html">已有</a>。<a href="../index.html">回交接網頁首頁</a></p></header>
+<nav class="jump"><a href="#ntl">國臺圖 88</a><a href="#p1">補拍頁</a><a href="#p2">重點文獻</a><a href="#p3">鄭氏與海禁</a><a href="#ncl">國圖 77</a><a href="#oth">其他館・電子書</a><a href="#rephoto-h">補拍清單</a><a href="#appx">規則・要帶的</a></nav>
 <div class="note small">★★★ 一定要看・★★ 建議看・★ 有空再看・可略。每個館內依星號排序。找到、拍完或處理完就勾，勾選存在這台裝置的瀏覽器（沿用舊頁紀錄）。一本書兩館都有的，另一館的索書號列在灰字。</div>
-<details id="rephoto"><summary>補拍清單（不急，有空再拍）：97 處</summary>
-<p class="small">10/31 已拍的書，Claude 補 OCR 時發現照片模糊、手晃、被手遮、或不確定字多的頁，加上沒拍到的頁。各書九成以上內容已掌握，這些只是補完用。「不確定字」＝轉錄裡 □ 與〔?〕的個數。</p>
-<h4>國圖（20）</h4><div style="overflow-x:auto"><table class="rp"><tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr><tr><td>佳里昭清宮志</td><td>p.470–471</td><td>遮字、不確定字 12</td><td><code>20261031_100927</code></td></tr><tr><td>南瀛歷史、社會與文化VII 臺南港市與周邊</td><td>p.290–291</td><td>手晃</td><td><code>20261031_121623</code></td></tr><tr><td>台南七股</td><td>p.84–85</td><td>不確定字 26</td><td><code>IMG_20261031_123328</code></td></tr><tr><td>台南七股</td><td>p.94–95</td><td>模糊、不確定字 35</td><td><code>IMG_20261031_123344</code></td></tr><tr><td>土城香 鹿耳門媽香・五府千歲醮</td><td>p.124–125</td><td>不確定字 17</td><td><code>20261031_104114</code></td></tr><tr><td>土城香 鹿耳門媽香・五府千歲醮</td><td>p.130–131</td><td>不確定字 185</td><td><code>20261031_104128</code></td></tr><tr><td>學甲上白礁：儀式、歷史與傳承</td><td>p.36–37</td><td>不確定字 158</td><td><code>20261031_111600</code></td></tr><tr><td>學甲上白礁：儀式、歷史與傳承</td><td>p.38–39</td><td>不確定字 154</td><td><code>20261031_111605</code></td></tr><tr><td>學甲上白礁：儀式、歷史與傳承</td><td>p.68–69</td><td>不確定字 18</td><td><code>20261031_111700</code></td></tr><tr><td>學甲上白礁：儀式、歷史與傳承</td><td>p.250–251</td><td>不確定字 38</td><td><code>20261031_112227</code></td></tr><tr><td>學甲上白礁：儀式、歷史與傳承</td><td>p.252〔?〕</td><td>模糊、不確定字 15</td><td><code>20261031_112242</code></td></tr><tr><td>學甲上白礁：儀式、歷史與傳承</td><td>p.260–261</td><td>遮字、不確定字 8</td><td><code>20261031_112303</code></td></tr><tr><td>學甲上白礁：儀式、歷史與傳承</td><td>p.264–265</td><td>遮字、不確定字 5</td><td><code>20261031_112314</code></td></tr><tr><td>學甲慈濟宮史</td><td>p.56–57</td><td>不確定字 340</td><td><code>20261031_095929</code></td></tr><tr><td>安順再起</td><td>頁碼未入鏡</td><td>模糊、不確定字 141</td><td><code>20261031_113621</code></td></tr><tr><td>正統鹿耳門聖母廟媽祖信仰脈絡研究</td><td>頁碼未入鏡</td><td>不確定字 17</td><td><code>20261031_105132</code></td></tr><tr><td>正統鹿耳門聖母廟媽祖信仰脈絡研究</td><td>p.78–79</td><td>不確定字 28</td><td><code>20261031_105244</code></td></tr><tr><td>正統鹿耳門聖母廟媽祖信仰脈絡研究</td><td>p.78</td><td>模糊、不確定字 45</td><td><code>20261031_105303</code></td></tr><tr><td>正統鹿耳門聖母廟媽祖信仰脈絡研究</td><td>頁碼未入鏡</td><td>模糊、不確定字 17</td><td><code>20261031_105423</code></td></tr><tr><td>正統鹿耳門聖母廟媽祖信仰脈絡研究</td><td>頁碼未入鏡</td><td>不確定字 102</td><td><code>20261031_105813</code></td></tr></table></div>
-<h4>2026-11-09 精轉後新增：國圖（17）</h4><div style="overflow-x:auto"><table class="rp"><tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr><tr><td>鹿耳門聖母廟土城仔香</td><td>版權頁</td><td>版權頁未翻拍；ISBN、出版年（站上推定 2016）待補</td><td><code>—</code></td></tr><tr><td>鹿耳門聖母廟土城仔香</td><td>p.60、62–64、66–68、78–79、84–87、89–91、96–98、107–110、113–114、131–134、136–137、141–145、152–155、160–163、165–167、170、175、181</td><td>未翻拍（共 21 段，含燃放水燈後半、王府每日行儀中段、香路圖上半；66–68、141–145、152–155 只有一張模糊頁）</td><td><code>—</code></td></tr><tr><td>佳里金唐殿蕭壠香</td><td>p.113–115、p.150–163（部分）、p.194–201、p.203–205</td><td>缺拍頁</td><td><code>—</code></td></tr><tr><td>佳里金唐殿蕭壠香</td><td>表2-1（24 村庄表）B19 之後一頁</td><td>確認表格是否續列</td><td><code>—</code></td></tr><tr><td>佳里金唐殿蕭壠香</td><td>第十一角「牛角仔／半角仔」所在頁（p.134 等）近拍</td><td>地名用字待確認（站上兩寫並陳）</td><td><code>—</code></td></tr><tr><td>鹿耳門天后宮送迎神儀典</td><td>p.115</td><td>失焦；表 4-2「三□樂舞」「□平樂舞」、註 10「禮神頌□」「□□樂奏」缺字，林中信姓名</td><td><code>—</code></td></tr><tr><td>鹿耳門天后宮送迎神儀典</td><td>p.77、p.110</td><td>補拍（回報檔列）</td><td><code>—</code></td></tr><tr><td>鹿耳門天后宮送迎神儀典</td><td>版權頁 p.174</td><td>ISBN、出版年月（站上推定 2016）、主編與局長序作者；最優先</td><td><code>—</code></td></tr><tr><td>鹿耳門天后宮送迎神儀典</td><td>p.6–7、51、53–56、71、79–81、102、104、114、117、121–123、128–133、136、142、154–155、159–161、164–165、172</td><td>未翻拍</td><td><code>—</code></td></tr><tr><td>正統鹿耳門聖母廟 土城香：陣頭文化</td><td>作者序 p.2–5、p.22–23</td><td>未翻拍</td><td><code>—</code></td></tr><tr><td>正統鹿耳門聖母廟 土城香：鹿耳門媽香・五府千歲醮</td><td>p.46（近拍）</td><td>青草崙「郭□鎮」首字（門字框內「市／开」形）待原書確認</td><td><code>—</code></td></tr><tr><td>正統鹿耳門聖母廟 土城香：鹿耳門媽香・五府千歲醮</td><td>p.52（近拍）</td><td>港仔西「郭闖」首字（門字框內「馬」形）待原書確認</td><td><code>—</code></td></tr><tr><td>正統鹿耳門聖母廟 土城香：鹿耳門媽香・五府千歲醮</td><td>p.57 註 51、p.63、p.71 註 75（近拍）</td><td>阮氏□（似「蚋」）、鄭立祖父「鄭□」（木＋男）、黃宇璿末字，字形待原書確認</td><td><code>—</code></td></tr><tr><td>正統鹿耳門聖母廟 土城香：鹿耳門媽香・五府千歲醮</td><td>p.40 地圖房名小字（近拍）</td><td>虎尾寮蔡氏五房分佈圖房名小字待原書確認</td><td><code>—</code></td></tr><tr><td>正統鹿耳門聖母廟 土城香：鹿耳門媽香・五府千歲醮</td><td>p.16 剪報（近拍）</td><td>1937 年日文剪報「北門郡七股庄の天上聖母廟事件」細字模糊；1961《中華日報》「翁余森櫻」「蔡紅紗」字形</td><td><code>—</code></td></tr><tr><td>正統鹿耳門聖母廟 土城香：鹿耳門媽香・五府千歲醮</td><td>p.130–131 路線圖（近拍）</td><td>2024 路線圖宮名多處看不清</td><td><code>—</code></td></tr><tr><td>藝陣傳神：臺灣傳統民俗藝陣</td><td>p.208–238（參章正文）</td><td>未翻拍；p.125–136、141–186 不在本站範圍可不拍</td><td><code>—</code></td></tr></table></div>
-<h4>2026-11-09 精轉後新增：國臺圖（3）</h4><div style="overflow-x:auto"><table class="rp"><tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr><tr><td>回首鹿耳門</td><td>p.52（動態模糊）、p.56（手掌遮住）、p.113、p.131（動態模糊）、p.109 首行、p.158–159 古圖小字</td><td>補拍；_頁面標記.tsv 記的 p.54 實為 p.52</td><td><code>—</code></td></tr><tr><td>行踏台江，地號名講古</td><td>p.94–95</td><td>未翻拍（虎尾寮宋江陣段）</td><td><code>—</code></td></tr><tr><td>行踏台江，地號名講古</td><td>p.78（晃動）、p.183 中段、p.186（里名被手遮）、p.187 下半、p.189 大半</td><td>補拍</td><td><code>—</code></td></tr></table></div>
-<h4>2026-11-14 新增：熱蘭遮城日誌第 9 冊（3）</h4><p class="small">書是 11/08 從國臺圖借回的那套（第 6～10 冊，借期到 2026-12-08），在家補拍即可。第 7 冊的缺頁也一樣。</p><div style="overflow-x:auto"><table class="rp"><tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr><tr><td>熱蘭遮城日誌 第 9 冊（江樹生譯註，2024 新版；國臺圖 733.25 3142 113 v.9）</td><td>p.142–143</td><td>未翻拍：1661 年 3 月 26 日到約 4 月 1 日的日誌（鄭軍登陸前一個月）；p.141 末句與 p.144 首句接不上</td><td>—</td></tr><tr><td>熱蘭遮城日誌 第 9 冊（同上）</td><td>版權頁、序 i–viii</td><td>未翻拍；出版年待補（站上暫照第 5～8 冊寫 2024）</td><td>—</td></tr><tr><td>熱蘭遮城日誌 第 9 冊（同上）</td><td>p.534 以後</td><td>未翻拍；人名索引到 p.533 已完整，書末若有船名索引就在這之後</td><td>—</td></tr></table></div><p class="small">北線尾之戰（1661 年 5 月 1 日）：舊稿引的「江樹生譯本第四冊頁 412–416」是 2011 年舊版四冊本的頁碼。同一段在 2024 新版第 9 冊 p.176–178，已經翻拍，不必補拍；荷軍陣亡人數在 p.178 第一行：「跟 110 個士兵一起陣亡」（已對照片確認）。</p>
-<h4>2026-11-13 維基化收尾新增（4）</h4><div style="overflow-x:auto"><table class="rp">
-<tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr>
-<tr><td>熱蘭遮城日誌 第 4 冊（江樹生譯註，臺灣史料集成；國圖 733.25 8336 113、國臺圖 733.25 3142 113）</td><td>p.210–211</td><td>未翻拍（補充資料，註 191–192）</td><td><code>—</code></td></tr>
-<tr><td>熱蘭遮城日誌 第 7 冊（江樹生譯註，臺灣史料集成；國圖 733.25 8336 113、國臺圖 733.25 3142 113）</td><td>p.284–285</td><td>未翻拍（1655 年 3 月南區地方會議名單前段）</td><td><code>—</code></td></tr>
-<tr><td>熱蘭遮城日誌 第 7 冊（同上）</td><td>版權頁</td><td>未翻拍</td><td><code>—</code></td></tr>
-<tr><td>藝陣傳神：臺灣傳統民俗藝陣（國圖）</td><td>p.88–89（近拍，照片 <code>20261107_105432</code> 裁掉的邊緣）</td><td>郭大清條引文「〔…〕菝郭大清所傳」，「菝」前一字在照片外</td><td><code>—</code></td></tr></table></div>
-<h4>2026-11-12 第二批整理後新增（11）</h4><div style="overflow-x:auto"><table class="rp"><tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr><tr><td>熱蘭遮城日誌 第 2 冊（江樹生譯註，臺灣史料集成）</td><td>p.96、p.120、p.172</td><td>照片晃動</td><td><code>—</code></td></tr><tr><td>聽見台江天籟：臺灣暗蟬（台江處）</td><td>p.54、p.88–91 優先，全書約 30 頁未翻拍</td><td>未翻拍；p.54 若蟲在地下的年數、p.88–91 城西防風林與四草大橋賞蟬點</td><td><code>—</code></td></tr><tr><td>學甲上白礁暨刈香（黃文博，臺南市政府 2014）</td><td>p.69 註 19、p.10</td><td>p.69 底緣被切；p.10 右緣缺字</td><td><code>—</code></td></tr><tr><td>走出歷史悲情 迎向千禧曙光（臺南縣政府 2000）</td><td>縣長序、p.39</td><td>縣長序整頁模糊；p.39 楊永享、楊協勝兩列請正拍</td><td><code>—</code></td></tr><tr><td>島嶼DNA（陳耀昌）</td><td>版權頁</td><td>未翻拍（出版年、ISBN）</td><td><code>—</code></td></tr><tr><td>環境檢驗所 20 週年所慶研討會論文集</td><td>版權頁</td><td>未翻拍</td><td><code>—</code></td></tr></table></div>
-<h4>2026-11-11 熱蘭遮城日誌第 1 冊（國臺圖，3）</h4><div style="overflow-x:auto"><table class="rp"><tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr><tr><td>熱蘭遮城日誌 第 1 冊（江樹生譯註，臺灣史料集成）</td><td>p.358</td><td>照片晃動，整頁無法辨讀</td><td><code>—</code></td></tr><tr><td>熱蘭遮城日誌 第 1 冊（江樹生譯註，臺灣史料集成）</td><td>p.379–380</td><td>未翻拍</td><td><code>—</code></td></tr></table></div>
-<h4>2026-11-10 硬箍起來（6）</h4><div style="overflow-x:auto"><table class="rp"><tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr><tr><td>硬箍起來：西港刈香的宋江系統武陣（謝國興，臺南市政府文化局 2023；國圖書號 006115389）</td><td>p.22–25</td><td>未翻拍；最優先：學甲寮宋江陣與土城香武陣段落、註 19（p.21 末句接不下去）</td><td><code>—</code></td></tr><tr><td>硬箍起來：西港刈香的宋江系統武陣（謝國興，臺南市政府文化局 2023；國圖書號 006115389）</td><td>p.144–152</td><td>未翻拍（永昌宮開館）</td><td><code>—</code></td></tr><tr><td>硬箍起來：西港刈香的宋江系統武陣（謝國興，臺南市政府文化局 2023；國圖書號 006115389）</td><td>p.8–10、p.68–72、p.126–132</td><td>未翻拍（緣起後段、第三章末、第五章末）</td><td><code>—</code></td></tr><tr><td>硬箍起來：西港刈香的宋江系統武陣（謝國興，臺南市政府文化局 2023；國圖書號 006115389）</td><td>p.51（近拍，照片 <code>20261107_124916</code>）</td><td>2015 乙未科手寫正請名單（紅紙榜）難辨字：1. 黃榮□（鈺峰企業）末字；2. 王禹軒第二、三字（順程工程）；3. 文衡殿董事王□章第二字（站上原作「王源章」，偏旁似火或犭）；4. 陳□崧（福祺幼兒園）中間字；5. 郭敏捷的「□□企業公司」前兩字；6. 謝美娥的「尊□企業公司」第二字；7. 「砂凹 中社 金□宮」宮名第二字；8. 榜尾「新□」一列被裁切，要整列入鏡。徐茂献、永仕豪已辨讀，不必再拍</td><td><code>—</code></td></tr><tr><td>硬箍起來：西港刈香的宋江系統武陣（謝國興，臺南市政府文化局 2023；國圖書號 006115389）</td><td>版權頁（近拍）</td><td>兩個人名缺字：執行編輯沈□瑩、總編輯廖志□</td><td><code>—</code></td></tr><tr><td>硬箍起來：西港刈香的宋江系統武陣（謝國興，臺南市政府文化局 2023；國圖書號 006115389）</td><td>p.12、28、32、44、47–49、52、54、86–89、156–163</td><td>未翻拍，多半是整頁照片；順便補拍可確認前後頁碼（多數照片沒拍到頁碼）</td><td><code>—</code></td></tr></table></div>
-<h4>2026-11-10 四草大眾廟誌（1）</h4><div style="overflow-x:auto"><table class="rp"><tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr><tr><td>臺南四草大眾廟誌（許政雄，萬卷樓 2014；國圖 272.097 8474）</td><td>p.90</td><td>未翻拍（可能是空白頁，確認即可）</td><td><code>—</code></td></tr></table></div>
-<h4>國臺圖（29）</h4><div style="overflow-x:auto"><table class="rp"><tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr><tr><td>南瀛刈香誌</td><td>p.14–15</td><td>模糊、手晃、不確定字 15</td><td><code>20261031_185317</code></td></tr><tr><td>南瀛刈香誌</td><td>p.18–19</td><td>模糊、手晃、不確定字 49</td><td><code>20261031_185346</code></td></tr><tr><td>南瀛刈香誌</td><td>p.28–29</td><td>模糊、不確定字 12</td><td><code>20261031_185407</code></td></tr><tr><td>南瀛刈香誌</td><td>p.46–47</td><td>模糊、不確定字 13</td><td><code>20261031_185444</code></td></tr><tr><td>南瀛刈香誌</td><td>p.64–65</td><td>模糊、不確定字 11</td><td><code>20261031_185525</code></td></tr><tr><td>南瀛刈香誌</td><td>p.72–73</td><td>模糊</td><td><code>20261031_185535</code></td></tr><tr><td>南瀛刈香誌</td><td>p.84–85</td><td>模糊、不確定字 12</td><td><code>20261031_185553</code></td></tr><tr><td>南瀛刈香誌</td><td>p.88–89</td><td>模糊、不確定字 11</td><td><code>20261031_185606</code></td></tr><tr><td>南瀛刈香誌</td><td>p.104–105</td><td>模糊、不確定字 17</td><td><code>20261031_185649</code></td></tr><tr><td>南瀛刈香誌</td><td>p.156–157</td><td>不確定字 66</td><td><code>20261031_185825</code></td></tr><tr><td>南瀛刈香誌</td><td>p.292–293</td><td>模糊、不確定字 20</td><td><code>20261031_190113</code></td></tr><tr><td>南瀛刈香誌</td><td>p.354–355</td><td>模糊、遮字</td><td><code>20261031_190249</code></td></tr><tr><td>南瀛刈香誌</td><td>p.374–375</td><td>反光</td><td><code>20261031_190332</code></td></tr><tr><td>南瀛刈香誌</td><td>版權頁</td><td>模糊</td><td><code>20261031_190357</code></td></tr><tr><td>南瀛刈香誌</td><td>p.70–71</td><td>沒拍到（表三中段）</td><td><code>—</code></td></tr><tr><td>回首鹿耳門</td><td>p.53</td><td>模糊、無法轉錄</td><td><code>20261031_184333</code></td></tr><tr><td>回首鹿耳門</td><td>p.112–113</td><td>模糊、不確定字 20</td><td><code>20261031_184556</code></td></tr><tr><td>戰後臺灣政治案件 李媽兜案史料彙編</td><td>封面</td><td>反光、不確定字 9</td><td><code>20261031_182319</code></td></tr><tr><td>行踏台江，地號名講古</td><td>第二章扉頁跨頁</td><td>模糊、反光、不確定字 21</td><td><code>20261031_190947</code></td></tr><tr><td>行踏台江，地號名講古</td><td>p.78–79</td><td>手晃、模糊、不確定字 16</td><td><code>20261031_191122</code></td></tr><tr><td>行踏台江，地號名講古</td><td>p.186–187</td><td>遮字、不確定字 35</td><td><code>20261031_192120</code></td></tr><tr><td>行踏台江，地號名講古</td><td>p.188–189</td><td>遮字、不確定字 54</td><td><code>20261031_192121</code></td></tr><tr><td>西港仔刈香</td><td>p.50–51</td><td>模糊、不確定字 5</td><td><code>20261031_175115</code></td></tr><tr><td>西港仔刈香</td><td>p.56–57</td><td>模糊</td><td><code>20261031_175125</code></td></tr><tr><td>西港仔刈香</td><td>p.58–59</td><td>模糊</td><td><code>20261031_175127</code></td></tr><tr><td>西港仔刈香</td><td>p.62–63</td><td>不確定字 18</td><td><code>20261031_175131</code></td></tr><tr><td>西港仔刈香</td><td>p.240–241</td><td>遮字、不確定字 5</td><td><code>20261031_175436</code></td></tr><tr><td>西港仔刈香</td><td>p.456–457</td><td>模糊</td><td><code>20261031_175919</code></td></tr><tr><td>西港仔刈香</td><td>p.172–173、p.180–181</td><td>沒拍到</td><td><code>—</code></td></tr></table></div>
-</details>
+<h2 id="ntl">國臺圖（國立臺灣圖書館，中和）（88 筆）</h2>
+<div class="warnbox"><strong>今天是星期六，先看這三點</strong><ol>
+<li>地下二樓密集書庫的書要請館員調閱，取書時段是週二至週五，今天多半調不到；地下一樓密集書庫也要請館員調，今天能不能調請問櫃台。標在這兩處的書，請優先找同一本在其他樓層的複本（卡片上有寫）。</li>
+<li>10/31 館員說過：同時列在六樓和其他樓層的書，實際只在六樓，平日才能請館員調。卡片標「實際在六樓・平日調閱」的，先到六樓櫃台問今天能不能看，不行就留到平日。</li>
+<li>二樓、三樓標「可外借」的書可以直接借回家拍，最省時間。開館時間以國臺圖官網為準。</li></ol></div>
+
+<div class="note"><strong>總覽</strong><ol>
+<li>共 88 筆：
+  <ol><li>第一優先，補拍頁：25 筆（有索書號 25 筆；其中《熱蘭遮城日誌》第 7、9 冊在作者手上，在家拍）。</li>
+  <li>第二優先，請作者翻閱的重點文獻：8 筆（有索書號 7 筆）。</li>
+  <li>第三優先，鄭氏家族與海禁專題：20 筆（有索書號 13 筆，其餘現場查）。</li>
+  <li>第四優先，原找書清單的國臺圖書（還沒拍）：35 筆（索書號照原清單）。</li></ol></li>
+<li>建議動線：
+  <ol><li>一進館先到三樓、二樓借可外借的書（第一優先的熱蘭遮城日誌第 1、2、4 冊、南瀛刈香誌、回首鹿耳門、行踏台江、硬箍起來等；第二、三優先的臺灣外紀、閩海紀要、湯錦台、歐陽泰兩本等）。</li>
+  <li>再上六樓臺灣資料圖書區，拍只能館內看的書（土城香兩冊、媽祖信仰脈絡研究、送迎神儀典、土城仔香、蕭壠香、閩海贈言、從征實錄等）。</li>
+  <li>四樓期刊合訂本區：《故宮文物月刊》、《國學季刊》。</li>
+  <li>時間還夠再做第四優先。</li></ol></li>
+<li>索書號與位置：第一到第三優先是 2026-11-14 用國臺圖館藏查詢系統查的；第四優先照原清單（10/31 查）。在架狀態以現場為準。</li></ol></div>
+
+<h3 id="p1">第一優先：補拍頁（25 筆）</h3>
+<p class="small">已翻拍的書裡模糊、手遮、晃動或漏拍的頁，國臺圖有這些書。完整補拍清單（含國圖的書）在<a href="#rephoto">補拍清單</a>。</p>
+<div class="card" id="t1114-p1-0" data-ids="t1114-p1-0"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-1</span>熱蘭遮城日誌 第 1 冊（2024 新版）</div>
+<div class="ed">江樹生譯註</div>
+<div class="call">733.25 3142 113 v.1</div>
+<div class="loc">三樓中文圖書區（可外借，11/14 查在架）</div>
+<div class="shoot"><b>要拍：</b>p.358（原照片晃動，整頁無法辨讀）、p.379–380（沒拍到）</div>
+<div class="shoot"><b>為什麼：</b>這三頁是第 1 冊僅剩的缺口。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-1" data-ids="t1114-p1-1"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-2</span>熱蘭遮城日誌 第 2 冊（2024 新版）</div>
+<div class="ed">江樹生譯註</div>
+<div class="call">733.25 3142 113 v.2</div>
+<div class="loc">三樓中文圖書區（可外借，11/14 查在架）</div>
+<div class="shoot"><b>要拍：</b>p.96、p.120、p.172（原照片晃動）</div>
+<div class="shoot"><b>為什麼：</b>補齊第 2 冊引用頁的原文。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-2" data-ids="t1114-p1-2"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-3</span>熱蘭遮城日誌 第 4 冊（2024 新版）</div>
+<div class="ed">江樹生譯註</div>
+<div class="call">733.25 3142 113 v.4</div>
+<div class="loc">三樓中文圖書區（可外借，11/14 查在架）</div>
+<div class="shoot"><b>要拍：</b>p.210–211（補充資料，註 191–192）</div>
+<div class="shoot"><b>為什麼：</b>維基化收尾時發現沒拍到的兩頁。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-3" data-ids="t1114-p1-3"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-4</span>熱蘭遮城日誌 第 7 冊（2024 新版）</div>
+<div class="ed">江樹生譯註</div>
+<div class="call">733.25 3142 113 v.7</div>
+<div class="loc">書在作者手上（11/08 借，2026-12-08 到期）</div>
+<div class="tags"><span class="tag no">在家拍</span></div>
+<div class="shoot"><b>要拍：</b>p.284–285（1655 年 3 月南區地方會議名單前段）、版權頁</div>
+<div class="shoot"><b>為什麼：</b>在家補拍即可；若今天要還書，還書前先拍。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-4" data-ids="t1114-p1-4"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-5</span>熱蘭遮城日誌 第 9 冊（2024 新版）</div>
+<div class="ed">江樹生譯註</div>
+<div class="call">733.25 3142 113 v.9</div>
+<div class="loc">書在作者手上（11/08 借，2026-12-08 到期）</div>
+<div class="tags"><span class="tag no">在家拍</span></div>
+<div class="shoot"><b>要拍：</b>1. p.142–143（1661 年 3 月 26 日到約 4 月 1 日，鄭軍登陸前一個月）<br>2. 版權頁、序 i–viii<br>3. p.534 以後（書末若有船名索引）</div>
+<div class="shoot"><b>為什麼：</b>鄭軍來臺前夕的日誌缺兩頁；出版年要靠版權頁定。北線尾之戰一段在 p.176–178，已拍，不必再拍。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-5" data-ids="t1114-p1-5"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-6</span>藝陣傳神：臺灣傳統民俗藝陣</div>
+<div class="ed">黃文博主編</div>
+<div class="call">991.87 4404 104</div>
+<div class="loc">六樓本土教育資源專區（館內閱覽）</div>
+<div class="shoot"><b>要拍：</b>1. p.88–89 近拍：郭大清條「〔…〕菝郭大清所傳」，「菝」前一字在原照片外<br>2. p.208–238（參章正文，未拍；p.125–136、141–186 不在本站範圍可不拍）</div>
+<div class="shoot"><b>為什麼：</b>原清單列在國圖補拍；國臺圖也有這本，今天一起拍掉。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-6" data-ids="t1114-p1-6"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-7</span>南瀛刈香誌</div>
+<div class="ed">黃文博</div>
+<div class="call">733.9654 4302 v.1</div>
+<div class="loc">三樓中文圖書區（可外借）；六樓臺灣資料圖書區 II 也有</div>
+<div class="shoot"><b>要拍：</b>p.14–15、18–19、28–29、46–47、64–65、70–71（沒拍到，表三中段）、72–73、84–85、88–89、104–105、156–157、292–293、354–355、374–375、版權頁</div>
+<div class="shoot"><b>為什麼：</b>五大香的基本書；10/31 這 15 處模糊、手晃或漏拍。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-7" data-ids="t1114-p1-7"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-8</span>回首鹿耳門：紀念鄭成功復台 333 週年</div>
+<div class="ed">林文漲</div>
+<div class="call">733.961 4403 83</div>
+<div class="loc">三樓中文圖書區（可外借）；六樓臺灣資料圖書區 II 也有</div>
+<div class="shoot"><b>要拍：</b>p.52、53、56、109 首行、112–113、131、158–159（古圖小字）</div>
+<div class="shoot"><b>為什麼：</b>鹿耳門天后宮方的說法；這些頁模糊、手遮或晃動。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-8" data-ids="t1114-p1-8"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-9</span>行踏台江，地號名講古</div>
+<div class="ed">劉正元、吳玲青</div>
+<div class="call">733.9613 7211 108</div>
+<div class="loc">三樓中文圖書區（可外借）</div>
+<div class="shoot"><b>要拍：</b>第二章扉頁跨頁、p.78–79、p.94–95（虎尾寮宋江陣段，沒拍到）、p.183 中段、p.186–189</div>
+<div class="shoot"><b>為什麼：</b>台江處官方出版的地名書，名詞正規化依據。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-9" data-ids="t1114-p1-9"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-10</span>西港仔刈香：一個傳統王醮的數位紀錄</div>
+<div class="ed">謝國興等</div>
+<div class="call">272.93 0467 106</div>
+<div class="loc">二樓中文圖書區（可外借）；六樓臺灣資料圖書區 I 也有</div>
+<div class="shoot"><b>要拍：</b>p.50–51、56–59、62–63、172–173 與 180–181（沒拍到）、240–241、456–457</div>
+<div class="shoot"><b>為什麼：</b>西港香的主要學術紀錄；這些頁模糊或遮字。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-10" data-ids="t1114-p1-10"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-11</span>戰後臺灣政治案件：李媽兜案史料彙編</div>
+<div class="ed">歐素瑛編</div>
+<div class="call">733.29 6243 v.4</div>
+<div class="loc">三樓中文圖書區（可外借）；六樓臺灣資料圖書區 II 也有</div>
+<div class="shoot"><b>要拍：</b>封面（原照片反光）</div>
+<div class="shoot"><b>為什麼：</b>書目詞條要用封面資訊。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-11" data-ids="t1114-p1-11"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-12</span>鹿耳門天后宮送迎神儀典</div>
+<div class="ed">黃文博</div>
+<div class="call">733.4618 4404 105</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽）</div>
+<div class="shoot"><b>要拍：</b>1. 版權頁 p.174（最優先：ISBN、出版年月、主編與局長序作者）<br>2. p.115（表 4-2 缺字、林中信姓名）、p.77、p.110<br>3. 未拍頁：p.6–7、51、53–56、71、79–81、102、104、114、117、121–123、128–133、136、142、154–155、159–161、164–165、172</div>
+<div class="shoot"><b>為什麼：</b>原清單列國圖；國臺圖也有，今天能拍就拍。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-12" data-ids="t1114-p1-12"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-13</span>鹿耳門聖母廟土城仔香</div>
+<div class="ed">周宗楊、吳明勳</div>
+<div class="call">733.9614 7734A 105</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽）</div>
+<div class="shoot"><b>要拍：</b>1. 版權頁（ISBN、出版年）<br>2. 未拍 21 段：p.60、62–64、66–68、78–79、84–87、89–91、96–98、107–110、113–114、131–134、136–137、141–145、152–155、160–163、165–167、170、175、181</div>
+<div class="shoot"><b>為什麼：</b>土城仔香核心書；燃放水燈後半、王府每日行儀中段、香路圖上半都在缺頁裡。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-13" data-ids="t1114-p1-13"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-14</span>佳里金唐殿蕭壠香</div>
+<div class="ed">黃文博</div>
+<div class="call">733.9614 4404-8 103</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽）</div>
+<div class="shoot"><b>要拍：</b>p.113–115、p.150–163（部分）、p.194–201、p.203–205；表 2-1 B19 之後一頁；第十一角「牛角仔／半角仔」所在頁（p.134 等）近拍</div>
+<div class="shoot"><b>為什麼：</b>蕭壠香詞條的缺頁與地名用字。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-14" data-ids="t1114-p1-14"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-15</span>正統鹿耳門聖母廟土城香：陣頭文化</div>
+<div class="ed">顏大鎰等</div>
+<div class="call">272.71 1201-3 113</div>
+<div class="loc">六樓臺灣資料圖書區 I（館內閱覽）</div>
+<div class="shoot"><b>要拍：</b>作者序 p.2–5、p.22–23</div>
+<div class="shoot"><b>為什麼：</b>聖母廟官方出品；作者序沒拍到。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-15" data-ids="t1114-p1-15"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-16</span>正統鹿耳門聖母廟土城香：鹿耳門媽香・五府千歲醮</div>
+<div class="ed">謝奇峰、吳明勳</div>
+<div class="call">272.71 1201-2 113</div>
+<div class="loc">六樓臺灣資料圖書區 I（館內閱覽）</div>
+<div class="shoot"><b>要拍：</b>近拍：p.16 剪報、p.40 地圖房名小字、p.46、p.52、p.57 註 51、p.63、p.71 註 75；p.124–125、p.130–131（路線圖）</div>
+<div class="shoot"><b>為什麼：</b>人名首字待原書確認（郭□鎮、郭闖、阮氏□、鄭□）。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-16" data-ids="t1114-p1-16"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-17</span>正統鹿耳門聖母廟媽祖信仰脈絡研究</div>
+<div class="ed">陸昕慈</div>
+<div class="call">272.71 1201 113</div>
+<div class="loc">六樓臺灣資料圖書區 I（館內閱覽）</div>
+<div class="shoot"><b>要拍：</b>p.78–79，以及 4 張頁碼沒入鏡的照片那幾頁（照片 20261031_105132、105423、105813，到館翻到對應頁補拍，這次頁碼要入鏡）</div>
+<div class="shoot"><b>為什麼：</b>聖母廟方論述的主要依據。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-17" data-ids="t1114-p1-17"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-18</span>學甲上白礁暨刈香</div>
+<div class="ed">黃文博</div>
+<div class="call">733.9614 4404-6 103</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽）</div>
+<div class="shoot"><b>要拍：</b>p.69 註 19（底緣被切）、p.10（右緣缺字）</div>
+<div class="shoot"><b>為什麼：</b>補兩處缺字。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-18" data-ids="t1114-p1-18"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-19</span>學甲慈濟宮史</div>
+<div class="ed">李雄揮</div>
+<div class="call">272.097 4045 111</div>
+<div class="loc">六樓臺灣資料圖書區 I（館內閱覽）</div>
+<div class="shoot"><b>要拍：</b>p.56–57 附錄〈慈濟宮緣業碑記〉；順便拍版權頁與作者簡介（核對李雄揮／李雄輝）</div>
+<div class="shoot"><b>為什麼：</b>碑記整頁 OCR 失敗。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-19" data-ids="t1114-p1-19"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-20</span>南瀛歷史、社會與文化 VII：臺南港市與周邊</div>
+<div class="ed">林玉茹、陳文松主編</div>
+<div class="call">733.9652 4414 v.7</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽）</div>
+<div class="shoot"><b>要拍：</b>p.290–291（原照片手晃）</div>
+<div class="shoot"><b>為什麼：</b>補一張手晃的跨頁。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-20" data-ids="t1114-p1-20"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-21</span>硬箍起來：西港刈香的宋江系統武陣</div>
+<div class="ed">謝國興</div>
+<div class="call">991.87 0467 112</div>
+<div class="loc">三樓中文圖書區（可外借）；附件 USB 在一樓流通櫃台</div>
+<div class="shoot"><b>要拍：</b>1. p.22–25（最優先：學甲寮宋江陣與土城香武陣段落、註 19）<br>2. p.144–152；p.8–10、68–72、126–132<br>3. p.51 紅紙榜近拍（整列入鏡）、版權頁近拍（執行編輯、總編輯缺字）<br>4. p.12、28、32、44、47–49、52、54、86–89、156–163</div>
+<div class="shoot"><b>為什麼：</b>可外借，借回家慢慢拍最省事。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-21" data-ids="t1114-p1-21"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-22</span>臺南四草大眾廟誌：四草大眾廟開發史</div>
+<div class="ed">許政雄</div>
+<div class="call">272.097 0814 103</div>
+<div class="loc">二樓中文圖書區（可外借）</div>
+<div class="shoot"><b>要拍：</b>p.90（確認是否空白頁）</div>
+<div class="shoot"><b>為什麼：</b>確認即可。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-22" data-ids="t1114-p1-22"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-23</span>聽見臺江天籟：臺灣暗蟬</div>
+<div class="ed">張原謀、鍾兆晉、林淑鳳</div>
+<div class="call">387.764 1170 109</div>
+<div class="loc">三樓青少年圖書區（可外借）</div>
+<div class="shoot"><b>要拍：</b>p.54、p.88–91 優先；全書約 30 頁沒拍</div>
+<div class="shoot"><b>為什麼：</b>若蟲在地下的年數、城西防風林與四草大橋賞蟬點。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-23" data-ids="t1114-p1-23"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-24</span>島嶼DNA</div>
+<div class="ed">陳耀昌</div>
+<div class="call">078 7596 104</div>
+<div class="loc">二樓中文圖書區（可外借）</div>
+<div class="shoot"><b>要拍：</b>版權頁</div>
+<div class="shoot"><b>為什麼：</b>書目要出版年與 ISBN。</div>
+</div></div></div>
+<div class="card" id="t1114-p1-24" data-ids="t1114-p1-24"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">1-25</span>行政院環境保護署環境檢驗所 20 週年所慶研討會論文集</div>
+<div class="ed">環境檢驗所編</div>
+<div class="call">445.9807 2171-2 99</div>
+<div class="loc">六樓臺灣資料圖書區 I（館內閱覽）</div>
+<div class="shoot"><b>要拍：</b>版權頁</div>
+<div class="shoot"><b>為什麼：</b>安順廠環境調查的出處要版權頁。</div>
+</div></div></div>
+<h3 id="p2">第二優先：請作者翻閱的重點文獻（8 筆）</h3>
+<p class="small">荷治以前與明鄭的漢文史料。要的是原書頁碼與逐字原文，網路錄文不能當出處。</p>
+<div class="card" id="t1114-p2-0" data-ids="t1114-p2-0"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">2-1</span>閩海贈言（臺灣文獻叢刊第 56 種）</div>
+<div class="ed">沈有容輯</div>
+<div class="call">836 3443</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽）；另有《臺灣文獻史料叢刊》本 733.08 4375 v.7，同在六樓臺灣資料圖書區 II</div>
+<div class="shoot"><b>要拍：</b>1. 頁 24–27〈東番記〉<br>2. 頁 27–28 陳學伊〈題東番記後〉（確認文末「溫陵陳志齋先生」是不是陳學伊）<br>3. 卷首方豪〈弁言〉頁 1–2<br>4. 〈舟師客問〉全篇（有沒有寫駐泊地點、日期與首領大彌勒）<br>5. 版權頁</div>
+<div class="shoot"><b>為什麼：</b>〈東番記〉網路錄文只校對約四分之一，要用原書逐字核對。</div>
+</div></div></div>
+<div class="card" id="t1114-p2-1" data-ids="t1114-p2-1"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">2-2</span>周婉窈〈陳第〈東番記〉：十七世紀初臺灣西南地區的實地調查報告〉，《故宮文物月刊》21 卷 10 期，頁 22–45</div>
+<div class="ed">周婉窈</div>
+<div class="call">905 6043-3（期刊合訂本）</div>
+<div class="loc">四樓中日文期刊合訂本區（館內閱覽）。21 卷 10 期依期數推算是第 250 期，在標「v.250-253」那一冊；不對就翻前一冊「v.246-249」</div>
+<div class="shoot"><b>要拍：</b>全文 22–45 頁、該期封面與目次</div>
+<div class="shoot"><b>為什麼：</b>登岸地點有沒有異說；堯港、小淡水、雙溪口、加哩林、沙巴里、大幫坑的今地考證。</div>
+</div></div></div>
+<div class="card" id="t1114-p2-2" data-ids="t1114-p2-2"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">2-3</span>從征實錄（臺灣文獻叢刊第 32 種）</div>
+<div class="ed">楊英</div>
+<div class="call">733.2 4644</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽）；地下二樓另有一本；1979 年重印本 733.2 4644 68 也在六樓</div>
+<div class="shoot"><b>要拍：</b>1. 鄭成功覆父書、攻臺、屯墾、缺糧段落<br>2. 永曆四年八月（鄭聯）、五年三–四月（廈門失守、斷髮、「渡虜來者澄濟叔」）、七年八月（覆父書「從治命不從亂命」）、八年八–九月（覆父書「縞素復仇」、與渡舍書、鄭鴻逵覆兄書）各條，記下頁碼<br>3. 版權頁</div>
+<div class="shoot"><b>為什麼：</b>鄭氏家族詞條要原書頁碼；維基文庫本把永曆七年誤標成「一六六三」，要用原書核對文字。</div>
+</div></div></div>
+<div class="card" id="t1114-p2-3" data-ids="t1114-p2-3"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">2-4</span>臺灣外紀</div>
+<div class="ed">江日昇</div>
+<div class="call">782.869 8751-11 69</div>
+<div class="loc">三樓中文圖書區（可外借）；1960 年臺灣文獻叢刊本（第 60 種，3 冊）是 782.869 8751-11 49，在地下二樓密集書庫</div>
+<div class="shoot"><b>要拍：</b>卷一（李旭船、二十八人結拜、翁氏年十七）、卷三（七歲到安海）、卷五（賜姓、翁氏到安平）、卷六（翁氏割肚而死、鄭聯被殺）、卷十二（聞父凶信），記下頁碼並拍文字；拍版權頁</div>
+<div class="shoot"><b>為什麼：</b>鄭芝龍、田川氏、鄭聯等人物詞條的說法要有原書頁碼。三樓的版本可外借，地下二樓的叢刊本平日才能調。</div>
+</div></div></div>
+<div class="card" id="t1114-p2-4" data-ids="t1114-p2-4"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">2-5</span>海上見聞錄</div>
+<div class="ed">阮旻錫</div>
+<div class="call">733.2 7168</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽）；另一版 733.72 71682 84 在六樓與地下二樓</div>
+<div class="shoot"><b>要拍：</b>目次、鄭泰之死一段（本書作自縊）、鄭氏家族相關條目、版權頁</div>
+<div class="shoot"><b>為什麼：</b>鄭泰死法兩說並陳，要有本書頁碼。</div>
+</div></div></div>
+<div class="card" id="t1114-p2-5" data-ids="t1114-p2-5"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">2-6</span>閩海紀要</div>
+<div class="ed">夏琳</div>
+<div class="call">626.96 10149 84</div>
+<div class="loc">三樓中文圖書區（可外借）；另一版 733.2 1014 在六樓臺灣資料圖書區 II</div>
+<div class="shoot"><b>要拍：</b>目次、鄭氏家族與海禁相關條目、版權頁</div>
+<div class="shoot"><b>為什麼：</b>鄭氏史事的另一套清初記述，和《從征實錄》《海上見聞錄》對照。</div>
+</div></div></div>
+<div class="card" id="t1114-p2-6" data-ids="t1114-p2-6"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">2-7</span>黃典權〈鄭成功生母死難考〉</div>
+<div class="ed">黃典權</div>
+<div class="call none">現場查</div>
+<div class="loc">館藏系統以篇名查不到，請到參考櫃台問原刊期刊。臺南文史研究資料庫也收了這篇，但網站維護中</div>
+<div class="tags"><span class="tag chk">現場查</span></div>
+<div class="shoot"><b>要拍：</b>全文、該期封面與目次</div>
+<div class="shoot"><b>為什麼：</b>田川氏死亡日期與方式，目前並列割腹、自縊、受辱被殺三說。</div>
+</div></div></div>
+<div class="card" id="t1114-p2-7" data-ids="t1114-p2-7"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">2-8</span>臺灣文獻叢刊（整套）</div>
+<div class="ed">臺灣銀行經濟研究室編</div>
+<div class="call">733.7 4382-13</div>
+<div class="loc">六樓叢書區開架（館內閱覽），館藏系統列 v.1–156 在架；冊號和叢刊「第幾種」是否一致，請現場對照書背</div>
+<div class="shoot"><b>要拍：</b>上面幾種若在六樓臺灣資料圖書區找不到，直接到叢書區拿同一種</div>
+<div class="shoot"><b>為什麼：</b>整套開架，找不到單本時的備案。</div>
+</div></div></div>
+<h3 id="p3">第三優先：鄭氏家族與海禁專題用書（20 筆）</h3>
+<p class="small">標「現場查」的是館藏系統查不到，請到櫃台問。</p>
+<div class="card" id="t1114-p3-0" data-ids="t1114-p3-0"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-1</span>荷蘭時代臺灣史論文集（收岩生成一論李旦的中譯）</div>
+<div class="ed">村上直次郎等著；許賢瑤譯</div>
+<div class="call">733.2507 4243 90</div>
+<div class="loc">三樓中文圖書區（可外借）；六樓臺灣資料圖書區 II、地下二樓也有</div>
+<div class="shoot"><b>要拍：</b>目次；岩生成一論李旦一篇全文（現場確認有收）；版權頁</div>
+<div class="shoot"><b>為什麼：</b>李旦生平、李旦之子李國助控訴鄭芝龍侵吞資產的出處與年份。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-1" data-ids="t1114-p3-1"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-2</span>荷據時代台灣史</div>
+<div class="ed">楊彥杰</div>
+<div class="call">733.25 4604 89</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽）；地下二樓另有可外借本</div>
+<div class="shoot"><b>要拍：</b>目次、鄭芝龍與鄭成功相關章節、版權頁</div>
+<div class="shoot"><b>為什麼：</b>中國學者寫的荷治史通論，與荷方檔案的說法對照。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-2" data-ids="t1114-p3-2"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-3</span>鄭成功研究國際學術會議論文集</div>
+<div class="ed">廈門大學臺灣研究所歷史研究室編</div>
+<div class="call">733.260786 7747 78</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽）；地下二樓另有可外借本</div>
+<div class="shoot"><b>要拍：</b>目次；楊彥杰談延平王、潮王受封時間的一篇；版權頁</div>
+<div class="shoot"><b>為什麼：</b>延平王、潮王受封年份各說不一。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-3" data-ids="t1114-p3-3"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-4</span>荷蘭時代台灣史的連續性問題</div>
+<div class="ed">翁佳音</div>
+<div class="call">733.25 8020 97</div>
+<div class="loc">三樓中文圖書區（可外借）</div>
+<div class="shoot"><b>要拍：</b>目次、談鄭氏與海商的章節、版權頁</div>
+<div class="shoot"><b>為什麼：</b>荷治到明鄭的延續與斷裂。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-4" data-ids="t1114-p3-4"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-5</span>海上傭兵：十七世紀東亞海域的戰爭、貿易與海上劫掠</div>
+<div class="ed">鄭維中著；蔡耀緯譯</div>
+<div class="call">558.093 8725 110</div>
+<div class="loc">三樓中文圖書區（館內閱覽）</div>
+<div class="shoot"><b>要拍：</b>目次；鄭芝龍為荷蘭人私掠、鄭氏船數與利潤估計的段落；版權頁</div>
+<div class="shoot"><b>為什麼：</b>鄭芝龍與 VOC 的關係，海禁條目要的數字。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-5" data-ids="t1114-p3-5"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-6</span>開啟台灣第一人鄭芝龍</div>
+<div class="ed">湯錦台</div>
+<div class="call">782.869 8740-2 91</div>
+<div class="loc">三樓中文圖書區（可外借）</div>
+<div class="shoot"><b>要拍：</b>頁 118–132（李旦死後產業分歸鄭芝龍與許心素、許心素被殺、受撫經過），其中頁 120–122 最要緊；版權頁</div>
+<div class="shoot"><b>為什麼：</b>許心素被殺的年份與經過，目前只用維基轉述。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-6" data-ids="t1114-p3-6"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-7</span>鄭成功歷史研究</div>
+<div class="ed">陳碧笙</div>
+<div class="call">626.96 7518 89</div>
+<div class="loc">地下一樓密集書庫簡體字正本區（館內閱覽，要請館員調）</div>
+<div class="shoot"><b>要拍：</b>目次、討論「焚儒服」不實的章節、版權頁</div>
+<div class="shoot"><b>為什麼：</b>課本印象與史料不同的地方要有學者論證出處。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-7" data-ids="t1114-p3-7"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-8</span>被遺誤的臺灣：荷鄭臺江決戰始末記</div>
+<div class="ed">C.E.S. 原著；甘為霖英譯；林野文漢譯</div>
+<div class="call">733.25 5210 100</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽）；地下二樓另有可外借本</div>
+<div class="shoot"><b>要拍：</b>鄭軍入鹿耳門、北線尾之戰、普羅民遮城投降各段；版權頁</div>
+<div class="shoot"><b>為什麼：</b>荷方當事人揆一的辯護書中譯，和英譯本頁碼對照。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-8" data-ids="t1114-p3-8"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-9</span>福爾摩沙如何變成臺灣府</div>
+<div class="ed">歐陽泰著；鄭維中譯</div>
+<div class="call">733.25 7775 96</div>
+<div class="loc">三樓中文圖書區（可外借）</div>
+<div class="shoot"><b>要拍：</b>目次；鄭芝龍與鄭成功各章；註釋（顏思齊、李旦相關的註 19）；版權頁</div>
+<div class="shoot"><b>為什麼：</b>李旦、顏思齊、鄭芝龍關係的現行通說出處。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-9" data-ids="t1114-p3-9"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-10</span>決戰熱蘭遮：歐洲與中國的第一場戰爭</div>
+<div class="ed">歐陽泰著；陳信宏譯</div>
+<div class="call">733.25 7775-2 101</div>
+<div class="loc">三樓中文圖書區（可外借）</div>
+<div class="shoot"><b>要拍：</b>目次；鄭軍入鹿耳門、北線尾之戰、圍城各章；版權頁</div>
+<div class="shoot"><b>為什麼：</b>鄭荷戰爭的通論，和熱蘭遮城日誌第 9 冊對照。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-10" data-ids="t1114-p3-10"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-11</span>製作福爾摩沙：追尋西洋古書中的臺灣身影</div>
+<div class="ed">鄭維中</div>
+<div class="call">733.2 8725 95</div>
+<div class="loc">三樓中文圖書區（可外借）</div>
+<div class="shoot"><b>要拍：</b>頁 220–221、版權頁</div>
+<div class="shoot"><b>為什麼：</b>維基〈臺灣明鄭時期〉引用的頁面，核對原文。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-11" data-ids="t1114-p3-11"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-12</span>朱希祖〈鄭延平王受明官爵考〉，《國學季刊》1932</div>
+<div class="ed">朱希祖</div>
+<div class="call">030.5 1047（期刊合訂本）</div>
+<div class="loc">四樓中日文期刊合訂本區（館內閱覽），刊名登錄為《國立北京大學國學季刊》；1932 年那一卷請現場對照</div>
+<div class="shoot"><b>要拍：</b>全文、該期封面與目次</div>
+<div class="shoot"><b>為什麼：</b>鄭成功受封官爵的經典考證。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-12" data-ids="t1114-p3-12"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-13</span>翁佳音〈十七世紀的福佬海商〉</div>
+<div class="ed">翁佳音</div>
+<div class="call">557.4607 56335（叢書）</div>
+<div class="loc">地下二樓密集書庫（可外借）；刊在《中國海洋發展史論文集》的哪一輯請現場對照目次</div>
+<div class="shoot"><b>要拍：</b>頁 74–75（顏思齊即 Pedro China、與李旦合夥的證據）與全文</div>
+<div class="shoot"><b>為什麼：</b>顏思齊、李旦是否同一人等說法的出處。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-13" data-ids="t1114-p3-13"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-14</span>江樹生《鄭成功和荷蘭人在台灣的最後一戰及換文締和》（漢聲，1992）</div>
+<div class="ed">江樹生</div>
+<div class="call none">現場查</div>
+<div class="loc">館藏系統以書名查不到</div>
+<div class="tags"><span class="tag chk">現場查</span></div>
+<div class="shoot"><b>要拍：</b>目次、北線尾之戰與締和條約各段、版權頁</div>
+<div class="shoot"><b>為什麼：</b>條約條文的中譯出處。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-14" data-ids="t1114-p3-14"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-15</span>黃玉齋《明延平王三世》（海峽學術，2004）</div>
+<div class="ed">黃玉齋</div>
+<div class="call none">現場查</div>
+<div class="loc">館藏系統以書名查不到</div>
+<div class="tags"><span class="tag chk">現場查</span></div>
+<div class="shoot"><b>要拍：</b>目次、世系相關章節、版權頁</div>
+<div class="shoot"><b>為什麼：</b>鄭氏家族世系、鄭彩鄭聯的輩分。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-15" data-ids="t1114-p3-15"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-16</span>鄭喜夫〈鄭延平之世系與井江鄭氏人物雜述〉，《臺灣文獻》1990</div>
+<div class="ed">鄭喜夫</div>
+<div class="call none">現場查</div>
+<div class="loc">《臺灣文獻》期刊合訂本，請到五樓期刊合訂本區或櫃台問 1990 年那一卷</div>
+<div class="tags"><span class="tag chk">現場查</span></div>
+<div class="shoot"><b>要拍：</b>全文、該期封面與目次</div>
+<div class="shoot"><b>為什麼：</b>鄭彩、鄭聯是族兄還是叔輩，兩說待定。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-16" data-ids="t1114-p3-16"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-17</span>林仁川《明末清初私人海上貿易》</div>
+<div class="ed">林仁川</div>
+<div class="call none">現場查</div>
+<div class="loc">館藏系統以書名查不到</div>
+<div class="tags"><span class="tag chk">現場查</span></div>
+<div class="shoot"><b>要拍：</b>目次、1650 年代鄭氏赴長崎船數與利潤的段落、版權頁</div>
+<div class="shoot"><b>為什麼：</b>海禁條目暫不列數字，等這本。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-17" data-ids="t1114-p3-17"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-18</span>永積洋子《唐船輸出入品數量一覧》</div>
+<div class="ed">永積洋子</div>
+<div class="call none">現場查</div>
+<div class="loc">館藏系統以書名查不到；日文書請問五樓櫃台</div>
+<div class="tags"><span class="tag chk">現場查</span></div>
+<div class="shoot"><b>要拍：</b>1650 年代鄭氏船隻相關年份的表、版權頁</div>
+<div class="shoot"><b>為什麼：</b>對日船數的一手統計。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-18" data-ids="t1114-p3-18"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-19</span>岩生成一《新版朱印船貿易史の研究》（吉川弘文館，1985）</div>
+<div class="ed">岩生成一</div>
+<div class="call none">現場查</div>
+<div class="loc">館藏系統只查到川島元次郎《朱印船貿易史》，沒有岩生成一這本</div>
+<div class="tags"><span class="tag chk">現場查</span></div>
+<div class="shoot"><b>要拍：</b>目次、華人海商相關章節、版權頁</div>
+<div class="shoot"><b>為什麼：</b>朱印船與華人海商的背景。</div>
+</div></div></div>
+<div class="card" id="t1114-p3-19" data-ids="t1114-p3-19"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">3-20</span>陳碧笙校注《先王實錄校注》（福建人民，1981）</div>
+<div class="ed">陳碧笙校注</div>
+<div class="call none">現場查</div>
+<div class="loc">館藏系統以書名查不到</div>
+<div class="tags"><span class="tag chk">現場查</span></div>
+<div class="shoot"><b>要拍：</b>與《從征實錄》同樣的永曆四、五、七、八年各條，記下頁碼</div>
+<div class="shoot"><b>為什麼：</b>《從征實錄》的校注本，兩本對照。</div>
+</div></div></div>
+<h3 id="p4">第四優先：原找書清單的國臺圖書（35 筆）</h3>
+<p class="small">依星號排：★★★ 一定要看、★★ 建議看、★ 有空再看。</p>
+<div class="card" id="b-baise" data-ids="n2-53 e3"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-1</span>南瀛白色恐怖誌 <span class="pri p3">★★★</span></div>
+<div class="call">733.9654 4302-7 v.5</div>
+<div class="loc">三樓中文圖書區（可外借・在架）</div>
+<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
+<div class="small">國圖也有：<code>733.9/129.4 8526 v.35（套書六樓書庫）</code>（典藏書庫・套書六樓書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">目錄全拍、版權頁（確認 2001 或 2002 年份）。大內嗚頭：頁 93–113。安南（媽祖宮公學校、土城國民學校、安順）、安定、西港、麻豆、下營、佳里、學甲、北門、七股各案章節。受難者名單、參考書目。</div></details>
+</div></div></div>
+<div class="card" id="b-dmcs" data-ids="n2-9 d2"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-2</span>臺灣地名辭書（多卷，要卷 21 臺南市） <span class="pri p3">★★★</span></div>
+<div class="call">733.3704 90280 v.1–25（33 冊）</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<div class="small">國圖也有：<code>R 733.3704 8647（另有 …97、…107）</code>（5樓參考暨政府資訊室・中文閱覽區（在架）；5樓參考暨政府資訊室・參庫中文（在架）；典藏書庫・中文書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">卷七臺南縣：頁 646 原文（16 N010），以及七股鄉一節。卷廿一臺南市：頁 432 原文（陳姓「助郭」或「助黃」回查），以及安南區一節全部（土城仔、青草崙、十份塭、各寮、四草、鹿耳門、媽祖宮、安順）。每卷都拍版權頁，記下是哪一套年版。2026-11-10 追加：卷廿一頁 41–46（漁光里）、353–380（喜樹、灣裡），核對鯤鯓詞條。</div></details>
+</div></div></div>
+<div class="card" id="b-lzm" data-ids="n2-30 e5"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-3</span>鹿耳門志（黃文博、吳建昇、陳桂蘭 2011，上下冊） <span class="pri p3">★★★</span></div>
+<div class="call">733.9611 4404 v.1、2</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<div class="small">國圖也有：<code>733.9/127.1 8363</code>（典藏書庫・中文書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">目錄＋地理變遷、媽祖宮庄與 13 房、神像播遷、正統論爭各章。</div></details>
+</div></div></div>
+<div class="card" id="b-m3" data-ids="m3"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-4</span>安南區志（1999） <span class="pri p3">★★★</span></div>
+<div class="call">733.9611 3474 88</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽）</div>
+<div class="small">國圖沒有。上次查顯示占用至 2026-12-31，去之前先電話確認；備案：成大圖書館 <code>673.29/127.1 4421</code>。</div>
+<details><summary>要拍什麼</summary><div class="small">國圖無。改查：改查國臺圖 733.9611 3474 88（上次顯示借出至 2026-12-31）、大學圖書館（成大 673.29/127.1 4421、屏東大學）；或館際合作複印里別沿革、地名、聚落章</div></details>
+</div></div></div>
+<div class="card" id="b-haifeng" data-ids="n2-42 e2"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-5</span>海風牽引臺17：從北馬仔到灣裡 <span class="pri p3">★★★</span></div>
+<div class="call">733.9614 7734A 103</div>
+<div class="loc">六樓本土教育資源專區（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<div class="small">國圖也有：<code>733.9/129.4 8626</code>（典藏書庫・中文書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">目錄＋土城仔、青草崙、鹿耳門、四草、安順鹽田各節。</div></details>
+</div></div></div>
+<div class="card" id="b-50s" data-ids="n2-27 e20"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-6</span>臺灣地區戒嚴時期五〇年代政治案件史料彙編（臺灣省文獻委員會 1998，5 冊） <span class="pri p2">★★</span></div>
+<div class="call">573.09 9028 87 v.1–5（5 冊）</div>
+<div class="loc">地下二樓密集書庫正複本區（可外借・在架）</div>
+<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
+<div class="small">國圖也有：<code>573.09 8445:2</code>（典藏書庫・中文書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">調閱時指定（三）個案資料：臺南縣（麻豆、下營、大內、北門、佳里、學甲）與安南各案條目；目錄與凡例。</div></details>
+</div></div></div>
+<div class="card" id="b-lzm1" data-ids="n2-31 e10 m5"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-7</span>鹿耳門志 第一輯（民51 原版／民78 重印本） <span class="pri p2">★★</span></div>
+<div class="call">797.32 0174</div>
+<div class="loc">地下二樓密集書庫民國65年前圖書（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<div class="small">國圖也有：<code>733.9/127.1 8445 78</code>（典藏書庫・中文書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">國圖在中文正本倉儲區，線上不能調閱，可填倉儲調閱申請單（見文末規則）。改查：用民78 版（典藏書庫）</div></details>
+</div></div></div>
+<div class="card" id="b-neihai" data-ids="n2-32 e21"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-8</span>臺江內海及其庄社：大洪水裡的小地方記憶 <span class="pri p2">★★</span></div>
+<div class="call">733.9612 2645 102</div>
+<div class="loc">三樓中文圖書區（可外借・在架）</div>
+<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
+<div class="small">國圖也有：<code>733.9/127.2 8843</code>（典藏書庫・中文書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">目錄；土城仔、青草崙、十份塭、媽祖宮、四草各庄章節；1823 陸化與移墾。</div></details>
+</div></div></div>
+<div class="card" id="b-mazuqy" data-ids="n2-67 m0"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-9</span>媽祖情緣：鹿耳門天后宮媽祖姊妹會（黃文博，民87） <span class="pri p2">★★</span></div>
+<div class="call">733.9614 4404-2 87</div>
+<div class="loc">三樓中文圖書區（可外借・在架）</div>
+<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
+<details><summary>要拍什麼</summary><div class="small">國圖有 733.9/127.4 8363-2，但在中文正本倉儲區，線上不能調閱，可填倉儲調閱申請單（見文末規則）；全國聯合目錄只有國圖這一筆。改查：國圖無（可調閱本），改查臺南市圖；或到鹿耳門天后宮現場詢問（統整/17 已列）</div></details>
+</div></div></div>
+<div class="card" id="b-yizhen" data-ids="n2-51 e11"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-10</span>南瀛藝陣誌 <span class="pri p2">★★</span></div>
+<div class="call">733.9654 4302-3 v.1</div>
+<div class="loc">三樓中文圖書區（可外借・在架）</div>
+<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
+<div class="small">國圖也有：<code>733.9/129.4 8526 v.11（套書六樓書庫）</code>（典藏書庫・套書六樓書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">目錄＋土城香各陣頭條目、蜈蚣陣、白鶴陣、金獅陣。</div></details>
+</div></div></div>
+<div class="card" id="b-dmbm" data-ids="n2-41 e23"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-11</span>南瀛地名誌 北門區卷 <span class="pri p2">★★</span></div>
+<div class="call">733.9654 4302-4 v.3</div>
+<div class="loc">三樓中文圖書區（可外借・在架）</div>
+<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
+<div class="small">國圖也有：<code>733.9/129.37 8363-4</code>（典藏書庫・中文書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">七股（頁 207 八棟寮）、西港、佳里、學甲、北門各節裡的香境聚落。</div></details>
+</div></div></div>
+<div class="card" id="b-wangchuan" data-ids="n2-52 e12"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-12</span>南瀛王船誌 <span class="pri p2">★★</span></div>
+<div class="call">733.9654 4302-5 v.1</div>
+<div class="loc">三樓中文圖書區（可外借・在架）</div>
+<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
+<div class="small">國圖也有：<code>733.9/129.4 8526 v.20（套書六樓書庫）</code>（典藏書庫・套書六樓書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">目錄；土城仔（王船入塢只祭不送）、西港、蕭壠、學甲、麻豆各王船節。</div></details>
+</div></div></div>
+<div class="card" id="b-zongtong" data-ids="n2-44 e19"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-13</span>總統的親戚（陳柔縉；1999 舊版／2022 新版） <span class="pri p2">★★</span></div>
+<div class="call">782.7 7512 88</div>
+<div class="loc">三樓中文圖書區（可外借・在架）</div>
+<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
+<div class="small">國圖也有：<code>783.31 8776:4 111</code>（典藏書庫・中文書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">頁 277–291 全部＋版權頁。</div></details>
+</div></div></div>
+<div class="card" id="b-fengwu" data-ids="n2-6 c4"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-14</span>臺灣風物（1951 起） <span class="pri p2">★★</span></div>
+<div class="call">733.7 4372 v.1-2–75:2（183 冊）</div>
+<div class="loc">五樓中日文臺灣期刊合訂本區（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<div class="small">國圖也有：<code>P 733.05 8445</code>（3樓期刊室・中文現刊區（在架）；3樓期刊室・期刊合訂本區（請看館藏））</div>
+<details><summary>要拍什麼</summary><div class="small">找〈鹿耳門天后宮真偽論戰之解決〉原刊：後記說 1961 年 8 月，文末署 1962-01-10，兩個時間前後各期都翻目錄。順便找〈關於鹿耳門古港位置之我見〉（1961-09-18 撰）是否也刊在這裡。找到就拍全文＋該期封面與目錄頁（定卷期）。</div></details>
+</div></div></div>
+<div class="card" id="b-tnwx" data-ids="n2-5 c1"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-15</span>臺南文獻（半年刊，2012 起） <span class="pri p2">★★</span></div>
+<div class="call">733.96105 4402 v.8–26（6 冊）</div>
+<div class="loc">五樓中日文臺灣期刊合訂本區（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<div class="small">國圖也有：<code>P 733.9/127.05 8456</code>（3樓期刊室・中文期庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">第 10 輯（2016 年 12 月，西港刈香專輯）：目錄＋比較香路、陣頭制度的論文全文。其餘各輯只翻目錄，找土城、鹿耳門、五大香、安順廠、白色恐怖、鹽分地帶的篇，有就拍全文。</div></details>
+</div></div></div>
+<div class="card" id="b-fwidx" data-ids="n2-8 d4"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-16</span>臺灣風物分類索引（高賢治編，1991） <span class="pri p2">★★</span></div>
+<div class="call">016.67327 0073 80</div>
+<div class="loc">六樓臺灣資料圖書區 I（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<div class="small">國圖也有：<code>R 733.05 8445(021)</code>（5樓參考暨政府資訊室・中文閱覽區（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">查「鹿耳門」「天后宮」條目，找兩篇論戰文章，抄下卷期頁碼，再去 3 樓調原刊。先查這本可以省很多時間。</div></details>
+</div></div></div>
+<div class="card" id="b-longshan" data-ids="n2-61 f3"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-17</span>龍山村村民對濱南工業區劃設的集體行動之社會基礎分析（碩士論文） <span class="pri p2">★★</span></div>
+<div class="call">545.2 0821 88</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<div class="small">國圖也有：<code>550 007M 88-11（遠端碩士書庫）</code>（遠端書庫・遠端碩士書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">目錄、年表、訪談（村民原話）、參考書目。</div></details>
+</div></div></div>
+<div class="card" id="b-tnsz" data-ids="n2-0 b2"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-18</span>臺南市志（九卷，卷首、卷末各一） <span class="pri p2">★★</span></div>
+<div class="call">733.961 4454 v.1–16（16 冊）</div>
+<div class="loc">六樓特藏舊籍複製本區（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<div class="small">國圖也有：<code>733.9/127.1 8344 72</code>（2樓參考區・叢書區2（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">目錄。安南區（1946 年安順鄉併入）沿革。寺廟表中安南區各廟。人物志中安南區人物。</div></details>
+</div></div></div>
+<div class="card" id="b-tnxz" data-ids="n2-2 b1 m4"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-19</span>臺南縣志（十卷，首一卷；1980 原刊／成文 1983 影印本） <span class="pri p2">★★</span></div>
+<div class="call">733.965 3433 v.2、3、4</div>
+<div class="loc">六樓特藏舊籍複製本區（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<div class="small">國圖也有：<code>733.9/129.1 8266 72</code>（2樓參考區・叢書區2（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">國圖無館藏。改查：用 2 樓參考區的 1983 成文影印本即可</div></details>
+</div></div></div>
+<div class="card" id="b-nywx" data-ids="n2-4 c2"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-20</span>南瀛文獻（1953–1999 原刊；改版 2002–2010 第 1 至 9 期） <span class="pri p2">★★</span></div>
+<div class="call">733.965 4420-2 v.1–5（5 冊）</div>
+<div class="loc">六樓特藏舊籍複製本區（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<div class="small">國圖也有：<code>688.3265 8526</code>（3樓期刊室・中文期庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">改版各期（2002 至 2010）目錄全拍。找土城、鹿耳門、香科、王船、二二八、白色恐怖、鹽分地帶相關篇，有就拍全文。1970 年以前的期先看臺南文史研究資料庫，不重拍。</div></details>
+</div></div></div>
+<div class="card" id="b-mazu-tw" data-ids="n2-20 e42"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-21</span>臺灣的媽祖信仰（石萬壽，臺原 2000） <span class="pri p1">★</span></div>
+<div class="call">272.71 1044 89</div>
+<div class="loc">地下二樓密集書庫正複本區（可外借・在架）</div>
+<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
+<div class="small">國圖也有：<code>272.71 8443</code>（典藏書庫・中文書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">鹿耳門相關一章。</div></details>
+</div></div></div>
+<div class="card" id="b-dili" data-ids="n2-72 m10"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-22</span>鹿耳門地理演變考（盧嘉興 1965，含是否附續考） <span class="pri p1">★</span></div>
+<div class="call">733.965 2147-2</div>
+<div class="loc">地下二樓密集書庫民國65年前圖書（可外借・在架）</div>
+<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
+<details><summary>要拍什麼</summary><div class="small">國圖在倉儲區，線上不能調閱，可填倉儲調閱申請單（見文末規則）。改查：改查國臺圖 673.2965 2147-2、臺大；1962《臺南文化》論戰各篇已有線上全文</div></details>
+</div></div></div>
+<div class="card" id="b-salt2011" data-ids="n2-47 e32"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-23</span>鹽分地帶文學學術研討會論文集 2011（國立臺灣文學館） <span class="pri p1">★</span></div>
+<div class="call">863.07 6076 2011</div>
+<div class="loc">地下二樓密集書庫正複本區（可外借・在架）</div>
+<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
+<div class="small">國圖也有：<code>863.07 8485 100</code>（典藏書庫・中文書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">目錄；〈「鹽分地帶」概念的形成與接受〉〈鹽分地帶文學的精神系譜初探〉兩篇。</div></details>
+</div></div></div>
+<div class="card" id="b-jinxiang" data-ids="n2-70 m12"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-24</span>進香．醮．祭與社會文化變遷（謝國興編） <span class="pri p1">★</span></div>
+<div class="call">733.4 0467 108</div>
+<div class="loc">三樓中文圖書區（可外借・在架）</div>
+<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
+<details><summary>要拍什麼</summary><div class="small">國圖即時查詢無。改查：改查北市圖 272.907 0467、國臺圖 733.4 0467（可外借）</div></details>
+</div></div></div>
+<div class="card" id="b-jtd84" data-ids="n2-68 m2"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-25</span>佳里鎮金唐殿（民84） <span class="pri p1">★</span></div>
+<div class="call">733.9654 4302-2 v.4</div>
+<div class="loc">三樓中文圖書區（可外借・在架）</div>
+<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
+<details><summary>要拍什麼</summary><div class="small">國圖本館無獨立件；聯合目錄同記在 733.9/129.4 8526 套書。改查：現場可問卷次；否則改查臺南市圖 927.1 8363、大學圖書館（成大 927.1 4404c）</div></details>
+</div></div></div>
+<div class="card" id="b-dmzw" data-ids="n2-40 e31"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-26</span>南瀛地名誌 曾文區卷 <span class="pri p1">★</span></div>
+<div class="call">733.9654 4302-4 v.2</div>
+<div class="loc">三樓中文圖書區（可外借・在架）</div>
+<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
+<div class="small">國圖也有：<code>733.9/129.37 8363-3</code>（典藏書庫・中文書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">麻豆一節（麻豆香香境聚落）。</div></details>
+</div></div></div>
+<div class="card" id="b-wuxr" data-ids="n2-46 e35"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-27</span>吳新榮選集 <span class="pri p1">★</span></div>
+<div class="call">848.6 2609-2 86 v.1、2、3</div>
+<div class="loc">三樓中文圖書區（可外借・在架）</div>
+<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
+<div class="small">國圖也有：<code>848.6 8846:4</code>（典藏書庫・中文書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">目錄；採訪記、二二八相關篇。</div></details>
+</div></div></div>
+<div class="card" id="b-tnmazu" data-ids="n2-17 e40"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-28</span>臺南媽祖信仰研究 <span class="pri p1">★</span></div>
+<div class="call">272.71 1155 102</div>
+<div class="loc">六樓臺灣資料圖書區 I（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<div class="small">國圖也有：<code>272.097 8754</code>（典藏書庫・中文書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">鹿耳門雙廟一節。</div></details>
+</div></div></div>
+<div class="card" id="b-dioxin" data-ids="n2-58 f6"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-29</span>戴奧辛與汞污染場址整治之研究：以臺南市舊臺鹼安順廠為例（碩士論文） <span class="pri p1">★</span></div>
+<div class="call">445.94 1031 97</div>
+<div class="loc">六樓臺灣資料圖書區 I（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<div class="small">國圖也有：<code>445.9 079M 97-24（遠端碩士書庫）</code>（遠端書庫・遠端碩士書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">目錄、整治年表、參考書目。</div></details>
+</div></div></div>
+<div class="card" id="b-jiudiming" data-ids="n2-73 m11"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-30</span>臺灣舊地名之沿革（洪敏麟） <span class="pri p1">★</span></div>
+<div class="call">733.3 3480-3:3 v.1、2:1</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<details><summary>要拍什麼</summary><div class="small">國圖在倉儲區，線上不能調閱，可填倉儲調閱申請單（見文末規則）。改查：改查國臺圖、大學圖書館（臺大、政大）；或以《臺灣地名辭書》代替</div></details>
+</div></div></div>
+<div class="card" id="b-xxtnsz" data-ids="n2-56 e27"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-31</span>續修臺南市志 <span class="pri p1">★</span></div>
+<div class="call">733.961 4401-5 v.0:2–7:3（22 冊）</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<div class="small">國圖也有：<code>733.9/127.1 8473.2（邊架區七後）</code>（典藏書庫・邊架區七後（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">安南區沿革、宗教篇安南區各廟。</div></details>
+<div class="small">國圖「臺灣記憶」有數位版（例：卷七選舉志 里長選舉篇、市議員選舉篇），在國圖館內網域可下載電子檔，不用翻拍。11/8 存回來的兩個檔只是書目介紹頁（封面縮圖加資料），不是內文，下次在館內要從閱覽頁下載全冊。</div>
+</div></div></div>
+<div class="card" id="b-wenyiying" data-ids="n2-48 e33"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-32</span>「鹽分地帶文藝營」研究 <span class="pri p1">★</span></div>
+<div class="call">810.64 0001 102</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<div class="small">國圖也有：<code>863.9/127 8663</code>（典藏書庫・中文書庫（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">目錄、歷屆年表。</div></details>
+</div></div></div>
+<div class="card" id="b-saltsel" data-ids="n2-74 m7"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-33</span>鹽分地帶文學選（林佛兒、羊子喬、杜文靖編，林白 民68） <span class="pri p1">★</span></div>
+<div class="call">830.86 4422</div>
+<div class="loc">六樓臺灣資料圖書區 II（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<details><summary>要拍什麼</summary><div class="small">國圖在中文正本倉儲區，線上不能調閱，可填倉儲調閱申請單（見文末規則）。改查：改查國臺圖 830.86 4422、大學圖書館（臺大 863.3 7884、政大 839.32 2258）</div></details>
+</div></div></div>
+<div class="card" id="b-nywx17" data-ids="n2-1 b3"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-34</span>臺灣省南瀛文獻（創刊號至第 17 卷） <span class="pri p1">★</span></div>
+<div class="call">733.965 4420-2 v.1–5（5 冊）</div>
+<div class="loc">六樓特藏舊籍複製本區（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<div class="small">國圖也有：<code>733.9/129.05 8456 72</code>（2樓參考區・叢書區2（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">1950 至 1970 年代多數已在臺南文史研究資料庫有全文。只補資料庫缺的期：翻各卷目錄，拍與鹿耳門、臺江、國賽港、七股、西港、二二八有關的篇。</div></details>
+</div></div></div>
+<div class="card" id="b-baotu" data-ids="n2-10 d3"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
+<div class="title"><span class="no">4-35</span>臺灣堡圖（地圖） <span class="pri p0">可略</span></div>
+<div class="call">733.3 4322-4 v.1(富貴角)–202(楓港)（202 冊）</div>
+<div class="loc">五樓5041地圖(洽五樓櫃臺調閱)（館內閱覽・在架）</div>
+<div class="tags"><span class="tag chk">館內</span></div>
+<div class="small">國圖也有：<code>M 733.35 8455</code>（5樓參考暨政府資訊室・參庫中文（在架））</div>
+<details><summary>要拍什麼</summary><div class="small">中研院百年地圖線上有，可略。</div></details>
+</div></div></div>
+<h3 id="how">借不到就現場翻拍的拍法</h3>
+<ol>
+<li>每本先拍版權頁，再拍目次，最後拍要的章節。版權頁要看得到書名、作者、出版者、出版年、ISBN。</li>
+<li>每張照片都要讓頁碼入鏡；跨頁照片兩邊的頁碼都要拍到。這次補拍的頁有好幾處就是因為頁碼沒入鏡，對不回原書。</li>
+<li>手指壓在頁邊空白處，不要壓到字；手機方向固定，避免上下顛倒。</li>
+<li>人名、碑文、表格、地圖小字另外近拍一張。</li>
+<li>期刊文章要多拍該期封面與目次頁，用來確定卷期與出版年月。</li>
+<li>拍完一本就在本頁打勾；回家後照片依書名分資料夾即可。</li></ol>
+
 <h2 id="ncl">國圖（國家圖書館，中正紀念堂旁）（77 筆）</h2>
 <h3>3 樓期刊室（櫃台調閱）（2 筆）</h3>
 <div class="card" id="b-c3" data-ids="c3"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
@@ -575,7 +1301,7 @@ ol.ph>li{background:var(--card);border:1px solid var(--line);border-radius:10px;
 <details><summary>要拍什麼</summary><div class="small">Candidius 1628 年報告裡的檳榔、荖葉描寫。原著 1903 年是公有領域，先找線上全文（已排 Gemini V20-08），找不到再到館</div></details>
 </div></div></div>
 <h3>維基化收尾找書（2026-11-13）（3 筆）</h3>
-<p class="small">出自 統整/46 維基化收尾清單。詳細待查題目見<a href="../研究佇列/2026-11-13_維基化收尾待查.html">維基化收尾待查</a>。臺南陳、曾世業道士家族兩篇（丁煌 1990、洪瑩發 2021）已在「香科溯源與土城香規矩」一節，楊仁江《四草礮臺（鎮海城）調查研究與修護》已在「四草大眾廟誌延伸」一節，不重列。</p>
+<p class="small">出自 統整/46 維基化收尾清單。詳細待查題目見<a href="../研究佇列/2026-11-14_待查與待翻閱.html#wiki">維基化收尾待查</a>。臺南陳、曾世業道士家族兩篇（丁煌 1990、洪瑩發 2021）已在「香科溯源與土城香規矩」一節，楊仁江《四草礮臺（鎮海城）調查研究與修護》已在「四草大眾廟誌延伸」一節，不重列。</p>
 <div class="card" id="b-wk1113-1" data-ids="wk1113-1"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
 <div class="title">臺南縣統計要覽、臺南市統計要覽、臺灣農業年報（1970–1989 各年） <span class="pri p1">★</span></div>
 <div class="call">待查號（政府出版品，依年份調閱）</div>
@@ -633,288 +1359,8 @@ ol.ph>li{background:var(--card);border:1px solid var(--line);border-radius:10px;
 <div class="small"><a href="https://ncltw.primo.exlibrisgroup.com/nde/fulldisplay?docid=alma990023592320209684&amp;vid=886NCL_INST:886NCL_INST&amp;context=L" target="_blank" rel="noopener">館藏頁</a></div>
 <details><summary>要拍什麼</summary><div class="small">目錄、濱南案年表、參考書目。</div></details>
 </div></div></div>
-<h2 id="ntl">國臺圖（國立臺灣圖書館，中和）（35 筆）</h2>
-<h3>地下二樓密集書庫（到櫃臺請館員調，一進館先送）（5 筆）</h3>
-<div class="card" id="b-50s" data-ids="n2-27 e20"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">臺灣地區戒嚴時期五〇年代政治案件史料彙編（臺灣省文獻委員會 1998，5 冊） <span class="pri p2">★★</span></div>
-<div class="call">573.09 9028 87 v.1–5（5 冊）</div>
-<div class="loc">地下二樓密集書庫正複本區（可外借・在架）</div>
-<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
-<div class="small">國圖也有：<code>573.09 8445:2</code>（典藏書庫・中文書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">調閱時指定（三）個案資料：臺南縣（麻豆、下營、大內、北門、佳里、學甲）與安南各案條目；目錄與凡例。</div></details>
-</div></div></div>
-<div class="card" id="b-lzm1" data-ids="n2-31 e10 m5"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">鹿耳門志 第一輯（民51 原版／民78 重印本） <span class="pri p2">★★</span></div>
-<div class="call">797.32 0174</div>
-<div class="loc">地下二樓密集書庫民國65年前圖書（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<div class="small">國圖也有：<code>733.9/127.1 8445 78</code>（典藏書庫・中文書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">國圖在中文正本倉儲區，線上不能調閱，可填倉儲調閱申請單（見文末規則）。改查：用民78 版（典藏書庫）</div></details>
-</div></div></div>
-<div class="card" id="b-mazu-tw" data-ids="n2-20 e42"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">臺灣的媽祖信仰（石萬壽，臺原 2000） <span class="pri p1">★</span></div>
-<div class="call">272.71 1044 89</div>
-<div class="loc">地下二樓密集書庫正複本區（可外借・在架）</div>
-<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
-<div class="small">國圖也有：<code>272.71 8443</code>（典藏書庫・中文書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">鹿耳門相關一章。</div></details>
-</div></div></div>
-<div class="card" id="b-dili" data-ids="n2-72 m10"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">鹿耳門地理演變考（盧嘉興 1965，含是否附續考） <span class="pri p1">★</span></div>
-<div class="call">733.965 2147-2</div>
-<div class="loc">地下二樓密集書庫民國65年前圖書（可外借・在架）</div>
-<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
-<details><summary>要拍什麼</summary><div class="small">國圖在倉儲區，線上不能調閱，可填倉儲調閱申請單（見文末規則）。改查：改查國臺圖 673.2965 2147-2、臺大；1962《臺南文化》論戰各篇已有線上全文</div></details>
-</div></div></div>
-<div class="card" id="b-salt2011" data-ids="n2-47 e32"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">鹽分地帶文學學術研討會論文集 2011（國立臺灣文學館） <span class="pri p1">★</span></div>
-<div class="call">863.07 6076 2011</div>
-<div class="loc">地下二樓密集書庫正複本區（可外借・在架）</div>
-<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
-<div class="small">國圖也有：<code>863.07 8485 100</code>（典藏書庫・中文書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">目錄；〈「鹽分地帶」概念的形成與接受〉〈鹽分地帶文學的精神系譜初探〉兩篇。</div></details>
-</div></div></div>
-<h3>三樓（可外借）（11 筆）</h3>
-<div class="card" id="b-baise" data-ids="n2-53 e3"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">南瀛白色恐怖誌 <span class="pri p3">★★★</span></div>
-<div class="call">733.9654 4302-7 v.5</div>
-<div class="loc">三樓中文圖書區（可外借・在架）</div>
-<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
-<div class="small">國圖也有：<code>733.9/129.4 8526 v.35（套書六樓書庫）</code>（典藏書庫・套書六樓書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">目錄全拍、版權頁（確認 2001 或 2002 年份）。大內嗚頭：頁 93–113。安南（媽祖宮公學校、土城國民學校、安順）、安定、西港、麻豆、下營、佳里、學甲、北門、七股各案章節。受難者名單、參考書目。</div></details>
-</div></div></div>
-<div class="card" id="b-neihai" data-ids="n2-32 e21"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">臺江內海及其庄社：大洪水裡的小地方記憶 <span class="pri p2">★★</span></div>
-<div class="call">733.9612 2645 102</div>
-<div class="loc">三樓中文圖書區（可外借・在架）</div>
-<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
-<div class="small">國圖也有：<code>733.9/127.2 8843</code>（典藏書庫・中文書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">目錄；土城仔、青草崙、十份塭、媽祖宮、四草各庄章節；1823 陸化與移墾。</div></details>
-</div></div></div>
-<div class="card" id="b-mazuqy" data-ids="n2-67 m0"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">媽祖情緣：鹿耳門天后宮媽祖姊妹會（黃文博，民87） <span class="pri p2">★★</span></div>
-<div class="call">733.9614 4404-2 87</div>
-<div class="loc">三樓中文圖書區（可外借・在架）</div>
-<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
-<details><summary>要拍什麼</summary><div class="small">國圖有 733.9/127.4 8363-2，但在中文正本倉儲區，線上不能調閱，可填倉儲調閱申請單（見文末規則）；全國聯合目錄只有國圖這一筆。改查：國圖無（可調閱本），改查臺南市圖；或到鹿耳門天后宮現場詢問（統整/17 已列）</div></details>
-</div></div></div>
-<div class="card" id="b-yizhen" data-ids="n2-51 e11"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">南瀛藝陣誌 <span class="pri p2">★★</span></div>
-<div class="call">733.9654 4302-3 v.1</div>
-<div class="loc">三樓中文圖書區（可外借・在架）</div>
-<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
-<div class="small">國圖也有：<code>733.9/129.4 8526 v.11（套書六樓書庫）</code>（典藏書庫・套書六樓書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">目錄＋土城香各陣頭條目、蜈蚣陣、白鶴陣、金獅陣。</div></details>
-</div></div></div>
-<div class="card" id="b-dmbm" data-ids="n2-41 e23"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">南瀛地名誌 北門區卷 <span class="pri p2">★★</span></div>
-<div class="call">733.9654 4302-4 v.3</div>
-<div class="loc">三樓中文圖書區（可外借・在架）</div>
-<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
-<div class="small">國圖也有：<code>733.9/129.37 8363-4</code>（典藏書庫・中文書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">七股（頁 207 八棟寮）、西港、佳里、學甲、北門各節裡的香境聚落。</div></details>
-</div></div></div>
-<div class="card" id="b-wangchuan" data-ids="n2-52 e12"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">南瀛王船誌 <span class="pri p2">★★</span></div>
-<div class="call">733.9654 4302-5 v.1</div>
-<div class="loc">三樓中文圖書區（可外借・在架）</div>
-<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
-<div class="small">國圖也有：<code>733.9/129.4 8526 v.20（套書六樓書庫）</code>（典藏書庫・套書六樓書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">目錄；土城仔（王船入塢只祭不送）、西港、蕭壠、學甲、麻豆各王船節。</div></details>
-</div></div></div>
-<div class="card" id="b-zongtong" data-ids="n2-44 e19"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">總統的親戚（陳柔縉；1999 舊版／2022 新版） <span class="pri p2">★★</span></div>
-<div class="call">782.7 7512 88</div>
-<div class="loc">三樓中文圖書區（可外借・在架）</div>
-<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
-<div class="small">國圖也有：<code>783.31 8776:4 111</code>（典藏書庫・中文書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">頁 277–291 全部＋版權頁。</div></details>
-</div></div></div>
-<div class="card" id="b-jinxiang" data-ids="n2-70 m12"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">進香．醮．祭與社會文化變遷（謝國興編） <span class="pri p1">★</span></div>
-<div class="call">733.4 0467 108</div>
-<div class="loc">三樓中文圖書區（可外借・在架）</div>
-<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
-<details><summary>要拍什麼</summary><div class="small">國圖即時查詢無。改查：改查北市圖 272.907 0467、國臺圖 733.4 0467（可外借）</div></details>
-</div></div></div>
-<div class="card" id="b-jtd84" data-ids="n2-68 m2"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">佳里鎮金唐殿（民84） <span class="pri p1">★</span></div>
-<div class="call">733.9654 4302-2 v.4</div>
-<div class="loc">三樓中文圖書區（可外借・在架）</div>
-<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
-<details><summary>要拍什麼</summary><div class="small">國圖本館無獨立件；聯合目錄同記在 733.9/129.4 8526 套書。改查：現場可問卷次；否則改查臺南市圖 927.1 8363、大學圖書館（成大 927.1 4404c）</div></details>
-</div></div></div>
-<div class="card" id="b-dmzw" data-ids="n2-40 e31"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">南瀛地名誌 曾文區卷 <span class="pri p1">★</span></div>
-<div class="call">733.9654 4302-4 v.2</div>
-<div class="loc">三樓中文圖書區（可外借・在架）</div>
-<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
-<div class="small">國圖也有：<code>733.9/129.37 8363-3</code>（典藏書庫・中文書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">麻豆一節（麻豆香香境聚落）。</div></details>
-</div></div></div>
-<div class="card" id="b-wuxr" data-ids="n2-46 e35"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">吳新榮選集 <span class="pri p1">★</span></div>
-<div class="call">848.6 2609-2 86 v.1、2、3</div>
-<div class="loc">三樓中文圖書區（可外借・在架）</div>
-<div class="tags"><span class="tag chk">實際在六樓・平日調閱</span></div>
-<div class="small">國圖也有：<code>848.6 8846:4</code>（典藏書庫・中文書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">目錄；採訪記、二二八相關篇。</div></details>
-</div></div></div>
-<h3>五樓（3 筆）</h3>
-<div class="card" id="b-fengwu" data-ids="n2-6 c4"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">臺灣風物（1951 起） <span class="pri p2">★★</span></div>
-<div class="call">733.7 4372 v.1-2–75:2（183 冊）</div>
-<div class="loc">五樓中日文臺灣期刊合訂本區（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<div class="small">國圖也有：<code>P 733.05 8445</code>（3樓期刊室・中文現刊區（在架）；3樓期刊室・期刊合訂本區（請看館藏））</div>
-<details><summary>要拍什麼</summary><div class="small">找〈鹿耳門天后宮真偽論戰之解決〉原刊：後記說 1961 年 8 月，文末署 1962-01-10，兩個時間前後各期都翻目錄。順便找〈關於鹿耳門古港位置之我見〉（1961-09-18 撰）是否也刊在這裡。找到就拍全文＋該期封面與目錄頁（定卷期）。</div></details>
-</div></div></div>
-<div class="card" id="b-tnwx" data-ids="n2-5 c1"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">臺南文獻（半年刊，2012 起） <span class="pri p2">★★</span></div>
-<div class="call">733.96105 4402 v.8–26（6 冊）</div>
-<div class="loc">五樓中日文臺灣期刊合訂本區（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<div class="small">國圖也有：<code>P 733.9/127.05 8456</code>（3樓期刊室・中文期庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">第 10 輯（2016 年 12 月，西港刈香專輯）：目錄＋比較香路、陣頭制度的論文全文。其餘各輯只翻目錄，找土城、鹿耳門、五大香、安順廠、白色恐怖、鹽分地帶的篇，有就拍全文。</div></details>
-</div></div></div>
-<div class="card" id="b-baotu" data-ids="n2-10 d3"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">臺灣堡圖（地圖） <span class="pri p0">可略</span></div>
-<div class="call">733.3 4322-4 v.1(富貴角)–202(楓港)（202 冊）</div>
-<div class="loc">五樓5041地圖(洽五樓櫃臺調閱)（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<div class="small">國圖也有：<code>M 733.35 8455</code>（5樓參考暨政府資訊室・參庫中文（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">中研院百年地圖線上有，可略。</div></details>
-</div></div></div>
-<h3>六樓臺灣資料圖書區 I（館內閱覽）（3 筆）</h3>
-<div class="card" id="b-fwidx" data-ids="n2-8 d4"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">臺灣風物分類索引（高賢治編，1991） <span class="pri p2">★★</span></div>
-<div class="call">016.67327 0073 80</div>
-<div class="loc">六樓臺灣資料圖書區 I（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<div class="small">國圖也有：<code>R 733.05 8445(021)</code>（5樓參考暨政府資訊室・中文閱覽區（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">查「鹿耳門」「天后宮」條目，找兩篇論戰文章，抄下卷期頁碼，再去 3 樓調原刊。先查這本可以省很多時間。</div></details>
-</div></div></div>
-<div class="card" id="b-tnmazu" data-ids="n2-17 e40"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">臺南媽祖信仰研究 <span class="pri p1">★</span></div>
-<div class="call">272.71 1155 102</div>
-<div class="loc">六樓臺灣資料圖書區 I（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<div class="small">國圖也有：<code>272.097 8754</code>（典藏書庫・中文書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">鹿耳門雙廟一節。</div></details>
-</div></div></div>
-<div class="card" id="b-dioxin" data-ids="n2-58 f6"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">戴奧辛與汞污染場址整治之研究：以臺南市舊臺鹼安順廠為例（碩士論文） <span class="pri p1">★</span></div>
-<div class="call">445.94 1031 97</div>
-<div class="loc">六樓臺灣資料圖書區 I（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<div class="small">國圖也有：<code>445.9 079M 97-24（遠端碩士書庫）</code>（遠端書庫・遠端碩士書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">目錄、整治年表、參考書目。</div></details>
-</div></div></div>
-<h3>六樓臺灣資料圖書區 II（館內閱覽）（8 筆）</h3>
-<div class="card" id="b-dmcs" data-ids="n2-9 d2"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">臺灣地名辭書（多卷，要卷 21 臺南市） <span class="pri p3">★★★</span></div>
-<div class="call">733.3704 90280 v.1–25（33 冊）</div>
-<div class="loc">六樓臺灣資料圖書區 II（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<div class="small">國圖也有：<code>R 733.3704 8647（另有 …97、…107）</code>（5樓參考暨政府資訊室・中文閱覽區（在架）；5樓參考暨政府資訊室・參庫中文（在架）；典藏書庫・中文書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">卷七臺南縣：頁 646 原文（16 N010），以及七股鄉一節。卷廿一臺南市：頁 432 原文（陳姓「助郭」或「助黃」回查），以及安南區一節全部（土城仔、青草崙、十份塭、各寮、四草、鹿耳門、媽祖宮、安順）。每卷都拍版權頁，記下是哪一套年版。2026-11-10 追加：卷廿一頁 41–46（漁光里）、353–380（喜樹、灣裡），核對鯤鯓詞條。</div></details>
-</div></div></div>
-<div class="card" id="b-lzm" data-ids="n2-30 e5"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">鹿耳門志（黃文博、吳建昇、陳桂蘭 2011，上下冊） <span class="pri p3">★★★</span></div>
-<div class="call">733.9611 4404 v.1、2</div>
-<div class="loc">六樓臺灣資料圖書區 II（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<div class="small">國圖也有：<code>733.9/127.1 8363</code>（典藏書庫・中文書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">目錄＋地理變遷、媽祖宮庄與 13 房、神像播遷、正統論爭各章。</div></details>
-</div></div></div>
-<div class="card" id="b-m3" data-ids="m3"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">安南區志（1999） <span class="pri p3">★★★</span></div>
-<div class="call">733.9611 3474 88</div>
-<div class="loc">六樓臺灣資料圖書區 II（館內閱覽）</div>
-<div class="small">國圖沒有。上次查顯示占用至 2026-12-31，去之前先電話確認；備案：成大圖書館 <code>673.29/127.1 4421</code>。</div>
-<details><summary>要拍什麼</summary><div class="small">國圖無。改查：改查國臺圖 733.9611 3474 88（上次顯示借出至 2026-12-31）、大學圖書館（成大 673.29/127.1 4421、屏東大學）；或館際合作複印里別沿革、地名、聚落章</div></details>
-</div></div></div>
-<div class="card" id="b-longshan" data-ids="n2-61 f3"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">龍山村村民對濱南工業區劃設的集體行動之社會基礎分析（碩士論文） <span class="pri p2">★★</span></div>
-<div class="call">545.2 0821 88</div>
-<div class="loc">六樓臺灣資料圖書區 II（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<div class="small">國圖也有：<code>550 007M 88-11（遠端碩士書庫）</code>（遠端書庫・遠端碩士書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">目錄、年表、訪談（村民原話）、參考書目。</div></details>
-</div></div></div>
-<div class="card" id="b-jiudiming" data-ids="n2-73 m11"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">臺灣舊地名之沿革（洪敏麟） <span class="pri p1">★</span></div>
-<div class="call">733.3 3480-3:3 v.1、2:1</div>
-<div class="loc">六樓臺灣資料圖書區 II（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<details><summary>要拍什麼</summary><div class="small">國圖在倉儲區，線上不能調閱，可填倉儲調閱申請單（見文末規則）。改查：改查國臺圖、大學圖書館（臺大、政大）；或以《臺灣地名辭書》代替</div></details>
-</div></div></div>
-<div class="card" id="b-xxtnsz" data-ids="n2-56 e27"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">續修臺南市志 <span class="pri p1">★</span></div>
-<div class="call">733.961 4401-5 v.0:2–7:3（22 冊）</div>
-<div class="loc">六樓臺灣資料圖書區 II（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<div class="small">國圖也有：<code>733.9/127.1 8473.2（邊架區七後）</code>（典藏書庫・邊架區七後（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">安南區沿革、宗教篇安南區各廟。</div></details>
-<div class="small">國圖「臺灣記憶」有數位版（例：卷七選舉志 里長選舉篇、市議員選舉篇），在國圖館內網域可下載電子檔，不用翻拍。11/8 存回來的兩個檔只是書目介紹頁（封面縮圖加資料），不是內文，下次在館內要從閱覽頁下載全冊。</div>
-</div></div></div>
-<div class="card" id="b-wenyiying" data-ids="n2-48 e33"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">「鹽分地帶文藝營」研究 <span class="pri p1">★</span></div>
-<div class="call">810.64 0001 102</div>
-<div class="loc">六樓臺灣資料圖書區 II（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<div class="small">國圖也有：<code>863.9/127 8663</code>（典藏書庫・中文書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">目錄、歷屆年表。</div></details>
-</div></div></div>
-<div class="card" id="b-saltsel" data-ids="n2-74 m7"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">鹽分地帶文學選（林佛兒、羊子喬、杜文靖編，林白 民68） <span class="pri p1">★</span></div>
-<div class="call">830.86 4422</div>
-<div class="loc">六樓臺灣資料圖書區 II（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<details><summary>要拍什麼</summary><div class="small">國圖在中文正本倉儲區，線上不能調閱，可填倉儲調閱申請單（見文末規則）。改查：改查國臺圖 830.86 4422、大學圖書館（臺大 863.3 7884、政大 839.32 2258）</div></details>
-</div></div></div>
-<h3>六樓其他專區（館內閱覽）（5 筆）</h3>
-<div class="card" id="b-haifeng" data-ids="n2-42 e2"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">海風牽引臺17：從北馬仔到灣裡 <span class="pri p3">★★★</span></div>
-<div class="call">733.9614 7734A 103</div>
-<div class="loc">六樓本土教育資源專區（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<div class="small">國圖也有：<code>733.9/129.4 8626</code>（典藏書庫・中文書庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">目錄＋土城仔、青草崙、鹿耳門、四草、安順鹽田各節。</div></details>
-</div></div></div>
-<div class="card" id="b-tnsz" data-ids="n2-0 b2"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">臺南市志（九卷，卷首、卷末各一） <span class="pri p2">★★</span></div>
-<div class="call">733.961 4454 v.1–16（16 冊）</div>
-<div class="loc">六樓特藏舊籍複製本區（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<div class="small">國圖也有：<code>733.9/127.1 8344 72</code>（2樓參考區・叢書區2（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">目錄。安南區（1946 年安順鄉併入）沿革。寺廟表中安南區各廟。人物志中安南區人物。</div></details>
-</div></div></div>
-<div class="card" id="b-tnxz" data-ids="n2-2 b1 m4"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">臺南縣志（十卷，首一卷；1980 原刊／成文 1983 影印本） <span class="pri p2">★★</span></div>
-<div class="call">733.965 3433 v.2、3、4</div>
-<div class="loc">六樓特藏舊籍複製本區（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<div class="small">國圖也有：<code>733.9/129.1 8266 72</code>（2樓參考區・叢書區2（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">國圖無館藏。改查：用 2 樓參考區的 1983 成文影印本即可</div></details>
-</div></div></div>
-<div class="card" id="b-nywx" data-ids="n2-4 c2"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">南瀛文獻（1953–1999 原刊；改版 2002–2010 第 1 至 9 期） <span class="pri p2">★★</span></div>
-<div class="call">733.965 4420-2 v.1–5（5 冊）</div>
-<div class="loc">六樓特藏舊籍複製本區（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<div class="small">國圖也有：<code>688.3265 8526</code>（3樓期刊室・中文期庫（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">改版各期（2002 至 2010）目錄全拍。找土城、鹿耳門、香科、王船、二二八、白色恐怖、鹽分地帶相關篇，有就拍全文。1970 年以前的期先看臺南文史研究資料庫，不重拍。</div></details>
-</div></div></div>
-<div class="card" id="b-nywx17" data-ids="n2-1 b3"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
-<div class="title">臺灣省南瀛文獻（創刊號至第 17 卷） <span class="pri p1">★</span></div>
-<div class="call">733.965 4420-2 v.1–5（5 冊）</div>
-<div class="loc">六樓特藏舊籍複製本區（館內閱覽・在架）</div>
-<div class="tags"><span class="tag chk">館內</span></div>
-<div class="small">國圖也有：<code>733.9/129.05 8456 72</code>（2樓參考區・叢書區2（在架））</div>
-<details><summary>要拍什麼</summary><div class="small">1950 至 1970 年代多數已在臺南文史研究資料庫有全文。只補資料庫缺的期：翻各卷目錄，拍與鹿耳門、臺江、國賽港、七股、西港、二二八有關的篇。</div></details>
-</div></div></div>
-<h2 id="oth">兩館都沒有或不必去館（11 筆）</h2>
+<h2 id="oth">其他館與電子書</h2>
+<h3>兩館都沒有或不必去館（11 筆）</h3>
 <div class="card" id="b-m6" data-ids="m6"><div class="top"><input type="checkbox" aria-label="已拍完或已處理"><div>
 <div class="title">臺江迎神祭紀念專輯（2005 乙酉） <span class="pri p1">★</span></div>
 <div class="call">臺大圖書館 272.71 4412</div>
@@ -971,43 +1417,129 @@ ol.ph>li{background:var(--card);border:1px solid var(--line);border-radius:10px;
 <div class="loc">維基文庫有全文，不必翻拍（Wikimedia 對研究用 UA 偶爾回 404，改由主 session 慢抓）</div>
 <details><summary>要拍什麼</summary><div class="small">「沙鯤漁火」各家詩作原文</div></details>
 </div></div></div>
-<h2 id="done">已翻拍（38 本・冊）</h2><details><summary>展開已翻拍清單</summary><p class="small">10/31 那 15 本的 OCR 進度見 <a href="2026-11-06_已翻拍OCR書目.html">已翻拍 OCR 書目</a>。</p><h3>2026-10-31（15 本）</h3><ol class="ph">
-<li><b>西港仔刈香：一個傳統王醮的數位紀錄</b><div class="small">謝國興等，中研院臺史所 2017｜2026-10-31｜國臺圖｜206 張</div><div class="small">全書；書附光碟未拍。</div><div class="small"><span class="tag new">原找書清單沒有</span></div></li>
-<li><b>回首鹿耳門：紀念鄭成功復台 333 週年</b><div class="small">林文漲，1996 第三版｜2026-10-31｜國臺圖｜82 張</div><div class="small">全書。</div><div class="small"><span class="tag new">原找書清單沒有</span></div></li>
-<li><b>南瀛刈香誌</b><div class="small">黃文博，台南縣文化局 1994｜2026-10-31｜國臺圖｜196 張</div><div class="small">全書。</div><div class="small">清單索書號：國臺圖 733.9654 4302 v.1</div></li>
-<li><b>行踏台江，地號名講古</b><div class="small">劉正元、吳玲青，台江國家公園管理處 2019｜2026-10-31｜國臺圖｜113 張</div><div class="small">全書。</div><div class="small"><span class="tag new">原找書清單沒有</span></div></li>
-<li><b>戰後臺灣政治案件：李媽兜案史料彙編</b><div class="small">歐素瑛編，國史館 2008｜2026-10-31｜國臺圖｜6 張</div><div class="small"><b>只拍部分</b>：封面、附錄大事記 p.561–566、版權頁；正文卷宗沒拍。</div><div class="small">清單索書號：國臺圖 733.29 6243 v.4；國圖 733.2931 8494-5（遠端套書書庫）</div></li>
-<li><b>臺灣縣志（臺灣歷史文獻叢刊）</b><div class="small">陳文達纂，臺灣省文獻委員會 1993｜2026-10-31｜國臺圖｜160 張</div><div class="small">全書。</div><div class="small"><span class="tag new">原找書清單沒有</span></div></li>
-<li><b>學甲慈濟宮史</b><div class="small">李雄揮，自印 2025｜2026-10-31｜國圖｜36 張</div><div class="small">全書。</div><div class="small"><span class="tag new">原找書清單沒有</span></div></li>
-<li><b>佳里昭清宮志</b><div class="small">許獻平總編輯，佳里昭清宮 2026｜2026-10-31｜國圖｜136 張</div><div class="small"><b>只拍部分</b>：約一半，大事記只到 1993 年以後。</div><div class="small"><span class="tag new">原找書清單沒有</span></div></li>
-<li><b>正統鹿耳門聖母廟土城香：陣頭文化</b><div class="small">顏大鎰等，晨星 2024｜2026-10-31｜國圖｜110 張</div><div class="small">正文幾乎全拍；作者序與 p.1–5 未拍。</div><div class="small">清單索書號：國圖 272.71 8276:2</div></li>
-<li><b>正統鹿耳門聖母廟土城香：鹿耳門媽香・五府千歲醮</b><div class="small">謝奇峰、吳明勳，晨星 2024｜2026-10-31｜國圖｜113 張</div><div class="small">全書。</div><div class="small">清單索書號：國圖 272.71 8256</div></li>
-<li><b>正統鹿耳門聖母廟媽祖信仰脈絡研究</b><div class="small">陸昕慈，晨星 2024｜2026-10-31｜國圖｜131 張</div><div class="small">全書。</div><div class="small">清單索書號：國圖 272.71 8462:3</div></li>
-<li><b>學甲上白礁：儀式、歷史與傳承</b><div class="small">李豐楙總主編，學甲慈濟宮 2026｜2026-10-31｜國圖｜151 張</div><div class="small">和黃文博《學甲上白礁暨刈香》是不同書。</div><div class="small">清單索書號：國圖 272.72 8227</div></li>
-<li><b>安順再起：汞與戴奧辛污染的終結</b><div class="small">臺南市政府環境保護局 2024｜2026-10-31｜國圖｜48 張</div><div class="small">全書。</div><div class="small">清單索書號：國圖 445.9 8579:2</div></li>
-<li><b>南瀛歷史、社會與文化 VII：臺南港市與周邊</b><div class="small">2026-10-31｜國圖｜214 張</div><div class="small"><span class="tag new">原找書清單沒有</span></div></li>
-<li><b>台南七股：癸卯年龍山宮五朝祈安清醮暨水醮火醮紀念專輯</b><div class="small">七股龍山宮 2024｜2026-10-31｜國圖｜50 張</div><div class="small"><b>只拍部分</b>：約一半，第四章以後只拍到章扉頁。</div><div class="small"><span class="tag new">原找書清單沒有</span></div></li>
+<h3 id="notntl">國臺圖沒有、要去國圖或其他館</h3>
+<ol><li>岩生成一〈Li Tan, Chief of the Chinese Residents at Hirado, Japan, in the Last Days of the Ming Dynasty〉，Memoirs of the Research Department of the Toyo Bunko 17（1958），頁 27–83：國臺圖只有這份刊物的第 2～8 號，沒有第 17 號。要找國圖或中研院。</li><li>黃典權〈陳永華史事研究〉，《成大歷史學報》1974：國臺圖的《成大歷史學報》從第 6 號起，沒有 1974 年那期。要找國圖或成大。</li></ol>
+<div class="tn"><h3 id="tainan">臺南、成大的館藏：文資處報告（2026-11-09 查）</h3>
+<p class="small">臺南市文化資產管理處 11/09 回信，報告不提供電子檔；下面是要到臺南市圖、成大圖書館看的報告。作者人在北部，可請南部的朋友代借、代拍，或回臺南時排一趟。</p>
+<div class="box">
+<ol>
+<li>5 冊「大臺南文化資產叢書」（BC 編號）是正式出版品，文資處要讀者自己買或到圖書館借。其中 4 冊作者已在 11/08 翻拍：土城仔香、天后宮送迎神、金唐殿蕭壠香、學甲上白礁暨刈香。只剩《西港刈香》（叢書 01，2014），國圖有，索書號 733.9/127.4 8363-5。</li>
+<li>5 冊（BA 編號）因為「涉保存團體個資」不提供。保存團體是文資法登錄的廟方、陣頭，報告裡有成員名冊、地址、電話等，所以以個資法為由拒絕，跟政治無關。這些報告的紙本有寄存在圖書館，親自去館內就能看。</li>
+</ol></div>
+<h4>臺南、成大可借閱的館藏</h4>
+<div class="wrap"><table>
+<tr><th>報告</th><th>館</th><th>位置與索書號</th></tr>
+<tr><td><b>BA00043</b>　臺南縣民俗活動「西港仔香」各庄廟有關文物調查報告書（黃文博，2008）</td><td>臺南市立圖書館</td><td>
+<ol><li>臺南研究資料館（公園總館，限館內閱覽）：CH 538.883 8363 c.2、c.3；CH 733.4 8363 c.4（在架）</li>
+<li>新總館 3F 開架閱覽區：538.883/129 4427 2008（在架，可外借）</li>
+<li>喜樹政府出版品區：538.833/129 4404 2008（在架）</li></ol></td></tr>
+<tr><td><b>BA00047</b>　臺南縣民俗活動「佳里蕭壠香」各庄廟有關文物調查計畫結案報告書（黃文博、王素滿、許献平，2009，765 頁）</td><td>臺南市立圖書館<br>成大圖書館</td><td>
+<ol><li>新總館 3F 開架閱覽區：538.833/129 4404 2009（在架，可外借）</li>
+<li>新總館 4F 臺南資料區（限館內）：TN 538.833/129 4404 2009</li>
+<li>臺南研究資料館（公園總館）：CH 272.79 8363</li>
+<li>成大圖書館也有（目錄未顯示位置，到館查詢）。</li></ol></td></tr>
+<tr><td><b>BA00010</b>　臺南市六區（安南區、安平區、中西區、北區、東區、南區）傳統表演藝術普查計畫報告書（戴文鋒，2012）</td><td>成大圖書館</td><td>總圖書館 5F 中文圖書區：909.33 4308（可借）</td></tr>
+<tr><td><b>BA00034</b>　寺廟宗教科儀普查表（東區、安南區、北區）</td><td>—</td><td>
+<ol><li>臺南市立圖書館只查到同系列的另一冊「普查表（中西區、安平區、南區）」（2011，346 頁）：新總館 4F 臺南資料區 TN 733.9/127.61 2407 2011，罕用書庫另有 2 冊。</li>
+<li>安南區那一冊目前沒查到館藏。</li></ol></td></tr>
+<tr><td><b>BA00017</b></td><td>—</td><td>書名待確認，還沒查。</td></tr>
+</table></div>
+<h4>原本要線上調閱的其他報告（11/09 全部重查）</h4>
+<p class="sub">線上調閱這條路停用。原本第二、三、四批要申請的報告，依序查國圖、國臺圖、成大、臺南市圖。</p>
+<ol>
+<li><b>國圖有，已排進找書清單「典藏書庫」</b>：
+  <ol><li>BA00036 臺南市信仰儀禮調查計畫報告書：733.9/127.61 8363</li>
+  <li>AA00185 臺南縣聚落普查第一期：545.4 8354:3 v.1</li>
+  <li>BC00002 千嬌百態：臺南藝陣之歌舞風情：991.87 8453-2</li>
+  <li>BB00024 陳榮盛道長研究（出版版本《陳榮盛生命史暨道教科儀藝術》）：234.1 8562-2</li>
+  <li>BC00030 安定真護宮王船祭：733.9/129.9/125.4 8626</li>
+  <li>BC00031 安定長興宮瘟王祭：733.9/129.9/125.4 8729</li>
+  <li>BA00043 西港仔香各庄廟文物調查：538.833/129 8363-2（研究報告區，目前顯示不可借）</li>
+  <li>BC00019 西港刈香：733.9/127.4 8363-5（原本就在清單）</li></ol></li>
+<li><b>只有臺南的館有</b>：見上表（BA00047、BA00010；另 BA00035 同系列的中西區、安平區、南區普查表在臺南市圖）。</li>
+<li><b>四個館都沒查到</b>，多半是沒有對外出版、只存文資處的內部報告：
+  <ol><li>民俗類無形文化資產保存維護計畫三期（BB00038、BB00040、BB00055）</li>
+  <li>保存者文件資源調查整飭計畫第二期（BC00062）</li>
+  <li>家將類陣頭普查（BB00041）、小戲類陣頭調查（BA00063）、傳統表演藝術複查（BA00020）</li>
+  <li>節令民俗與廟宇祭祀科儀文物（BA00031）、寺廟宗教科儀成果報告（BA00035 總報告）、普查表安南區冊（BA00034）</li>
+  <li>臺南縣傳統藝術調查報告書溪北篇三冊（BA00004～6）、民俗及有關文物調查溪北篇（BA00030，臺南市圖有館藏 10 冊，位置待查）</li>
+  <li>后冠新顏（BB00013）、安平開臺天后宮上香山影像（BB00034）、安定保安宮直加弄香（BA00048）、歸仁仁壽宮王船醮（BA00029）、日治神社調查（AA00005）、台鹽七股機車庫（AA00162）、藝陣類保存維護第一期（BB00017）</li></ol>
+  臺南市圖的網站 11/09 下午查到一半連不上，這批之後再補查一次臺南市圖。</li>
 </ol>
-<h3>2026-11-07（18 本）</h3><ol class="ph">
-<li><b>藝陣傳神：臺灣傳統民俗藝陣</b><div class="small">黃文博主編｜2026-11-07｜國圖｜133 張</div><div class="small">清單索書號：國臺圖 991.87 4404 104；國圖 線 991.87 8363</div></li>
-<li><b>台灣之門 鹿耳門：鹿耳門天后宮文化手冊</b><div class="small">2026-11-07｜國圖｜67 張</div><div class="small"><span class="tag new">原找書清單沒有</span></div></li>
-<li><b>鹿耳門天后宮送迎神儀典</b><div class="small">黃文博，臺南市文化局 2016｜2026-11-07｜國圖｜132 張</div><div class="small">清單索書號：國臺圖 733.4618 4404 105；國圖 733.9/127.4 8363-12</div></li>
-<li><b>鹿耳門聖母廟土城仔香</b><div class="small">周宗楊、吳明勳，臺南市文化局 2016｜2026-11-07｜國圖｜133 張</div><div class="small">清單索書號：國臺圖 733.9614 7734A 105；國圖 733.9/127.4 8626</div></li>
-<li><b>佳里金唐殿蕭壠香</b><div class="small">黃文博，臺南市政府文化局 2013｜2026-11-07｜國圖｜176 張</div><div class="small">和《佳里鎮金唐殿》（民84）是不同書，後者仍待找。</div><div class="small">清單索書號：國臺圖 733.9614 4404-8 103；國圖 733.9/127.4 8363-8</div></li>
-<li><b>臺南市四草大眾廟收藏人骨顱骨型態測量分析</b><div class="small">何傳坤、劉克竑、陳叔倬，科博館 2006｜2026-11-07｜國圖｜23 張</div><div class="small">清單索書號：國臺圖 391.3 2124 95；國圖 391.3 8755</div></li>
-<li><b>臺南四草大眾廟誌：四草大眾廟開發史</b><div class="small">許政雄，萬卷樓 2014｜2026-11-07｜國圖｜123 張</div><div class="small">清單索書號：國臺圖 272.097 0814 103；國圖 272.097 8474</div></li>
-<li><b>硬箍起來：西港刈香的宋江系統武陣</b><div class="small">謝國興，2023｜2026-11-07｜國圖｜99 張</div><div class="small">封面書名確認為「硬箍起來」；附件 1 個 USB（國圖登錄 T00018756）。</div><div class="small">清單索書號：國臺圖 991.87 0467 112；國圖 991.87 8254</div></li>
-<li><b>熱蘭遮城日誌 第 1～5 冊（5 冊）</b><div class="small">江樹生譯註，2024 新版｜2026-11-07｜國圖｜2031 張</div><div class="small">第 6～10 冊 11/10～11/11 拍完，見下一節。</div><div class="small">清單索書號：國臺圖 733.25 3142 113 v.1–10（10 冊）；國圖 733.25 8336 113</div></li>
-<li><b>學甲上白礁暨刈香</b><div class="small">黃文博，臺南市政府文化局 2014｜2026-11-07｜國圖｜142 張</div><div class="small">和《學甲上白礁：儀式、歷史與傳承》是不同書。</div><div class="small">清單索書號：國臺圖 733.9614 4404-6 103；國圖 733.9/127.4 8363-7</div></li>
-<li><b>走出歷史悲情 迎向千禧曙光：臺南縣「二二八」五十三周年追思紀念大會專刊</b><div class="small">臺南縣政府 民89（陳唐山縣長序）｜2026-11-07｜國圖｜43 張</div><div class="small">清單索書號：國圖 733.2913 8445</div></li>
-<li><b>聽見台江天籟：臺灣暗蟬</b><div class="small">台江國家公園管理處 2020｜2026-11-07｜國圖｜77 張</div><div class="small">清單索書號：國臺圖 387.764 1170 109；國圖 387.764 8736:2</div></li>
-<li><b>行政院環境保護署環境檢驗所 20 週年所慶研討會論文集</b><div class="small">環保署環境檢驗所 民99｜2026-11-07｜國圖｜11 張</div><div class="small">收台鹼安順廠環境調查；原清單列為《指標污染場址臺碱安順廠環境調查》（445.9907 8775 99），視為同一筆。</div><div class="small">清單索書號：國圖 445.9907 8775 99</div></li>
-<li><b>島嶼DNA</b><div class="small">陳耀昌，印刻 2015｜2026-11-07｜國圖｜32 張</div><div class="small">清單索書號：國臺圖 078 7596 104</div></li>
+<h4>順便查到、跟本站有關的</h4>
+<div class="wrap"><table>
+<tr><th>書名</th><th>位置</th></tr>
+<tr><td>台南市古蹟廟宇暨北區、東區、安南區等歷史廟宇、教堂古物調查記錄計畫（台南市文化協會，2008，212 頁）</td><td>臺南研究資料館（公園總館，限館內）：CH 733.608 2400</td></tr>
+<tr><td>台南縣傳統藝術調查報告書（黃文博，2007–2008）</td><td>成大總圖 5F：909.33 4404</td></tr>
+<tr><td>陳素雯、黃世祝〈臺江內海浮覆地社會經濟變遷之研究：以台南市安南區為例〉（臺南大學臺灣文化所碩論）</td><td>臺南研究資料館（公園總館，限館內）：TNTH 052 8737，2 冊（2005）。臺南大學圖書館與國家圖書館臺灣博碩士論文系統可能有電子全文。跟「浮覆到入墾」的問題（V18-14）直接相關。</td></tr>
+<tr><td>翁育民《臺南市安南區食水堀之形成與變遷》</td><td>臺南市立圖書館（館藏 1 冊）</td></tr>
+</table></div>
+<h4>建議</h4>
+<ol>
+<li>作者人在北部：成大和臺南市圖可以請南部的朋友代借、代拍，或回臺南時排一趟。新總館在永康區康橋大道 255 號；臺南研究資料館在中西區公園總館。</li>
+<li>新總館 3F 開架的那兩冊（西港仔香、蕭壠香各庄廟）可以外借。</li>
+<li>報告裡的個人資料（成員名冊、電話等）照本站規則不上站，只摘文物與廟史內容。</li>
 </ol>
-<h3>2026-11-10～11-11（5 冊）</h3><ol class="ph">
-<li><b>熱蘭遮城日誌 第 6～10 冊（5 冊）</b><div class="small">江樹生譯註，2024 新版｜2026-11-10～11-11｜國臺圖借回在家翻拍｜照片 2,316 張（第 6 冊 526、第 7 冊 527、第 8 冊 441、第 9 冊 533、第 10 冊 289）</div><div class="small">OCR 已完成（本機與借用的第二台電腦分工）；缺頁另列補拍清單（第 7 冊 p.284–285 與版權頁、第 9 冊 p.142–143、版權頁與序、p.534 以後）。書在手上，借期到 2026-12-08。</div><div class="small">清單索書號：國臺圖 733.25 3142 113 v.6–10；國圖 733.25 8336 113</div></li>
-</ol>
+</div>
+<h3 id="ebook">台灣雲端書庫（電子書，用國臺圖借閱證）</h3>
+<div id="ebk"><div class="note small"><ol>
+<li>點 ISBN 或書名關鍵字就會複製，貼到 App 搜尋欄。</li>
+<li>先按「試閱」（可看全書 1/10，不佔額度）判斷適不適合，再決定要不要「借閱」。國臺圖一次只能借 6 本，省著用。</li>
+<li>ISBN 取自國圖館藏目錄；標「需核對版本」的是書名相符但版本未確認，試閱時看版權頁。</li>
+<li>右邊勾「有」「沒有」會記在這支手機上，方便下次接著找。</li>
+<li>不佔國臺圖額度的其他管道（免費線上、其他館電子書、實體館）另外整理中，完成後更新到這一頁。</li>
+</ol></div>
+<div class="tabs" id="ebk-tabs"></div>
+<div id="ebk-list"></div>
+</div>
+<script>
+const R=[{"id": "n2-20", "title": "臺灣的媽祖信仰", "pri": 1, "isbn": ["957926189X"], "meta": "臺北市 : 臺原出版 ; 臺北縣中和市 : 吳氏總經銷, 民89 2000", "conf": "索書號相符", "kw": "臺灣的媽祖信仰", "got": ""}, {"id": "n2-27", "title": "臺灣地區戒嚴時期五〇年代政治案件史料彙編", "pri": 2, "isbn": ["9570210346", "957021824X", "9570218258", "9570218266", "9570218274"], "meta": "南投市 : 臺灣省文獻委員會, 民87.06[1998.06] 1998", "conf": "索書號相符", "kw": "臺灣地區戒嚴時期五〇年代政治案件史料彙編", "got": ""}, {"id": "n2-72", "title": "鹿耳門地理演變考（盧嘉興 1965）", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "鹿耳門地理演變考", "got": ""}, {"id": "n2-31", "title": "鹿耳門志 第一輯", "pri": 2, "isbn": [], "meta": "", "conf": "", "kw": "鹿耳門志 第一輯", "got": ""}, {"id": "n2-47", "title": "鹽分地帶文學學術研討會論文集 2011", "pri": 1, "isbn": ["9789860287585"], "meta": "臺南市 : 國立臺灣文學館, 2011.09 2011", "conf": "索書號相符", "kw": "鹽分地帶文學學術研討會論文集 2011", "got": ""}, {"id": "n2-71", "title": "島嶼DNA（陳耀昌）", "pri": 1, "isbn": ["9789863875017", "9789865823870"], "meta": "新北市 : INK印刻文學生活雜誌出版股份有限公司, 2021.10.18 2021", "conf": "書名相符（需核對版本）", "kw": "島嶼DNA", "got": ""}, {"id": "n2-16", "title": "臺南四草大眾廟誌：四草大眾廟開發史", "pri": 3, "isbn": ["9789577398796"], "meta": "臺北市 : 萬卷樓, 2014.08 2014", "conf": "索書號相符", "kw": "臺南四草大眾廟誌", "got": ""}, {"id": "n2-24", "title": "聽見台江天籟：臺灣暗蟬", "pri": 1, "isbn": ["9789865450229"], "meta": "臺南市 : 台江國家公園管理處, 民109.12[2020.12] 2020", "conf": "索書號相符", "kw": "聽見台江天籟", "got": ""}, {"id": "n2-65", "title": "熱蘭遮城日誌", "pri": 1, "isbn": ["9786267485682"], "meta": "臺南市 : 臺南市政府文化局 : 國立臺灣歷史博物館, 民113.12[2024.12] 2024", "conf": "索書號相符", "kw": "熱蘭遮城日誌", "got": ""}, {"id": "n2-57", "title": "戰後臺灣政治案件史料彙編：李媽兜案", "pri": 2, "isbn": ["9789860130478"], "meta": "臺北縣新店市 : 國史館 ; 臺北市 : 文建會, 2008.01 2008", "conf": "索書號相符", "kw": "戰後臺灣政治案件史料彙編", "got": "10/31 只拍 6 張；檔案原件影本、手寫字跡難辨，不適合 OCR，列入待辦（有空再處理）"}, {"id": "n2-70", "title": "進香．醮．祭與社會文化變遷（謝國興編）", "pri": 1, "isbn": ["9789863503552"], "meta": "臺北市 : 國立臺灣大學出版中心出版 : 國立臺灣大學發行, 2020.10.01 2020", "conf": "書名相符（需核對版本）", "kw": "進香．醮．祭與社會文化變遷", "got": ""}, {"id": "n2-32", "title": "臺江內海及其庄社：大洪水裡的小地方記憶", "pri": 2, "isbn": ["9789860352108"], "meta": "臺南市 : 臺南市文化局, 民102.03 2013", "conf": "索書號相符", "kw": "臺江內海及其庄社", "got": ""}, {"id": "n2-67", "title": "媽祖情緣：鹿耳門天后宮媽祖姊妹會（民 87）", "pri": 2, "isbn": ["9578447256"], "meta": "臺南市 : 金安出版 : 鹿耳門天后宮文教公益基金會發行, 民87 1998", "conf": "書名相符（需核對版本）", "kw": "媽祖情緣", "got": ""}, {"id": "n2-66", "title": "南瀛刈香誌（黃文博 1994）", "pri": 2, "isbn": ["9570026510"], "meta": "臺南縣新營市 : 臺南縣立文化中心, 民83 1994", "conf": "書名相符（需核對版本）", "kw": "南瀛刈香誌", "got": "10/31 國臺圖已拍"}, {"id": "n2-68", "title": "佳里鎮金唐殿（民 84）", "pri": 1, "isbn": ["9570055146"], "meta": "臺南縣新營市 : 臺南縣立文化中心, 民84 1995", "conf": "書名相符（需核對版本）", "kw": "佳里鎮金唐殿", "got": ""}, {"id": "n2-51", "title": "南瀛藝陣誌", "pri": 2, "isbn": ["9570097302"], "meta": "臺南縣新營市 : 臺南縣立文化中心, 民86 1997", "conf": "索書號相符", "kw": "南瀛藝陣誌", "got": ""}, {"id": "n2-40", "title": "南瀛地名誌 曾文區卷", "pri": 1, "isbn": ["9570212012"], "meta": "臺南縣新營市 : 臺南縣立文化中心, 民87 1998", "conf": "索書號相符", "kw": "南瀛地名誌 曾文區卷", "got": ""}, {"id": "n2-41", "title": "南瀛地名誌 北門區卷", "pri": 2, "isbn": ["9570212020"], "meta": "臺南縣新營市 : 臺南縣立文化中心, 民87 1998", "conf": "索書號相符", "kw": "南瀛地名誌 北門區卷", "got": ""}, {"id": "n2-52", "title": "南瀛王船誌", "pri": 2, "isbn": ["9570254548"], "meta": "臺南縣新營市 : 臺南縣文化局, 民89 2000", "conf": "索書號相符", "kw": "南瀛王船誌", "got": ""}, {"id": "n2-53", "title": "南瀛白色恐怖誌", "pri": 3, "isbn": ["9570102535"], "meta": "臺南縣新營市 : 臺南縣文化局, 民91 2002", "conf": "索書號相符", "kw": "南瀛白色恐怖誌", "got": ""}, {"id": "n2-44", "title": "總統的親戚：揭開台灣權貴家族的臍帶與裙帶關係", "pri": 2, "isbn": ["9579979804"], "meta": "臺北縣 : 鴻鳴館圖書出版社, 1994.08 1994", "conf": "館目錄書名作《總統是我家親戚》（鴻鳴館 1994），與清單書名不同，請試閱核對", "kw": "總統的親戚", "got": ""}, {"id": "n2-46", "title": "吳新榮選集", "pri": 1, "isbn": ["9570087722", "9570087730", "9570087749"], "meta": "臺南縣新營市 : 臺南縣立文化中心, 民86 1997", "conf": "索書號相符", "kw": "吳新榮選集", "got": ""}, {"id": "n2-49", "title": "硬箍起來：西港刈香的宋江系統武陣", "pri": 1, "isbn": ["9786267339114"], "meta": "臺南市 : 臺南市政府文化局 ; 臺北市 : 蔚藍文化出版股份有限公司, 2023.12 2023", "conf": "索書號相符", "kw": "硬箍起來", "got": ""}, {"id": "n2-10", "title": "臺灣堡圖（地圖）", "pri": 0, "isbn": ["9573228122"], "meta": "臺北市 : 遠流, 1996[民85] 1996 - 1904", "conf": "索書號相符", "kw": "臺灣堡圖", "got": ""}, {"id": "n2-6", "title": "臺灣風物（1951 起）", "pri": 2, "isbn": [], "meta": "", "conf": "", "kw": "臺灣風物", "got": ""}, {"id": "n2-5", "title": "臺南文獻（半年刊，2012 起）", "pri": 2, "isbn": [], "meta": "", "conf": "", "kw": "臺南文獻", "got": ""}, {"id": "n2-8", "title": "臺灣風物分類索引", "pri": 2, "isbn": [], "meta": "", "conf": "", "kw": "臺灣風物分類索引", "got": ""}, {"id": "n2-17", "title": "臺南媽祖信仰研究", "pri": 1, "isbn": ["9789860394153"], "meta": "臺南市 : 臺南市文化局, 民102.12 2013", "conf": "索書號相符", "kw": "臺南媽祖信仰研究", "got": ""}, {"id": "n2-25", "title": "臺南市四草大眾廟收藏人骨顱骨型態測量分析", "pri": 1, "isbn": ["9789860085013"], "meta": "臺中市 : 國立自然科學博物館, 民95.12 2006", "conf": "索書號相符", "kw": "臺南市四草大眾廟收藏人骨顱骨型態測量分析", "got": ""}, {"id": "n2-58", "title": "戴奧辛與汞污染場址整治之研究：以臺南市舊臺鹼安順廠為例（碩士論文）", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "戴奧辛與汞污染場址整治之研究", "got": ""}, {"id": "n2-61", "title": "龍山村村民對濱南工業區劃設的集體行動之社會基礎分析（碩士論文）", "pri": 2, "isbn": [], "meta": "", "conf": "", "kw": "龍山村村民對濱南工業區劃設的集體行動之社會基礎分析", "got": ""}, {"id": "n2-73", "title": "臺灣舊地名之沿革（洪敏麟）", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "臺灣舊地名之沿革", "got": ""}, {"id": "n2-9", "title": "臺灣地名辭書（多卷，三套年版）", "pri": 3, "isbn": ["9786267119594", "9789860105742", "9789860160642", "9789860162592", "9789860188646", "9789860243888", "9789860249354", "9789860377699", "9789860419078", "9789860419085", "9789860570281", "9789860570298"], "meta": "南投市 : 國史館臺灣文獻館, 民97.12- 2008", "conf": "索書號相符", "kw": "臺灣地名辭書", "got": ""}, {"id": "n2-33", "title": "鹿耳門天后宮送迎神儀典", "pri": 2, "isbn": ["9789860509472"], "meta": "臺南市 : 臺南市文化局, 民105.12[2016.12] 2016", "conf": "索書號相符", "kw": "鹿耳門天后宮送迎神儀典", "got": ""}, {"id": "n2-56", "title": "續修臺南市志", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "續修臺南市志", "got": ""}, {"id": "n2-30", "title": "鹿耳門志", "pri": 3, "isbn": ["9789868763203"], "meta": "臺南市 : 鹿耳門天后宮文教公益基金會, 民100.09 2011", "conf": "索書號相符", "kw": "鹿耳門志", "got": ""}, {"id": "n2-35", "title": "學甲上白礁暨刈香", "pri": 2, "isbn": ["9789860402193"], "meta": "臺南市 : 臺南市政府文化局, 民103.02 2014", "conf": "索書號相符", "kw": "學甲上白礁暨刈香", "got": ""}, {"id": "n2-36", "title": "佳里金唐殿蕭壠香", "pri": 2, "isbn": ["9789860401899"], "meta": "臺南市 : 臺南市政府文化局, 民102.02 2014", "conf": "索書號相符", "kw": "佳里金唐殿蕭壠香", "got": ""}, {"id": "n2-37", "title": "鹿耳門聖母廟土城仔香", "pri": 3, "isbn": ["9789860509496"], "meta": "臺南市 : 臺南市文化局, 民105.12[2016.12] 2016", "conf": "索書號相符", "kw": "鹿耳門聖母廟土城仔香", "got": ""}, {"id": "n2-48", "title": "「鹽分地帶文藝營」研究", "pri": 1, "isbn": ["9789860361209"], "meta": "臺南市 : 臺南市文化局, 民102.03 2013", "conf": "索書號相符", "kw": "「鹽分地帶文藝營」研究", "got": ""}, {"id": "n2-74", "title": "鹽分地帶文學選（林佛兒等編）", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "鹽分地帶文學選", "got": ""}, {"id": "n2-0", "title": "臺南市志（九卷，卷首、卷末各一）", "pri": 2, "isbn": [], "meta": "", "conf": "", "kw": "臺南市志", "got": ""}, {"id": "n2-42", "title": "海風牽引臺17：從北馬仔到灣裡", "pri": 3, "isbn": ["9789860430257"], "meta": "臺南市 : 臺南市文化局, 民103.12 2014", "conf": "索書號相符", "kw": "海風牽引臺17", "got": ""}, {"id": "n2-2", "title": "臺南縣志（十卷，首一卷）", "pri": 2, "isbn": [], "meta": "", "conf": "", "kw": "臺南縣志", "got": ""}, {"id": "n2-1", "title": "臺灣省南瀛文獻（創刊號至第 17 卷）", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "臺灣省南瀛文獻", "got": ""}, {"id": "n2-4", "title": "南瀛文獻（1953–1999 原刊；改版 2002–2010 第 1 至 9 期）", "pri": 2, "isbn": [], "meta": "", "conf": "", "kw": "南瀛文獻", "got": ""}, {"id": "n2-50", "title": "藝陣傳神", "pri": 1, "isbn": ["9789860469776"], "meta": "臺中市 : 文化部文化資產局, 民104.12 2015", "conf": "索書號相符", "kw": "藝陣傳神", "got": ""}, {"id": "c3", "title": "中央日報 1961-08-10 第 8 版（報紙微縮或館內報紙資料庫）", "pri": 3, "isbn": [], "meta": "", "conf": "", "kw": "中央日報 1961-08-10 第 8 版", "got": ""}, {"id": "c5", "title": "臺江詩刊（1995 起）", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "臺江詩刊", "got": ""}, {"id": "d1", "title": "臺南州祠廟名鑑", "pri": 3, "isbn": ["9573079313"], "meta": "臺北縣永和市 : 大通出版 ; 臺北市 : 古亭書屋發行, 2002[民91]二刷 2002", "conf": "索書號相符", "kw": "臺南州祠廟名鑑", "got": ""}, {"id": "e44", "title": "臺江黑面琵鷺研究報告 102／103／104", "pri": 0, "isbn": [], "meta": "", "conf": "", "kw": "臺江黑面琵鷺研究報告 102／103／104", "got": ""}, {"id": "e37", "title": "污染土地新生命？以中石化安順廠污染案為例（碩士論文）", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "污染土地新生命？以中石化安順廠污染案為例", "got": ""}, {"id": "e6", "title": "七股鄉志（光碟版）", "pri": 3, "isbn": ["9789860254624"], "meta": "臺南縣七股鄉 : 臺南縣七股鄉公所, 民99.11 2010", "conf": "索書號相符", "kw": "七股鄉志", "got": ""}, {"id": "e30", "title": "同心賜福一甲子：麻豆代天府重建 60 週年慶沿革誌", "pri": 1, "isbn": ["9789869350600"], "meta": "臺南市 : 麻豆代天府管理委員會, 民105.07[2016.07] 2016", "conf": "索書號相符", "kw": "同心賜福一甲子", "got": ""}, {"id": "e17", "title": "臺江迎神祭：開基鹿耳門媽出巡（2012 壬辰）", "pri": 2, "isbn": ["9789868763210"], "meta": "臺南市 : 鹿耳門天后宮文教公益基金會, 民101.11 2012", "conf": "索書號相符", "kw": "臺江迎神祭", "got": ""}, {"id": "e18", "title": "台江迎神祭 III（2021 辛丑）", "pri": 2, "isbn": ["9789868201125"], "meta": "台南市 : 北汕尾媽祖宮鹿耳門天后宮, 2021.11 2021", "conf": "索書號相符", "kw": "台江迎神祭 III", "got": ""}, {"id": "e8", "title": "臺南土城正統鹿耳門聖母廟沿革誌", "pri": 2, "isbn": [], "meta": "", "conf": "", "kw": "臺南土城正統鹿耳門聖母廟沿革誌", "got": ""}, {"id": "e9", "title": "正統鹿耳門聖母廟沿革", "pri": 2, "isbn": [], "meta": "", "conf": "", "kw": "正統鹿耳門聖母廟沿革", "got": ""}, {"id": "e7", "title": "臺南土城正統鹿耳門聖母廟廟誌", "pri": 2, "isbn": ["9789868996403"], "meta": "臺南市 : 正統鹿耳門聖母廟, 民102.09 2013", "conf": "索書號相符", "kw": "臺南土城正統鹿耳門聖母廟廟誌", "got": ""}, {"id": "e36", "title": "指標污染場址臺碱安順廠環境調查", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "指標污染場址臺碱安順廠環境調查", "got": ""}, {"id": "e24", "title": "臺南縣「二二八」五十三周年追思紀念大會專刊", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "臺南縣「二二八」五十三周年追思紀念大會專刊", "got": ""}, {"id": "e22", "title": "行瘟與代巡：台江內海舊區迎王的地方傳統", "pri": 2, "isbn": [], "meta": "", "conf": "", "kw": "行瘟與代巡", "got": ""}, {"id": "e13", "title": "西港刈香", "pri": 2, "isbn": ["9789860447941"], "meta": "臺中市 : 文化部文化資產局 ; 民104.05 2015", "conf": "索書號相符", "kw": "西港刈香", "got": ""}, {"id": "e26", "title": "臺南縣志稿", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "臺南縣志稿", "got": ""}, {"id": "e25", "title": "續修臺南縣志", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "續修臺南縣志", "got": ""}, {"id": "e34", "title": "鹽分地帶：文學選集", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "鹽分地帶", "got": ""}, {"id": "e38", "title": "以紀錄片的製作過程作為一種教育方法：臺碱安順廠檔案紀錄（碩士論文）", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "以紀錄片的製作過程作為一種教育方法", "got": ""}, {"id": "f8", "title": "鹿耳門天后宮祭典樂舞研究：暨「迎喜神」分析（碩士論文）", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "鹿耳門天后宮祭典樂舞研究", "got": ""}, {"id": "f7", "title": "中石化安順廠文化資產保存政策研究（碩士論文）", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "中石化安順廠文化資產保存政策研究", "got": ""}, {"id": "f5", "title": "環境影響評估制度中地方治理之發展與轉型：以濱南工業區與國光石化開發案為例（碩士論文）", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "環境影響評估制度中地方治理之發展與轉型", "got": ""}, {"id": "f4", "title": "中石化安順廠之環境治理：從社區居民的觀點（碩士論文）", "pri": 2, "isbn": [], "meta": "", "conf": "", "kw": "中石化安順廠之環境治理", "got": ""}, {"id": "f2", "title": "我們為何不能說不？從濱南案的環境影響評估談環保抗爭（碩士論文）", "pri": 2, "isbn": [], "meta": "", "conf": "", "kw": "我們為何不能說不？從濱南案的環境影響評估談環保抗爭", "got": ""}, {"id": "m3", "title": "安南區志（1999）", "pri": 3, "isbn": [], "meta": "", "conf": "", "kw": "安南區志", "got": ""}, {"id": "m5", "title": "鹿耳門志 第1輯（民51 原版）", "pri": 0, "isbn": [], "meta": "", "conf": "", "kw": "鹿耳門志 第1輯", "got": ""}, {"id": "m6", "title": "臺江迎神祭紀念專輯（2005 乙酉）", "pri": 1, "isbn": ["9868201101"], "meta": "臺南市 : 鹿耳門天后宮, 2005[民94] 2005", "conf": "書名相符（需核對版本）", "kw": "臺江迎神祭紀念專輯", "got": ""}, {"id": "m7", "title": "塩分地帶文學選（林白 1979）", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "塩分地帶文學選", "got": ""}, {"id": "m8", "title": "污染場址再發展策略之研究：以中石化（臺鹼）安順廠為例（碩士論文 2011）", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "污染場址再發展策略之研究", "got": ""}, {"id": "m9", "title": "學位論文（國圖目錄查無紙本）：臺南土城仔香醮陣頭之研究（2011）、鹿耳門溪沿岸地方開發的歷史變遷（2010）、庄廟產業與社區：四草大眾廟的發展歷程（2016）、地方民主與永續發展之研究：濱南案（2002）、我國現行環評制度下民眾參與過程之檢視：濱南案（2003）、臺灣民主化後國家機關自主性分析：濱南案（2005）、中石化安順廠補償政策之研究（2009）、中石化安順廠汙染整治問題之協力治理分析（2015）", "pri": 2, "isbn": [], "meta": "", "conf": "", "kw": "學位論文", "got": ""}, {"id": "m10", "title": "鹿耳門地理演變考附續考（1965）", "pri": 1, "isbn": [], "meta": "", "conf": "", "kw": "鹿耳門地理演變考附續考", "got": ""}, {"id": "m13", "title": "臺灣采訪冊、東槎紀略", "pri": 0, "isbn": [], "meta": "", "conf": "", "kw": "臺灣采訪冊、東槎紀略", "got": ""}, {"id": "x0", "title": "1964-12-17 臺南市政府南市區字第 49086 號函", "pri": 0, "isbn": [], "meta": "", "conf": "", "kw": "1964-12-17 臺南市政府南市區字第 49086 號函", "got": ""}, {"id": "x1", "title": "1966-12-26 臺南市政府南市民字第 50109 號函（轉引內政部 55.11.12 台內民字第 2152 號函）", "pri": 0, "isbn": [], "meta": "", "conf": "", "kw": "1966-12-26 臺南市政府南市民字第 50109 號函", "got": ""}];
+let st={};try{st=JSON.parse(localStorage.getItem('ebk')||'{}')}catch(e){}
+const save=()=>{try{localStorage.setItem('ebk',JSON.stringify(st))}catch(e){}};
+const F=[['all','全部'],['isbn','有 ISBN'],['kw','只能用書名搜'],['todo','還沒查'],['yes','App 有']];let cur='all';
+function copy(el,txt){navigator.clipboard&&navigator.clipboard.writeText(txt).then(()=>{el.classList.add('ok');setTimeout(()=>el.classList.remove('ok'),900)}).catch(()=>{})}
+function esc(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function card(r){const s=st[r.id]||'';
+ const ib=r.isbn.map(i=>`<span class="isbn" data-c="${i}">${i}</span>`).join('');
+ return `<div class="ecard ${r.got?'got':''}"><label class="echk"><select data-id="${r.id}"><option value="">未查</option><option value="yes"${s=='yes'?' selected':''}>有</option><option value="no"${s=='no'?' selected':''}>沒有</option></select></label>
+ <div class="et">${r.pri?'<span class="estars">'+'★'.repeat(r.pri)+'</span>':''}${esc(r.title)}</div>
+ ${r.meta?`<div class="em">${esc(r.meta)}</div>`:''}${r.got?`<div class="em">已取得：${esc(r.got)}</div>`:''}
+ <div>${ib}<span class="isbn kw" data-c="${esc(r.kw)}">${esc(r.kw)}</span></div>
+ ${r.conf&&r.conf!='索書號相符'?`<div class="ewarn">${esc(r.conf)}</div>`:''}</div>`}
+function render(){document.getElementById('ebk-tabs').innerHTML=F.map(([k,n])=>`<button data-et="${k}" class="${k==cur?'on':''}">${n}</button>`).join('');
+ let L=R.filter(r=>cur=='all'||(cur=='isbn'&&r.isbn.length)||(cur=='kw'&&!r.isbn.length)||(cur=='todo'&&!st[r.id])||(cur=='yes'&&st[r.id]=='yes'));
+ L.sort((a,b)=>(!!a.got-!!b.got)||(b.pri-a.pri)||(b.isbn.length>0)-(a.isbn.length>0));
+ const g1=L.filter(r=>r.isbn.length&&!r.got),g2=L.filter(r=>!r.isbn.length&&!r.got),g3=L.filter(r=>r.got);
+ let h='';if(g1.length)h+=`<h4>有 ISBN（${g1.length}）</h4>`+g1.map(card).join('');
+ if(g2.length)h+=`<h4>沒有 ISBN，用書名搜（${g2.length}）</h4><div class="em">多為期刊、碩士論文、舊版方志與公文，電子書平台通常沒有；仍可用書名試搜。</div>`+g2.map(card).join('');
+ if(g3.length)h+=`<h4>已取得（${g3.length}）</h4>`+g3.map(card).join('');
+ document.getElementById('ebk-list').innerHTML=h||'<p class="em">沒有符合的書。</p>'}
+document.getElementById('ebk').addEventListener('click',e=>{const b=e.target.closest('[data-et]');if(b){cur=b.dataset.et;render();return}
+ const c=e.target.closest('[data-c]');if(c)copy(c,c.dataset.c)});
+document.getElementById('ebk').addEventListener('change',e=>{const s=e.target.closest('select[data-id]');if(s){st[s.dataset.id]=s.value;save()}});
+render();
+</script>
+<h2 id="rephoto-h">補拍清單</h2>
+<details id="rephoto" open><summary>補拍清單（不急，有空再拍）：97 處</summary>
+<p class="small">10/31 已拍的書，Claude 補 OCR 時發現照片模糊、手晃、被手遮、或不確定字多的頁，加上沒拍到的頁。各書九成以上內容已掌握，這些只是補完用。「不確定字」＝轉錄裡 □ 與〔?〕的個數。</p>
+<h4>國圖（20）</h4><div style="overflow-x:auto"><table class="rp"><tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr><tr><td>佳里昭清宮志</td><td>p.470–471</td><td>遮字、不確定字 12</td><td><code>20261031_100927</code></td></tr><tr><td>南瀛歷史、社會與文化VII 臺南港市與周邊</td><td>p.290–291</td><td>手晃</td><td><code>20261031_121623</code></td></tr><tr><td>台南七股</td><td>p.84–85</td><td>不確定字 26</td><td><code>IMG_20261031_123328</code></td></tr><tr><td>台南七股</td><td>p.94–95</td><td>模糊、不確定字 35</td><td><code>IMG_20261031_123344</code></td></tr><tr><td>土城香 鹿耳門媽香・五府千歲醮</td><td>p.124–125</td><td>不確定字 17</td><td><code>20261031_104114</code></td></tr><tr><td>土城香 鹿耳門媽香・五府千歲醮</td><td>p.130–131</td><td>不確定字 185</td><td><code>20261031_104128</code></td></tr><tr><td>學甲上白礁：儀式、歷史與傳承</td><td>p.36–37</td><td>不確定字 158</td><td><code>20261031_111600</code></td></tr><tr><td>學甲上白礁：儀式、歷史與傳承</td><td>p.38–39</td><td>不確定字 154</td><td><code>20261031_111605</code></td></tr><tr><td>學甲上白礁：儀式、歷史與傳承</td><td>p.68–69</td><td>不確定字 18</td><td><code>20261031_111700</code></td></tr><tr><td>學甲上白礁：儀式、歷史與傳承</td><td>p.250–251</td><td>不確定字 38</td><td><code>20261031_112227</code></td></tr><tr><td>學甲上白礁：儀式、歷史與傳承</td><td>p.252〔?〕</td><td>模糊、不確定字 15</td><td><code>20261031_112242</code></td></tr><tr><td>學甲上白礁：儀式、歷史與傳承</td><td>p.260–261</td><td>遮字、不確定字 8</td><td><code>20261031_112303</code></td></tr><tr><td>學甲上白礁：儀式、歷史與傳承</td><td>p.264–265</td><td>遮字、不確定字 5</td><td><code>20261031_112314</code></td></tr><tr><td>學甲慈濟宮史</td><td>p.56–57</td><td>不確定字 340</td><td><code>20261031_095929</code></td></tr><tr><td>安順再起</td><td>頁碼未入鏡</td><td>模糊、不確定字 141</td><td><code>20261031_113621</code></td></tr><tr><td>正統鹿耳門聖母廟媽祖信仰脈絡研究</td><td>頁碼未入鏡</td><td>不確定字 17</td><td><code>20261031_105132</code></td></tr><tr><td>正統鹿耳門聖母廟媽祖信仰脈絡研究</td><td>p.78–79</td><td>不確定字 28</td><td><code>20261031_105244</code></td></tr><tr><td>正統鹿耳門聖母廟媽祖信仰脈絡研究</td><td>p.78</td><td>模糊、不確定字 45</td><td><code>20261031_105303</code></td></tr><tr><td>正統鹿耳門聖母廟媽祖信仰脈絡研究</td><td>頁碼未入鏡</td><td>模糊、不確定字 17</td><td><code>20261031_105423</code></td></tr><tr><td>正統鹿耳門聖母廟媽祖信仰脈絡研究</td><td>頁碼未入鏡</td><td>不確定字 102</td><td><code>20261031_105813</code></td></tr></table></div>
+<h4>2026-11-09 精轉後新增：國圖（17）</h4><div style="overflow-x:auto"><table class="rp"><tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr><tr><td>鹿耳門聖母廟土城仔香</td><td>版權頁</td><td>版權頁未翻拍；ISBN、出版年（站上推定 2016）待補</td><td><code>—</code></td></tr><tr><td>鹿耳門聖母廟土城仔香</td><td>p.60、62–64、66–68、78–79、84–87、89–91、96–98、107–110、113–114、131–134、136–137、141–145、152–155、160–163、165–167、170、175、181</td><td>未翻拍（共 21 段，含燃放水燈後半、王府每日行儀中段、香路圖上半；66–68、141–145、152–155 只有一張模糊頁）</td><td><code>—</code></td></tr><tr><td>佳里金唐殿蕭壠香</td><td>p.113–115、p.150–163（部分）、p.194–201、p.203–205</td><td>缺拍頁</td><td><code>—</code></td></tr><tr><td>佳里金唐殿蕭壠香</td><td>表2-1（24 村庄表）B19 之後一頁</td><td>確認表格是否續列</td><td><code>—</code></td></tr><tr><td>佳里金唐殿蕭壠香</td><td>第十一角「牛角仔／半角仔」所在頁（p.134 等）近拍</td><td>地名用字待確認（站上兩寫並陳）</td><td><code>—</code></td></tr><tr><td>鹿耳門天后宮送迎神儀典</td><td>p.115</td><td>失焦；表 4-2「三□樂舞」「□平樂舞」、註 10「禮神頌□」「□□樂奏」缺字，林中信姓名</td><td><code>—</code></td></tr><tr><td>鹿耳門天后宮送迎神儀典</td><td>p.77、p.110</td><td>補拍（回報檔列）</td><td><code>—</code></td></tr><tr><td>鹿耳門天后宮送迎神儀典</td><td>版權頁 p.174</td><td>ISBN、出版年月（站上推定 2016）、主編與局長序作者；最優先</td><td><code>—</code></td></tr><tr><td>鹿耳門天后宮送迎神儀典</td><td>p.6–7、51、53–56、71、79–81、102、104、114、117、121–123、128–133、136、142、154–155、159–161、164–165、172</td><td>未翻拍</td><td><code>—</code></td></tr><tr><td>正統鹿耳門聖母廟 土城香：陣頭文化</td><td>作者序 p.2–5、p.22–23</td><td>未翻拍</td><td><code>—</code></td></tr><tr><td>正統鹿耳門聖母廟 土城香：鹿耳門媽香・五府千歲醮</td><td>p.46（近拍）</td><td>青草崙「郭□鎮」首字（門字框內「市／开」形）待原書確認</td><td><code>—</code></td></tr><tr><td>正統鹿耳門聖母廟 土城香：鹿耳門媽香・五府千歲醮</td><td>p.52（近拍）</td><td>港仔西「郭闖」首字（門字框內「馬」形）待原書確認</td><td><code>—</code></td></tr><tr><td>正統鹿耳門聖母廟 土城香：鹿耳門媽香・五府千歲醮</td><td>p.57 註 51、p.63、p.71 註 75（近拍）</td><td>阮氏□（似「蚋」）、鄭立祖父「鄭□」（木＋男）、黃宇璿末字，字形待原書確認</td><td><code>—</code></td></tr><tr><td>正統鹿耳門聖母廟 土城香：鹿耳門媽香・五府千歲醮</td><td>p.40 地圖房名小字（近拍）</td><td>虎尾寮蔡氏五房分佈圖房名小字待原書確認</td><td><code>—</code></td></tr><tr><td>正統鹿耳門聖母廟 土城香：鹿耳門媽香・五府千歲醮</td><td>p.16 剪報（近拍）</td><td>1937 年日文剪報「北門郡七股庄の天上聖母廟事件」細字模糊；1961《中華日報》「翁余森櫻」「蔡紅紗」字形</td><td><code>—</code></td></tr><tr><td>正統鹿耳門聖母廟 土城香：鹿耳門媽香・五府千歲醮</td><td>p.130–131 路線圖（近拍）</td><td>2024 路線圖宮名多處看不清</td><td><code>—</code></td></tr><tr><td>藝陣傳神：臺灣傳統民俗藝陣</td><td>p.208–238（參章正文）</td><td>未翻拍；p.125–136、141–186 不在本站範圍可不拍</td><td><code>—</code></td></tr></table></div>
+<h4>2026-11-09 精轉後新增：國臺圖（3）</h4><div style="overflow-x:auto"><table class="rp"><tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr><tr><td>回首鹿耳門</td><td>p.52（動態模糊）、p.56（手掌遮住）、p.113、p.131（動態模糊）、p.109 首行、p.158–159 古圖小字</td><td>補拍；_頁面標記.tsv 記的 p.54 實為 p.52</td><td><code>—</code></td></tr><tr><td>行踏台江，地號名講古</td><td>p.94–95</td><td>未翻拍（虎尾寮宋江陣段）</td><td><code>—</code></td></tr><tr><td>行踏台江，地號名講古</td><td>p.78（晃動）、p.183 中段、p.186（里名被手遮）、p.187 下半、p.189 大半</td><td>補拍</td><td><code>—</code></td></tr></table></div>
+<h4>2026-11-14 新增：熱蘭遮城日誌第 9 冊（3）</h4><p class="small">書是 11/08 從國臺圖借回的那套（第 6～10 冊，借期到 2026-12-08），在家補拍即可。第 7 冊的缺頁也一樣。</p><div style="overflow-x:auto"><table class="rp"><tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr><tr><td>熱蘭遮城日誌 第 9 冊（江樹生譯註，2024 新版；國臺圖 733.25 3142 113 v.9）</td><td>p.142–143</td><td>未翻拍：1661 年 3 月 26 日到約 4 月 1 日的日誌（鄭軍登陸前一個月）；p.141 末句與 p.144 首句接不上</td><td>—</td></tr><tr><td>熱蘭遮城日誌 第 9 冊（同上）</td><td>版權頁、序 i–viii</td><td>未翻拍；出版年待補（站上暫照第 5～8 冊寫 2024）</td><td>—</td></tr><tr><td>熱蘭遮城日誌 第 9 冊（同上）</td><td>p.534 以後</td><td>未翻拍；人名索引到 p.533 已完整，書末若有船名索引就在這之後</td><td>—</td></tr></table></div><p class="small">北線尾之戰（1661 年 5 月 1 日）：舊稿引的「江樹生譯本第四冊頁 412–416」是 2011 年舊版四冊本的頁碼。同一段在 2024 新版第 9 冊 p.176–178，已經翻拍，不必補拍；荷軍陣亡人數在 p.178 第一行：「跟 110 個士兵一起陣亡」（已對照片確認）。</p>
+<h4>2026-11-13 維基化收尾新增（4）</h4><div style="overflow-x:auto"><table class="rp">
+<tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr>
+<tr><td>熱蘭遮城日誌 第 4 冊（江樹生譯註，臺灣史料集成；國圖 733.25 8336 113、國臺圖 733.25 3142 113）</td><td>p.210–211</td><td>未翻拍（補充資料，註 191–192）</td><td><code>—</code></td></tr>
+<tr><td>熱蘭遮城日誌 第 7 冊（江樹生譯註，臺灣史料集成；國圖 733.25 8336 113、國臺圖 733.25 3142 113）</td><td>p.284–285</td><td>未翻拍（1655 年 3 月南區地方會議名單前段）</td><td><code>—</code></td></tr>
+<tr><td>熱蘭遮城日誌 第 7 冊（同上）</td><td>版權頁</td><td>未翻拍</td><td><code>—</code></td></tr>
+<tr><td>藝陣傳神：臺灣傳統民俗藝陣（國圖）</td><td>p.88–89（近拍，照片 <code>20261107_105432</code> 裁掉的邊緣）</td><td>郭大清條引文「〔…〕菝郭大清所傳」，「菝」前一字在照片外</td><td><code>—</code></td></tr></table></div>
+<h4>2026-11-12 第二批整理後新增（11）</h4><div style="overflow-x:auto"><table class="rp"><tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr><tr><td>熱蘭遮城日誌 第 2 冊（江樹生譯註，臺灣史料集成）</td><td>p.96、p.120、p.172</td><td>照片晃動</td><td><code>—</code></td></tr><tr><td>聽見台江天籟：臺灣暗蟬（台江處）</td><td>p.54、p.88–91 優先，全書約 30 頁未翻拍</td><td>未翻拍；p.54 若蟲在地下的年數、p.88–91 城西防風林與四草大橋賞蟬點</td><td><code>—</code></td></tr><tr><td>學甲上白礁暨刈香（黃文博，臺南市政府 2014）</td><td>p.69 註 19、p.10</td><td>p.69 底緣被切；p.10 右緣缺字</td><td><code>—</code></td></tr><tr><td>走出歷史悲情 迎向千禧曙光（臺南縣政府 2000）</td><td>縣長序、p.39</td><td>縣長序整頁模糊；p.39 楊永享、楊協勝兩列請正拍</td><td><code>—</code></td></tr><tr><td>島嶼DNA（陳耀昌）</td><td>版權頁</td><td>未翻拍（出版年、ISBN）</td><td><code>—</code></td></tr><tr><td>環境檢驗所 20 週年所慶研討會論文集</td><td>版權頁</td><td>未翻拍</td><td><code>—</code></td></tr></table></div>
+<h4>2026-11-11 熱蘭遮城日誌第 1 冊（國臺圖，3）</h4><div style="overflow-x:auto"><table class="rp"><tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr><tr><td>熱蘭遮城日誌 第 1 冊（江樹生譯註，臺灣史料集成）</td><td>p.358</td><td>照片晃動，整頁無法辨讀</td><td><code>—</code></td></tr><tr><td>熱蘭遮城日誌 第 1 冊（江樹生譯註，臺灣史料集成）</td><td>p.379–380</td><td>未翻拍</td><td><code>—</code></td></tr></table></div>
+<h4>2026-11-10 硬箍起來（6）</h4><div style="overflow-x:auto"><table class="rp"><tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr><tr><td>硬箍起來：西港刈香的宋江系統武陣（謝國興，臺南市政府文化局 2023；國圖書號 006115389）</td><td>p.22–25</td><td>未翻拍；最優先：學甲寮宋江陣與土城香武陣段落、註 19（p.21 末句接不下去）</td><td><code>—</code></td></tr><tr><td>硬箍起來：西港刈香的宋江系統武陣（謝國興，臺南市政府文化局 2023；國圖書號 006115389）</td><td>p.144–152</td><td>未翻拍（永昌宮開館）</td><td><code>—</code></td></tr><tr><td>硬箍起來：西港刈香的宋江系統武陣（謝國興，臺南市政府文化局 2023；國圖書號 006115389）</td><td>p.8–10、p.68–72、p.126–132</td><td>未翻拍（緣起後段、第三章末、第五章末）</td><td><code>—</code></td></tr><tr><td>硬箍起來：西港刈香的宋江系統武陣（謝國興，臺南市政府文化局 2023；國圖書號 006115389）</td><td>p.51（近拍，照片 <code>20261107_124916</code>）</td><td>2015 乙未科手寫正請名單（紅紙榜）難辨字：1. 黃榮□（鈺峰企業）末字；2. 王禹軒第二、三字（順程工程）；3. 文衡殿董事王□章第二字（站上原作「王源章」，偏旁似火或犭）；4. 陳□崧（福祺幼兒園）中間字；5. 郭敏捷的「□□企業公司」前兩字；6. 謝美娥的「尊□企業公司」第二字；7. 「砂凹 中社 金□宮」宮名第二字；8. 榜尾「新□」一列被裁切，要整列入鏡。徐茂献、永仕豪已辨讀，不必再拍</td><td><code>—</code></td></tr><tr><td>硬箍起來：西港刈香的宋江系統武陣（謝國興，臺南市政府文化局 2023；國圖書號 006115389）</td><td>版權頁（近拍）</td><td>兩個人名缺字：執行編輯沈□瑩、總編輯廖志□</td><td><code>—</code></td></tr><tr><td>硬箍起來：西港刈香的宋江系統武陣（謝國興，臺南市政府文化局 2023；國圖書號 006115389）</td><td>p.12、28、32、44、47–49、52、54、86–89、156–163</td><td>未翻拍，多半是整頁照片；順便補拍可確認前後頁碼（多數照片沒拍到頁碼）</td><td><code>—</code></td></tr></table></div>
+<h4>2026-11-10 四草大眾廟誌（1）</h4><div style="overflow-x:auto"><table class="rp"><tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr><tr><td>臺南四草大眾廟誌（許政雄，萬卷樓 2014；國圖 272.097 8474）</td><td>p.90</td><td>未翻拍（可能是空白頁，確認即可）</td><td><code>—</code></td></tr></table></div>
+<h4>國臺圖（29）</h4><div style="overflow-x:auto"><table class="rp"><tr><th>書</th><th>書頁</th><th>原因</th><th>照片</th></tr><tr><td>南瀛刈香誌</td><td>p.14–15</td><td>模糊、手晃、不確定字 15</td><td><code>20261031_185317</code></td></tr><tr><td>南瀛刈香誌</td><td>p.18–19</td><td>模糊、手晃、不確定字 49</td><td><code>20261031_185346</code></td></tr><tr><td>南瀛刈香誌</td><td>p.28–29</td><td>模糊、不確定字 12</td><td><code>20261031_185407</code></td></tr><tr><td>南瀛刈香誌</td><td>p.46–47</td><td>模糊、不確定字 13</td><td><code>20261031_185444</code></td></tr><tr><td>南瀛刈香誌</td><td>p.64–65</td><td>模糊、不確定字 11</td><td><code>20261031_185525</code></td></tr><tr><td>南瀛刈香誌</td><td>p.72–73</td><td>模糊</td><td><code>20261031_185535</code></td></tr><tr><td>南瀛刈香誌</td><td>p.84–85</td><td>模糊、不確定字 12</td><td><code>20261031_185553</code></td></tr><tr><td>南瀛刈香誌</td><td>p.88–89</td><td>模糊、不確定字 11</td><td><code>20261031_185606</code></td></tr><tr><td>南瀛刈香誌</td><td>p.104–105</td><td>模糊、不確定字 17</td><td><code>20261031_185649</code></td></tr><tr><td>南瀛刈香誌</td><td>p.156–157</td><td>不確定字 66</td><td><code>20261031_185825</code></td></tr><tr><td>南瀛刈香誌</td><td>p.292–293</td><td>模糊、不確定字 20</td><td><code>20261031_190113</code></td></tr><tr><td>南瀛刈香誌</td><td>p.354–355</td><td>模糊、遮字</td><td><code>20261031_190249</code></td></tr><tr><td>南瀛刈香誌</td><td>p.374–375</td><td>反光</td><td><code>20261031_190332</code></td></tr><tr><td>南瀛刈香誌</td><td>版權頁</td><td>模糊</td><td><code>20261031_190357</code></td></tr><tr><td>南瀛刈香誌</td><td>p.70–71</td><td>沒拍到（表三中段）</td><td><code>—</code></td></tr><tr><td>回首鹿耳門</td><td>p.53</td><td>模糊、無法轉錄</td><td><code>20261031_184333</code></td></tr><tr><td>回首鹿耳門</td><td>p.112–113</td><td>模糊、不確定字 20</td><td><code>20261031_184556</code></td></tr><tr><td>戰後臺灣政治案件 李媽兜案史料彙編</td><td>封面</td><td>反光、不確定字 9</td><td><code>20261031_182319</code></td></tr><tr><td>行踏台江，地號名講古</td><td>第二章扉頁跨頁</td><td>模糊、反光、不確定字 21</td><td><code>20261031_190947</code></td></tr><tr><td>行踏台江，地號名講古</td><td>p.78–79</td><td>手晃、模糊、不確定字 16</td><td><code>20261031_191122</code></td></tr><tr><td>行踏台江，地號名講古</td><td>p.186–187</td><td>遮字、不確定字 35</td><td><code>20261031_192120</code></td></tr><tr><td>行踏台江，地號名講古</td><td>p.188–189</td><td>遮字、不確定字 54</td><td><code>20261031_192121</code></td></tr><tr><td>西港仔刈香</td><td>p.50–51</td><td>模糊、不確定字 5</td><td><code>20261031_175115</code></td></tr><tr><td>西港仔刈香</td><td>p.56–57</td><td>模糊</td><td><code>20261031_175125</code></td></tr><tr><td>西港仔刈香</td><td>p.58–59</td><td>模糊</td><td><code>20261031_175127</code></td></tr><tr><td>西港仔刈香</td><td>p.62–63</td><td>不確定字 18</td><td><code>20261031_175131</code></td></tr><tr><td>西港仔刈香</td><td>p.240–241</td><td>遮字、不確定字 5</td><td><code>20261031_175436</code></td></tr><tr><td>西港仔刈香</td><td>p.456–457</td><td>模糊</td><td><code>20261031_175919</code></td></tr><tr><td>西港仔刈香</td><td>p.172–173、p.180–181</td><td>沒拍到</td><td><code>—</code></td></tr></table></div>
 </details>
+<h2 id="done">已翻拍</h2>
+<p>已翻拍的 38 本（冊）、OCR 進度與拍攝範圍都移到<a href="2026-11-06_已翻拍OCR書目.html#books">已有</a>。</p>
 <h2 id="appx">規則、要帶的東西</h2>
 <details><summary>作者決定（2026-11-01）</summary><ol>
 <li>佛系清單（有看到很好，沒看到也沒差，不特地調閱）：</li>
