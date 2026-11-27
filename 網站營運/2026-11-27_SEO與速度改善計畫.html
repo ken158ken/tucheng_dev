@@ -1,0 +1,125 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEO 與速度改善計畫</title><style>
+:root{--bg:#fbf8f1;--card:#fff;--ink:#222;--mute:#6b6458;--line:#e6dfd0;--acc:#1f8a8a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,"PingFang TC","Noto Sans TC",sans-serif}
+main{max-width:860px;margin:0 auto;padding:16px}h1{font-size:1.4rem;margin:.2em 0}h2{font-size:1.1rem;margin:1.6em 0 .4em;border-bottom:2px solid var(--line);padding-bottom:4px;scroll-margin-top:52px}
+.sub{color:var(--mute);font-size:.9rem}.box{background:#f3eedf;border-radius:10px;padding:10px 14px;margin:10px 0}
+ol{padding-left:1.3em}ol ol{margin:.2em 0}a{color:var(--acc);overflow-wrap:anywhere}
+.it{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:10px 0;display:flex;gap:10px;align-items:flex-start}
+.it input{margin-top:.45em;width:18px;height:18px;flex:none}.it h3{margin:0;font-size:1rem}.it p{margin:.2em 0;font-size:.92rem}.it ol{font-size:.92rem;margin:.2em 0}
+.tag{display:inline-block;border-radius:6px;padding:0 6px;font-size:.78rem;margin-left:4px;background:#e5ecf3;color:#3b5a78}.tag.hot{background:#fff1d6;color:#8a5a00}
+.it.ck{opacity:.55}.w{color:var(--mute);font-size:.88rem}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin:6px 0}th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}th{background:#f3eedf}
+nav.jump{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0;display:flex;gap:6px;overflow-x:auto;border-bottom:1px solid var(--line)}nav.jump a{flex:0 0 auto;padding:5px 10px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:.86rem;white-space:nowrap}
+.poem{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:10px 0;display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.poem input{margin-top:.5em;width:18px;height:18px;flex:none}.poem h3{margin:0;font-size:1rem}.poem p{margin:.3em 0 0;font-size:1rem;line-height:1.9}
+.poem.on{border:2px solid var(--acc);background:#f1faf9}
+</style></head><body><main>
+<h1>SEO 與速度改善計畫</h1>
+<p class="sub">2026-11-27。依據作者貼的三份首頁檢測報告，加上對正式站 19 頁的抽查。要作者回覆的事在<a href="#ask">第四節</a>，其餘可以直接看結論。<a href="../index.html">回交接網頁首頁</a></p>
+<nav class="jump"><a href="#now">現況</a><a href="#done">已做</a><a href="#plan">五個階段</a><a href="#ask">要作者回覆</a><a href="#split">全部詞條怎麼分</a><a href="#check">怎麼驗收</a></nav>
+
+<h2 id="now">一、現況</h2>
+<table><tr><th>檢測</th><th>效能</th><th>無障礙</th><th>最佳做法</th><th>SEO</th></tr>
+<tr><td>PageSpeed 手機</td><td>80</td><td>96</td><td>96</td><td>100</td></tr>
+<tr><td>PageSpeed 電腦</td><td>64</td><td>96</td><td>96</td><td>100</td></tr>
+<tr><td>作者瀏覽器（裝了擴充功能，分數偏低）</td><td>55</td><td>96</td><td>96</td><td>100</td></tr></table>
+<ol>
+<li>SEO 100 分只代表基本項目齊全（標題、描述、標準網址、語言標記、sitemap）。報告只看首頁，詞條頁與分類頁的問題它掃不到。</li>
+<li>分數低的是「效能」，原因依影響大小排：
+<ol><li>字型：兩套中文網路字型，畫面要等它 1.7 秒才出來，字型檔合計 4.2 MB。</li>
+<li>首頁主視覺動畫：電腦版讓瀏覽器忙 23 秒，是電腦版只有 64 分的主因。</li>
+<li>圖片：首頁五張照片 1.8 MB，原圖寬 1200–1600 px，畫面上只顯示 300–450 px；全站 2,371 張都還沒有較省流量的 WebP 格式。</li>
+<li>頁面太大：全部詞條頁 4.1 MB、廟宇分類頁 2 MB、聖母廟詞條 1.1 MB。</li></ol></li>
+<li>圖片替代文字（alt）：作者說得對。每張圖都有 alt 這個欄位，所以報告顯示通過，但很多照片的 alt 是空白，搜尋引擎等於看不到。見下一節。</li>
+</ol>
+
+<h2 id="done">二、已經做完的（11/27）</h2>
+<table><tr><th>頁面</th><th>修正前：照片 alt 空白</th><th>修正後</th></tr>
+<tr><td>廟宇分類頁</td><td>49 張</td><td>0</td></tr>
+<tr><td>聖母廟詞條</td><td>25 張</td><td>0</td></tr>
+<tr><td>黑面琵鷺詞條（中、英）</td><td>各 21 張</td><td>0</td></tr>
+<tr><td>首頁（中文）</td><td>5 張</td><td>0</td></tr>
+<tr><td>首頁（英文）</td><td>9 張</td><td>0</td></tr></table>
+<ol>
+<li>詞條卡片的照片：問題多半出在這裡。分類頁、「相關詞條」都用同一種卡片，現在 alt 是詞條名。</li>
+<li>首頁入口卡片改用圖庫裡的描述；英文版補了五大香四張的英文描述。</li>
+<li>影片縮圖、參拜圖原圖的縮圖一併補上。</li>
+<li>伺服器設定兩份草稿已套用：別的網站可以嵌入詞條卡；連線數與快取容量加大。</li>
+</ol>
+
+<h2 id="plan">三、接下來的五個階段</h2>
+<table><tr><th>階段</th><th>做什麼</th><th>要作者決定嗎</th><th>風險</th></tr>
+<tr><td>1. 圖片</td><td>首頁改載縮圖、全站產 WebP、sitemap 加圖片資訊、圖片快取延長</td><td>不用</td><td>低</td></tr>
+<tr><td>2. 字型</td><td>改變字型的載入方式</td><td>要選方案</td><td>觀感可能變</td></tr>
+<tr><td>3. 首頁動畫</td><td>維持動態（作者 11/27 已定），只做看不出來的調整</td><td>已定</td><td>低</td></tr>
+<tr><td>4. 頁面瘦身</td><td>全部詞條頁拆開、分類頁與詞條頁減重</td><td>要看拆法</td><td>中，會動到版面</td></tr>
+<tr><td>5. 零碎</td><td>香爐錯誤訊息、文字對比、同名連結、結構化資料</td><td>不用</td><td>低</td></tr></table>
+
+<div class="it"><div><h3>階段 1：圖片</h3><ol>
+<li>首頁的五大香與入口卡片現在直接載原圖，改成載 560 px 的縮圖。</li>
+<li>全站圖片多產一份 WebP，瀏覽器支援就拿 WebP，圖片流量預估少六到七成。原本的 JPG 保留、網址不變，已被 Google 收錄的圖片不受影響。</li>
+<li>照片都標上寬高，並準備大小兩種尺寸，手機拿小張。</li>
+<li>圖片快取從 7 天延長到 30 天。</li>
+<li>sitemap 加上每個詞條的主圖與圖說，幫助 Google 圖片搜尋收錄。</li>
+<li>alt 第二輪：卡片的 alt 現在只有詞條名，可以再加上主圖圖說；另外掃一次圖說是空白或只有檔名的照片。</li></ol></div></div>
+
+<div class="it"><div><h3>階段 2：字型（三個方案，見第四節）</h3>
+<p>現在用 Google 提供的思源黑體與思源宋體。問題不在字型本身，在於「畫面要等字型的設定檔下載完才顯示」。</p></div></div>
+
+<div class="it"><div><h3>階段 3：首頁動畫（維持動態）</h3><ol>
+<li>動畫照舊，外觀不變。</li>
+<li>只做訪客看不出來的調整：動畫的程式等頁面先顯示完再載；捲到看不到動畫的位置、或分頁切到背景時暫停。</li>
+<li>這樣電腦版的分數仍會改善，但不會像改成靜態圖那麼多。</li></ol></div></div>
+
+<div class="it"><div><h3>階段 4：頁面瘦身</h3><ol>
+<li>全部詞條頁拆開，拆法見<a href="#split">第五節</a>。</li>
+<li>分類頁（例如廟宇 2 MB）：第一屏之後的卡片簡化，照片捲到才載。</li>
+<li>詞條頁：每頁裡有一份瀏覽器用不到的重複資料（聖母廟那頁佔 0.7 MB），找出來源後只留用得到的部分。</li></ol></div></div>
+
+<div class="it"><div><h3>階段 5：零碎項目</h3><ol>
+<li>首頁香爐、金爐第一次連線被伺服器擋下，瀏覽器會記一筆錯誤。訪客看不到，但檢測會扣分。</li>
+<li>四處文字顏色太淡：站名副標「鹽與風的檔案館」、首頁「還沒有答案的事」的小標、頁尾說明。顏色加深即可。</li>
+<li>導覽列有兩個都叫「內網」的連結，連到不同網址，改名或合併。</li>
+<li>結構化資料（給搜尋引擎看的詞條摘要）抽五種詞條各驗一次；圖片補上圖說、授權、作者，Google 圖片搜尋會顯示授權標示。</li></ol></div></div>
+
+<h2 id="ask">四、要作者回覆的</h2>
+<label class="it"><input type="checkbox" data-k="a1"><div><h3>1. 字型選哪個方案</h3>
+<table><tr><th>方案</th><th>做法</th><th>外觀</th><th>速度</th></tr>
+<tr><td>甲（建議）</td><td>字型檔放在自己的主機，只留用到的粗細</td><td>不變</td><td>快約 1.5 秒</td></tr>
+<tr><td>乙</td><td>維持 Google 字型，但先用系統字顯示、字型到了再換</td><td>一開始會閃一下換字</td><td>快約 1.5 秒</td></tr>
+<tr><td>丙</td><td>內文改用裝置內建的字，只有標題用網路字型</td><td>Windows 上內文變微軟正黑體；手機、Mac 差異小</td><td>最快，字型流量剩不到十分之一</td></tr></table></div></label>
+<label class="it"><input type="checkbox" data-k="a2"><div><h3>2. 全部詞條頁的拆法</h3><p>建議案在下一節，同意就說「照建議」。</p></div></label>
+<label class="it"><input type="checkbox" data-k="a3"><div><h3>3. 要不要現在就開始階段 1 與階段 5</h3><p>這兩個階段不用選方案、風險低，作者說開始就做。</p></div></label>
+
+<h2 id="split">五、全部詞條頁怎麼分（建議案）</h2>
+<p>現在這一頁（名詞總表）把 4,789 個詞條列了兩遍：一遍「類別 → 地域」，一遍「地域 → 類別」，共 7,400 多個連結，所以有 4.1 MB。</p>
+<ol>
+<li><b>總表首頁只留兩層</b>：十二個類別與十幾個地域，每個只顯示名稱、一句話和數量，點了才進去。上面放搜尋框。這一頁會從 4.1 MB 降到 50 KB 以下。</li>
+<li><b>每個類別一頁</b>，頁內依地域分段：
+<table><tr><th>類別</th><th>詞條數</th><th>怎麼放</th></tr>
+<tr><td>人物</td><td>約 1,960</td><td>太多，再依地域拆成 11 頁；「其他」一段有 677 人，再依身分拆（文史作者與學者、官員與民代、荷治到清代的歷史人物、其他）</td></tr>
+<tr><td>物種</td><td>616</td><td>一頁，依鳥、魚蝦蟹貝、植物、昆蟲與其他分段</td></tr>
+<tr><td>地名</td><td>約 590</td><td>一頁，依地域分段</td></tr>
+<tr><td>廟宇</td><td>約 380–410</td><td>一頁，依地域分段</td></tr>
+<tr><td>名詞、事件、機構與學校</td><td>各 140–400</td><td>各一頁</td></tr>
+<tr><td>陣頭、神明、店家、香科</td><td>各 7–68</td><td>各一頁</td></tr>
+<tr><td>書目</td><td>354</td><td>已有書目頁，不重複列</td></tr></table></li>
+<li><b>每個地域一頁</b>（土城仔、四草、西港、佳里、學甲、麻豆、北門、七股、安定……），頁內依類別分段。土城仔底下的十一角頭照現在的方式收在土城仔那頁。</li>
+<li><b>清單頁只列文字</b>：詞條名加一句話，不放照片卡片；有照片的卡片版留在現有的分類頁。</li>
+<li><b>對搜尋引擎的影響</b>：每個詞條仍然從「類別頁」和「地域頁」各有一個連結進得去，sitemap 也照舊列出全部詞條，不會有詞條變成孤兒。舊的總表網址不變。</li>
+<li><b>不採用的做法</b>：照筆畫或注音每 200 條一頁。這種頁面沒有人會想讀，也無助搜尋引擎理解詞條之間的關係。</li>
+</ol>
+
+<h2 id="check">六、怎麼驗收</h2>
+<ol>
+<li>每個階段做完，用 PageSpeed 測四頁：首頁、聖母廟詞條、廟宇分類頁、英文首頁，手機與電腦各一次，分數記在這一頁。</li>
+<li>alt：從 sitemap 抽 200 頁自動掃，照片 alt 空白應為 0。</li>
+<li>兩週後回 Search Console 看「網頁體驗」與圖片收錄數。</li>
+<li>作者自己測的時候請用無痕視窗：這次瀏覽器的擴充功能把分數拉低了十幾分。</li>
+</ol>
+</main>
+<script>
+document.querySelectorAll('input[data-k]').forEach(function(c){var k='tc-seo1127-'+c.dataset.k;try{c.checked=localStorage.getItem(k)==='1'}catch(e){}
+var s=function(){c.closest('.it').classList.toggle('ck',c.checked)};s();c.addEventListener('change',function(){try{localStorage.setItem(k,c.checked?'1':'0')}catch(e){}s()})});
+</script></body></html>
