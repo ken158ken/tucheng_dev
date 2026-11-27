@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>找書清單：全力開工（2026-11-27）</title>
+<style>:root{--bg:#fbf8f1;--card:#fff;--ink:#222;--muted:#6b6458;--line:#e6dfd0;--accent:#1f8a8a;--soft:#e4f1f0;--ok:#2e7d4f;--oksoft:#e3f1e8;--warn:#8a5a00;--warnsoft:#fff1d6;--no:#b3261e;--nosoft:#f6dede}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;overflow-wrap:anywhere}
+.wrap{max-width:760px;margin:0 auto;padding:0 14px 90px}
+header{padding:16px 0 6px}h1{font-size:1.4rem;margin:0 0 4px;line-height:1.3}.sub{color:var(--muted);font-size:.9rem;margin:0}
+h2{font-size:1.12rem;margin:24px 0 8px;padding-bottom:4px;border-bottom:2px solid var(--line);scroll-margin-top:56px}
+h3{font-size:1.02rem;margin:16px 0 6px;scroll-margin-top:56px}h4{font-size:.96rem;margin:12px 0 4px}
+p{margin:6px 0}ol,ul{padding-left:1.3em;margin:6px 0}li{margin:3px 0}
+a{color:var(--accent)}
+nav.jump{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0;display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;border-bottom:1px solid var(--line)}
+nav.jump a{flex:0 0 auto;padding:6px 10px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:.88rem;white-space:nowrap}
+.note{background:#f3eedf;border-radius:10px;padding:8px 12px;margin:10px 0;font-size:.95rem}
+.small{font-size:.86rem;color:var(--muted)}
+label.chk{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--line)}
+label.chk input{width:22px;height:22px;flex:0 0 auto;margin:3px 0 0;accent-color:var(--accent)}
+label.chk.done{opacity:.55}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:10px 0;scroll-margin-top:56px}
+.card.done{opacity:.5}
+.card .top{display:flex;gap:10px;align-items:flex-start}.card .top>div{min-width:0;flex:1}
+.card input[type=checkbox]{width:26px;height:26px;flex:0 0 auto;margin:2px 0 0;accent-color:var(--accent)}
+.card .title{font-weight:700;font-size:1.02rem;line-height:1.35}
+.ed{font-size:.86rem;color:var(--muted)}
+.src{border-left:3px solid var(--line);padding:2px 0 2px 9px;margin:8px 0}
+.lib{font-size:.8rem;font-weight:700;color:var(--accent)}
+.call{display:inline-block;margin:4px 0 2px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:1.12rem;font-weight:700;background:var(--warnsoft);border:2px solid var(--warn);padding:2px 8px;border-radius:8px;user-select:all;word-break:break-all;max-width:100%}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0}
+.tag{display:inline-block;padding:0 8px;border-radius:999px;font-size:.78rem;font-weight:600;background:#eee}
+.ok{background:var(--oksoft);color:var(--ok)}.no{background:var(--nosoft);color:var(--no)}.chk{background:var(--warnsoft);color:var(--warn)}.new{background:var(--soft);color:var(--accent)}
+label.chk{background:none;color:inherit}
+.pri{font-weight:800;letter-spacing:1px;font-size:.95rem}.p3{color:var(--no)}.p2{color:var(--accent)}.p1,.p0{color:var(--muted)}
+.shoot{font-size:.94rem;margin-top:6px}.shoot b{color:var(--accent)}
+.topic{font-size:.86rem;color:var(--muted);margin-top:4px}
+.loc{margin:4px 0 2px;font-size:.9rem;color:var(--ok);background:var(--oksoft);padding:4px 9px;border-radius:7px}
+.loc a{font-weight:600}
+details{margin:8px 0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:4px 12px}
+.card details{border:none;padding:0;background:none}
+summary{cursor:pointer;font-weight:600;padding:4px 0;color:var(--accent)}
+.p2{border-top:1px dashed var(--line);padding-top:4px;margin-top:4px;font-size:.9rem}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em;background:#f3eedf;padding:1px 4px;border-radius:4px;word-break:break-all}
+ol.ph>li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 10px;margin:6px 0}
+.progress{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:9px 14px;font-size:.93rem;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.progress button{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:6px 10px;font-size:.88rem}
+
+.card .title .pri{margin-left:4px;white-space:nowrap}.card .call{font-size:1.05rem}.card .loc{margin:3px 0}.card .small code{font-size:.85em}.pri.p2{border:0;padding:0;margin:0 0 0 4px;font-size:.95rem}.rp{border-collapse:collapse;font-size:.86rem;width:100%}.rp th,.rp td{border:1px solid var(--line);padding:3px 6px;text-align:left;vertical-align:top}.rp th{background:#f3eedf}.rp code{font-size:.8em}.no{display:inline-block;min-width:2.6em;color:var(--accent);font-weight:800}.call.none{background:#eee;border-color:#999;color:#555;font-family:inherit}.warnbox{background:var(--warnsoft);border:2px solid var(--warn);border-radius:10px;padding:8px 12px;margin:10px 0;font-size:.95rem}.wrap table{font-size:.9rem}.tn table{border-collapse:collapse;width:100%;font-size:.88rem;margin:6px 0}.tn th,.tn td{border:1px solid var(--line);padding:4px 6px;text-align:left;vertical-align:top}.tn th{background:#f3eedf}.tn .box{background:#f3eedf;border-radius:10px;padding:8px 12px;margin:8px 0}.tn .wrap{overflow-x:auto}
+.loc.pend{color:var(--warn);background:var(--warnsoft)}.card .title a{color:inherit}.rp td code{font-size:.78em}.tag.red{background:var(--nosoft);color:var(--no)}
+</style></head><body><div class="wrap">
+<header><h1>找書清單：全力開工（2026-11-27）</h1>
+<p class="sub">11/26–11/27 各組回報裡的「請作者翻閱」彙整成這一頁：網路上找不到、要到國圖或國臺圖翻的書與文章，以及網站擋自動抓取、要用瀏覽器手動下載的線上文獻。11/08 的<a href="2026-11-08_實體找書清單.html">找書與補拍</a>已列過的書不重複開卡片，只在第三節補這次要看的頁，點連結回原卡片勾選。<a href="../index.html">回交接網頁首頁</a></p></header>
+<nav class="jump"><a href="#top10">先找的 10 筆</a><a href="#found">查到索書號 27</a><a href="#pend">館藏待查 17</a><a href="#old">已在 11/08 清單 20</a><a href="#k-local">已翻拍 9</a><a href="#web">線上手動下載 9＋25</a></nav>
+<div class="note"><strong>說明</strong><ol>
+<li>各組回報的「請作者翻閱」共 82 筆，同一本書被幾組提到的併成一筆（例如西港慶安宮香科資料冊有五組提到、《聖母廟廟誌》《府城古井誌》《府城市場誌》各兩組），合併後分成：<ol>
+<li>新增、查到國圖或國臺圖索書號的：27 筆（第一節）。</li>
+<li>新增、館藏待查或不在圖書館的（廟方出版品、機關文件、未出版論文）：17 筆（第二節）。</li>
+<li>11/08 清單已有、這次只補要看的頁：20 筆（第三節）。</li>
+<li>其實已經翻拍在手上、不必再借的：9 筆（第四節，由 Claude 查本機照片）。</li>
+<li>要用瀏覽器手動下載的線上文獻：9 筆，另有擋自動抓取的網頁 25 個（第五節）。</li></ol></li>
+<li>索書號是 2026-11-27 查全國圖書書目資訊網（NBINet）的結果；在架狀態以現場為準。「不用翻拍」表示館內資料庫可直接列印或存檔，或線上就有掃描本。</li>
+<li>每筆寫：書名或篇名、作者與出版、館藏、要看的頁或章、為什麼需要（卡在哪個詞條的哪件事）、哪一組提出。標「兩輪線上研究未果」的，表示上一輪和第二輪深入查詢都沒在網路上找到，只能靠紙本。</li>
+<li>每個館內依星號排序：★★★ 一定要看・★★ 建議看・★ 有空再看。勾選存在這台裝置的瀏覽器。</li>
+</ol></div>
+<h2 id="top10">最值得先找的 10 筆</h2>
+<p class="small">挑選標準：一本書能解掉多個詞條的缺口，或涉及站上兩說並陳的關鍵文獻，或兩輪線上研究都找不到。</p>
+<ol class="ph">
+<li><a href="#k-fengwu">《臺灣風物》11 卷 7 期鹿耳門專號</a>：正統之爭兩篇原文，站上兩說並陳卻沒看過原文。</li>
+<li><a href="#w-kang">康培德 2017 Walvis Been 論文（線上手動下載）</a>：與站上台江內海的說法不同。</li>
+<li><a href="2026-11-08_實體找書清單.html#t1120-pm-c15">《聖母廟廟誌》（已在 11/08 清單）</a>：第 1–7 屆主委，兩組各提一次、兩輪都沒查到。</li>
+<li><a href="#k-gujing">《臺南府城古井誌》</a>：安南四口古井，兩輪只有一篇部落格。</li>
+<li><a href="#k-shichang">《臺南府城市場誌》</a>：土城市場樓層與樓上戲院，兩說不合。</li>
+<li><a href="#k-xgqa">西港慶安宮三科香科資料冊</a>：轎號、道長、分靈，五組都提到。</li>
+<li><a href="2026-11-08_實體找書清單.html#t1120-c5">黃文博《西港刈香》（已在 11/08 清單）</a>：一本書解四題（吉和堂、九塊厝、1994 新增庄、鼓花陣）。</li>
+<li><a href="#k-liuzhiwan">劉枝萬 1979 西港瘟醮祭典</a>：「道光六年接辦」原句。</li>
+<li><a href="#k-lizhang">臺南市第 16、17 屆里長選舉資料</a>：土城十里 1998、2002 里長。</li>
+<li><a href="#k-baozhi">2009 年 3 月報紙（館內資料庫，不用翻拍）</a>：六點主張原文。</li>
+</ol>
+<h2 id="found">一、新增：查到國圖或國臺圖索書號（27 筆）</h2>
+<div class="card" id="k-fengwu" data-ids="k-fengwu"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-1</span>《臺灣風物》第 11 卷第 7 期（1961-07-31，鹿耳門專號） <span class="pri p3">★★★</span></div>
+<div class="ed">臺灣風物雜誌社</div>
+<div class="loc">國臺圖 索書號 <span class="call">733.7 4372</span><br><span class=small>五樓中日文臺灣期刊合訂本區，館內閱覽（同一套期刊在 11/08 清單 4-14）</span></div>
+<div class="tags"><span class="tag red">兩說並陳的關鍵</span></div>
+<div class="shoot"><b>要看：</b>1. 林文漲等〈鹿耳門天后宮遺蹟辯〉全文。<br>2. 聖母廟董事會〈鹿耳門天上聖母神像暨聖母廟遺跡辯正〉全文。<br>3. 同期其他與鹿耳門有關的文章（目次已上站），有就一起拍。</div>
+<div class="shoot"><b>為什麼：</b>1. 正統之爭（tianhou-luermen-zhengtong-debate）的第一手文獻：兩廟各自的論證，站上目前只有目次與轉述，兩說並陳卻看不到原文。<br>2. 聖母廟、天后宮兩個主條目的「不同說法」一節都引這兩篇。</div>
+<div class="small">提出：G11</div></div></div></div>
+<div class="card" id="k-gujing" data-ids="k-gujing"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-2</span>臺南府城古井誌 <span class="pri p3">★★★</span></div>
+<div class="ed">曾國棟｜臺南市政府文化局，2017（大臺南文化叢書），ISBN 9789860529234</div>
+<div class="loc">國圖 索書號 <span class="call">733.9/127.4 8357</span></div>
+<div class="loc">國臺圖 索書號 <span class="call">733.9614 8064</span></div>
+<div class="tags"><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 表 2-1。<br>2. 第四章第六節「安南區」。</div>
+<div class="shoot"><b>為什麼：</b>安南區四口古井（外塭仔、中州寮、布袋嘴寮、什份塭）的正式井名與位置：兩輪線上研究都只找到一篇部落格（shishuiku 食水堀詞條）。</div>
+<div class="small">提出：G4、G11</div></div></div></div>
+<div class="card" id="k-shichang" data-ids="k-shichang"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-3</span>臺南府城市場誌 <span class="pri p3">★★★</span></div>
+<div class="ed">陳桂蘭｜臺南市政府文化局，2017</div>
+<div class="loc">國圖 索書號 <span class="call">733.9/127.4 8748</span></div>
+<div class="loc">國臺圖 索書號 <span class="call">733.9614 7544-2</span></div>
+<div class="tags"><span class="tag red">兩輪線上研究未果</span><span class="tag red">兩說並陳的關鍵</span></div>
+<div class="shoot"><b>要看：</b>1. 土城市場篇：1984 啟用、57 攤、舊大樓樓層。<br>2. 樓上戲院的名稱。</div>
+<div class="shoot"><b>為什麼：</b>土城公有市場（tucheng-public-market）：策展頁寫「獨棟兩層樓」，記憶庫寫「3樓4」，兩說不合；樓上戲院本名兩輪都沒查到。</div>
+<div class="small">提出：G4、G10</div></div></div></div>
+<div class="card" id="k-liuzhiwan" data-ids="k-liuzhiwan"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-4</span>劉枝萬〈臺灣臺南縣西港鄉瘟醮祭典〉 <span class="pri p3">★★★</span></div>
+<div class="ed">《中央研究院民族學研究所集刊》47 期（1979-03），頁 73–169；另收劉枝萬《臺灣民間信仰論集》（聯經，1983）</div>
+<div class="loc">國圖 索書號 <span class="call">272.07 8774</span><br><span class=small>《臺灣民間信仰論集》；原刊《民族所集刊》535 8566</span></div>
+<div class="loc">國臺圖 索書號 <span class="call">272.07 7244</span><br><span class=small>《臺灣民間信仰論集》</span></div>
+<div class="tags"><span class="tag red">兩輪線上研究未果</span><span class="tag red">兩說並陳的關鍵</span></div>
+<div class="shoot"><b>要看：</b>1. 找「慶安宮 1826 年（道光六年）起接辦」的原句與前後文。</div>
+<div class="shoot"><b>為什麼：</b>西港香沿革（xigang-xiang-history）把「道光六年接辦」寫成劉枝萬的考證，但網路只見轉述；維基又把同一說歸給黃文博《南瀛王船誌》頁 78（那本已有 PDF，可對照）。兩輪都沒查到原句。</div>
+<div class="small">提出：G12</div></div></div></div>
+<div class="card" id="k-lizhang" data-ids="k-lizhang"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-5</span>臺南市選舉委員會《臺南市第 16 屆里長選舉實錄》（民 87）、《第 17 屆》（民 91） <span class="pri p3">★★★</span></div>
+<div class="ed">臺南市選舉委員會</div>
+<div class="loc">國圖 索書號 <span class="call">575.232/127.3 8547</span><br><span class=small>《臺南市第十六屆里長選舉選務總報告》（民 87）；第 17 屆目錄查不到，可在同一分類號附近找</span></div>
+<div class="small">也可以向安南區公所民政課要歷屆里長名冊。</div>
+<div class="tags"><span class="tag chk">機關文件</span><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 1998、2002 年土城十里（顯宮、鹿耳、城中、城北、青草、學東、城東、城南、城西、砂崙）的全部當選人。</div>
+<div class="shoot"><b>為什麼：</b>里長名單兩輪只用 2014 年選舉公報候選人自填經歷補出林進成、蕭平和、王山發、郭昆財、郭萬山五人；學東、城東、城南、城西、砂崙五里仍空著（各里詞條）。</div>
+<div class="small">提出：G4、G11</div></div></div></div>
+<div class="card" id="k-daotan" data-ids="k-daotan"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-6</span>臺南傳統道壇研究 <span class="pri p2">★★</span></div>
+<div class="ed">洪瑩發、林長正｜臺南市政府文化局，2013</div>
+<div class="loc">國圖 索書號 <span class="call">272.097 8227</span></div>
+<div class="loc">國臺圖 索書號 <span class="call">272.097 3491</span></div>
+<div class="shoot"><b>要看：</b>1. 頁 222「第二節 金登富道長重要傳徒」：吳文進的道壇名與傳承。<br>2. 頁 227–228 學甲李家、王家、黃家：哪一家承辦學甲香請水火。</div>
+<div class="shoot"><b>為什麼：</b>吳文進（wu-wenjin）的道壇名稱公開網頁沒有；學甲香（xuejia-xiang）請水火道長歷科不明。</div>
+<div class="small">提出：G5、G11</div></div></div></div>
+<div class="card" id="k-jcy" data-ids="k-jcy"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-7</span>《監察院公報》民國 89 年：（八九）院台財字第 892200294 號糾正案全文與調查報告附表 <span class="pri p2">★★</span></div>
+<div class="ed">監察院</div>
+<div class="loc">國圖 索書號 <span class="call">573.0555 8425</span><br><span class=small>民國 41 年起各期；國圖政府公報資訊網也可能有電子檔</span></div>
+<div class="tags"><span class="tag chk">機關文件</span><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 糾正案附表：濱南案歷次審查會的出席委員、1998-07-09 與 1999-01-29 兩場初審的上下午場次與主席。</div>
+<div class="shoot"><b>為什麼：</b>濱南工業區（binnan-industrial-park-history）：14 次審查會已上站，但上下午各是哪場、誰主持，兩輪都沒查到。</div>
+<div class="small">提出：G9</div></div></div></div>
+<div class="card" id="k-beiwen" data-ids="k-beiwen"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-8</span>臺灣南部碑文集成 <span class="pri p2">★★</span></div>
+<div class="ed">臺灣銀行經濟研究室編｜《臺灣文獻叢刊》第 218 種，1966</div>
+<div class="loc">國臺圖 索書號 <span class="call">794.5 4382</span><br><span class=small>民 57 年版</span></div>
+<div class="tags"><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 〈興濟宮辛卯年重修碑記〉（道光十七年）：「貢生曾敦仁」。<br>2. 〈武廟禳熒祈安建醮牌記〉（道光十五年）：「陳國瑛」。</div>
+<div class="shoot"><b>為什麼：</b>《臺灣采訪冊》（src-taiwan-caifangce）采訪者的身分旁證；線上只有 ctext 版，擋自動抓取。</div>
+<div class="small">提出：G12、G6</div></div></div></div>
+<div class="card" id="k-caifang" data-ids="k-caifang"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-9</span>王志楣〈臺灣采訪冊·點校說明〉 <span class="pri p2">★★</span></div>
+<div class="ed">收《清一統志臺灣府·臺灣采訪冊·澎湖續編》（臺灣史料集成·清代臺灣方志彙刊第 20 冊，文建會，2007），頁 93–95，ISBN 978-986-009-436-7</div>
+<div class="loc">國圖 索書號 <span class="call">733.12 7855</span><br><span class=small>臺灣史料集成清代臺灣方志彙刊</span></div>
+<div class="loc">國臺圖 索書號 <span class="call">733.1 4359</span><br><span class=small>同套書</span></div>
+<div class="tags"><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 采訪者 16 人名單，與第十七人是誰。<br>2. 陳國瑛的功名。</div>
+<div class="shoot"><b>為什麼：</b>同上一筆；采訪者第十七人兩輪都沒查到。</div>
+<div class="small">提出：G12、G6</div></div></div></div>
+<div class="card" id="k-shiws" data-ids="k-shiws"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-10</span>石萬壽〈明鄭時期臺灣漢人的墾殖〉 <span class="pri p2">★★</span></div>
+<div class="ed">《臺灣史研究暨史蹟維護研討會論文集》（臺南市政府，1990），頁 171–186</div>
+<div class="loc">國圖 索書號 <span class="call">733.207 8448:3</span><br><span class=small>成大歷史系編，臺南市政府 1990</span></div>
+<div class="tags"><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 後營、許中營、領寄、水師寮、佳里下營的營鎮考定原文。</div>
+<div class="shoot"><b>為什麼：</b>西港後營（xigang-houying）、外武定里等詞條：「後營是哪一軍鎮之後營」學者寫「待考」，兩輪都沒拿到原文。陳漢光〈鄭氏復臺與其開墾〉是同一題的另一篇，在下方線上文獻（要手動輸入驗證碼）。</div>
+<div class="small">提出：G6</div></div></div></div>
+<div class="card" id="k-gudi" data-ids="k-gudi"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-11</span>臺南四百年古地圖集 1624–1960 <span class="pri p2">★★</span></div>
+<div class="ed">賴志彰、魏德文｜臺南市政府文化局、南天書局，2018</div>
+<div class="loc">國圖 索書號 <span class="call">733.9/127.35 8335</span></div>
+<div class="tags"><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 頁 20–21：1629 年大員圖圖例 G「Paxemboy」的原圖說明與典藏號。</div>
+<div class="shoot"><b>為什麼：</b>北線尾（beishanwei-history）：這張圖和荷蘭國家檔案館的「Caerte van Teyouan」是不是同一幅，兩輪都沒核到典藏號。</div>
+<div class="small">提出：G11</div></div></div></div>
+<div class="card" id="k-binhai" data-ids="k-binhai"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-12</span>府城百年濱海道：從青草崙到南萣橋 <span class="pri p2">★★</span></div>
+<div class="ed">陳秀琍主撰｜臺南市政府文化局，2014</div>
+<div class="loc">國圖 索書號 <span class="call">733.9/129.4 8765:2</span></div>
+<div class="loc">國臺圖 索書號 <span class="call">733.9614 7521-4</span></div>
+<div class="shoot"><b>要看：</b>1. 頁 37–38：海佃路 1960 年種木麻黃、三期拓寬 1995 年完工 30 公尺。<br>2. 安明路開闢年（若有）。</div>
+<div class="shoot"><b>為什麼：</b>海佃路、安明路詞條目前只見維基轉引。</div>
+<div class="small">提出：G4</div></div></div></div>
+<div class="card" id="k-beijie" data-ids="k-beijie"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-13</span>臺灣地區現存碑碣圖誌：臺南縣篇 <span class="pri p2">★★</span></div>
+<div class="ed">何培夫主編｜國立中央圖書館臺灣分館，1994</div>
+<div class="loc">國圖 索書號 <span class="call">733.9/129.7 8747</span></div>
+<div class="loc">國臺圖 索書號 <span class="call">673.296575 2145</span></div>
+<div class="shoot"><b>要看：</b>1. 七股各庄廟碑記有沒有提到鹿耳門兩廟。<br>2. 三百二十萬三和宮建廟碑全文。</div>
+<div class="shoot"><b>為什麼：</b>七股庄廟與鹿耳門的往來；線上研究找到 0 筆。</div>
+<div class="small">提出：G10</div></div></div></div>
+<div class="card" id="k-shidi" data-ids="k-shidi"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-14</span>《台灣濕地》第 11 期（1999-05） <span class="pri p1">★</span></div>
+<div class="ed">台灣濕地保護聯盟</div>
+<div class="loc">國圖 索書號 <span class="call">351.6805 8442:2</span><br><span class=small>期刊</span></div>
+<div class="shoot"><b>要看：</b>1. 「生態新聞剪輯」欄：有沒有 1999-01-30 濱南初審的剪報。</div>
+<div class="shoot"><b>為什麼：</b>同上一筆；網路上的第 11 期 PDF 是無文字的圖檔（第 8 期只剪到 1998-08-28）。</div>
+<div class="small">提出：G9</div></div></div></div>
+<div class="card" id="k-lyt" data-ids="k-lyt"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-15</span>臺南縣北門鄉三寮灣東隆宮大事記：照片話宮史 <span class="pri p1">★</span></div>
+<div class="ed">劉玉堂｜東隆宮文化中心，2002</div>
+<div class="loc">國圖 索書號 <span class="call">237 8743 8735</span><br><span class=small>索書號照目錄原樣抄錄，現場若找不到請問櫃台</span></div>
+<div class="tags"><span class="tag chk">廟方出版品</span></div>
+<div class="shoot"><b>要看：</b>1. 三寮灣城隍宮農曆 9 月 26 日遷王船添載的原始記載。<br>2. 東隆宮歷任董事。</div>
+<div class="shoot"><b>為什麼：</b>城隍宮遷船添載目前只見維基轉述；東隆宮董事名單同上一筆。</div>
+<div class="small">提出：G12</div></div></div></div>
+<div class="card" id="k-yuwai" data-ids="k-yuwai"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-16</span>獄外之囚：白色恐怖受難者女性家屬訪問紀錄（上） <span class="pri p1">★</span></div>
+<div class="ed">許雪姬等訪問｜國家人權博物館籌備處、中央研究院，2014–2015</div>
+<div class="loc">國圖 索書號 <span class="call">733.2931 8447:2</span></div>
+<div class="loc">國臺圖 索書號 <span class="call">733.2931 0814</span></div>
+<div class="tags"><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 頁 169–204：鄭金治、楊幼美訪問紀錄，尤其頁 173「楊鬧雲從此一去不回無消無息」一段。</div>
+<div class="shoot"><b>為什麼：</b>楊鬧雲（yang-naoyun）：目前只有學者轉引，PDF 無文字層，兩輪都沒核到。</div>
+<div class="small">提出：G11</div></div></div></div>
+<div class="card" id="k-anding" data-ids="k-anding"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-17</span>安定鄉志 <span class="pri p1">★</span></div>
+<div class="ed">張勝柏主編｜臺南縣安定鄉公所，2010</div>
+<div class="loc">國圖 索書號 <span class="call">733.9/129.9/125.1 8784</span></div>
+<div class="loc">國臺圖 索書號 <span class="call">733.9611 3374</span></div>
+<div class="shoot"><b>要看：</b>1. 宗教篇：許中營順天宮；張長成、王順兩人的身分。</div>
+<div class="shoot"><b>為什麼：</b>天后宮官網〈會香與請水宮廟〉記張長成、王順；安定鄉民代表會也有一位張長成，無法證明是同一人。</div>
+<div class="small">提出：G9</div></div></div></div>
+<div class="card" id="k-jinse" data-ids="k-jinse"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-18</span>金色童年：府城小學與文化資產特展圖錄 <span class="pri p1">★</span></div>
+<div class="ed">傅朝卿等｜臺南市文化資產保護協會，2009，ISBN 978-986-84830-2-6</div>
+<div class="loc">國圖 索書號 <span class="call">520.933/127 8663</span></div>
+<div class="shoot"><b>要看：</b>1. 頁 23：鹼安代用國小歷次改名的月日。</div>
+<div class="shoot"><b>為什麼：</b>鹼安代用國小（jianan-substitute-school）：1971-09-06 停辦已有顯宮國小官網佐證，改名月日仍只見維基轉引。</div>
+<div class="small">提出：G8</div></div></div></div>
+<div class="card" id="k-ibis" data-ids="k-ibis"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-19</span>1875．福爾摩沙之旅：俄國海軍保羅．伊比斯的臺灣調查筆記 <span class="pri p1">★</span></div>
+<div class="ed">劉宇衛編著｜聯經，2022</div>
+<div class="loc">國圖 索書號 <span class="call">733.27 8855</span></div>
+<div class="loc">國臺圖：有藏（索書號現場查）</div>
+<div class="shoot"><b>要看：</b>1. 頁 106 前後：伊比斯到頭社的日期（部落格譯本作 1875-02-18）、頭社兩間公廨的描述。</div>
+<div class="shoot"><b>為什麼：</b>公廨（siraya-kuva）詞條的伊比斯一段：國籍兩說並列，日期還沒有書面出處。</div>
+<div class="small">提出：G12</div></div></div></div>
+<div class="card" id="k-xuxiu" data-ids="k-xuxiu"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-20</span>續修臺灣縣志 <span class="pri p1">★</span></div>
+<div class="ed">謝金鑾、鄭兼才總纂（嘉慶十二年）</div>
+<div class="loc">國圖 索書號 <span class="call">733.9/129.1 7263</span><br><span class=small>臺灣省文獻委員會 1993 版；另有臺灣史料集成本 733.19/129.1 7263.2</span></div>
+<div class="loc">國臺圖 索書號 <span class="call">673.29 7263</span><br><span class=small>同上；史料集成本 733.1 4359</span></div>
+<div class="shoot"><b>要看：</b>1. 卷二頁 93（臺灣文獻叢刊本頁碼）：安平萬善壇「乾隆十五年，水師協鎮沈廷耀增修」原文。</div>
+<div class="shoot"><b>為什麼：</b>安平大眾廟一帶詞條目前轉引鄭振滿，要對原書。</div>
+<div class="small">提出：G11</div></div></div></div>
+<div class="card" id="k-jtdyg" data-ids="k-jtdyg"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-21</span>佳里鎮金唐殿善行寺沿革誌 <span class="pri p1">★</span></div>
+<div class="ed">吳新榮編纂｜金唐殿董事會，1963</div>
+<div class="loc">國圖 索書號 <span class="call">272.79 8637</span></div>
+<div class="tags"><span class="tag chk">廟方出版品</span></div>
+<div class="shoot"><b>要看：</b>1. 和 1974 年《金唐殿沿革誌》、林奉山《金唐殿簡誌》是否同一系統（看版權頁、序）。<br>2. 歷任董事、管理人。</div>
+<div class="shoot"><b>為什麼：</b>金唐殿（jiali-jintang-temple）：西港慶安宮舊網站與現場碑提到 1974 年沿革誌，目錄查不到，只查到這本 1963 年的。</div>
+<div class="small">提出：P3（館藏目錄這次查到）</div></div></div></div>
+<div class="card" id="k-zwl" data-ids="k-zwl"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-22</span>臺灣抗日秘辛：蕭壠走番仔反 <span class="pri p1">★</span></div>
+<div class="ed">曾旺萊編著｜臺南縣立文化中心，1998</div>
+<div class="loc">國圖 索書號 <span class="call">733.28 8358</span></div>
+<div class="shoot"><b>要看：</b>1. 頁 24：佳里廣安宮將軍府的建立年代與群塚位置。</div>
+<div class="shoot"><b>為什麼：</b>廣安宮將軍府詞條：建立年代與重建碑記全文。同一題另兩本《南瀛抗日誌》頁 264、《臺灣變番邦，日本無頭鬃》頁 160、217 在 11/08 清單（見下方第三節）。</div>
+<div class="small">提出：G7</div></div></div></div>
+<div class="card" id="k-tpsm" data-ids="k-tpsm"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-23</span>臺北市寺廟概覽 <span class="pri p1">★</span></div>
+<div class="ed">臺北市政府民政局</div>
+<div class="loc">國圖 索書號 <span class="call">227.33 8545</span><br><span class=small>民國 63 年版；另有民國 83 年版 227.232101 8642</span></div>
+<div class="shoot"><b>要看：</b>1. 萬華代天府北行宮條：「朱府千歲神像自麻豆漂到基隆仙洞巖」的原典。</div>
+<div class="shoot"><b>為什麼：</b>麻豆香（madou-xiang）：網路上的說法都轉自維基，維基標的典據是這本。</div>
+<div class="small">提出：G10</div></div></div></div>
+<div class="card" id="k-daya" data-ids="k-daya"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-24</span>大雅鄉志 <span class="pri p1">★</span></div>
+<div class="ed">陳炎正主編｜臺中縣大雅鄉公所，1995</div>
+<div class="loc">國圖 索書號 <span class="call">733.9/117.9/111.1 8764</span></div>
+<div class="shoot"><b>要看：</b>1. 宗教篇：大雅朝順宮是否往麻豆代天府進香。</div>
+<div class="shoot"><b>為什麼：</b>麻豆香外地進香廟，目前只見維基。</div>
+<div class="small">提出：G10</div></div></div></div>
+<div class="card" id="k-ljz" data-ids="k-ljz"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-25</span>臺南縣佳里金唐殿研究及修護計劃 <span class="pri p1">★</span></div>
+<div class="ed">李政隆主持｜臺南縣政府，1994</div>
+<div class="loc">國臺圖 索書號 <span class="call">927.1 4017-5</span><br><span class=small>目錄題名作《臺南縣佳里金唐殿研究及修護計劃》，臺南縣政府 1994</span></div>
+<div class="tags"><span class="tag chk">機關文件</span><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 完整匾額清單（含日治時期）；日治時期管理人登記名。</div>
+<div class="shoot"><b>為什麼：</b>金唐殿匾聯與管理人兩輪都沒查到；黃文博、凃順從《佳里鎮金唐殿》頁 86–93 是另一個來源（在 11/08 清單）。</div>
+<div class="small">提出：G12</div></div></div></div>
+<div class="card" id="k-lyz" data-ids="k-lyz"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-26</span>呂一中〈台南佳里鎮鎮山宮八家將〉〈佳里鎮三五甲鎮山宮八家將文化源流探討〉 <span class="pri p1">★</span></div>
+<div class="ed">《臺灣宗教研究通訊》第 3 期（2002-04）</div>
+<div class="loc">國圖 索書號 <span class="call">209.232 8457:2-2</span><br><span class=small>期刊</span></div>
+<div class="tags"><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 吉興堂成立年（1916／1966 兩說）與館主。</div>
+<div class="shoot"><b>為什麼：</b>佳里八家將各堂成立年兩輪都沒查到；陳麗莉 2009 佛光碩論同一題，已在論文下載清單。</div>
+<div class="small">提出：G10</div></div></div></div>
+<div class="card" id="k-xiegw" data-ids="k-xiegw"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">N-27</span>謝貴文〈從臺南在地祀神傳說論女性的成神之道〉 <span class="pri p1">★</span></div>
+<div class="ed">《高雄師大學報》，2014 年 3 月</div>
+<div class="loc">國圖 索書號 <span class="call">119.05 8347:2</span><br><span class=small>人文與藝術類</span></div>
+<div class="loc">國臺圖 索書號 <span class="call">051 0427</span></div>
+<div class="tags"><span class="tag red">兩說並陳的關鍵</span></div>
+<div class="shoot"><b>要看：</b>1. 王媽娘娘的俗名與身世原文。</div>
+<div class="shoot"><b>為什麼：</b>NOWnews 轉述為王家養女，電視節目說是寡婦李金花，兩說並列。</div>
+<div class="small">提出：G8</div></div></div></div>
+<h2 id="pend">二、新增：館藏待查、廟方或機關出版品（17 筆）</h2>
+<p class="small">兩館目錄都查不到，或本來就不在圖書館（廟方、學校、機關、未出版論文）。去國圖時可以請櫃台用書名再查一次；廟方出版品下次回南部時順路問廟方。</p>
+<div class="card" id="k-xgqa" data-ids="k-xgqa"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">P-1</span>西港慶安宮 2018 戊戌、2021 辛丑、2024 甲辰香科醮典資料冊、特刊或王醮榜文 <span class="pri p3">★★★</span></div>
+<div class="ed">西港玉勅慶安宮（廟方出版品）</div>
+<div class="loc pend">待查館藏：館藏待查；兩館目錄查不到這三科。11/08 清單 D-71 是 2009 己丑科資料冊，這筆是另外三科。慶安宮的香科文物館或廟方服務處可以問。</div>
+<div class="tags"><span class="tag chk">廟方出版品</span><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 〈香科大醮典暨代天巡狩出巡九十六村鄉遶境資料冊〉的完整轎號表（網路上只有圖片版）。<br>2. 三科王醮正期的主醮道長與道壇、五主會首。<br>3. 屏東里港代天府、高雄楠梓代天府是否分靈自慶安宮（轄廟名單）。<br>4. 東港澤安宮牛犁歌陣、砂凹仔金安宮鼓花陣是否出陣。</div>
+<div class="shoot"><b>為什麼：</b>西港香（xigang-xiang）與各庄廟詞條的轎號、道長兩輪都沒查到具名紀錄；四組各自提到同一份資料冊。</div>
+<div class="small">提出：G3、G5、G9、G11、G12</div></div></div></div>
+<div class="card" id="k-baozhi" data-ids="k-baozhi"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">P-2</span>2009-03-19～21 中國時報、聯合報、自由時報、中華日報臺南縣地方版 <span class="pri p3">★★★</span></div>
+<div class="ed">國圖館內報紙資料庫（聯合知識庫、台灣新聞智慧網等）</div>
+<div class="loc">國圖：館內資料庫（報紙資料庫，可直接列印或存檔，不用翻拍）</div>
+<div class="tags"><span class="tag ok">不用翻拍</span><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 蘇煥智「六點主張」原文。<br>2. 與內政部協商的出席者（黃景茂等）。</div>
+<div class="shoot"><b>為什麼：</b>台江國家公園成立（taijiang-np-founding）：七股納入國家公園的轉折，兩輪都沒查到六點主張原文。</div>
+<div class="small">提出：G2、G9</div></div></div></div>
+<div class="card" id="k-donglong" data-ids="k-donglong"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">P-3</span>黃有興〈記三寮灣東隆宮庚午年祭典活動〉 <span class="pri p2">★★</span></div>
+<div class="ed">《臺灣文獻》43 卷 3 期（1992）</div>
+<div class="loc">國圖：期刊室（《臺灣文獻》合訂本）</div>
+<div class="loc">國臺圖：期刊區</div>
+<div class="tags"><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 1990 庚午科王醮的主事者與董事名單。<br>2. 文中引用的三本廟方出版品書目：侯萬蟾《三寮灣東隆宮重建誌》（1978）、劉玉堂《玉勅代天府三寮灣東隆宮戊午科金籙五朝醮典特刊》（東隆宮董事會，1978）、《民國七十九年庚午科三寮灣東隆宮金籙五朝祈安筵王醮典手冊》（1990；這本在 11/08 清單 D-28）。</div>
+<div class="shoot"><b>為什麼：</b>三寮灣東隆宮（sanliaowan-donglong-temple）歷任董事與 1990 主事者，兩輪都只找到篇目。</div>
+<div class="small">提出：G7、G12</div></div></div></div>
+<div class="card" id="k-cizhi" data-ids="k-cizhi"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">P-4</span>黃有興〈學甲慈濟宮與壬申年祭典紀要─兼記前董事長周大圍〉 <span class="pri p2">★★</span></div>
+<div class="ed">《臺灣文獻》46 卷 4 期（1995-12），頁 103–220</div>
+<div class="loc">國圖：期刊室（《臺灣文獻》合訂本）</div>
+<div class="loc">國臺圖：期刊區</div>
+<div class="shoot"><b>要看：</b>1. 1992 壬申科請水火的道長。<br>2. 歷屆董事長。</div>
+<div class="shoot"><b>為什麼：</b>學甲香（xuejia-xiang）與學甲慈濟宮董監事，網路只有篇目。</div>
+<div class="small">提出：G11</div></div></div></div>
+<div class="card" id="k-rrxb" data-ids="k-rrxb"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">P-5</span>1929 年《臺灣日日新報》5/17、5/18、5/23、8/1 四篇；《臺灣民報》1929-05-26〈農民爭地惹起慘案〉 <span class="pri p2">★★</span></div>
+<div class="ed">國圖館內漢珍、大鐸資料庫</div>
+<div class="loc">國圖：館內資料庫（可直接列印或存檔，不用翻拍）</div>
+<div class="tags"><span class="tag ok">不用翻拍</span></div>
+<div class="shoot"><b>要看：</b>1. 蘇厝與謝厝寮爭溪埔的四篇報導原件；《臺灣民報》一篇。</div>
+<div class="shoot"><b>為什麼：</b>蘇厝（suzuo）、蘆竹崙（luzhulun）：目前只有論文轉引。</div>
+<div class="small">提出：G6</div></div></div></div>
+<div class="card" id="k-sj" data-ids="k-sj"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">P-6</span>《臺南市民俗藝陣─宋江系統之武陣複查計畫成果報告書 1》 <span class="pri p2">★★</span></div>
+<div class="ed">臺南市政府文化局</div>
+<div class="loc pend">待查館藏：館藏待查（目錄用書名查不到，可能以計畫名登錄）。</div>
+<div class="tags"><span class="tag chk">機關文件</span><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 頁 442 前後：大塭寮保安宮打獵隊的創設年代。</div>
+<div class="shoot"><b>為什麼：</b>「1847 年創陣」一說兩輪都沒找到原始出處（打獵陣詞條）。</div>
+<div class="small">提出：G12</div></div></div></div>
+<div class="card" id="k-gql" data-ids="k-gql"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">P-7</span>正統鹿耳門土城聖母廟沿革暨風雲滄桑錄 <span class="pri p2">★★</span></div>
+<div class="ed">郭清林編集｜弘錩印刷，1981（另一筆著錄為鹿耳門史蹟研究委員會編）</div>
+<div class="loc pend">待查館藏：館藏待查：兩館目錄沒有，其他館有登錄。也可問聖母廟文物館。</div>
+<div class="tags"><span class="tag chk">廟方出版品</span><span class="tag red">兩說並陳的關鍵</span></div>
+<div class="shoot"><b>要看：</b>1. 版權頁與自序：郭清林的職業與市議員屆次。</div>
+<div class="shoot"><b>為什麼：</b>正統之爭與郭清林人物詞條（guo-qinglin）。</div>
+<div class="small">提出：G11</div></div></div></div>
+<div class="card" id="k-weng" data-ids="k-weng"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">P-8</span>翁育民〈臺南市安南區食水堀之形成與變遷〉 <span class="pri p2">★★</span></div>
+<div class="ed">國立臺南大學臺灣文化研究所碩士論文，2006</div>
+<div class="loc pend">待查館藏：館藏待查：兩館目錄用題名查不到；可查臺灣博碩士論文系統或臺南大學圖書館。</div>
+<div class="shoot"><b>要看：</b>1. 2006 年田調的 7 處食水堀名單與位置。</div>
+<div class="shoot"><b>為什麼：</b>食水堀（shishuiku）：臺史博專文只畫在分布圖上，沒有名單。</div>
+<div class="small">提出：G11</div></div></div></div>
+<div class="card" id="k-xiaoqing" data-ids="k-xiaoqing"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">P-9</span>《土城國小創校百週年校慶特刊》（2023）與正統鹿耳門聖母廟歷年廟訊 <span class="pri p2">★★</span></div>
+<div class="ed">土城國小；聖母廟</div>
+<div class="loc pend">待查館藏：不在兩館：請土城國小或校友會借閱；廟訊問聖母廟。</div>
+<div class="tags"><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 城西分班的設立年。<br>2. 土城國小擊鼓樂團 1998–2009 年的比賽名次與校友回憶。</div>
+<div class="shoot"><b>為什麼：</b>土城國小（tucheng-elementary-history）：城西分班設立年兩輪都沒查到。</div>
+<div class="small">提出：G9、G3、G10</div></div></div></div>
+<div class="card" id="k-xiangce" data-ids="k-xiangce"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">P-10</span>正統鹿耳門聖母廟文物館的手抄香科冊（1967 丁未科起） <span class="pri p2">★★</span></div>
+<div class="ed">聖母廟；2021 年文資處「民俗保存者文件資源調查整飭計畫」已數位化，未公開</div>
+<div class="loc pend">待查館藏：不在圖書館：向聖母廟或臺南市文化資產管理處詢問能否閱覽。</div>
+<div class="tags"><span class="tag chk">廟方出版品</span><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 歷科轎號、路關、陣頭明細；2024 甲辰科出轎宮廟與轎號全表。</div>
+<div class="shoot"><b>為什麼：</b>土城香（tucheng-xiang）歷科轎號表兩輪都沒查到文字版。</div>
+<div class="small">提出：G9、G2</div></div></div></div>
+<div class="card" id="k-madou" data-ids="k-madou"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">P-11</span>麻豆代天府歷科《出巡遶境秩序冊》（轎番表、路關簿），尤其 2018 戊戌科（162 陣）與 2024 甲辰科 <span class="pri p2">★★</span></div>
+<div class="ed">麻豆代天府管理委員會</div>
+<div class="loc pend">待查館藏：不在圖書館：代天府現場或服務台可問。另外國臺圖有代天府兩本舊出版品可順便翻：《麻豆代天府五府千歲沿革》（733.96161 0121）、詹評仁編《麻豆代天府歲次戊辰年黃錄祈天大醮醮誌》（1990，237 2702）。</div>
+<div class="tags"><span class="tag chk">廟方出版品</span><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 逐廟名單、轎番。<br>2. 1990～2006 年間的主委（呂廷復卸任後、李天賜之前）與 2013 壬辰科清醮會首。</div>
+<div class="shoot"><b>為什麼：</b>麻豆香（madou-xiang）網路只有總陣數；代天府歷任主委有一段空白。</div>
+<div class="small">提出：G10</div></div></div></div>
+<div class="card" id="k-npc" data-ids="k-npc"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">P-12</span>內政部國家公園計畫委員會第 80 次（2008-11-27）至第 83 次（2009-06-29）會議紀錄與簽到簿 <span class="pri p1">★</span></div>
+<div class="ed">國家公園署或國發會檔案管理局</div>
+<div class="loc pend">待查館藏：不在圖書館：可依政府資訊公開法向國家公園署申請，或在檔案管理局「國家檔案資訊網」查。</div>
+<div class="tags"><span class="tag chk">機關文件</span></div>
+<div class="shoot"><b>要看：</b>1. 2009 年 3 月與臺南縣協商的出席者（黃景茂等）。</div>
+<div class="shoot"><b>為什麼：</b>同「六點主張」那筆；報紙找不到時的第二條路。</div>
+<div class="small">提出：G9</div></div></div></div>
+<div class="card" id="k-ccr" data-ids="k-ccr"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">P-13</span>臺南市文化資產管理處《蔡草如寺廟彩繪作品調查》（2020） <span class="pri p1">★</span></div>
+<div class="ed">臺南市文化資產管理處</div>
+<div class="loc pend">待查館藏：館藏待查（兩館目錄只查到蔡草如畫冊，查不到這份調查報告）；可向文資處索取。</div>
+<div class="tags"><span class="tag chk">機關文件</span></div>
+<div class="shoot"><b>要看：</b>1. 「蔴荳水堀頭地理復興圖」是否在麻豆代天府、在哪一棟。</div>
+<div class="shoot"><b>為什麼：</b>麻豆代天府（madou-daitian-temple）建築一節。</div>
+<div class="small">提出：G10</div></div></div></div>
+<div class="card" id="k-zmz" data-ids="k-zmz"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">P-14</span>金唐殿之美 <span class="pri p1">★</span></div>
+<div class="ed">張明忠｜佳里金唐殿，2008</div>
+<div class="loc pend">待查館藏：館藏待查（兩館目錄查不到），廟方出版品。</div>
+<div class="tags"><span class="tag chk">廟方出版品</span></div>
+<div class="shoot"><b>要看：</b>1. 金唐殿外地分靈廟（高雄五甲代天府以外）；汶萊坡代天府。</div>
+<div class="shoot"><b>為什麼：</b>金唐殿分靈廟目前只知一座。</div>
+<div class="small">提出：G10</div></div></div></div>
+<div class="card" id="k-music" data-ids="k-music"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">P-15</span>臺南市政府教育局民國 87–98 學年度學生音樂比賽秩序冊與成績彙編；臺南市體育總會民俗體育委員會歷屆扯鈴成績冊 <span class="pri p1">★</span></div>
+<div class="ed">臺南市政府教育局；臺南市體育總會</div>
+<div class="loc pend">待查館藏：不在兩館：教育局、體育總會。</div>
+<div class="tags"><span class="tag chk">機關文件</span><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 土城國小擊鼓樂團、青草國小扯鈴隊的市賽名次。</div>
+<div class="shoot"><b>為什麼：</b>青草扯鈴隊（qingcao-chaling-team）兩輪只查到全國賽與 107 年後市長盃。</div>
+<div class="small">提出：G9</div></div></div></div>
+<div class="card" id="k-zxp" data-ids="k-zxp"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">P-16</span>周學普譯《被遺誤之臺灣》 <span class="pri p1">★</span></div>
+<div class="ed">收《臺灣經濟史三集》（臺灣銀行經濟研究室，1956）</div>
+<div class="loc pend">待查館藏：館藏待查（索書號現場查）。林野文譯本在 11/08 清單 B-4。</div>
+<div class="tags"><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. Klencke、Radis、Caeuw 三人的譯名原字。</div>
+<div class="shoot"><b>為什麼：</b>荷治圍城人物：站上「克連克」「拉迪斯」「考烏」出自哪個中譯本，兩輪都沒查到。</div>
+<div class="small">提出：G6</div></div></div></div>
+<div class="card" id="k-lizx" data-ids="k-lizx"><div class="top"><input type="checkbox" aria-label="已找到或已處理"><div>
+<div class="title"><span class="no">P-17</span>李宗信、顧雅文、賴政宏〈臺江內海的聚落、族群與環境：時空資訊整合下的再觀察〉 <span class="pri p1">★</span></div>
+<div class="ed">「變動中的東亞：跨域視野的觀察」國際學術研討會，中央大學，2016-05-13～14（未出版）</div>
+<div class="loc pend">待查館藏：不在圖書館：可能要向作者或中研院臺史所索取。</div>
+<div class="tags"><span class="tag red">兩輪線上研究未果</span></div>
+<div class="shoot"><b>要看：</b>1. 引用 1907 年《臺灣日日新報》第四次改道的段落。</div>
+<div class="shoot"><b>為什麼：</b>曾文溪改道詞條第四次改道的出處，兩輪都沒查到。</div>
+<div class="small">提出：G6</div></div></div></div>
+<h2 id="old">三、已在 11/08 清單（不重複開卡片，只補這次要看的頁）（20 筆）</h2>
+<p class="small">點書名回 11/08 清單的原卡片（那裡有索書號、位置與勾選）。幾本 11/08 標「館藏待查」的，這次查到了索書號，寫在「補註」。</p>
+<div class="card" id="old-t1120-c5" data-ids="old-t1120-c5"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-1</span><a href="2026-11-08_實體找書清單.html#t1120-c5">黃文博《西港刈香》（臺南市政府文化局，2014）｜國圖 733.9/127.4 8363-5</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 頁 41–42：1964 甲辰科佳里吉和堂八家將是否參加西港香。<br>2. 頁 53：九塊厝 1994 年加入（另一說 1964）。<br>3. 頁 47–55 村鄉表：1994 甲戌科新增的 12 庄名單。<br>4. 頁 98 前後：砂凹仔鼓花陣「2006 年中斷、2012 年恢復」原文。</div>
+<div class="shoot"><b>為什麼：</b>吉和堂、九塊厝、砂凹仔金安宮、西港香科年表；九塊厝加入年站上兩說並陳。</div>
+<div class="small">提出：G2、G8、G12</div></div></div></div>
+<div class="card" id="old-t1120-pm-c15" data-ids="old-t1120-pm-c15"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-2</span><a href="2026-11-08_實體找書清單.html#t1120-pm-c15">劉采妮主編《臺南土城正統鹿耳門聖母廟廟誌》（廟方，2013）｜國圖 272.71 8797</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 歷屆董事會、管理委員會名錄：第 1–7 屆主委與任期。<br>2. 陳壽享、蔡明宜是否任過職。</div>
+<div class="shoot"><b>為什麼：</b>聖母廟主條目「組織與管理」：兩輪都沒查到逐屆名單。</div>
+<div class="small">提出：G4、G10</div></div></div></div>
+<div class="card" id="old-t1120-c6" data-ids="old-t1120-c6"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-3</span><a href="2026-11-08_實體找書清單.html#t1120-c6">相良吉哉《臺南州祠廟名鑑》（1933；2002 復刻）｜國圖 R 272 8464:2</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 北門郡佳里庄金唐殿條：日治時期管理人登記名。<br>2. 安平大眾廟條：「建於康熙 53 年（1714）」一說的原文。</div>
+<div class="shoot"><b>為什麼：</b>金唐殿日治管理人、安平大眾廟建廟年，兩輪都沒核到。</div>
+<div class="small">提出：G12、G5</div></div></div></div>
+<div class="card" id="old-t1120-c7" data-ids="old-t1120-c7"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-4</span><a href="2026-11-08_實體找書清單.html#t1120-c7">黃文博主撰《七股鄉志》｜國圖 733.9/129.9/103.1 8445（另有光碟版）</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 產業篇：七股養蚵的起始年代。<br>2. 宗教篇頁 497–499：七股龍山宮與土城聖母廟的關係（分靈說法）；黃正安〈七股鄉龍山村龍山宮重建沿革誌〉（1993）若附在書中一併拍。<br>3. 宗教篇：七股庄廟與鹿耳門的往來、三和宮建廟碑。</div>
+<div class="shoot"><b>為什麼：</b>葡萄牙牡蠣（crassostrea-angulata）養殖起始年兩說並列；龍山宮分靈說只有廟方網頁。七股區公所網站有本書 8 冊 PDF，可先在線上翻。</div>
+<div class="small">提出：G5、G9、G10</div></div></div></div>
+<div class="card" id="old-t1120-n4" data-ids="old-t1120-n4"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-5</span><a href="2026-11-08_實體找書清單.html#t1120-n4">林野文譯《被遺誤的台灣：荷鄭台江決戰始末記》（前衛，2011）｜國臺圖 733.25 5210 100</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 頁 161–164、184–185：Klencke、Radis、Caeuw 的譯名原字（維基以這幾頁為出處）。</div>
+<div class="shoot"><b>為什麼：</b>荷治圍城人物的中譯名出自哪個譯本，兩輪都沒查到；周學普譯本另列在上面第二節。</div>
+<div class="small">提出：G6</div></div></div></div>
+<div class="card" id="old-t1120-o44" data-ids="old-t1120-o44"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-6</span><a href="2026-11-08_實體找書清單.html#t1120-o44">《臺南佳里吉和堂八家將團及其衍派調查研究》（國藝會補助）</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 第 2 章（頁 40–68）：吉興堂 1916／1966 兩說、吉進堂成立年。</div>
+<div class="shoot"><b>為什麼：</b>佳里八家將各堂成立年兩輪都沒查到；網路只有結論與目錄。</div>
+<div class="small">提出：G3、G10</div></div></div></div>
+<div class="card" id="old-t1120-o62" data-ids="old-t1120-o62"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-7</span><a href="2026-11-08_實體找書清單.html#t1120-o62">黃文博、黃明雅《臺灣第一香——西港玉勅慶安宮庚辰香科大醮典》</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 歷科道長、職事名單。</div>
+<div class="shoot"><b>為什麼：</b>西港香歷科道長。</div>
+<div class="loc">補註：這次查目錄：著錄為 2001 年西港玉勅慶安宮出版，國圖、國臺圖都沒有，其他館有藏。</div>
+<div class="small">提出：G5</div></div></div></div>
+<div class="card" id="old-t1120-o35" data-ids="old-t1120-o35"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-8</span><a href="2026-11-08_實體找書清單.html#t1120-o35">黃名宏總編《與千歲爺有約：臺南蘇厝長興宮七朝瘟王大醮典》（2014）</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 1979 年以前歷科巡按官與會首名單。</div>
+<div class="shoot"><b>為什麼：</b>蘇厝長興宮瘟王祭歷科會首目前從 1985 年起。</div>
+<div class="loc">補註：11/08 標館藏待查；這次查到國圖 272.94 8362-2。</div>
+<div class="small">提出：G6</div></div></div></div>
+<div class="card" id="old-t1120-o5" data-ids="old-t1120-o5"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-9</span><a href="2026-11-08_實體找書清單.html#t1120-o5">洪宗志《井仔腳蚵寮仔興安宮》（興安宮管理委員會，2008）</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 2008 年前後的主委與總幹事。</div>
+<div class="shoot"><b>為什麼：</b>興安宮主事者。圖書館目錄查不到，可能只在廟方。</div>
+<div class="small">提出：G7</div></div></div></div>
+<div class="card" id="old-t1120-o23" data-ids="old-t1120-o23"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-10</span><a href="2026-11-08_實體找書清單.html#t1120-o23">凃順從《南瀛抗日誌》（臺南縣文化局，2000）</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 頁 264：佳里廣安宮將軍府的建立年代、群塚位置、重建碑記全文。</div>
+<div class="shoot"><b>為什麼：</b>同第二節《蕭壠走番仔反》那一筆。</div>
+<div class="small">提出：G7</div></div></div></div>
+<div class="card" id="old-t1120-o43" data-ids="old-t1120-o43"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-11</span><a href="2026-11-08_實體找書清單.html#t1120-o43">鄭道聰《臺灣變番邦，日本無頭鬃》（臺南市政府文化局，2025）</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 頁 160、217：同上。</div>
+<div class="shoot"><b>為什麼：</b>同上。</div>
+<div class="loc">補註：11/08 標館藏待查；這次查到國圖 733.279 8463。</div>
+<div class="small">提出：G7</div></div></div></div>
+<div class="card" id="old-t1120-o31" data-ids="old-t1120-o31"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-12</span><a href="2026-11-08_實體找書清單.html#t1120-o31">《頂山玉敕代天府甲子科（1984）、丙子科（1996）五朝清醮紀念特刊》（廟方）</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 〈頂山村沿革誌〉、歷科醮典、王船出巡紀錄。</div>
+<div class="shoot"><b>為什麼：</b>頂山代天府詞條；兩冊的頁數與館藏線上都查不到。</div>
+<div class="small">提出：G8</div></div></div></div>
+<div class="card" id="old-t1120-o33" data-ids="old-t1120-o33"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-13</span><a href="2026-11-08_實體找書清單.html#t1120-o33">《開基海埔池王府沿革誌》（1991）、《池王府沿革誌》（1986）；葉佳雄編《池王府演義》（1996）</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 沿革誌頁 27：1988 年赴馬巷元威殿進香（另一說 1998）。<br>2. 池王府演義：活動內容與主辦者（GPN 030749850224）。</div>
+<div class="shoot"><b>為什麼：</b>海埔池王府進香年兩說並列；廟方出版品可正規化名詞。</div>
+<div class="loc">補註：池王府演義這次查目錄，兩館都沒有。</div>
+<div class="small">提出：G8</div></div></div></div>
+<div class="card" id="old-b-wzc-xigang-wenwu" data-ids="old-b-wzc-xigang-wenwu"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-14</span><a href="2026-11-08_實體找書清單.html#b-wzc-xigang-wenwu">黃文博計畫主持《臺南縣民俗活動「西港仔香」各庄廟有關文物調查報告書》（2008）｜國圖 538.833/129 8363-2、國臺圖 538.83365 4404-2</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 第二章〈臺南縣民俗活動西港仔香的歷史與發展〉的 96 村鄉加入時間表：九塊厝 1964 年加入一說。</div>
+<div class="shoot"><b>為什麼：</b>九塊厝加入西港香的年份，站上 1964、1993、1994 幾說並陳。方淑美 1992 年研究是同一表的來源，在論文下載清單。</div>
+<div class="loc">補註：這次查到國臺圖也有：538.83365 4404-2。</div>
+<div class="small">提出：G8</div></div></div></div>
+<div class="card" id="old-t1120-pm-d63" data-ids="old-t1120-pm-d63"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-15</span><a href="2026-11-08_實體找書清單.html#t1120-pm-d63">黃文博《174 山海戀：從蘆竹溝到楠西》（臺南市政府文化局，2014）</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 頁 22–87：三寮灣城隍宮農曆 9 月 26 日遷王船添載的原始記載。</div>
+<div class="shoot"><b>為什麼：</b>目前只見維基轉述。</div>
+<div class="loc">補註：11/08 標館藏待查；這次查到國圖 733.9/129.4 8363-2。</div>
+<div class="small">提出：G12</div></div></div></div>
+<div class="card" id="old-t1120-n14" data-ids="old-t1120-n14"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-16</span><a href="2026-11-08_實體找書清單.html#t1120-n14">黃文博、凃順從《佳里鎮金唐殿》（臺南縣立文化中心，1995）｜國臺圖 733.9654 4302-2 v.4</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 頁 86–93「匾聯木刻」：金唐殿完整匾額清單（含日治時期）。</div>
+<div class="shoot"><b>為什麼：</b>金唐殿匾額兩輪都沒查到完整清單。</div>
+<div class="small">提出：G12</div></div></div></div>
+<div class="card" id="old-b-hg1110-3" data-ids="old-b-hg1110-3"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-17</span><a href="2026-11-08_實體找書清單.html#b-hg1110-3">黃名宏《圖解台灣陣頭：宋江系統武陣》（晨星，2021）｜國圖 991.87 8362</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 作者介紹；什三佃慶興宮宋江陣段落：成立年、領隊、教練任期。</div>
+<div class="shoot"><b>為什麼：</b>慶興宮宋江陣成立年三說並列；誠品作者頁擋自動抓取。</div>
+<div class="small">提出：G12</div></div></div></div>
+<div class="card" id="old-b-lzm" data-ids="old-b-lzm"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-18</span><a href="2026-11-08_實體找書清單.html#b-lzm">黃文博、吳建昇、陳桂蘭《鹿耳門志》（2011，上下冊）｜國臺圖 733.9611 4404 v.1、2</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 頁 549–551：鎮門宮所祀媽祖的來源（天后宮與聖母廟的分靈名單都收鎮門宮）。</div>
+<div class="shoot"><b>為什麼：</b>鎮門宮詞條。</div>
+<div class="small">提出：G9</div></div></div></div>
+<div class="card" id="old-b-dmcs" data-ids="old-b-dmcs"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-19</span><a href="2026-11-08_實體找書清單.html#b-dmcs">《臺灣地名辭書》卷二十一〈臺南市〉｜國臺圖 733.3704 90280</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 安南區四草條：四草語源的其他說法、Baxemboy／Bassemboy 的語源討論。</div>
+<div class="shoot"><b>為什麼：</b>四草（sicao）語源兩輪只找到朱鋒 1962 一說。</div>
+<div class="small">提出：G9</div></div></div></div>
+<div class="card" id="old-b-e30" data-ids="old-b-e30"><div class="top"><input type="checkbox" aria-label="已看"><div>
+<div class="title"><span class="no">O-20</span><a href="2026-11-08_實體找書清單.html#b-e30">《同心賜福一甲子：麻豆代天府重建 60 週年慶沿革誌》（2016）｜國圖 272.097 8446</a> <span class="tag new">已在 11/08 清單</span></div>
+<div class="shoot"><b>這次要看：</b>1. 1990～2006 年間的主委（呂廷復卸任後、李天賜之前）；2013 壬辰科清醮會首名單。</div>
+<div class="shoot"><b>為什麼：</b>麻豆代天府歷任主委有一段空白。50、70 週年特刊若有也看。</div>
+<div class="small">提出：G10</div></div></div></div>
+<div class="note small">論文另有三筆已在<a href="2026-11-09_碩博論文下載清單.html">論文與線上下載</a>清單：謝美華 2001〈台南市安南區聚落發展演變與居民生活空間調查之研究〉（「道光十年（1830）再請墾」原文，G12）、陳麗莉 2009 佛光碩論〈八家將表演程式與步法研析〉（吉興堂成立年，G10）、方淑美 1992 年研究（九塊厝加入西港香年表，G8）。</div>
+<h2 id="k-local">四、其實已經翻拍在手上，不必再借（9 筆）</h2>
+<p class="small">這幾本有組別列成「請作者翻閱」，但書已經翻拍或下載在本機，由 Claude 查照片即可，作者不用再跑圖書館。</p><table class="rp"><tr><th>書</th><th>在哪裡</th><th>要查的事</th><th>提出</th></tr>
+<tr><td>謝奇峰、吳明勳《正統鹿耳門聖母廟土城香：鹿耳門媽香・五府千歲醮》（晨星，2024）</td><td><code>raw/實體書翻拍OCR/2026-10-31/國圖-4（113 頁）</code></td><td>甲辰科貳日香、尾日香路關與轎號；2018 戊戌科五大主會；2012 壬辰科醮首。<br><span class="tag no">書中沒有</span> 全書無轎號表、無 2018 主會與 2012 醮首；2024 路關圖頁 130–131 宮名字太小，要近拍原書或廟方原圖。</td><td>G9、G2</td></tr>
+<tr><td>周宗楊、吳明勳《鹿耳門聖母廟土城仔香》（臺南市政府文化局，2016，官方出版品）</td><td><code>raw/實體書翻拍OCR/2026-11-8/第一批-4（133 頁）</code></td><td>2015 乙未科道長、總幹事、五主會（翁朝祥大爐主之外的第二來源）；歷科轎號。<br><span class="tag chk">部分</span> 頁 11、101：大主會郭仙智為青草崙人，與報導「大主會青草崙」相合，已上站；道長鍾旭武、總幹事陳春福站上原有；其餘四主會、大爐主、轎號表書中沒有。</td><td>G9</td></tr>
+<tr><td>李豐楙主編《學甲上白礁：儀式、歷史與傳承》（學甲慈濟宮，2026-04）</td><td><code>raw/實體書翻拍OCR/2026-10-31/國圖-6（151 頁）</code></td><td>歷年主祭官（含 2019 年是否為黃偉哲）、道長、董監事名冊。<br><span class="tag ok">已解決</span> 頁 282–284 附表逐年主任委員（2019 黃偉哲）已上站；道長、董監事名冊書中沒有。</td><td>G11、G5</td></tr>
+<tr><td>黃文博《南瀛刈香誌》（臺南縣立文化中心，1994）</td><td><code>raw/實體書翻拍OCR/2026-10-31/國台圖-3</code></td><td>屏東里港代天府、高雄楠梓代天府是否分靈自慶安宮；1964 甲辰科吉和堂八家將。<br><span class="tag chk">部分</span> 書中沒有分靈記載（只見 1991 香陣里港代天堂神轎），也沒有 1964 吉和堂；順查到「九塊厝：一九六四年加入」（頁 242），已上站。</td><td>G9</td></tr>
+<tr><td>黃文博《南瀛王船誌》（臺南縣文化局，2000）</td><td><code>已有 PDF</code></td><td>頁 78 起〈西港鄉西港慶安宮的王船信仰〉：維基把「道光六年丙戌科接辦」歸給此書，確認是誰提出的。<br><span class="tag ok">已解決</span> 頁 82–85 引 1986 陳主游〈西港鄉八份玉敕開基姑媽宮沿革〉「自道光六年（一八二六）至今未曾中斷」；慶安宮沿革作 1823。已上站並建書目詞條。</td><td>G12</td></tr>
+<tr><td>黃文博《佳里金唐殿蕭壠香》（臺南市政府文化局，2014）</td><td><code>raw/實體書翻拍OCR/2026-11-8/第一批-5</code></td><td>頁 34 註 29 已用；「舊三王」迎去高雄的年代看同書其他章節。<br><span class="tag no">書中沒有</span> 全書只有註 29，無年份。</td><td>G3</td></tr>
+<tr><td>陳加盛《南瀛野鳥誌》</td><td><code>raw/實體書翻拍OCR/2026-11-19/2026-11-19-2</code></td><td>金背鳩條「金□鳩」的中間一字。<br><span class="tag ok">已解決</span> 頁 260 作「金鵻鳩」，已上站；1999 圳頭豆雁書中未分種。</td><td>G6</td></tr>
+<tr><td>謝國興等《西港仔刈香：一個傳統王醮的數位紀錄》（中研院臺史所）</td><td><code>raw/實體書翻拍OCR/2026-10-31/國台圖-1（206 頁）</code></td><td>書中「鼓花」約 27 頁、「九塊厝」7 頁，可順便查砂凹仔鼓花陣與九塊厝加入年。<br><span class="tag chk">部分</span> 頁 211 劉枝萬 1964 甲辰科路關「入九塊厝」，佐證 1964 說，已上站；砂凹仔鼓花陣 2024 書中沒有（書早於該科）。</td><td>（本次彙整時比對）</td></tr>
+<tr><td>《熱蘭遮城日誌》各冊地名索引</td><td><code>作者手上（11/08 借回第 6～10 冊，借期到 12/08）；第 1～5 冊已翻拍</code></td><td>Baxemboy／Bassemboy 的各處記載（四草語源）。<br><span class="tag no">書中沒有</span> 1–6 冊中譯與索引無 Baxemboy／Bassemboy，只有 Noordtplate（北線尾沙洲）；7–10 冊未翻拍未查。</td><td>G9</td></tr>
+</table>
+<h2 id="web">五、需要用瀏覽器手動下載的線上文獻（9 筆＋網頁 25 個）</h2>
+<div class="note small">這些文獻在網路上有，但網站擋自動抓取、要輸入驗證碼或要人工操作查詢頁。作者有空時用瀏覽器打開，存成 PDF 或截圖放進資料夾，跟 Claude 說一聲即可，會逐條核對後上站。</div>
+<div class="card" id="w-kang" data-ids="w-kang"><div class="top"><input type="checkbox" aria-label="已下載"><div>
+<div class="title"><span class="no">W-1</span>康培德（Peter Kang）〈From Whale Bone (Walvis Been) to Table Mountain (Taffelberch)〉 <span class="pri p3">★★★</span></div><div class="ed">Nomina Africana 31(1):69–76，2017</div>
+<div class="loc"><a href="https://doi.org/10.2989/NA.2017.31.1.7.1310" target="_blank" rel="noopener">https://doi.org/10.2989/NA.2017.31.1.7.1310</a></div>
+<div class="shoot"><b>為什麼：</b>上一輪線上研究的回覆說，文中把 Walvis Been 考為潟湖內的離岸沙洲，對應康熙輿圖「北鯤身」與手繪輿圖「海尪汕」；站上台江內海詞條寫的是「Walvis Been＝台江」。是兩說並陳的關鍵，但期刊網站被 Cloudflare 擋，沒人看過全文，所以站上還沒寫。下載 PDF 後放進資料夾即可。</div><div class="small">提出：G12</div></div></div></div>
+<div class="card" id="w-chenhg" data-ids="w-chenhg"><div class="top"><input type="checkbox" aria-label="已下載"><div>
+<div class="title"><span class="no">W-2</span>陳漢光〈鄭氏復臺與其開墾〉 <span class="pri p2">★★</span></div><div class="ed">《臺灣文獻》12 卷 1 期（1961），頁 39–54</div>
+<div class="shoot"><b>為什麼：</b>國史館臺灣文獻館的期刊全文系統（TOAJ）有 PDF，但下載要輸入圖形驗證碼，只能手動。要看後營、許中營、領寄、水師寮、佳里下營的營鎮考定；和上面石萬壽 1990 那篇是同一題。</div><div class="small">提出：G6、G12</div></div></div></div>
+<div class="card" id="w-xuhj" data-ids="w-xuhj"><div class="top"><input type="checkbox" aria-label="已下載"><div>
+<div class="title"><span class="no">W-3</span>許皓捷等〈四草 A1 區高蹺鴴〉相關論文 <span class="pri p2">★★</span></div><div class="ed">《國家公園學報》22 卷 1 期（2012），頁 1–17</div>
+<div class="shoot"><b>為什麼：</b>ResearchGate 擋自動抓取（403），兩輪都沒看到全文。要確認 A1 區 2004–2010 是否只記個體數、沒有繁殖對數，以及「穩定、未逐年遞增」的原句（台江處報告寫「穩定成長」）。線上下載不到的話，國圖 992.805 8565、國臺圖 992.805 6386 有紙本期刊。</div><div class="small">提出：G5、G11</div></div></div></div>
+<div class="card" id="w-yangxj" data-ids="w-yangxj"><div class="top"><input type="checkbox" aria-label="已下載"><div>
+<div class="title"><span class="no">W-4</span>楊秀娟〈制度性與在地化：臺南府城靈寶道壇《獻供》科儀音聲中行為的發生和表現〉 <span class="pri p2">★★</span></div><div class="ed">《關渡音樂學刊》第 29 期（2019），頁 41–71</div>
+<div class="shoot"><b>為什麼：</b>附表列有鍾昂翰 2014–2019 主壇的醮事，可判斷他是不是 2015 乙未科土城香高功「鍾旭武」。Scribd 版擋自動抓取；臺北藝術大學的期刊網站應有 PDF。</div><div class="small">提出：G9、G2</div></div></div></div>
+<div class="card" id="w-liesh" data-ids="w-liesh"><div class="top"><input type="checkbox" aria-label="已下載"><div>
+<div class="title"><span class="no">W-5</span>《臺灣列紳傳》（臺灣總督府，1916）頁 310 郭山藻條 <span class="pri p2">★★</span></div><div class="ed">國立臺灣歷史博物館典藏網翻頁影像</div>
+<div class="loc"><a href="https://theme.nmth.gov.tw/3D/FlipBook/index.aspx?fbid=394" target="_blank" rel="noopener">https://theme.nmth.gov.tw/3D/FlipBook/index.aspx?fbid=394</a></div>
+<div class="shoot"><b>為什麼：</b>只有影像、沒有文字層，翻到頁 310 截圖或抄錄即可（不用翻拍）。郭山藻詞條（guo-shanzao）。國臺圖另有縮影本（0742 8）與 2009 年重印本（783.318 0161）。</div><div class="small">提出：G7</div></div></div></div>
+<div class="card" id="w-guanmin" data-ids="w-guanmin"><div class="top"><input type="checkbox" aria-label="已下載"><div>
+<div class="title"><span class="no">W-6</span>《臺南州下官民總覽》（1934） <span class="pri p2">★★</span></div><div class="ed">國圖「臺灣記憶」掃描本</div>
+<div class="loc"><a href="https://tm.ncl.edu.tw/article?u=010_001_0000433516" target="_blank" rel="noopener">https://tm.ncl.edu.tw/article?u=010_001_0000433516</a></div>
+<div class="shoot"><b>為什麼：</b>頁 202、213、262、263、268 可能列有新豐郡、北門郡（含土城子、青草崙）的保甲聯合會長與壯丁團長。若線上看不到全文，在國圖館內用館內網路開，不用翻拍。</div><div class="small">提出：G5</div></div></div></div>
+<div class="card" id="w-judicial" data-ids="w-judicial"><div class="top"><input type="checkbox" aria-label="已下載"><div>
+<div class="title"><span class="no">W-7</span>司法院裁判書查詢、法人登記公告查詢 <span class="pri p2">★★</span></div><div class="ed">司法院</div>
+<div class="loc"><a href="https://judgment.judicial.gov.tw/" target="_blank" rel="noopener">https://judgment.judicial.gov.tw/</a></div>
+<div class="shoot"><b>為什麼：</b>1. 悟智樂園遊樂事業公司相關判決：最高法院 89 年度台上字第 5999 號、臺南高分院 89 年度上更（一）字第 529 號等，以及聖母廟與日靖遊樂（悟智樂園）的土地租賃訴訟。2. 學甲慈濟宮 1973–2024 歷屆董監事的法人登記公告（台灣法人網整理了 19 筆，要逐筆對司法院原公告）。查詢頁要人工輸入條件，無法自動抓。</div><div class="small">提出：G4、G10、G5、G11</div></div></div></div>
+<div class="card" id="w-fjzj" data-ids="w-fjzj"><div class="top"><input type="checkbox" aria-label="已下載"><div>
+<div class="title"><span class="no">W-8</span>輔仁大學《宗教研究》第 39 期的一篇論文（記 2015 乙未科高功鍾旭武） <span class="pri p1">★</span></div><div class="ed">輔仁大學宗教學系</div>
+<div class="shoot"><b>為什麼：</b>PDF 自動下載後打不開（檔案損壞或要登入），用瀏覽器開一次存檔即可；同上一筆的題目。</div><div class="small">提出：G2</div></div></div></div>
+<div class="card" id="w-cdyx" data-ids="w-cdyx"><div class="top"><input type="checkbox" aria-label="已下載"><div>
+<div class="title"><span class="no">W-9</span>《成大醫訊》19 卷 1 期 <span class="pri p1">★</span></div><div class="ed">國立成功大學醫學院</div>
+<div class="shoot"><b>為什麼：</b>張火炎生平；線上是掃描檔，看影像抄錄即可。</div><div class="small">提出：G6</div></div></div></div>
+<h3 id="web-pages">擋自動抓取的網頁（打開存檔即可）</h3><table class="rp"><tr><th>網頁</th><th>要看的事</th><th>提出</th></tr>
+<tr><td><a href="https://smiletaiwan.cw.com.tw/article/1060" target="_blank" rel="noopener">微笑台灣〈在台灣本島吃不到的金門在地小吃〉</a></td><td>石蚵相關</td><td>G2</td></tr>
+<tr><td><a href="https://smiletaiwan.cw.com.tw/article/1682" target="_blank" rel="noopener">微笑台灣（海尾朝皇宮周金倉）</a></td><td>周金倉任期與寫法</td><td>G4</td></tr>
+<tr><td><a href="https://www.agriharvest.tw/archives/3989" target="_blank" rel="noopener">農傳媒 2019-08-11（海尾朝皇宮周金倉）</a></td><td>同上</td><td>G4、G10</td></tr>
+<tr><td><a href="https://blog.udn.com/tnwinsto/132400805" target="_blank" rel="noopener">udn 部落格（安南區四口古井）</a></td><td>四口古井名稱</td><td>G4、G11</td></tr>
+<tr><td><a href="https://www.tainancitybus.com.tw/product_info.asp?id=108" target="_blank" rel="noopener">府城客運 11 路時刻表</a></td><td>「每週四不經聖母廟夜市」備註現況</td><td>G4、G10</td></tr>
+<tr><td><a href="https://deh.csie.ncku.edu.tw/poi_detail/2169" target="_blank" rel="noopener">成大文史脈流（安平大眾廟）</a></td><td>「建於康熙 53 年」所引《臺南州祠廟名鑑》</td><td>G5</td></tr>
+<tr><td><a href="https://curation.culture.tw/curation/public?id=5349" target="_blank" rel="noopener">文化部策展「土城尋塭記」</a></td><td>蔡顯榮、陳孟琪口述原話</td><td>G5</td></tr>
+<tr><td><a href="https://www.ettoday.net/news/20190415/1422681.htm" target="_blank" rel="noopener">ETtoday 2019-04-15（學甲上白礁）</a></td><td>2019 主祭官是否黃偉哲</td><td>G5</td></tr>
+<tr><td>台灣時報（金唐殿第 15、16 屆主委交接）<br><span class="small">（網址在原回報，Claude 可提供）</span></td><td>交接日</td><td>G3</td></tr>
+<tr><td><a href="https://nrch.culture.tw/" target="_blank" rel="noopener">國家文化資料庫「2002 年金唐殿五朝王醮、主壇林青雲」9 筆</a></td><td>醮典紀錄</td><td>G3</td></tr>
+<tr><td>udn 部落格轉載中華日報（2018 戊戌科土城香二日香 16 廟）<br><span class="small">（網址在原回報，Claude 可提供）</span></td><td>名單</td><td>G3</td></tr>
+<tr><td>大灣觀音廟部落格（2012 台江迎神祭轎號表）<br><span class="small">（網址在原回報，Claude 可提供）</span></td><td>轎號</td><td>G3</td></tr>
+<tr><td>木銅咖啡店主「阿壽」的痞客邦<br><span class="small">（網址在原回報，Claude 可提供）</span></td><td>店史</td><td>G3</td></tr>
+<tr><td>鹿耳門天后宮官網活動頁 act_list 內頁（1984 媽祖船）<br><span class="small">（網址在原回報，Claude 可提供）</span></td><td>第二位造船師傅全名</td><td>G4</td></tr>
+<tr><td>成大考古所郭美芳個人頁<br><span class="small">（網址在原回報，Claude 可提供）</span></td><td>2017 年後經歷、著作</td><td>G7</td></tr>
+<tr><td>誠品書目頁：林進材、黃名宏的作者介紹<br><span class="small">（網址在原回報，Claude 可提供）</span></td><td>西港國中校友；什三佃宋江陣</td><td>G8、G12</td></tr>
+<tr><td>遠流試閱頁（吳尊賢）<br><span class="small">（網址在原回報，Claude 可提供）</span></td><td>是否就讀學甲公學校高等科</td><td>G8</td></tr>
+<tr><td>聯合文學〈勇敢擦亮生命裡的鹽晶〉<br><span class="small">（網址在原回報，Claude 可提供）</span></td><td>北門高中校歌作者</td><td>G8</td></tr>
+<tr><td>國立臺灣文學館「文學好臺誌」作者頁 PER6393、PER5956<br><span class="small">（網址在原回報，Claude 可提供）</span></td><td>凃順從經歷與著作</td><td>G11</td></tr>
+<tr><td>崑山科技大學通識教育中心（張耘書）<br><span class="small">（網址在原回報，Claude 可提供）</span></td><td>兼任講師一說</td><td>G11</td></tr>
+<tr><td>臺南市政府〈文蛤養殖職人×黃崇修〉PDF<br><span class="small">（網址在原回報，Claude 可提供）</span></td><td>黃國展家族與城西</td><td>G11</td></tr>
+<tr><td>濕盟《濕地》58 期 PDF；台江處四草 A1 區生態檢核報告 PDF<br><span class="small">（網址在原回報，Claude 可提供）</span></td><td>2005 年 94 窩、2010 年 910 隻 76 巢</td><td>G11</td></tr>
+<tr><td>CIRN 引用的戴曉薇論文 PDF<br><span class="small">（網址在原回報，Claude 可提供）</span></td><td>下載後檔案損壞</td><td>G12</td></tr>
+<tr><td>覺風基金會（金唐殿 1956 主委鄭定）<br><span class="small">（網址在原回報，Claude 可提供）</span></td><td>金唐殿主委</td><td>G12</td></tr>
+<tr><td>慈幼高工校史頁<br><span class="small">（網址在原回報，Claude 可提供）</span></td><td>1999 年後英文校名</td><td>N</td></tr>
+</table>
+<details><summary>拍完、存完之後</summary><ol><li>每本先拍版權頁、目錄頁，再拍內文。</li><li>照片依書名分資料夾，依頁碼命名（例如 <code>p045.jpg</code>）；線上存的 PDF 或截圖照網頁標題命名。</li><li>人名、轎號表這類名單請整頁拍，不要只拍局部。</li></ol></details>
+</div>
+<div class="progress"><span id="prog"></span><button id="reset" type="button">清除勾選</button></div>
+<script>
+(function(){
+  var KEY='find-1127-v1';var st={};
+  try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){st={};}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+  var cards=document.querySelectorAll('.card[data-ids]');
+  function render(){var d=0;cards.forEach(function(c){var v=!!st[c.getAttribute('data-ids')];var cb=c.querySelector('input');cb.checked=v;c.classList.toggle('done',v);if(v)d++;});document.getElementById('prog').textContent=d+' / '+cards.length+' 筆已勾';}
+  cards.forEach(function(c){var cb=c.querySelector('input');cb.addEventListener('change',function(){st[c.getAttribute('data-ids')]=cb.checked;save();render();});});
+  document.getElementById('reset').addEventListener('click',function(){if(confirm('清除所有勾選？')){st={};save();render();}});
+  render();
+})();
+</script>
+</body></html>

@@ -23,7 +23,7 @@ window.OLDTREE_DATA = {
      "loc": "南鯤鯓代天府的老樹"
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/beimen-tree-nankunshen/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/beimen-tree-nankunshen/"
   },
   {
    "slug": "beimen-tree-salt-office-banyan",
@@ -32,7 +32,7 @@ window.OLDTREE_DATA = {
    "oneLiner": "雲嘉南濱海國家風景區管理處園區（舊北門出張所）內的日治時期大榕樹。",
    "nos": [],
    "seeds": [],
-   "url": "https://tucheng.kenlab.org/wiki/beimen-tree-salt-office-banyan/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/beimen-tree-salt-office-banyan/"
   },
   {
    "slug": "beimen-tree-sanliaowan-donglong",
@@ -77,7 +77,7 @@ window.OLDTREE_DATA = {
      "loc": "北門區三寮灣東隆宮中營榕樹"
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/beimen-tree-sanliaowan-donglong/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/beimen-tree-sanliaowan-donglong/"
   },
   {
    "slug": "beimen-tree-sanliaowan-jiaotou",
@@ -136,7 +136,7 @@ window.OLDTREE_DATA = {
      "loc": "北門區三寮灣天濟宮總營榕樹"
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/beimen-tree-sanliaowan-jiaotou/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/beimen-tree-sanliaowan-jiaotou/"
   },
   {
    "slug": "beimen-tree-sanliaowan-pair",
@@ -160,7 +160,7 @@ window.OLDTREE_DATA = {
      "loc": "北門區三寮灣老榕樹(北)"
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/beimen-tree-sanliaowan-pair/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/beimen-tree-sanliaowan-pair/"
   },
   {
    "slug": "beimen-tree-sanliaowan-qitian",
@@ -205,7 +205,7 @@ window.OLDTREE_DATA = {
      "loc": "北門區三寮灣齊天宮南營榕樹"
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/beimen-tree-sanliaowan-qitian/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/beimen-tree-sanliaowan-qitian/"
   },
   {
    "slug": "beimen-tree-sanliaowan-qixing",
@@ -264,7 +264,7 @@ window.OLDTREE_DATA = {
      "loc": "北門區三寮灣七星墜地老榕樹"
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/beimen-tree-sanliaowan-qixing/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/beimen-tree-sanliaowan-qixing/"
   },
   {
    "slug": "beimen-tree-sanliaowan-sanan",
@@ -309,7 +309,7 @@ window.OLDTREE_DATA = {
      "loc": "北門區三寮灣三安宮北營的榕樹"
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/beimen-tree-sanliaowan-sanan/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/beimen-tree-sanliaowan-sanan/"
   },
   {
    "slug": "beimen-tree-sanliaowan-tianlong",
@@ -354,7 +354,7 @@ window.OLDTREE_DATA = {
      "loc": "北門區三寮灣田隆宮中營榕樹"
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/beimen-tree-sanliaowan-tianlong/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/beimen-tree-sanliaowan-tianlong/"
   },
   {
    "slug": "jiali-tree-128",
@@ -376,7 +376,7 @@ window.OLDTREE_DATA = {
      "h": 15.0
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/jiali-tree-128/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/jiali-tree-128/"
   },
   {
    "slug": "jiali-tree-129",
@@ -398,7 +398,7 @@ window.OLDTREE_DATA = {
      "h": 8.0
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/jiali-tree-129/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/jiali-tree-129/"
   },
   {
    "slug": "jiali-tree-130",
@@ -420,7 +420,7 @@ window.OLDTREE_DATA = {
      "h": 20.0
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/jiali-tree-130/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/jiali-tree-130/"
   },
   {
    "slug": "jiali-tree-131",
@@ -442,7 +442,7 @@ window.OLDTREE_DATA = {
      "h": 12.0
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/jiali-tree-131/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/jiali-tree-131/"
   },
   {
    "slug": "jiali-tree-163",
@@ -464,7 +464,7 @@ window.OLDTREE_DATA = {
      "h": 15.0
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/jiali-tree-163/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/jiali-tree-163/"
   },
   {
    "slug": "jiali-tree-175",
@@ -486,7 +486,7 @@ window.OLDTREE_DATA = {
      "h": 20.0
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/jiali-tree-175/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/jiali-tree-175/"
   },
   {
    "slug": "jiali-tree-194",
@@ -508,7 +508,7 @@ window.OLDTREE_DATA = {
      "h": 10.0
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/jiali-tree-194/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/jiali-tree-194/"
   },
   {
    "slug": "madou-oldtree-168",
@@ -530,7 +530,7 @@ window.OLDTREE_DATA = {
      "h": 12.0
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/madou-oldtree-168/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/madou-oldtree-168/"
   },
   {
    "slug": "madou-oldtree-193",
@@ -552,7 +552,7 @@ window.OLDTREE_DATA = {
      "h": 10.0
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/madou-oldtree-193/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/madou-oldtree-193/"
   },
   {
    "slug": "madou-oldtree-213",
@@ -574,7 +574,7 @@ window.OLDTREE_DATA = {
      "h": 10.0
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/madou-oldtree-213/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/madou-oldtree-213/"
   },
   {
    "slug": "madou-oldtree-244",
@@ -596,7 +596,7 @@ window.OLDTREE_DATA = {
      "h": 13.0
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/madou-oldtree-244/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/madou-oldtree-244/"
   },
   {
    "slug": "qigu-baoan-temple-banyan",
@@ -613,7 +613,7 @@ window.OLDTREE_DATA = {
      "loc": "七股區樹林里寶安宮廟後"
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/qigu-baoan-temple-banyan/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/qigu-baoan-temple-banyan/"
   },
   {
    "slug": "qigu-beikangliao-banyan",
@@ -630,7 +630,7 @@ window.OLDTREE_DATA = {
      "loc": "七股區北慷寮的老榕樹"
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/qigu-beikangliao-banyan/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/qigu-beikangliao-banyan/"
   },
   {
    "slug": "qigu-yongji-qixing-banyan",
@@ -647,7 +647,7 @@ window.OLDTREE_DATA = {
      "loc": "七股區永吉村七星老榕樹"
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/qigu-yongji-qixing-banyan/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/qigu-yongji-qixing-banyan/"
   },
   {
    "slug": "xigang-tree-146",
@@ -669,7 +669,7 @@ window.OLDTREE_DATA = {
      "h": 10.0
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/xigang-tree-146/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/xigang-tree-146/"
   },
   {
    "slug": "xigang-tree-147",
@@ -691,7 +691,7 @@ window.OLDTREE_DATA = {
      "h": 15.0
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/xigang-tree-147/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/xigang-tree-147/"
   },
   {
    "slug": "xigang-tree-148",
@@ -713,7 +713,7 @@ window.OLDTREE_DATA = {
      "h": 8.0
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/xigang-tree-148/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/xigang-tree-148/"
   },
   {
    "slug": "xigang-tree-150-151",
@@ -746,7 +746,7 @@ window.OLDTREE_DATA = {
      "h": 10.0
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/xigang-tree-150-151/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/xigang-tree-150-151/"
   },
   {
    "slug": "xigang-tree-152-153",
@@ -786,7 +786,7 @@ window.OLDTREE_DATA = {
      "loc": "西港區溪埔寮安溪宮的老榕樹"
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/xigang-tree-152-153/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/xigang-tree-152-153/"
   },
   {
    "slug": "xigang-tree-169",
@@ -815,7 +815,7 @@ window.OLDTREE_DATA = {
      "loc": "西港區永樂里大塭寮的兵榕"
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/xigang-tree-169/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/xigang-tree-169/"
   },
   {
    "slug": "xigang-tree-179",
@@ -837,7 +837,7 @@ window.OLDTREE_DATA = {
      "h": 18.0
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/xigang-tree-179/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/xigang-tree-179/"
   },
   {
    "slug": "xigang-tree-261",
@@ -866,7 +866,7 @@ window.OLDTREE_DATA = {
      "loc": "善化糖廠西港原料區的龍眼老樹"
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/xigang-tree-261/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/xigang-tree-261/"
   },
   {
    "slug": "xuejia-oldtree-154",
@@ -888,7 +888,7 @@ window.OLDTREE_DATA = {
      "h": 10.0
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/xuejia-oldtree-154/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/xuejia-oldtree-154/"
   },
   {
    "slug": "xuejia-oldtree-191",
@@ -910,7 +910,7 @@ window.OLDTREE_DATA = {
      "h": 7.5
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/xuejia-oldtree-191/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/xuejia-oldtree-191/"
   },
   {
    "slug": "xuejia-oldtree-212",
@@ -932,7 +932,7 @@ window.OLDTREE_DATA = {
      "h": 10.0
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/xuejia-oldtree-212/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/xuejia-oldtree-212/"
   },
   {
    "slug": "xuejia-oldtree-qingji-banyans",
@@ -963,7 +963,7 @@ window.OLDTREE_DATA = {
      "loc": "學甲區清濟宮附近的老榕樹"
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/xuejia-oldtree-qingji-banyans/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/xuejia-oldtree-qingji-banyans/"
   },
   {
    "slug": "xuejia-oldtree-xiecuoliao-banyan",
@@ -987,7 +987,7 @@ window.OLDTREE_DATA = {
      "loc": "學甲區謝厝寮的老榕樹"
     }
    ],
-   "url": "https://tucheng.kenlab.org/wiki/xuejia-oldtree-xiecuoliao-banyan/"
+   "url": "https://tucheng.kenlab.org/encyclopedia/xuejia-oldtree-xiecuoliao-banyan/"
   }
  ],
  "done": [
