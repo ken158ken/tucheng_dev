@@ -21,9 +21,10 @@ nav.jump{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0;disp
 
 <h2 id="todo">作者要做的事</h2>
 <p class="w">只有作者本人能做的事。11/27 下午作者回覆後更新：已處理的收在這一節最下面。</p>
-<label class="it"><input type="checkbox" data-k="t3"><div><h3>1. 還要作者回一句的兩件<span class="tag hot">優先</span></h3>
+<label class="it"><input type="checkbox" data-k="t3"><div><h3>1. 還要作者回一句的三件<span class="tag hot">優先</span></h3>
 <ol><li>南鯤鯓、麻豆代天府參拜圖裡本站譯寫的中文名：記得廟方現場的叫法就說，不記得就維持現狀（<a href="#decide">最後一節第 3 項</a>）。</li>
-<li>兩份伺服器設定草稿要不要套用（<a href="#decide">最後一節第 4 項</a>）。</li></ol></div></label>
+<li>網站速度改善要選的三件事：字型怎麼載（自己架、延後載、內文改系統字）、手機首頁動畫要不要改成靜態圖、「全部詞條」頁要不要分頁。</li>
+<li>效能另外三件還沒做：部署後自動預熱、產頁程式的記憶體快取加大、多開程式實例；以及備援主機那邊的記憶體上限。</li></ol></div></label>
 <label class="it"><input type="checkbox" data-k="t7"><div><h3>2. Search Console 裡那筆有錯誤的可以移除</h3>
 <p>已提交的站點地圖第三筆 <code>https://tucheng.kenlab.org/</code> 是首頁、不是 sitemap，所以顯示「1 項錯誤」，不影響收錄。點右邊三個點選移除即可。Bing 那邊若還沒重交，照同樣兩個網址交一次。</p></div></label>
 <label class="it"><input type="checkbox" data-k="t4"><div><h3>3. 用瀏覽器手動下載康培德 2017 論文</h3>
@@ -43,6 +44,8 @@ nav.jump{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0;disp
 <li>Google Search Console 重交 sitemap：中文、英文兩份都已提交，狀態成功（中文 4,852 頁、英文 4,765 頁）。</li>
 <li>龍魚橋「默默的和解」：作者選第 6 版「兩尊媽祖隔溪相望」，已換上主站作者記憶頁（中英文）。</li>
 <li>人物分層 20 位：全部照建議。實際有變動的是李銀櫃、楊正利、黃慶淵、洪義直與甲辰科四位會首（陳慶和、陳仁昌、李約伯、張獻元）回主站；陳鎮慧掛到扁案、Zasia 掛到「熱蘭遮城圍城期間的投誠者（1661）」、郭平掛到「何斌赴廈門交涉（1657）」；其餘維持現狀。</li>
+<li>伺服器設定兩份草稿：作者同意後已套用。別的網站現在可以用框嵌入 /embed/ 詞條卡；連線數、快取容量等效能設定已生效。</li>
+<li>圖片替代文字：詞條卡片照片、首頁入口卡片、影片縮圖原本是空白，已補上（中英文）。</li>
 <li>看煙火的老榕：作者確認就是老樹 S2。老樹地圖已有這一點；從連結直接開啟時資訊框標題被地圖上緣擋住的問題已修。</li>
 </ol>
 
@@ -187,7 +190,7 @@ nav.jump{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0;disp
 <p>這兩座廟的參拜圖原牌只有英文（臺南市府「Our Culture, Our Temple」系列），英文版照原牌逐字抄；中文版有些名稱原牌和官方對照表都沒有中文，是本站譯寫的，圖下已加附註：</p>
 <ol><li>南鯤鯓代天府：服務處、金紙與香販售處、五王殿前香爐。</li><li>麻豆代天府：許願池、大魚池、特別室、接待室、捐款處、入口、側門出口、廁所、金紙與香販售處、服務處。</li></ol>
 <p>若作者記得廟方現場的中文叫法（例如「服務台」「金紙部」），告訴 Claude 改。</p></div></label>
-<label class="it"><input type="checkbox" data-k="d4"><div><h3>4. 伺服器設定兩份草稿（都沒有套用到正式環境）</h3>
+<label class="it"><input type="checkbox" data-k="d4"><div><h3>4. 伺服器設定兩份草稿<span class="tag">11/27 已套用</span></h3>
 <ol>
 <li><b>詞條嵌入版</b>：新做了 /embed/詞條/ 的精簡版，讓別的網站可以用框嵌入一張詞條卡。網站程式已做好，但伺服器目前一律禁止被別站嵌入，要改 nginx 兩行才會生效；草稿與套用、復原步驟在 <code>資料統整研究/統整/60_全力開工_20261126/W3/nginx-embed.diff</code>，嵌入紀錄怎麼看在同資料夾的 嵌入監測說明.md。</li>
 <li><b>效能調整</b>：壓測發現瓶頸在產頁程式（第一次開的頁每秒只能產約 6 頁），不在 nginx。給作者決定四件事，說明寫在 <code>Pf/效能說明.md</code>：<ol>
